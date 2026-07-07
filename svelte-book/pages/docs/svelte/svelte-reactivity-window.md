@@ -1,0 +1,132 @@
+---
+type: Web Page
+title: svelte/reactivity/window • Svelte Docs
+description: svelte/reactivity/window • Svelte documentation
+resource: https://svelte.dev/docs/svelte/svelte-reactivity-window
+timestamp: '2026-07-07T10:59:37.245126+00:00'
+---
+
+# svelte/reactivity/window  
+
+ This module exports reactive versions of various `window` values, each of which has a reactive `current` property that you can reference in reactive contexts (templates, deriveds and effects) without using `<svelte:window>` bindings or manually creating your own event listeners.
+
+```
+<script>
+	import { innerWidth, innerHeight } from 'svelte/reactivity/window';
+</script>
+<p>{innerWidth.current}x{innerHeight.current}</p>
+```
+```
+import {
+	
+```
+```
+const devicePixelRatio: {
+    readonly current: number | undefined;
+}
+```
+
+`devicePixelRatio.current` is a reactive view of `window.devicePixelRatio`. On the server it is `undefined`.
+Note that behaviour differs between browsers — on Chrome it will respond to the current zoom level,
+on Firefox and Safari it won't.
+
+devicePixelRatio,
+	`const innerHeight: ReactiveValue<number | undefined>``innerHeight.current` is a reactive view of `window.innerHeight`. On the server it is `undefined`.
+
+innerHeight,
+	`const innerWidth: ReactiveValue<number | undefined>``innerWidth.current` is a reactive view of `window.innerWidth`. On the server it is `undefined`.
+
+innerWidth,
+	`const online: ReactiveValue<boolean | undefined>``online.current` is a reactive view of `navigator.onLine`. On the server it is `undefined`.
+
+online,
+	`const outerHeight: ReactiveValue<number | undefined>``outerHeight.current` is a reactive view of `window.outerHeight`. On the server it is `undefined`.
+
+outerHeight,
+	`const outerWidth: ReactiveValue<number | undefined>``outerWidth.current` is a reactive view of `window.outerWidth`. On the server it is `undefined`.
+
+outerWidth,
+	`const screenLeft: ReactiveValue<number | undefined>``screenLeft.current` is a reactive view of `window.screenLeft`. It is updated inside a `requestAnimationFrame` callback. On the server it is `undefined`.
+
+screenLeft,
+	`const screenTop: ReactiveValue<number | undefined>``screenTop.current` is a reactive view of `window.screenTop`. It is updated inside a `requestAnimationFrame` callback. On the server it is `undefined`.
+
+screenTop,
+	`const scrollX: ReactiveValue<number | undefined>``scrollX.current` is a reactive view of `window.scrollX`. On the server it is `undefined`.
+
+scrollX,
+	`const scrollY: ReactiveValue<number | undefined>``scrollY.current` is a reactive view of `window.scrollY`. On the server it is `undefined`.
+
+scrollY
+} from 'svelte/reactivity/window';## devicePixelRatio
+
+Available since 5.11.0
+
+`devicePixelRatio.current` is a reactive view of `window.devicePixelRatio`. On the server it is `undefined`.
+Note that behaviour differs between browsers — on Chrome it will respond to the current zoom level,
+on Firefox and Safari it won't.
+
+```
+const devicePixelRatio: {
+	get current(): number | undefined;
+};
+```
+## innerHeight
+
+Available since 5.11.0
+
+`innerHeight.current` is a reactive view of `window.innerHeight`. On the server it is `undefined`.
+
+`const innerHeight: ReactiveValue<number | undefined>;`## innerWidth
+
+Available since 5.11.0
+
+`innerWidth.current` is a reactive view of `window.innerWidth`. On the server it is `undefined`.
+
+`const innerWidth: ReactiveValue<number | undefined>;`## online
+
+Available since 5.11.0
+
+`online.current` is a reactive view of `navigator.onLine`. On the server it is `undefined`.
+
+`const online: ReactiveValue<boolean | undefined>;`## outerHeight
+
+Available since 5.11.0
+
+`outerHeight.current` is a reactive view of `window.outerHeight`. On the server it is `undefined`.
+
+`const outerHeight: ReactiveValue<number | undefined>;`## outerWidth
+
+Available since 5.11.0
+
+`outerWidth.current` is a reactive view of `window.outerWidth`. On the server it is `undefined`.
+
+`const outerWidth: ReactiveValue<number | undefined>;`## screenLeft
+
+Available since 5.11.0
+
+`screenLeft.current` is a reactive view of `window.screenLeft`. It is updated inside a `requestAnimationFrame` callback. On the server it is `undefined`.
+
+`const screenLeft: ReactiveValue<number | undefined>;`## screenTop
+
+Available since 5.11.0
+
+`screenTop.current` is a reactive view of `window.screenTop`. It is updated inside a `requestAnimationFrame` callback. On the server it is `undefined`.
+
+`const screenTop: ReactiveValue<number | undefined>;`## scrollX
+
+Available since 5.11.0
+
+`scrollX.current` is a reactive view of `window.scrollX`. On the server it is `undefined`.
+
+`const scrollX: ReactiveValue<number | undefined>;`## scrollY
+
+Available since 5.11.0
+
+`scrollY.current` is a reactive view of `window.scrollY`. On the server it is `undefined`.
+
+`const scrollY: ReactiveValue<number | undefined>;`Edit this page on GitHub llms.txt
+
+# Citations
+
+1. Source page: https://svelte.dev/docs/svelte/svelte-reactivity-window
