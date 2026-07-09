@@ -3,7 +3,7 @@ type: Web Page
 title: Nested <style> elements • Svelte Docs
 description: Nested <style> elements • Svelte documentation
 resource: https://svelte.dev/docs/svelte/nested-style-elements
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Nested <style> elements
@@ -25,7 +25,7 @@ In that case, the `<style>` tag will be inserted as-is into the DOM; no scoping 
 	</style>
 </div>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/04-nested-style-elements.md) [ llms.txt](/docs/svelte/nested-style-elements/llms.txt)
 
 previous next
 

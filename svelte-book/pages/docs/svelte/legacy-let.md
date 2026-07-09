@@ -3,12 +3,12 @@ type: Web Page
 title: Reactive let/var declarations • Svelte Docs
 description: Reactive let/var declarations • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-let
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Reactive let/var declarations 
 
- In runes mode, reactive state is explicitly declared with the `$state` rune.
+ In runes mode, reactive state is explicitly declared with the [ $state rune]($state).
 
 In legacy mode, variables declared at the top level of a component are automatically considered *reactive*. Reassigning or mutating these variables (`count += 1` or `object.x = y`) will cause the UI to update.
 
@@ -34,7 +34,7 @@ Because Svelte's legacy mode reactivity is based on *assignments*, using array m
 	}
 </script>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/01-legacy-let.md) [ llms.txt](/docs/svelte/legacy-let/llms.txt)
 
 previous next
 

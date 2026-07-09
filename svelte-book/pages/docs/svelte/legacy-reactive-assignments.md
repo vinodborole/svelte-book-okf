@@ -3,14 +3,16 @@ type: Web Page
 title: 'Reactive $: statements • Svelte Docs'
 description: 'Reactive $: statements • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/legacy-reactive-assignments
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Reactive $: statements
 
-In runes mode, reactions to state updates are handled with the `$derived` and `$effect` runes.
+In runes mode, reactions to state updates are handled with the [ $derived]($derived) and 
 
-In legacy mode, any top-level statement (i.e. not inside a block or a function) can be made reactive by prefixing it with a `$:` label. These statements run after other code in the `<script>` and before the component markup is rendered, then whenever the values that they depend on change.
+[runes.]($effect)
+
+`$effect`In legacy mode, any top-level statement (i.e. not inside a block or a function) can be made reactive by prefixing it with a `$:` [label](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label). These statements run after other code in the `<script>` and before the component markup is rendered, then whenever the values that they depend on change.
 
 ```
 <script>
@@ -74,7 +76,7 @@ $: if (browser) {
 document.`Document.title: string`The `document.title`
 
 title = title;
-}Edit this page on GitHub llms.txt
+}[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/02-legacy-reactive-assignments.md) [ llms.txt](/docs/svelte/legacy-reactive-assignments/llms.txt)
 
 # Citations
 

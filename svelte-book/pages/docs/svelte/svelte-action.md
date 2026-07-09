@@ -3,12 +3,12 @@ type: Web Page
 title: svelte/action • Svelte Docs
 description: svelte/action • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-action
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/action 
 
- This module provides types for actions, which have been superseded by attachments.
+ This module provides types for [actions](use), which have been superseded by [attachments](@attach).
 
 ## Action
 
@@ -89,7 +89,7 @@ interface ActionReturn<
 	>
 > {…}
 ```
-`update?: (parameter: Parameter) => void;``destroy?: () => void;`Edit this page on GitHub llms.txt
+`update?: (parameter: Parameter) => void;``destroy?: () => void;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-action.md) [ llms.txt](/docs/svelte/svelte-action/llms.txt)
 
 # Citations
 

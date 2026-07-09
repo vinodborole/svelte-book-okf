@@ -3,12 +3,12 @@ type: Web Page
 title: <slot> • Svelte Docs
 description: <slot> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-slots
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # <slot>
 
-In Svelte 5, content can be passed to components in the form of snippets and rendered using render tags.
+In Svelte 5, content can be passed to components in the form of [snippets](snippet) and rendered using [render tags](@render).
 
 In legacy mode, content inside component tags is considered *slotted content*, which can be rendered by the component using a `<slot>` element:
 
@@ -35,7 +35,7 @@ If you want to render a regular
 
 ## Named slots
 
-A component can have *named* slots in addition to the default slot. On the parent side, add a `slot="..."` attribute to an element, component or `<svelte:fragment>` directly inside the component tags.
+A component can have *named* slots in addition to the default slot. On the parent side, add a `slot="..."` attribute to an element, component or [ <svelte:fragment>](legacy-svelte-fragment) directly inside the component tags.
 
 ```
 <script>

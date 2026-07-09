@@ -2,12 +2,13 @@
 type: Web Page
 title: Docs • Svelte
 resource: https://svelte.dev/docs
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Documentation
 
-Head to the Svelte or SvelteKit reference docs, or choose your adventure:
+Head to the [Svelte](/docs/svelte) or [SvelteKit](/docs/kit) reference docs,
+		or choose your adventure:
 
 ## I’m brand new here
 

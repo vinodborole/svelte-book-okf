@@ -3,7 +3,7 @@ type: Web Page
 title: Hydratable data • Svelte Docs
 description: Hydratable data • Svelte documentation
 resource: https://svelte.dev/docs/svelte/hydratable
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Hydratable data
@@ -20,7 +20,7 @@ In Svelte, when you want to render asynchronous content data on the server, you 
 </script>
 <h1>{user.name}</h1>
 ```
-That's silly, though. If we've already done the hard work of getting the data on the server, we don't want to get it again during hydration on the client. `hydratable` is a low-level API built to solve this problem. You probably won't need this very often — it will be used behind the scenes by whatever datafetching library you use. For example, it powers remote functions in SvelteKit.
+That's silly, though. If we've already done the hard work of getting the data on the server, we don't want to get it again during hydration on the client. `hydratable` is a low-level API built to solve this problem. You probably won't need this very often — it will be used behind the scenes by whatever datafetching library you use. For example, it powers [remote functions in SvelteKit](/docs/kit/remote-functions).
 
 To fix the example above:
 
@@ -47,9 +47,9 @@ random());If you're a library author, be sure to prefix the keys of your `hydrat
 
 ## Serialization
 
-All data returned from a `hydratable` function must be serializable. But this doesn't mean you're limited to JSON — Svelte uses `devalue`, which can serialize all sorts of things including `Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:
+All data returned from a `hydratable` function must be serializable. But this doesn't mean you're limited to JSON — Svelte uses [ devalue](https://npmjs.com/package/devalue), which can serialize all sorts of things including 
 
-```
+`Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:```
 <script>
   import { hydratable } from 'svelte';
   const promises = hydratable('random', () => {
@@ -64,7 +64,7 @@ All data returned from a `hydratable` function must be serializable. But this do
 ```
 ## CSP
 
-`hydratable` adds an inline `<script>` block to the `head` returned from `render`. If you're using Content Security Policy (CSP), this script will likely fail to run. You can provide a `nonce` to `render`:
+`hydratable` adds an inline `<script>` block to the `head` returned from `render`. If you're using [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (CSP), this script will likely fail to run. You can provide a `nonce` to `render`:
 
 `const ``const nonce: `${string}-${string}-${string}-${string}-${string}``nonce = `var crypto: Crypto`crypto.`Crypto.randomUUID(): `${string}-${string}-${string}-${string}-${string}``The `randomUUID()`
 
@@ -147,7 +147,7 @@ map((`hash: string`hash) => `'${`hash: string`hash}'`).`Array<string>.join(separ
 join(' ')}`
  );We recommend using `nonce` over hash if you can, as `hash` will interfere with streaming SSR in the future.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/05-hydratable.md) [ llms.txt](/docs/svelte/hydratable/llms.txt)
 
 # Citations
 

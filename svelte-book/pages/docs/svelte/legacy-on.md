@@ -3,7 +3,7 @@ type: Web Page
 title: 'on: • Svelte Docs'
 description: 'on: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/legacy-on
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # on:
@@ -122,9 +122,9 @@ Components can dispatch events by creating a *dispatcher* when they are initiali
 <button on:click={() => dispatch('decrement')}>decrement</button>
 <button on:click={() => dispatch('increment')}>increment</button>
 ```
-`dispatch` creates a `CustomEvent`. If a second argument is provided, it becomes the `detail` property of the event object.
+`dispatch` creates a [ CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). If a second argument is provided, it becomes the 
 
-A consumer of this component can listen for the dispatched events:
+`detail` property of the event object.A consumer of this component can listen for the dispatched events:
 
 ```
 <script>
@@ -145,7 +145,7 @@ If you're planning an eventual migration to Svelte 5, use callback props instead
 
 `createEventDispatcher`is deprecated:Stepper`<script> export let decrement; export let increment; </script> <button on:click={decrement}>decrement</button> <button on:click={increment}>increment</button>``<script lang="ts"> export let decrement; export let increment; </script> <button on:click={decrement}>decrement</button> <button on:click={increment}>increment</button>`
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/10-legacy-on.md) [ llms.txt](/docs/svelte/legacy-on/llms.txt)
 
 # Citations
 

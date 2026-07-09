@@ -3,16 +3,16 @@ type: Web Page
 title: Testing • Svelte Docs
 description: Testing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/testing
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Testing
 
-Testing helps you write and maintain your code and guard against regressions. Testing frameworks help you with that, allowing you to describe assertions or expectations about how your code should behave. Svelte is unopinionated about which testing framework you use — you can write unit tests, integration tests, and end-to-end tests using solutions like Vitest, Jasmine, Cypress and Playwright.
+Testing helps you write and maintain your code and guard against regressions. Testing frameworks help you with that, allowing you to describe assertions or expectations about how your code should behave. Svelte is unopinionated about which testing framework you use — you can write unit tests, integration tests, and end-to-end tests using solutions like [Vitest](https://vitest.dev/), [Jasmine](https://jasmine.github.io/), [Cypress](https://www.cypress.io/) and [Playwright](https://playwright.dev/).
 
 ## Unit and component tests with Vitest
 
-Unit tests allow you to test small isolated parts of your code. Integration tests allow you to test parts of your application to see if they work together. If you're using Vite (including via SvelteKit), we recommend using Vitest. You can use the Svelte CLI to setup Vitest either during project creation or later on.
+Unit tests allow you to test small isolated parts of your code. Integration tests allow you to test parts of your application to see if they work together. If you're using Vite (including via SvelteKit), we recommend using [Vitest](https://vitest.dev/). You can use the Svelte CLI to [setup Vitest](/docs/cli/vitest) either during project creation or later on.
 
 To setup Vitest manually, first install it:
 
@@ -23,7 +23,7 @@ export default `function defineConfig(config: UserConfig): UserConfig (+4 overlo
 	// ...
 	// Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node
 	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`The `process.env` property returns an object containing the user environment.
-See `environ(7)`.
+See `environ(7)`
 
 An example of this object looks like:
 
@@ -103,7 +103,9 @@ env.`string | undefined`VITEST
 				`EnvironmentResolveOptions.conditions?: string[] | undefined`conditions: ['browser']
 			}
 		: `var undefined`undefined
-});If loading the browser version of all your packages is undesirable, because (for example) you also test backend libraries, you may need to resort to an alias configuration
+});If loading the browser version of all your packages is undesirable, because (for example) you also test backend libraries,
+
+[you may need to resort to an alias configuration](https://github.com/testing-library/svelte-testing-library/issues/222#issuecomment-1909993331)
 
 You can now write unit tests for code inside your `.js/.ts` files:
 
@@ -341,7 +343,7 @@ environment: 'jsdom'
 	},
 	// Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node
 	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`The `process.env` property returns an object containing the user environment.
-See `environ(7)`.
+See `environ(7)`
 
 An example of this object looks like:
 
@@ -437,7 +439,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -540,7 +542,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -559,7 +561,7 @@ const component: {
 } & Record<string, any>
 ```
 
-While the process is very straightforward, it is also low level and somewhat brittle, as the precise structure of your component may change frequently. Tools like @testing-library/svelte can help streamline your tests. The above test could be rewritten like this:
+While the process is very straightforward, it is also low level and somewhat brittle, as the precise structure of your component may change frequently. Tools like [@testing-library/svelte](https://testing-library.com/docs/svelte-testing-library/intro/) can help streamline your tests. The above test could be rewritten like this:
 
 `import { ``function render<C extends Component<any, any, string> | SvelteComponent<any, any, any>, Q extends Queries = typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<C>, options?: ComponentOptions<C>, renderOptions?: RenderOptions<Q>): RenderResult<C, Q>`Render a component into the document.
 
@@ -618,15 +620,15 @@ render(`const Component: LegacyComponentType`Component);
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(0);
 	await `const user: UserEvent`user.`click: (element: Element) => Promise<void>`click(`const button: HTMLElement`button);
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(1);
-});When writing component tests that involve two-way bindings, context or snippet props, it's best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some examples.
+});When writing component tests that involve two-way bindings, context or snippet props, it's best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some [examples](https://testing-library.com/docs/svelte-testing-library/example).
 
 ## Component tests with Storybook
 
-Storybook is a tool for developing and documenting UI components, and it can also be used to test your components. They're run with Vitest's browser mode, which renders your components in a real browser for the most realistic testing environment.
+[Storybook](https://storybook.js.org) is a tool for developing and documenting UI components, and it can also be used to test your components. They're run with Vitest's browser mode, which renders your components in a real browser for the most realistic testing environment.
 
-To get started, first install Storybook (using Svelte's CLI) in your project via `npx sv add storybook` and choose the recommended configuration that includes testing features. If you're already using Storybook, and for more information on Storybook's testing capabilities, follow the Storybook testing docs to get started.
+To get started, first install Storybook ([using Svelte's CLI](/docs/cli/storybook)) in your project via `npx sv add storybook` and choose the recommended configuration that includes testing features. If you're already using Storybook, and for more information on Storybook's testing capabilities, follow the [Storybook testing docs](https://storybook.js.org/docs/writing-tests?renderer=svelte) to get started.
 
-You can create stories for component variations and test interactions with the play function, which allows you to simulate behavior and make assertions using the Testing Library and Vitest APIs. Here's an example of two stories that can be tested, one that renders an empty LoginForm component and one that simulates a user filling out the form:
+You can create stories for component variations and test interactions with the [play function](https://storybook.js.org/docs/writing-tests/interaction-testing?renderer=svelte#writing-interaction-tests), which allows you to simulate behavior and make assertions using the Testing Library and Vitest APIs. Here's an example of two stories that can be tested, one that renders an empty LoginForm component and one that simulates a user filling out the form:
 
 ```
 <script module>
@@ -657,9 +659,11 @@ You can create stories for component variations and test interactions with the p
 ```
 ## End-to-end tests with Playwright
 
-E2E (short for 'end to end') tests allow you to test your full application through the eyes of the user. This section uses Playwright as an example, but you can also use other solutions like Cypress or NightwatchJS.
+E2E (short for 'end to end') tests allow you to test your full application through the eyes of the user. This section uses [Playwright](https://playwright.dev/) as an example, but you can also use other solutions like [Cypress](https://www.cypress.io/) or [NightwatchJS](https://nightwatchjs.org/).
 
-You can use the Svelte CLI to setup Playwright either during project creation or later on. You can also set it up with `npm init playwright`. Additionally, you may also want to install an IDE plugin such as the VS Code extension to be able to execute tests from inside your IDE.
+You can use the Svelte CLI to [setup Playwright](/docs/cli/playwright) either during project creation or later on. You can also [set it up with  npm init playwright](https://playwright.dev/docs/intro). Additionally, you may also want to install an IDE plugin such as 
+
+[the VS Code extension](https://playwright.dev/docs/getting-started-vscode)to be able to execute tests from inside your IDE.
 
 If you've run `npm init playwright` or are not using Vite, you may need to adjust the Playwright config to tell Playwright what to do before running the tests — mainly starting your application at a certain port. For example:
 
@@ -704,7 +708,7 @@ You can now start writing tests. These are totally unaware of Svelte as a framew
 `import test`test('home page has expected h1', async ({ page }) => {
 	await `page: any`page.goto('/');
 	await `import expect`expect(`page: any`page.locator('h1')).toBeVisible();
-});Edit this page on GitHub llms.txt
+});[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/02-testing.md) [ llms.txt](/docs/svelte/testing/llms.txt)
 
 # Citations
 

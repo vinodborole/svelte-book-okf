@@ -3,7 +3,7 @@ type: Web Page
 title: Context • Svelte Docs
 description: Context • Svelte documentation
 resource: https://svelte.dev/docs/svelte/context
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Context
@@ -76,7 +76,7 @@ createContext<User>();
 
 `createContext`was added in version 5.40. If you are using an earlier version of Svelte, you must use`setContext`and`getContext`instead.
 
-This is particularly useful when `Parent.svelte` is not directly aware of `Child.svelte`, but instead renders it as part of a `children` snippet as shown above.
+This is particularly useful when `Parent.svelte` is not directly aware of `Child.svelte`, but instead renders it as part of a `children` [snippet](snippet) as shown above.
 
 ## setContext and getContext
 
@@ -114,9 +114,15 @@ The key (`'my-context'`, in the example above) and the context itself can be any
 
 `createContext`is preferred since it provides better type safety and makes it unnecessary to use keys.
 
-In addition to `setContext` and `getContext`, Svelte exposes `hasContext` and `getAllContexts` functions.
+In addition to [ setContext](svelte#setContext) and 
 
-## Using context with state
+[, Svelte exposes](svelte#getContext)
+
+`getContext`[and](svelte#hasContext)
+
+`hasContext`[functions.](svelte#getAllContexts)
+
+`getAllContexts`## Using context with state
 
 You can store reactive state in context...
 
@@ -200,11 +206,11 @@ createContext<Counter>();...though note that if you *reassign* `counter` instead
 ```
 Svelte will warn you if you get it wrong.
 
-Similarly, to pass primitive values through context, use functions as described in Passing state into functions.
+Similarly, to pass primitive values through context, use functions as described in [Passing state into functions]($state#Passing-state-into-functions).
 
 ## Component testing
 
-When writing component tests, it can be useful to create a wrapper component that sets the context in order to check the behaviour of a component that uses it. As of version 5.49, you can do this sort of thing:
+When writing [component tests](testing#Unit-and-component-tests-with-Vitest-Component-testing), it can be useful to create a wrapper component that sets the context in order to check the behaviour of a component that uses it. As of version 5.49, you can do this sort of thing:
 
 `import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
@@ -217,7 +223,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -309,7 +315,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -328,9 +334,11 @@ const component: {
 } & Record<string, any>
 ```
 
-This approach also works with `hydrate` and `render`.
+This approach also works with [ hydrate](imperative-component-api#hydrate) and 
 
-## Replacing global state
+[.](imperative-component-api#render)
+
+`render`## Replacing global state
 
 When you have state shared by many different components, you might be tempted to put it in its own module and just import it wherever it's needed:
 
@@ -384,7 +392,7 @@ $state({
 ```
 ...then the data may be accessible by the *next* user. Context solves this problem because it is not shared between requests.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/02-context.md) [ llms.txt](/docs/svelte/context/llms.txt)
 
 # Citations
 

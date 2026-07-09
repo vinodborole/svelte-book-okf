@@ -3,12 +3,12 @@ type: Web Page
 title: svelte/reactivity/window • Svelte Docs
 description: svelte/reactivity/window • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity-window
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/reactivity/window  
 
- This module exports reactive versions of various `window` values, each of which has a reactive `current` property that you can reference in reactive contexts (templates, deriveds and effects) without using `<svelte:window>` bindings or manually creating your own event listeners.
+ This module exports reactive versions of various `window` values, each of which has a reactive `current` property that you can reference in reactive contexts (templates, [deriveds]($derived) and [effects]($effect)) without using [ <svelte:window>](svelte-window) bindings or manually creating your own event listeners.
 
 ```
 <script>
@@ -125,7 +125,7 @@ Available since 5.11.0
 
 `scrollY.current` is a reactive view of `window.scrollY`. On the server it is `undefined`.
 
-`const scrollY: ReactiveValue<number | undefined>;`Edit this page on GitHub llms.txt
+`const scrollY: ReactiveValue<number | undefined>;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-reactivity-window.md) [ llms.txt](/docs/svelte/svelte-reactivity-window/llms.txt)
 
 # Citations
 

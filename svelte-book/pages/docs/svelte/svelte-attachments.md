@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/attachments • Svelte Docs
 description: svelte/attachments • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-attachments
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/attachments 
@@ -26,7 +26,7 @@ is generally not needed when building an app.
 <button {...props}>click me</button>
 ```
 
-createAttachmentKey, `function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)`Converts an action into an attachment keeping the same behavior.
+createAttachmentKey, `function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)`Converts an [action](https://svelte.dev/docs/svelte/use) into an [attachment](https://svelte.dev/docs/svelte/@attach) keeping the same behavior.
 It's useful if you want to start using attachments on components but you have actions provided by a library.
 
 Note that the second argument, if provided, must be a function that *returns* the argument to the
@@ -62,7 +62,8 @@ is generally not needed when building an app.
 ```
 `function createAttachmentKey(): symbol;`## fromAction
 
-Converts an action into an attachment keeping the same behavior. It's useful if you want to start using attachments on components but you have actions provided by a library.
+Converts an [action](/docs/svelte/use) into an [attachment](/docs/svelte/@attach) keeping the same behavior.
+It's useful if you want to start using attachments on components but you have actions provided by a library.
 
 Note that the second argument, if provided, must be a function that *returns* the argument to the
 action function, not the argument itself.
@@ -93,12 +94,13 @@ function fromAction<E extends EventTarget>(
 ```
 ## Attachment
 
-An attachment is a function that runs when an element is mounted to the DOM, and optionally returns a function that is called when the element is later removed.
+An [attachment](/docs/svelte/@attach) is a function that runs when an element is mounted
+to the DOM, and optionally returns a function that is called when the element is later removed.
 
 It can be attached to an element with an `{@attach ...}` tag, or by spreading an object containing
-a property created with `createAttachmentKey`.
+a property created with [ createAttachmentKey](/docs/svelte/svelte-attachments#createAttachmentKey).
 
-`interface Attachment<T extends EventTarget = Element> {…}``(element: T): void | (() => void);`Edit this page on GitHub llms.txt
+`interface Attachment<T extends EventTarget = Element> {…}``(element: T): void | (() => void);`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-attachments.md) [ llms.txt](/docs/svelte/svelte-attachments/llms.txt)
 
 # Citations
 

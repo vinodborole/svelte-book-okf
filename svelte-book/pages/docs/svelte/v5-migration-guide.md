@@ -3,14 +3,14 @@ type: Web Page
 title: Svelte 5 migration guide • Svelte Docs
 description: Svelte 5 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v5-migration-guide
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Svelte 5 migration guide
 
 Version 5 comes with an overhauled syntax and reactivity system. While it may look different at first, you'll soon notice many similarities. This guide goes over the changes in detail and shows you how to upgrade. Along with it, we also provide information on *why* we did these changes.
 
-You don't have to migrate to the new syntax right away — Svelte 5 still supports the old Svelte 4 syntax, and you can mix and match components using the new syntax with components using the old and vice versa. We expect many people to be able to upgrade with only a few lines of code changed initially. There's also a migration script that helps you with many of these steps automatically.
+You don't have to migrate to the new syntax right away — Svelte 5 still supports the old Svelte 4 syntax, and you can mix and match components using the new syntax with components using the old and vice versa. We expect many people to be able to upgrade with only a few lines of code changed initially. There's also a [migration script](#Migration-script) that helps you with many of these steps automatically.
 
 ## Reactivity syntax changes
 
@@ -29,7 +29,7 @@ Nothing else changes. `count` is still the number itself, and you read and write
 
 ## Why we did this
 
-`let`being implicitly reactive at the top level worked great, but it meant that reactivity was constrained — a`let`declaration anywhere else was not reactive. This forced you to resort to using stores when refactoring code out of the top level of components for reuse. This meant you had to learn an entirely separate reactivity model, and the result often wasn't as nice to work with. Because reactivity is more explicit in Svelte 5, you can keep using the same API outside the top level of components. Head to the tutorial to learn more.
+`let`being implicitly reactive at the top level worked great, but it meant that reactivity was constrained — a`let`declaration anywhere else was not reactive. This forced you to resort to using stores when refactoring code out of the top level of components for reuse. This meant you had to learn an entirely separate reactivity model, and the result often wasn't as nice to work with. Because reactivity is more explicit in Svelte 5, you can keep using the same API outside the top level of components. Head to[the tutorial](/tutorial)to learn more.
 
 ### $: → $derived/$effect
 
@@ -55,9 +55,9 @@ A `$:` statement could also be used to create side effects. In Svelte 5, this is
 	});
 </script>
 ```
-Note that when `$effect` runs is different than when `$:` runs.
+Note that [when  $effect runs is different]($effect#Understanding-dependencies) than when 
 
-## Why we did this
+`$:` runs.## Why we did this
 
 `$:`was a great shorthand and easy to get started with: you could slap a`$:`in front of most code and it would somehow work. This intuitiveness was also its drawback the more complicated your code became, because it wasn't as easy to reason about. Was the intent of the code to create a derivation, or a side effect? With`$derived`and`$effect`, you have a bit more up-front decision making to do (spoiler alert: 90% of the time you want`$derived`), but future-you and other developers on your team will have an easier time.There were also gotchas that were hard to spot:
 
@@ -291,7 +291,7 @@ There are three modifiers — `capture`, `passive` and `nonpassive` — that can
 
 For `capture`, we add the modifier to the event name:
 
-`<button onclickcapture={...}>...</button>`Changing the `passive` option of an event handler, meanwhile, is not something to be done lightly. If you have a use case for it — and you probably don't! — then you will need to use an action to apply the event handler yourself.
+`<button onclickcapture={...}>...</button>`Changing the [ passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) option of an event handler, meanwhile, is not something to be done lightly. If you have a use case for it — and you probably don't! — then you will need to use an action to apply the event handler yourself.
 
 ### Multiple event handlers
 
@@ -381,7 +381,7 @@ They continue to work, however, and you can pass snippets to a component that us
 	{/snippet}
 </Child>
 ```
-(The reverse is not true — you cannot pass slotted content to a component that uses `{@render ...}` tags.)
+(The reverse is not true — you cannot pass slotted content to a component that uses [ {@render ...}](/docs/svelte/@render) tags.)
 
 When using custom elements, you should still use `<slot />` like before. In a future version, when Svelte removes its internal version of slots, it will leave those slots as-is, i.e. output a regular DOM tag instead of transforming it.
 
@@ -613,7 +613,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `event: any`event: callback } });Note that using
 
-`events`is discouraged — instead, use callbacks
+`events`is discouraged — instead,[use callbacks](#Event-changes)
 
 For `$set`, use `$state` instead to create a reactive property object and manipulate it. If you're doing this inside a `.js` or `.ts` file, adjust the ending to include `.svelte`, i.e. `.svelte.js` or `.svelte.ts`.
 
@@ -661,7 +661,7 @@ mount, `function unmount(component: Record<string, any>, options?: {`
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -694,7 +694,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -907,7 +907,7 @@ Because components are no longer classes, using `bind:this` no longer returns a 
 
 ## <svelte:component> is no longer necessary
 
-In Svelte 4, components are *static* — if you render `<Thing>`, and the value of `Thing` changes, nothing happens. To make it dynamic you had to use `<svelte:component>`.
+In Svelte 4, components are *static* — if you render `<Thing>`, and the value of `Thing` changes, [nothing happens](/playground/7f1fa24f0ab44c1089dcbb03568f8dfa?version=4.2.18). To make it dynamic you had to use `<svelte:component>`.
 
 This is no longer true in Svelte 5:
 
@@ -953,7 +953,7 @@ As before, you can disable whitespace trimming by setting the `preserveWhitespac
 Svelte 5 requires a modern browser (in other words, not Internet Explorer) for various reasons:
 
 - it uses `Proxies`
-- elements with `clientWidth`/`clientHeight`/`offsetWidth`/`offsetHeight`bindings use a`ResizeObserver`rather than a convoluted`<iframe>`hack
+- elements with `clientWidth`/`clientHeight`/`offsetWidth`/`offsetHeight`bindings use a`ResizeObserver``<iframe>`hack
 - `<input type="range" bind:value={...} />`only uses an- `input`event listener, rather than also listening for- `change`events as a fallback
 
 The `legacy` compiler option, which generated bulkier but IE-friendly code, no longer exists.
@@ -1061,9 +1061,9 @@ This is because the Svelte compiler treated the assignment to `foo.value` as an 
 
 ### Touch events are passive
 
-When using `ontouchstart` and `ontouchmove` event attributes, the handlers are passive to align with browser defaults. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
+When using `ontouchstart` and `ontouchmove` event attributes, the handlers are [passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) to align with browser defaults. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
 
-In the very rare cases that you need to prevent these event defaults, you should use `on` instead (for example inside an action).
+In the very rare cases that you need to prevent these event defaults, you should use [ on](/docs/svelte/svelte-events#on) instead (for example inside an action).
 
 ### Attribute/prop syntax is stricter
 
@@ -1116,11 +1116,11 @@ main :global {
 ```
 ### CSS hash position no longer deterministic
 
-Previously Svelte would always insert the CSS hash last. This is no longer guaranteed in Svelte 5. This is only breaking if you have very weird css selectors.
+Previously Svelte would always insert the CSS hash last. This is no longer guaranteed in Svelte 5. This is only breaking if you [have very weird css selectors](https://stackoverflow.com/questions/15670631/does-the-order-of-classes-listed-on-an-item-affect-the-css).
 
 ### Scoped CSS uses :where(...)
 
-To avoid issues caused by unpredictable specificity changes, scoped CSS selectors now use `:where(.svelte-xyz123)` selector modifiers alongside `.svelte-xyz123` (where `xyz123` is, as previously, a hash of the `<style>` contents). You can read more detail here.
+To avoid issues caused by unpredictable specificity changes, scoped CSS selectors now use `:where(.svelte-xyz123)` selector modifiers alongside `.svelte-xyz123` (where `xyz123` is, as previously, a hash of the `<style>` contents). You can read more detail [here](https://github.com/sveltejs/svelte/pull/10443).
 
 In the event that you need to support ancient browsers that don't implement `:where`, you can manually alter the emitted CSS, at the cost of unpredictable specificity changes:
 
@@ -1227,7 +1227,7 @@ Event attributes replace event directives: Instead of `on:click={handler}` you w
 
 Svelte 5 uses an extra `<svelte-css-wrapper>` element instead of a `<div>` to wrap the component when using CSS custom properties.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/07-v5-migration-guide.md) [ llms.txt](/docs/svelte/v5-migration-guide/llms.txt)
 
 # Citations
 

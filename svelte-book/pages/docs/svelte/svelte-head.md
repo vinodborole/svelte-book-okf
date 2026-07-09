@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:head> • Svelte Docs
 description: <svelte:head> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-head
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # <svelte:head>
@@ -18,7 +18,7 @@ As with `<svelte:window>`, `<svelte:document>` and `<svelte:body>`, this element
 	<meta name="description" content="This is where the description goes for SEO" />
 </svelte:head>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/05-special-elements/05-svelte-head.md) [ llms.txt](/docs/svelte/svelte-head/llms.txt)
 
 previous next
 

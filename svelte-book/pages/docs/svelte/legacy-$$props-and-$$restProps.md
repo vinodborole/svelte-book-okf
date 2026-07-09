@@ -3,12 +3,12 @@ type: Web Page
 title: $$props and $$restProps • Svelte Docs
 description: $$props and $$restProps • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-$$props-and-$$restProps
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $$props and $$restProps
 
-In runes mode, getting an object containing all the props that were passed in is easy, using the `$props` rune.
+In runes mode, getting an object containing all the props that were passed in is easy, using the [ $props]($props) rune.
 
 In legacy mode, we use `$$props` and `$$restProps`:
 
@@ -32,7 +32,7 @@ For example, a `<Button>` component might need to pass along all its props to it
 ```
 In Svelte 3/4 using `$$props` and `$$restProps` creates a modest performance penalty, so they should only be used when needed.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/04-legacy-$$props-and-$$restProps.md) [ llms.txt](/docs/svelte/legacy-$$props-and-$$restProps/llms.txt)
 
 previous next
 

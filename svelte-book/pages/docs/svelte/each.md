@@ -3,14 +3,14 @@ type: Web Page
 title: '{#each ...} • Svelte Docs'
 description: '{#each ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/each
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # {#each ...}
 
-`{#each expression as name}...{/each}``{#each expression as name, index}...{/each}`Iterating over values can be done with an each block. The values in question can be arrays, array-like objects (i.e. anything with a `length` property), or iterables like `Map` and `Set`. (Internally, they are converted to arrays with `Array.from`.)
+`{#each expression as name}...{/each}``{#each expression as name, index}...{/each}`Iterating over values can be done with an each block. The values in question can be arrays, array-like objects (i.e. anything with a `length` property), or iterables like `Map` and `Set`. (Internally, they are converted to arrays with [ Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from).)
 
-If the value is `null` or `undefined`, it is treated the same as an empty array (which will cause else blocks to be rendered, where applicable).
+If the value is `null` or `undefined`, it is treated the same as an empty array (which will cause [else blocks](#Else-blocks) to be rendered, where applicable).
 
 ```
 <h1>Shopping list</h1>
@@ -91,7 +91,7 @@ You can freely use destructuring and rest patterns in each blocks.
 	<p>No tasks today!</p>
 {/each}
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/03-each.md) [ llms.txt](/docs/svelte/each/llms.txt)
 
 # Citations
 

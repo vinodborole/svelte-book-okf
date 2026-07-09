@@ -3,14 +3,18 @@ type: Web Page
 title: svelte/reactivity • Svelte Docs
 description: svelte/reactivity • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/reactivity 
 
- Svelte provides reactive versions of various built-ins like `Map`, `Set` and `URL` that can be used just like their native counterparts, as well as a handful of additional utilities for handling reactivity.
+ Svelte provides reactive versions of various built-ins like [ Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), 
 
-```
+[and](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+`Set`[that can be used just like their native counterparts, as well as a handful of additional utilities for handling reactivity.](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+
+`URL````
 import {
 	
 ```
@@ -28,9 +32,7 @@ If you can use the media query in CSS to achieve the same effect, do that.
 ```
 
 MediaQuery,
-	`class SvelteDate`A reactive version of the built-in `Date` object.
-Reading the date (whether with methods like `date.getTime()` or `date.toString()`, or via things like `Intl.DateTimeFormat`)
-in an effect or derived
+	`class SvelteDate`A reactive version of the built-in `Date``date.getTime()` or `date.toString()`, or via things like `Intl.DateTimeFormat`[effect](https://svelte.dev/docs/svelte/$effect) or [derived](https://svelte.dev/docs/svelte/$derived)
 will cause it to be re-evaluated when the value of the date changes.
 
 ```
@@ -55,11 +57,10 @@ will cause it to be re-evaluated when the value of the date changes.
 ```
 
 SvelteDate,
-	`class SvelteMap<K, V>`A reactive version of the built-in `Map` object.
-Reading contents of the map (by iterating, or by reading `map.size` or calling `map.get(...)` or `map.has(...)` as in the tic-tac-toe example below) in an effect or derived
+	`class SvelteMap<K, V>`A reactive version of the built-in `Map``map.size` or calling `map.get(...)` or `map.has(...)` as in the [tic-tac-toe example](https://svelte.dev/playground/0b0ff4aa49c9443f9b47fe5203c78293) below) in an [effect](https://svelte.dev/docs/svelte/$effect) or [derived](https://svelte.dev/docs/svelte/$derived)
 will cause it to be re-evaluated as necessary when the map is updated.
 
-Note that values in a reactive map are *not* made deeply reactive.
+Note that values in a reactive map are *not* made [deeply reactive](https://svelte.dev/docs/svelte/$state#Deep-state).
 
 ```
 <script>
@@ -93,11 +94,10 @@ Note that values in a reactive map are *not* made deeply reactive.
 ```
 
 SvelteMap,
-	`class SvelteSet<T>`A reactive version of the built-in `Set` object.
-Reading contents of the set (by iterating, or by reading `set.size` or calling `set.has(...)` as in the example below) in an effect or derived
+	`class SvelteSet<T>`A reactive version of the built-in `Set``set.size` or calling `set.has(...)` as in the [example](https://svelte.dev/playground/53438b51194b4882bcc18cddf9f96f15) below) in an [effect](https://svelte.dev/docs/svelte/$effect) or [derived](https://svelte.dev/docs/svelte/$derived)
 will cause it to be re-evaluated as necessary when the set is updated.
 
-Note that values in a reactive set are *not* made deeply reactive.
+Note that values in a reactive set are *not* made [deeply reactive](https://svelte.dev/docs/svelte/$state#Deep-state).
 
 ```
 <script>
@@ -121,11 +121,10 @@ Note that values in a reactive set are *not* made deeply reactive.
 ```
 
 SvelteSet,
-	`class SvelteURL`A reactive version of the built-in `URL` object.
-Reading properties of the URL (such as `url.href` or `url.pathname`) in an effect or derived
+	`class SvelteURL`A reactive version of the built-in `URL``url.href` or `url.pathname`) in an [effect](https://svelte.dev/docs/svelte/$effect) or [derived](https://svelte.dev/docs/svelte/$derived)
 will cause it to be re-evaluated as necessary when the URL changes.
 
-The `searchParams` property is an instance of SvelteURLSearchParams.
+The `searchParams` property is an instance of [SvelteURLSearchParams](https://svelte.dev/docs/svelte/svelte-reactivity#SvelteURLSearchParams).
 
 ```
 <script>
@@ -142,8 +141,7 @@ The `searchParams` property is an instance of SvelteURLSearchParams.
 ```
 
 SvelteURL,
-	`class SvelteURLSearchParams`A reactive version of the built-in `URLSearchParams` object.
-Reading its contents (by iterating, or by calling `params.get(...)` or `params.getAll(...)` as in the example below) in an effect or derived
+	`class SvelteURLSearchParams`A reactive version of the built-in `URLSearchParams``params.get(...)` or `params.getAll(...)` as in the [example](https://svelte.dev/playground/b3926c86c5384bab9f2cf993bc08c1c8) below) in an [effect](https://svelte.dev/docs/svelte/$effect) or [derived](https://svelte.dev/docs/svelte/$derived)
 will cause it to be re-evaluated as necessary when the params are updated.
 
 ```
@@ -174,7 +172,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of `MediaQuery`:
+It's best understood with an example. Here's an implementation of `MediaQuery`
 
 ```
 import { createSubscriber } from 'svelte/reactivity';
@@ -221,10 +219,14 @@ Use it carefully — during server-side rendering, there is no way to know what 
 
 ## SvelteDate
 
-A reactive version of the built-in `Date` object.
-Reading the date (whether with methods like `date.getTime()` or `date.toString()`, or via things like `Intl.DateTimeFormat`)
-in an effect or derived
-will cause it to be re-evaluated when the value of the date changes.
+A reactive version of the built-in [ Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object.
+Reading the date (whether with methods like 
+
+`date.getTime()` or `date.toString()`, or via things like [) in an](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
+
+`Intl.DateTimeFormat`[effect](/docs/svelte/$effect)or
+
+[derived](/docs/svelte/$derived)will cause it to be re-evaluated when the value of the date changes.
 
 ```
 <script>
@@ -248,11 +250,16 @@ will cause it to be re-evaluated when the value of the date changes.
 ```
 `class SvelteDate extends Date {…}``constructor(...params: any[]);`## SvelteMap
 
-A reactive version of the built-in `Map` object.
-Reading contents of the map (by iterating, or by reading `map.size` or calling `map.get(...)` or `map.has(...)` as in the tic-tac-toe example below) in an effect or derived
-will cause it to be re-evaluated as necessary when the map is updated.
+A reactive version of the built-in [ Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) object.
+Reading contents of the map (by iterating, or by reading 
 
-Note that values in a reactive map are *not* made deeply reactive.
+`map.size` or calling `map.get(...)` or `map.has(...)` as in the [tic-tac-toe example](/playground/0b0ff4aa49c9443f9b47fe5203c78293)below) in an
+
+[effect](/docs/svelte/$effect)or
+
+[derived](/docs/svelte/$derived)will cause it to be re-evaluated as necessary when the map is updated.
+
+Note that values in a reactive map are *not* made [deeply reactive](/docs/svelte/$state#Deep-state).
 
 ```
 <script>
@@ -286,11 +293,16 @@ Note that values in a reactive map are *not* made deeply reactive.
 ```
 `class SvelteMap<K, V> extends Map<K, V> {…}``constructor(value?: Iterable<readonly [K, V]> | null | undefined);``set(key: K, value: V): this;`## SvelteSet
 
-A reactive version of the built-in `Set` object.
-Reading contents of the set (by iterating, or by reading `set.size` or calling `set.has(...)` as in the example below) in an effect or derived
-will cause it to be re-evaluated as necessary when the set is updated.
+A reactive version of the built-in [ Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) object.
+Reading contents of the set (by iterating, or by reading 
 
-Note that values in a reactive set are *not* made deeply reactive.
+`set.size` or calling `set.has(...)` as in the [example](/playground/53438b51194b4882bcc18cddf9f96f15)below) in an
+
+[effect](/docs/svelte/$effect)or
+
+[derived](/docs/svelte/$derived)will cause it to be re-evaluated as necessary when the set is updated.
+
+Note that values in a reactive set are *not* made [deeply reactive](/docs/svelte/$state#Deep-state).
 
 ```
 <script>
@@ -314,11 +326,14 @@ Note that values in a reactive set are *not* made deeply reactive.
 ```
 `class SvelteSet<T> extends Set<T> {…}``constructor(value?: Iterable<T> | null | undefined);``add(value: T): this;`## SvelteURL
 
-A reactive version of the built-in `URL` object.
-Reading properties of the URL (such as `url.href` or `url.pathname`) in an effect or derived
-will cause it to be re-evaluated as necessary when the URL changes.
+A reactive version of the built-in [ URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) object.
+Reading properties of the URL (such as 
 
-The `searchParams` property is an instance of SvelteURLSearchParams.
+`url.href` or `url.pathname`) in an [effect](/docs/svelte/$effect)or
+
+[derived](/docs/svelte/$derived)will cause it to be re-evaluated as necessary when the URL changes.
+
+The `searchParams` property is an instance of [SvelteURLSearchParams](/docs/svelte/svelte-reactivity#SvelteURLSearchParams).
 
 ```
 <script>
@@ -335,9 +350,14 @@ The `searchParams` property is an instance of SvelteURLSearchParams.
 ```
 `class SvelteURL extends URL {…}``get searchParams(): SvelteURLSearchParams;`## SvelteURLSearchParams
 
-A reactive version of the built-in `URLSearchParams` object.
-Reading its contents (by iterating, or by calling `params.get(...)` or `params.getAll(...)` as in the example below) in an effect or derived
-will cause it to be re-evaluated as necessary when the params are updated.
+A reactive version of the built-in [ URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) object.
+Reading its contents (by iterating, or by calling 
+
+`params.get(...)` or `params.getAll(...)` as in the [example](/playground/b3926c86c5384bab9f2cf993bc08c1c8)below) in an
+
+[effect](/docs/svelte/$effect)or
+
+[derived](/docs/svelte/$derived)will cause it to be re-evaluated as necessary when the params are updated.
 
 ```
 <script>
@@ -369,7 +389,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of `MediaQuery`:
+It's best understood with an example. Here's an implementation of [ MediaQuery](/docs/svelte/svelte-reactivity#MediaQuery):
 
 `import { ``function createSubscriber(start: (update: () => void) => (() => void) | void): () => void`Returns a `subscribe` function that integrates external event-based systems with Svelte's reactivity.
 It's particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
@@ -382,7 +402,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of `MediaQuery`:
+It's best understood with an example. Here's an implementation of `MediaQuery`
 
 ```
 import { createSubscriber } from 'svelte/reactivity';
@@ -440,7 +460,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of `MediaQuery`:
+It's best understood with an example. Here's an implementation of `MediaQuery`
 
 ```
 import { createSubscriber } from 'svelte/reactivity';
@@ -496,7 +516,7 @@ function createSubscriber(
 	start: (update: () => void) => (() => void) | void
 ): () => void;
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-reactivity.md) [ llms.txt](/docs/svelte/svelte-reactivity/llms.txt)
 
 # Citations
 

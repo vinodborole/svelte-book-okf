@@ -3,7 +3,7 @@ type: Web Page
 title: .svelte files • Svelte Docs
 description: .svelte files • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-files
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # .svelte files
@@ -42,7 +42,7 @@ All three sections — script, styles and markup — are optional.
 
 A `<script>` block contains JavaScript (or TypeScript, when adding the `lang="ts"` attribute) that runs when a component instance is created. Variables declared (or imported) at the top level can be referenced in the component's markup.
 
-In addition to normal JavaScript, you can use *runes* to declare component props and add reactivity to your component. Runes are covered in the next section.
+In addition to normal JavaScript, you can use *runes* to declare [component props]($props) and add reactivity to your component. Runes are covered in the next section.
 
 ## <script module>
 
@@ -61,7 +61,7 @@ You can `export` bindings from this block, and they will become exports of the c
 
 If you are using TypeScript and import such exports from a
 
-`module`block into a`.ts`file, make sure to have your editor setup so that TypeScript knows about them. This is the case for our VS Code extension and the IntelliJ plugin, but in other cases you might need to setup our TypeScript editor plugin.
+`module`block into a`.ts`file, make sure to have your editor setup so that TypeScript knows about them. This is the case for our VS Code extension and the IntelliJ plugin, but in other cases you might need to setup our[TypeScript editor plugin](https://www.npmjs.com/package/typescript-svelte-plugin).
 
 ## Legacy mode
 
@@ -81,9 +81,9 @@ CSS inside a `<style>` block will be scoped to that component.
 	}
 </style>
 ```
-For more information, head to the section on styling.
+For more information, head to the section on [styling](scoped-styles).
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/03-svelte-files.md) [ llms.txt](/docs/svelte/svelte-files/llms.txt)
 
 # Citations
 

@@ -3,12 +3,12 @@ type: Web Page
 title: export let • Svelte Docs
 description: export let • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-export-let
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # export let
 
-In runes mode, component props are declared with the `$props` rune, allowing parent components to pass in data.
+In runes mode, [component props](basic-markup#Component-props) are declared with the [ $props]($props) rune, allowing parent components to pass in data.
 
 In legacy mode, props are marked with the `export` keyword, and can have a default value:
 
@@ -88,7 +88,7 @@ The `export` keyword can appear separately from the declaration. This is useful 
 	export { className as class };
 </script>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/03-legacy-export-let.md) [ llms.txt](/docs/svelte/legacy-export-let/llms.txt)
 
 # Citations
 

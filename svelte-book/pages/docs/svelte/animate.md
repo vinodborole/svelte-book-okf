@@ -3,14 +3,14 @@ type: Web Page
 title: 'animate: • Svelte Docs'
 description: 'animate: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/animate
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # animate:
 
-An animation is triggered when the contents of a keyed each block are re-ordered. Animations do not run when an element is added or removed, only when the index of an existing data item within the each block changes. Animate directives must be on an element that is an *immediate* child of a keyed each block.
+An animation is triggered when the contents of a [keyed each block](each#Keyed-each-blocks) are re-ordered. Animations do not run when an element is added or removed, only when the index of an existing data item within the each block changes. Animate directives must be on an element that is an *immediate* child of a keyed each block.
 
-Animations can be used with Svelte's built-in animation functions or custom animation functions.
+Animations can be used with Svelte's [built-in animation functions](svelte-animate) or [custom animation functions](#Custom-animation-functions).
 
 ```
 <!-- When `list` is reordered the animation will run -->
@@ -37,9 +37,9 @@ As with actions and transitions, animations can have parameters.
 	easing?: (`t: number`t: number) => number,
 	css?: (`t: number`t: number, `u: number`u: number) => string,
 	tick?: (`t: number`t: number, `u: number`u: number) => void
-}Animations can use custom functions that provide the `node`, an `animation` object and any `parameters` as arguments. The `animation` parameter is an object containing `from` and `to` properties each containing a DOMRect describing the geometry of the element in its `start` and `end` positions. The `from` property is the DOMRect of the element in its starting position, and the `to` property is the DOMRect of the element in its final position after the list has been reordered and the DOM updated.
+}Animations can use custom functions that provide the `node`, an `animation` object and any `parameters` as arguments. The `animation` parameter is an object containing `from` and `to` properties each containing a [DOMRect](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties) describing the geometry of the element in its `start` and `end` positions. The `from` property is the DOMRect of the element in its starting position, and the `to` property is the DOMRect of the element in its final position after the list has been reordered and the DOM updated.
 
-If the returned object has a `css` method, Svelte will create a web animation that plays on the element.
+If the returned object has a `css` method, Svelte will create a [web animation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) that plays on the element.
 
 The `t` argument passed to `css` is a value that goes from `0` and `1` after the `easing` function has been applied. The `u` argument is equal to `1 - t`.
 
@@ -137,7 +137,7 @@ If it's possible to use
 	<div animate:whizz>{item}</div>
 {/each}
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/16-animate.md) [ llms.txt](/docs/svelte/animate/llms.txt)
 
 # Citations
 

@@ -3,12 +3,12 @@ type: Web Page
 title: $$slots • Svelte Docs
 description: $$slots • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-$$slots
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $$slots
 
-In runes mode, we know which snippets were provided to a component, as they're just normal props.
+In runes mode, we know which [snippets](snippet) were provided to a component, as they're just normal props.
 
 In legacy mode, the way to know if content was provided for a given slot is with the `$$slots` object, whose keys are the names of the slots passed into the component by the parent.
 
@@ -32,7 +32,7 @@ App
 	<!-- No slot named "description" was provided so the optional slot will not be rendered. -->
 </Card>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/21-legacy-$$slots.md) [ llms.txt](/docs/svelte/legacy-$$slots/llms.txt)
 
 previous next
 

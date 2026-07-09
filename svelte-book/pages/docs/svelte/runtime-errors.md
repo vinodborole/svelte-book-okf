@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime errors • Svelte Docs
 description: Runtime errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-errors
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Runtime errors
@@ -12,9 +12,15 @@ timestamp: '2026-07-07T10:59:37.245126+00:00'
 
 ### async_derived_orphan
 
-`Cannot create a `$derived(...)` with an `await` expression outside of an effect tree`In Svelte there are two types of reaction — `$derived` and `$effect`. Deriveds can be created anywhere, because they run *lazily* and can be garbage collected if nothing references them. Effects, by contrast, keep running eagerly whenever their dependencies change, until they are destroyed.
+`Cannot create a `$derived(...)` with an `await` expression outside of an effect tree`In Svelte there are two types of reaction — [ $derived](/docs/svelte/$derived) and 
 
-Because of this, effects can only be created inside other effects (or effect roots, such as the one that is created when you first mount a component) so that Svelte knows when to destroy them.
+[. Deriveds can be created anywhere, because they run](/docs/svelte/$effect)
+
+`$effect`*lazily*and can be
+
+[garbage collected](https://developer.mozilla.org/en-US/docs/Glossary/Garbage_collection)if nothing references them. Effects, by contrast, keep running eagerly whenever their dependencies change, until they are destroyed.
+
+Because of this, effects can only be created inside other effects (or [effect roots](/docs/svelte/$effect#$effect.root), such as the one that is created when you first mount a component) so that Svelte knows when to destroy them.
 
 Some sleight of hand occurs when a derived contains an `await` expression: Since waiting until we read `{await getPromise()}` to call `getPromise` would be too late, we use an effect to instead call it proactively, notifying Svelte when the value is available. But since we're using an effect, we can only create asynchronous deriveds inside another effect.
 
@@ -26,11 +32,11 @@ Some sleight of hand occurs when a derived contains an `await` expression: Since
 
 `A component is attempting to bind to a non-bindable property `%key%` belonging to %component% (i.e. `<%name% bind:%key%={...}>`). To mark a property as bindable: `let { %key% = $bindable() } = $props()``### component_api_changed
 
-`Calling `%method%` on a component instance (of %component%) is no longer valid in Svelte 5`See the migration guide for more information.
+`Calling `%method%` on a component instance (of %component%) is no longer valid in Svelte 5`See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
 
 ### component_api_invalid_new
 
-`Attempted to instantiate %component% with `new %name%`, which is no longer valid in Svelte 5. If this component is not under your control, set the `compatibility.componentApi` compiler option to `4` to keep it working.`See the migration guide for more information.
+`Attempted to instantiate %component% with `new %name%`, which is no longer valid in Svelte 5. If this component is not under your control, set the `compatibility.componentApi` compiler option to `4` to keep it working.`See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
 
 ### derived_references_self
 
@@ -48,7 +54,7 @@ Some sleight of hand occurs when a derived contains an `await` expression: Since
 
 ``%rune%` can only be used inside an effect (e.g. during component initialisation)`Effects can only be created while a parent effect is running. This means that they cannot, for example, be created inside an event handler or after an `await` expression (unless the `await` occurs directly inside a component's `<script>` tag, and not inside an async function).
 
-In very rare cases, it is appropriate to use `$effect.root` so that you can create effects outside the normal component lifecycle.
+In very rare cases, it is appropriate to use [ $effect.root]($effect#$effect.root) so that you can create effects outside the normal component lifecycle.
 
 ### effect_pending_outside_reaction
 
@@ -149,7 +155,7 @@ $effect(() => {
 This method mutates the array and returns a reference to the same array.
 
 sort();
-});Often when encountering this issue, the value in question shouldn't be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — which you should avoid — you can read the state with untrack to avoid adding it as a dependency.
+});Often when encountering this issue, the value in question shouldn't be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — [which you should avoid]($effect#When-not-to-use-$effect) — you can read the state with [untrack](svelte#untrack) to avoid adding it as a dependency.
 
 ### flush_sync_in_effect
 
@@ -240,13 +246,13 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(!`let even: boolean`even);If side-effects are unavoidable, use `$effect` instead.
+$derived(!`let even: boolean`even);If side-effects are unavoidable, use [ $effect]($effect) instead.
 
 ### svelte_boundary_reset_onerror
 
-`A `<svelte:boundary>` `reset` function cannot be called while an error is still being handled`If a `<svelte:boundary>` has an `onerror` function, it must not call the provided `reset` function synchronously since the boundary is still in a broken state. Typically, `reset()` is called later, once the error has been resolved.
+`A `<svelte:boundary>` `reset` function cannot be called while an error is still being handled`If a [ <svelte:boundary>](https://svelte.dev/docs/svelte/svelte-boundary) has an 
 
-If it's possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using `tick`:
+`onerror` function, it must not call the provided `reset` function synchronously since the boundary is still in a broken state. Typically, `reset()` is called later, once the error has been resolved.If it's possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using [ tick](https://svelte.dev/docs/svelte/lifecycle-hooks#tick):
 
 ```
 <svelte:boundary onerror={async (error, reset) => {
@@ -264,9 +270,11 @@ If it's possible to resolve the error inside the `onerror` callback, you must at
 
 ### await_invalid
 
-`Encountered asynchronous work while rendering synchronously.`You (or the framework you're using) called `render(...)` with a component containing an `await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a `<svelte:boundary>` with a `pending` snippet.
+`Encountered asynchronous work while rendering synchronously.`You (or the framework you're using) called [ render(...)](svelte-server#render) with a component containing an 
 
-### dynamic_element_invalid_tag
+`await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a [with a](svelte-boundary)
+
+`<svelte:boundary>``pending` snippet.### dynamic_element_invalid_tag
 
 ``<svelte:element this="%tag%">` is not a valid element name — the element will not be rendered`The value passed to the `this` prop of `<svelte:element>` must be a valid HTML element, SVG element, MathML element, or custom element name. A value containing invalid characters (such as whitespace or special characters) was provided, which could be a security risk. Ensure only valid tag names are passed.
 
@@ -368,9 +376,9 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 ```
 ### missing_context
 
-`Context was not set in a parent component`The `createContext()` utility returns a `[get, set]` pair of functions. `get` will throw an error if `set` was not used to set the context in a parent component.
+`Context was not set in a parent component`The [ createContext()](svelte#createContext) utility returns a 
 
-### snippet_without_render_tag
+`[get, set]` pair of functions. `get` will throw an error if `set` was not used to set the context in a parent component.### snippet_without_render_tag
 
 `Attempted to render a snippet without a `{@render}` block. This would cause the snippet code to be stringified instead of its content being rendered to the DOM. To fix this, change `{snippet}` to `{@render snippet()}`.`A component throwing this error will look something like this (`children` is not being rendered):
 
@@ -407,7 +415,7 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 
 ``%name%` is not a store with a `subscribe` method`### svelte_element_invalid_this_value
 
-`The `this` prop on `<svelte:element>` must be a string, if defined`Edit this page on GitHub llms.txt
+`The `this` prop on `<svelte:element>` must be a string, if defined`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-runtime-errors.md) [ llms.txt](/docs/svelte/runtime-errors/llms.txt)
 
 # Citations
 

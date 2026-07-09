@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/legacy • Svelte Docs
 description: svelte/legacy • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-legacy
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/legacy 
@@ -204,7 +204,7 @@ type LegacyComponentType = {
 	>;
 };
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-legacy.md) [ llms.txt](/docs/svelte/svelte-legacy/llms.txt)
 
 # Citations
 

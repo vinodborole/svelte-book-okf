@@ -3,12 +3,12 @@ type: Web Page
 title: Custom elements • Svelte Docs
 description: Custom elements • Svelte documentation
 resource: https://svelte.dev/docs/svelte/custom-elements
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Custom elements
 
-Svelte components can also be compiled to custom elements (aka web components) using the `customElement: true` compiler option. You should specify a tag name for the component using the `<svelte:options>` element. Within the custom element you can access the host element via the `$host` rune.
+Svelte components can also be compiled to custom elements (aka web components) using the `customElement: true` compiler option. You should specify a tag name for the component using the `<svelte:options>` [element](svelte-options). Within the custom element you can access the host element via the [ $host](https://svelte.dev/docs/svelte/$host) rune.
 
 ```
 <svelte:options customElement="my-element" />
@@ -46,7 +46,7 @@ innerHTML = `
 	<my-element>
 		<p>This is some slotted content</p>
 	</my-element>
-`;Any props are exposed as properties of the DOM element (as well as being readable/writable as attributes, where possible).
+`;Any [props](basic-markup#Component-props) are exposed as properties of the DOM element (as well as being readable/writable as attributes, where possible).
 
 `const ````
 module el
@@ -65,10 +65,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -111,8 +112,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -122,7 +122,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(```
 module el
@@ -134,13 +134,13 @@ module el
 const el: Element | null
 ```
 
-Note that you need to list out all properties explicitly, i.e. doing `let props = $props()` without declaring `props` in the component options means that Svelte can't know which props to expose as properties on the DOM element.
+Note that you need to list out all properties explicitly, i.e. doing `let props = $props()` without declaring `props` in the [component options](#Component-options) means that Svelte can't know which props to expose as properties on the DOM element.
 
 ## Component lifecycle
 
 Custom elements are created from Svelte components using a wrapper approach. This means the inner Svelte component has no knowledge that it is a custom element. The custom element wrapper takes care of handling its lifecycle appropriately.
 
-When a custom element is created, the Svelte component it wraps is *not* created right away. It is only created in the next tick after the `connectedCallback` is invoked. Properties assigned to the custom element before it is inserted into the DOM are temporarily saved and then set on component creation, so their values are not lost. The same does not work for invoking exported functions on the custom element though, they are only available after the element has mounted. If you need to invoke functions before component creation, you can work around it by using the `extend` option.
+When a custom element is created, the Svelte component it wraps is *not* created right away. It is only created in the next tick after the `connectedCallback` is invoked. Properties assigned to the custom element before it is inserted into the DOM are temporarily saved and then set on component creation, so their values are not lost. The same does not work for invoking exported functions on the custom element though, they are only available after the element has mounted. If you need to invoke functions before component creation, you can work around it by using the [ extend option](#Component-options).
 
 When a custom element written with Svelte is created or updated, the shadow DOM will reflect the value in the next tick, not immediately. This way updates can be batched, and DOM moves which temporarily (but synchronously) detach the element from the DOM don't lead to unmounting the inner component.
 
@@ -153,13 +153,13 @@ When constructing a custom element, you can tailor several aspects by defining `
 - `tag: string`: an optional- `tag`property for the custom element's name. If set, a custom element with this tag name will be defined with the document's- `customElements`registry upon importing this component.
 - `shadow`: an optional property to modify shadow root properties. It accepts the following values:- `"none"`: No shadow root is created. Note that styles are then no longer encapsulated, and you can't use slots.
 - `"open"`: Shadow root is created with the- `mode: "open"`option.
-- `ShadowRootInit`: You can pass a settings object that will be passed to- `attachShadow()`when shadow root is created.
+- `ShadowRootInit`- `attachShadow()`when shadow root is created.
  
 - `props`: an optional property to modify certain details and behaviors of your component's properties. It offers the following settings:- `attribute: string`: To update a custom element's prop, you have two alternatives: either set the property on the custom element's reference as illustrated above or use an HTML attribute. For the latter, the default attribute name is the lowercase property name. Modify this by assigning- `attribute: "<desired name>"`.
 - `reflect: boolean`: By default, updated prop values do not reflect back to the DOM. To enable this behavior, set- `reflect: true`.
 - `type: 'String' | 'Boolean' | 'Number' | 'Array' | 'Object'`: While converting an attribute value to a prop value and reflecting it back, the prop value is assumed to be a- `String`by default. This may not always be accurate. For instance, for a number type, define it using- `type: "Number"`You don't need to list all properties, those not listed will use the default settings.
  
-- `extend`: an optional property which expects a function as its argument. It is passed the custom element class generated by Svelte and expects you to return a custom element class. This comes in handy if you have very specific requirements to the life cycle of the custom element or want to enhance the class to for example use ElementInternals for better HTML form integration.
+- `extend`: an optional property which expects a function as its argument. It is passed the custom element class generated by Svelte and expects you to return a custom element class. This comes in handy if you have very specific requirements to the life cycle of the custom element or want to enhance the class to for example use- [ElementInternals](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals#examples)for better HTML form integration.
 
 ```
 <svelte:options
@@ -202,11 +202,11 @@ When constructing a custom element, you can tailor several aspects by defining `
 ```
 While Typescript is supported in the
 
-`extend`function, it is subject to limitations: you need to set`lang="ts"`on one of the scripts AND you can only use erasable syntax in it. They are not processed by script preprocessors.
+`extend`function, it is subject to limitations: you need to set`lang="ts"`on one of the scripts AND you can only use[erasable syntax](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly)in it. They are not processed by script preprocessors.
 
 ## Caveats and limitations
 
-Custom elements can be a useful way to package components for consumption in a non-Svelte app, as they will work with vanilla HTML and JavaScript as well as most frameworks. There are, however, some important differences to be aware of:
+Custom elements can be a useful way to package components for consumption in a non-Svelte app, as they will work with vanilla HTML and JavaScript as well as [most frameworks](https://custom-elements-everywhere.com/). There are, however, some important differences to be aware of:
 
 - Styles are *encapsulated*, rather than merely*scoped*(unless you set`shadow: "none"`). This means that any non-component styles (such as you might have in a`global.css`file) will not apply to the custom element, including styles with the`:global(...)`modifier
 - Instead of being extracted out as a separate .css file, styles are inlined into the component as a JavaScript string
@@ -217,7 +217,7 @@ Custom elements can be a useful way to package components for consumption in a n
 - You can use Svelte's context feature between regular Svelte components within a custom element, but you can't use them across custom elements. In other words, you can't use `setContext`on a parent custom element and read that with`getContext`in a child custom element.
 - Don't declare properties or attributes starting with `on`, as their usage will be interpreted as an event listener. In other words, Svelte treats`<custom-element oneworld={true}></custom-element>`as`customElement.addEventListener('eworld', true)`(and not as`customElement.oneworld = true`)
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/04-custom-elements.md) [ llms.txt](/docs/svelte/custom-elements/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Basic markup • Svelte Docs
 description: Basic markup • Svelte documentation
 resource: https://svelte.dev/docs/svelte/basic-markup
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Basic markup
@@ -37,9 +37,9 @@ As in HTML, values may be unquoted.
 
 `<a href="page/{p}">page {p}</a>`Or they can *be* JavaScript expressions.
 
-`<button disabled={!clickable}>...</button>`Boolean attributes are included on the element if their value is truthy and excluded if it's falsy.
+`<button disabled={!clickable}>...</button>`Boolean attributes are included on the element if their value is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and excluded if it's [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
-All other attributes are included unless their value is nullish (`null` or `undefined`).
+All other attributes are included unless their value is [nullish](https://developer.mozilla.org/en-US/docs/Glossary/Nullish) (`null` or `undefined`).
 
 ```
 <input required={false} placeholder="This input field is not required" />
@@ -82,9 +82,9 @@ Because events are just attributes, the same rules as for attributes apply:
 
 Timing-wise, event attributes always fire after events from bindings (e.g. `oninput` always fires after an update to `bind:value`). Under the hood, some event handlers are attached directly with `addEventListener`, while others are *delegated*.
 
-When using `ontouchstart` and `ontouchmove` event attributes, the handlers are passive for better performance. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
+When using `ontouchstart` and `ontouchmove` event attributes, the handlers are [passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) for better performance. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
 
-In the very rare cases that you need to prevent these event defaults, you should use `on` instead (for example inside an action).
+In the very rare cases that you need to prevent these event defaults, you should use [ on](svelte-events#on) instead (for example inside an action).
 
 ### Event delegation
 
@@ -125,11 +125,11 @@ The following event handlers are delegated:
 
 A JavaScript expression can be included as text by surrounding it with curly braces.
 
-`{expression}`Expressions that are `null` or `undefined` will be omitted; all others are coerced to strings.
+`{expression}`Expressions that are `null` or `undefined` will be omitted; all others are [coerced to strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 
-Curly braces can be included in a Svelte template by using their HTML entity strings: `{`, `{`, or `{` for `{` and `}`, `}`, or `}` for `}`.
+Curly braces can be included in a Svelte template by using their [HTML entity](https://developer.mozilla.org/docs/Glossary/Entity) strings: `{`, `{`, or `{` for `{` and `}`, `}`, or `}` for `}`.
 
-If you're using a regular expression (`RegExp`) literal notation, you'll need to wrap it in parentheses.
+If you're using a regular expression (`RegExp`) [literal notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor), you'll need to wrap it in parentheses.
 
 ```
 <h1>Hello {name}!</h1>
@@ -138,7 +138,9 @@ If you're using a regular expression (`RegExp`) literal notation, you'll need to
 ```
 The expression will be stringified and escaped to prevent code injections. If you want to render HTML, use the `{@html}` tag instead.
 
-`{@html potentiallyUnsafeHtmlString}`Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent XSS attacks
+`{@html potentiallyUnsafeHtmlString}`Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent
+
+[XSS attacks](https://owasp.org/www-community/attacks/xss/)
 
 ## Comments
 

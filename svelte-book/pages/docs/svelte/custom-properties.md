@@ -3,7 +3,7 @@ type: Web Page
 title: Custom properties • Svelte Docs
 description: Custom properties • Svelte documentation
 resource: https://svelte.dev/docs/svelte/custom-properties
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Custom properties
@@ -41,7 +41,7 @@ For an SVG element, it would use `<g>` instead:
 	/>
 </g>
 ```
-Inside the component, we can read these custom properties (and provide fallback values) using `var(...)`:
+Inside the component, we can read these custom properties (and provide fallback values) using [ var(...)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties):
 
 ```
 <style>
@@ -59,7 +59,7 @@ While the extra element will not affect layout, it
 
 willaffect any CSS selectors that (for example) use the`>`combinator to target an element directly inside the component's container.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/03-custom-properties.md) [ llms.txt](/docs/svelte/custom-properties/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Lifecycle hooks • Svelte Docs
 description: Lifecycle hooks • Svelte documentation
 resource: https://svelte.dev/docs/svelte/lifecycle-hooks
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Lifecycle hooks
@@ -139,7 +139,7 @@ With runes, we can use `$effect.pre`, which behaves the same as `$effect` but ru
 	<button onclick={toggle}> Toggle dark mode </button>
 </div>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/03-lifecycle-hooks.md) [ llms.txt](/docs/svelte/lifecycle-hooks/llms.txt)
 
 # Citations
 

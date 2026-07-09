@@ -3,7 +3,7 @@ type: Web Page
 title: svelte • Svelte Docs
 description: svelte • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte
@@ -15,7 +15,7 @@ import {
 `class SvelteComponent<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
 To instantiate components, use `mount` instead.
-See migration guide for more info.
+See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 SvelteComponent,
 	`class SvelteComponentTyped<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`SvelteComponentTyped,
@@ -38,13 +38,13 @@ beforeUpdate,
 `get` will throw an error if no parent component called `set`.
 
 createContext,
-	`function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`Creates an event dispatcher that can be used to dispatch component events.
+	`function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`Creates an event dispatcher that can be used to dispatch [component events](https://svelte.dev/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
 
 Component events created with `createEventDispatcher` create a
-CustomEvent.
-These events do not bubble.
-The `detail` argument corresponds to the CustomEvent.detail
+[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
 property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
@@ -85,7 +85,7 @@ When it becomes clear that a fork will *not* be committed (e.g. because the
 user navigated elsewhere), it must be discarded to avoid leaking memory.
 
 fork,
-	`function getAbortSignal(): AbortSignal`Returns an `AbortSignal` that aborts when the current derived or effect re-runs or is destroyed.
+	`function getAbortSignal(): AbortSignal`Returns an `AbortSignal`[derived](https://svelte.dev/docs/svelte/$derived) or [effect](https://svelte.dev/docs/svelte/$effect) re-runs or is destroyed.
 
 Must be called while a derived or effect is running.
 
@@ -112,7 +112,7 @@ getAllContexts,
 	`function getContext<T>(key: any): T`Retrieves the context that belongs to the closest parent component with the specified `key`.
 Must be called during component initialisation.
 
-`createContext` is a type-safe alternative.
+`createContext`
 
 getContext,
 	`function hasContext(key: any): boolean`Checks whether a given `key` has been set in the context of a parent component.
@@ -153,14 +153,13 @@ Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the
 only one that runs inside a server-side component.
 
 onDestroy,
-	`function onMount<T>(fn: () => NotFunction<T> | Promise<NotFunction<T>> | (() => any)): void``onMount`, like `$effect`, schedules a function to run as soon as the component has been mounted to the DOM.
-Unlike `$effect`, the provided function only runs once.
+	`function onMount<T>(fn: () => NotFunction<T> | Promise<NotFunction<T>> | (() => any)): void``onMount`, like `$effect``$effect`, the provided function only runs once.
 
 It must be called during the component's initialisation (but doesn't need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
 it will be called when the component is unmounted.
 
-`onMount` functions do not run during server-side rendering.
+`onMount` functions do not run during [server-side rendering](https://svelte.dev/docs/svelte/svelte-server#render).
 
 onMount,
 	`function setContext<T>(key: any, context: T): T`Associates an arbitrary `context` object with the current component and the specified `key`
@@ -169,7 +168,7 @@ and returns that object. The context is then available to children of the compon
 
 Like lifecycle functions, this must be called during component initialisation.
 
-`createContext` is a type-safe alternative.
+`createContext`
 
 setContext,
 	`function settled(): Promise<void>`Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
@@ -187,7 +186,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -206,7 +205,7 @@ unmount,
 This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
 To instantiate components, use `mount` instead.
-See migration guide for more info.
+See [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 ```
 class SvelteComponent<
@@ -217,9 +216,10 @@ class SvelteComponent<
 ```
 `static element?: typeof HTMLElement;`The custom element version of the component. Only present if compiled with the `customElement` compiler option
 
-`[prop: string]: any;``constructor(options: ComponentConstructorOptions<Properties<Props, Slots>>);`- deprecated This constructor only exists when using the `asClassComponent`compatibility helper, which is a stop-gap solution. Migrate towards using`mount`instead. See migration guide for more info.
+`[prop: string]: any;``constructor(options: ComponentConstructorOptions<Properties<Props, Slots>>);`- deprecated This constructor only exists when using the `asClassComponent`compatibility helper, which is a stop-gap solution. Migrate towards using`mount`instead. See[migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
 
-`$destroy(): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which is a stop-gap solution. See migration guide for more info.
+`$destroy(): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
 
 ```
 $on<K extends Extract<keyof Events, string>>(
@@ -227,15 +227,17 @@ $on<K extends Extract<keyof Events, string>>(
 	callback: (e: Events[K]) => void
 ): () => void;
 ```
-- deprecated This method only exists when using one of the legacy compatibility helpers, which is a stop-gap solution. See migration guide for more info.
+- deprecated This method only exists when using one of the legacy compatibility helpers, which
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
 
-`$set(props: Partial<Props>): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which is a stop-gap solution. See migration guide for more info.
+`$set(props: Partial<Props>): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
 
 ## SvelteComponentTyped
 
 Use
 
-`Component`instead. See migration guide for more information.
+`Component`instead. See[migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more information.
 
 ```
 class SvelteComponentTyped<
@@ -248,7 +250,7 @@ class SvelteComponentTyped<
 
 Use
 
-`$effect`instead
+[instead](/docs/svelte/$effect)`$effect`
 
 Schedules a callback to run immediately after the component has been updated.
 
@@ -260,7 +262,7 @@ In runes mode use `$effect` instead.
 
 Use
 
-`$effect.pre`instead
+[instead](/docs/svelte/$effect#$effect.pre)`$effect.pre`
 
 Schedules a callback to run immediately before the component is updated after any state change.
 
@@ -280,15 +282,15 @@ Returns a `[get, set]` pair of functions for working with context in a type-safe
 
 Use callback props and/or the
 
-`$host()`rune instead — see migration guide
+`$host()`rune instead — see[migration guide](/docs/svelte/v5-migration-guide#Event-changes-Component-events)
 
-Creates an event dispatcher that can be used to dispatch component events.
+Creates an event dispatcher that can be used to dispatch [component events](/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
 
 Component events created with `createEventDispatcher` create a
-CustomEvent.
-These events do not bubble.
-The `detail` argument corresponds to the CustomEvent.detail
+[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
 property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
@@ -335,7 +337,11 @@ user navigated elsewhere), it must be discarded to avoid leaking memory.
 
 `function fork(fn: () => void): Fork;`## getAbortSignal
 
-Returns an `AbortSignal` that aborts when the current derived or effect re-runs or is destroyed.
+Returns an [ AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that aborts when the current 
+
+[derived](/docs/svelte/$derived)or
+
+[effect](/docs/svelte/$effect)re-runs or is destroyed.
 
 Must be called while a derived or effect is running.
 
@@ -366,7 +372,7 @@ function getAllContexts<
 Retrieves the context that belongs to the closest parent component with the specified `key`.
 Must be called during component initialisation.
 
-`createContext` is a type-safe alternative.
+[ createContext](/docs/svelte/svelte#createContext) is a type-safe alternative.
 
 `function getContext<T>(key: any): T;`## hasContext
 
@@ -433,14 +439,14 @@ only one that runs inside a server-side component.
 
 `function onDestroy(fn: () => any): void;`## onMount
 
-`onMount`, like `$effect`, schedules a function to run as soon as the component has been mounted to the DOM.
-Unlike `$effect`, the provided function only runs once.
+`onMount`, like [ $effect](/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
+Unlike 
 
-It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+`$effect`, the provided function only runs once.It must be called during the component's initialisation (but doesn't need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
 it will be called when the component is unmounted.
 
-`onMount` functions do not run during server-side rendering.
+`onMount` functions do not run during [server-side rendering](/docs/svelte/svelte-server#render).
 
 ```
 function onMount<T>(
@@ -458,7 +464,7 @@ and returns that object. The context is then available to children of the compon
 
 Like lifecycle functions, this must be called during component initialisation.
 
-`createContext` is a type-safe alternative.
+[ createContext](/docs/svelte/svelte#createContext) is a type-safe alternative.
 
 `function setContext<T>(key: any, context: T): T;`## settled
 
@@ -474,7 +480,7 @@ Returns a promise that resolves once any pending state changes have been applied
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -489,7 +495,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -546,7 +552,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -577,10 +583,11 @@ function unmount(
 ```
 ## untrack
 
-When used inside a `$derived` or `$effect`,
-any state read inside `fn` will not be treated as a dependency.
+When used inside a [ $derived](/docs/svelte/$derived) or 
 
-```
+[, any state read inside](/docs/svelte/$effect)
+
+`$effect``fn` will not be treated as a dependency.```
 function $effect(fn: () => void | (() => void)): void
 namespace $effect
 ```
@@ -659,7 +666,7 @@ interface Component<
 
 In Svelte 4, components are classes. In Svelte 5, they are functions. Use
 
-`mount`instead to instantiate components. See migration guide for more info.
+`mount`instead to instantiate components. See[migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
 
 ```
 interface ComponentConstructorOptions<
@@ -1050,7 +1057,7 @@ Declares the props that a component accepts. Example:
 
 $props();You can only call a snippet through the `{@render ...}` tag.
 
-See the snippet documentation for more info.
+See the [snippet documentation](/docs/svelte/snippet) for more info.
 
 `interface Snippet<Parameters extends unknown[] = []> {…}````
 (
@@ -1063,7 +1070,7 @@ See the snippet documentation for more info.
 	'{@render ...} must be called with a Snippet': "import type { Snippet } from 'svelte'";
 } & typeof SnippetReturn;
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/20-svelte.md) [ llms.txt](/docs/svelte/svelte/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Svelte 4 migration guide • Svelte Docs
 description: Svelte 4 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v4-migration-guide
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Svelte 4 migration guide
@@ -14,39 +14,39 @@ If you're a library author, consider whether to only support Svelte 4 or if it's
 
 ## Minimum version requirements
 
-- Upgrade to Node 16 or higher. Earlier versions are no longer supported. (#8566)
-- If you are using SvelteKit, upgrade to 1.20.4 or newer (sveltejs/kit#10172)
-- If you are using Vite without SvelteKit, upgrade to `vite-plugin-svelte`2.4.1 or newer (#8516)
-- If you are using webpack, upgrade to webpack 5 or higher and `svelte-loader`3.1.8 or higher. Earlier versions are no longer supported. (#8515, 198dbcf)
-- If you are using Rollup, upgrade to `rollup-plugin-svelte`7.1.5 or higher (198dbcf)
-- If you are using TypeScript, upgrade to TypeScript 5 or higher. Lower versions might still work, but no guarantees are made about that. (#8488)
+- Upgrade to Node 16 or higher. Earlier versions are no longer supported. ([#8566](https://github.com/sveltejs/svelte/issues/8566))
+- If you are using SvelteKit, upgrade to 1.20.4 or newer ([sveltejs/kit#10172](https://github.com/sveltejs/kit/pull/10172))
+- If you are using Vite without SvelteKit, upgrade to `vite-plugin-svelte`2.4.1 or newer ([#8516](https://github.com/sveltejs/svelte/issues/8516))
+- If you are using webpack, upgrade to webpack 5 or higher and `svelte-loader`3.1.8 or higher. Earlier versions are no longer supported. ([#8515](https://github.com/sveltejs/svelte/issues/8515),[198dbcf](https://github.com/sveltejs/svelte/commit/198dbcf))
+- If you are using Rollup, upgrade to `rollup-plugin-svelte`7.1.5 or higher ([198dbcf](https://github.com/sveltejs/svelte/commit/198dbcf))
+- If you are using TypeScript, upgrade to TypeScript 5 or higher. Lower versions might still work, but no guarantees are made about that. ([#8488](https://github.com/sveltejs/svelte/issues/8488))
 
 ## Browser conditions for bundlers
 
 Bundlers must now specify the `browser` condition when building a frontend bundle for the browser. SvelteKit and Vite will handle this automatically for you. If you're using any others, you may observe lifecycle callbacks such as `onMount` not get called and you'll need to update the module resolution configuration.
 
-- For Rollup this is done within the `@rollup/plugin-node-resolve`plugin by setting`browser: true`in its options. See the`rollup-plugin-svelte`documentation for more details
-- For webpack this is done by adding `"browser"`to the`conditionNames`array. You may also have to update your`alias`config, if you have set it. See the`svelte-loader`documentation for more details
+- For Rollup this is done within the `@rollup/plugin-node-resolve`plugin by setting`browser: true`in its options. See the`rollup-plugin-svelte`
+- For webpack this is done by adding `"browser"`to the`conditionNames`array. You may also have to update your`alias`config, if you have set it. See the`svelte-loader`
 
-(#8516)
+([#8516](https://github.com/sveltejs/svelte/issues/8516))
 
 ## Removal of CJS related output
 
-Svelte no longer supports the CommonJS (CJS) format for compiler output and has also removed the `svelte/register` hook and the CJS runtime version. If you need to stay on the CJS output format, consider using a bundler to convert Svelte's ESM output to CJS in a post-build step. (#8613)
+Svelte no longer supports the CommonJS (CJS) format for compiler output and has also removed the `svelte/register` hook and the CJS runtime version. If you need to stay on the CJS output format, consider using a bundler to convert Svelte's ESM output to CJS in a post-build step. ([#8613](https://github.com/sveltejs/svelte/issues/8613))
 
 ## Stricter types for Svelte functions
 
 There are now stricter types for `createEventDispatcher`, `Action`, `ActionReturn`, and `onMount`:
 
-- `createEventDispatcher`now supports specifying that a payload is optional, required, or non-existent, and the call sites are checked accordingly (#7224)
+- `createEventDispatcher`now supports specifying that a payload is optional, required, or non-existent, and the call sites are checked accordingly (- [#7224](https://github.com/sveltejs/svelte/issues/7224))
 
-`import { ``function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`Creates an event dispatcher that can be used to dispatch component events.
+`import { ``function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`Creates an event dispatcher that can be used to dispatch [component events](https://svelte.dev/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
 
 Component events created with `createEventDispatcher` create a
-CustomEvent.
-These events do not bubble.
-The `detail` argument corresponds to the CustomEvent.detail
+[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
 property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
@@ -78,13 +78,13 @@ createEventDispatcher<{
 }>
 ```
 
-Creates an event dispatcher that can be used to dispatch component events.
+Creates an event dispatcher that can be used to dispatch [component events](https://svelte.dev/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
 
 Component events created with `createEventDispatcher` create a
-CustomEvent.
-These events do not bubble.
-The `detail` argument corresponds to the CustomEvent.detail
+[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
 property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
@@ -131,13 +131,13 @@ const dispatch: EventDispatcher
 <"noArgument">(type: "noArgument", parameter?: null | undefined, options?: DispatchOptions | undefined) => boolean
 ```
 
-- `Action`and- `ActionReturn`have a default parameter type of- `undefined`now, which means you need to type the generic if you want to specify that this action receives a parameter. The migration script will migrate this automatically (#7442)
+- `Action`and- `ActionReturn`have a default parameter type of- `undefined`now, which means you need to type the generic if you want to specify that this action receives a parameter. The migration script will migrate this automatically (- [#7442](https://github.com/sveltejs/svelte/pull/7442))
 
 ```
 const action: Action = (node, params) => { ... } // this is now an error if you use params in any way
 const 
 ```
-`const action: Action<HTMLElement, string>`action: `type Action = /*unresolved*/ any`Action<HTMLElement, string> = (`node: any`node, `params: any`params) => { ... } // params is of type string- `onMount`now shows a type error if you return a function asynchronously from it, because this is likely a bug in your code where you expect the callback to be called on destroy, which it will only do for synchronously returned functions (#8136)
+`const action: Action<HTMLElement, string>`action: `type Action = /*unresolved*/ any`Action<HTMLElement, string> = (`node: any`node, `params: any`params) => { ... } // params is of type string- `onMount`now shows a type error if you return a function asynchronously from it, because this is likely a bug in your code where you expect the callback to be called on destroy, which it will only do for synchronously returned functions (- [#8136](https://github.com/sveltejs/svelte/issues/8136))
 
 ```
 // Example where this change reveals an actual bug
@@ -161,7 +161,7 @@ The creation of custom elements with Svelte has been overhauled and significantl
 <svelte:options tag="my-component" />
 <svelte:options customElement="my-component" />
 ```
-This change was made to allow more configurability for advanced use cases. The migration script will adjust your code automatically. The update timing of properties has changed slightly as well. (#8457)
+This change was made to allow [more configurability](custom-elements#Component-options) for advanced use cases. The migration script will adjust your code automatically. The update timing of properties has changed slightly as well. ([#8457](https://github.com/sveltejs/svelte/issues/8457))
 
 ## SvelteComponentTyped is deprecated
 
@@ -174,14 +174,14 @@ import {
 `class SvelteComponent<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
 To instantiate components, use `mount` instead.
-See migration guide for more info.
+See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 SvelteComponent } from 'svelte';
 export class Foo extends SvelteComponentTyped<{ aProp: string }> {}
 export class `class Foo`Foo extends `class SvelteComponent<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
 To instantiate components, use `mount` instead.
-See migration guide for more info.
+See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 SvelteComponent<{ `aProp: string`aProp: string }> {}If you have used `SvelteComponent` as the component instance type previously, you may see a somewhat opaque type error now, which is solved by changing `: typeof SvelteComponent` to `: typeof SvelteComponent<any>`.
 
@@ -198,7 +198,7 @@ SvelteComponent<{ `aProp: string`aProp: string }> {}If you have used `SvelteComp
 <button on:click={choseRandomly}>random</button>
 <svelte:element this={component} />
 ```
-The migration script will do both automatically for you. (#8512)
+The migration script will do both automatically for you. ([#8512](https://github.com/sveltejs/svelte/issues/8512))
 
 ## Transitions are local by default
 
@@ -212,7 +212,7 @@ Transitions are now local by default to prevent confusion around page navigation
 	{/each}
 {/if}
 ```
-To make transitions global, add the `|global` modifier — then they will play when *any* control flow block above is created/destroyed. The migration script will do this automatically for you. (#6686)
+To make transitions global, add the `|global` modifier — then they will play when *any* control flow block above is created/destroyed. The migration script will do this automatically for you. ([#6686](https://github.com/sveltejs/svelte/issues/6686))
 
 ## Default slot bindings
 
@@ -231,7 +231,7 @@ Default slot bindings are no longer exposed to named slots and vice versa:
 	</p>
 </Nested>
 ```
-This makes slot bindings more consistent as the behavior is undefined when for example the default slot is from a list and the named slot is not. (#6049)
+This makes slot bindings more consistent as the behavior is undefined when for example the default slot is from a list and the named slot is not. ([#6049](https://github.com/sveltejs/svelte/issues/6049))
 
 ## Preprocessors
 
@@ -269,10 +269,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -315,8 +316,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -326,7 +326,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('markup-1');
 			},
@@ -337,10 +337,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -383,8 +384,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -394,7 +394,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('script-1');
 			},
@@ -405,10 +405,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -451,8 +452,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -462,7 +462,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('style-1');
 			}
@@ -475,10 +475,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -521,8 +522,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -532,7 +532,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('markup-2');
 			},
@@ -543,10 +543,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -589,8 +590,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -600,7 +600,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('script-2');
 			},
@@ -611,10 +611,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -657,8 +658,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -668,7 +668,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('style-2');
 			}
@@ -700,24 +700,24 @@ preprocess: [
 	vitePreprocess()
 ]
 ```
-Each preprocessor must also have a name. (#8618)
+Each preprocessor must also have a name. ([#8618](https://github.com/sveltejs/svelte/issues/8618))
 
 ## New eslint package
 
-`eslint-plugin-svelte3` is deprecated. It may still work with Svelte 4 but we make no guarantees about that. We recommend switching to our new package eslint-plugin-svelte. See this Github post for an instruction how to migrate. Alternatively, you can create a new project using `npm create svelte@latest`, select the eslint (and possibly TypeScript) option and then copy over the related files into your existing project.
+`eslint-plugin-svelte3` is deprecated. It may still work with Svelte 4 but we make no guarantees about that. We recommend switching to our new package [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte). See [this Github post](https://github.com/sveltejs/kit/issues/10242#issuecomment-1610798405) for an instruction how to migrate. Alternatively, you can create a new project using `npm create svelte@latest`, select the eslint (and possibly TypeScript) option and then copy over the related files into your existing project.
 
 ## Other breaking changes
 
-- the `inert`attribute is now applied to outroing elements to make them invisible to assistive technology and prevent interaction. (#8628)
-- the runtime now uses `classList.toggle(name, boolean)`which may not work in very old browsers. Consider using a polyfill if you need to support these browsers. (#8629)
-- the runtime now uses the `CustomEvent`constructor which may not work in very old browsers. Consider using a polyfill if you need to support these browsers. (#8775)
-- people implementing their own stores from scratch using the `StartStopNotifier`interface (which is passed to the create function of`writable`etc) from`svelte/store`now need to pass an update function in addition to the set function. This has no effect on people using stores or creating stores using the existing Svelte stores. (#6750)
-- `derived`will now throw an error on falsy values instead of stores passed to it. (#7947)
+- the `inert`attribute is now applied to outroing elements to make them invisible to assistive technology and prevent interaction. ([#8628](https://github.com/sveltejs/svelte/pull/8628))
+- the runtime now uses `classList.toggle(name, boolean)`which may not work in very old browsers. Consider using a[polyfill](https://github.com/eligrey/classList.js)if you need to support these browsers. ([#8629](https://github.com/sveltejs/svelte/issues/8629))
+- the runtime now uses the `CustomEvent`constructor which may not work in very old browsers. Consider using a[polyfill](https://github.com/theftprevention/event-constructor-polyfill/tree/master)if you need to support these browsers. ([#8775](https://github.com/sveltejs/svelte/pull/8775))
+- people implementing their own stores from scratch using the `StartStopNotifier`interface (which is passed to the create function of`writable`etc) from`svelte/store`now need to pass an update function in addition to the set function. This has no effect on people using stores or creating stores using the existing Svelte stores. ([#6750](https://github.com/sveltejs/svelte/issues/6750))
+- `derived`will now throw an error on falsy values instead of stores passed to it. (- [#7947](https://github.com/sveltejs/svelte/issues/7947))
 - type definitions for `svelte/internal`were removed to further discourage usage of those internal methods which are not public API. Most of these will likely change for Svelte 5
-- Removal of DOM nodes is now batched which slightly changes its order, which might affect the order of events fired if you're using a `MutationObserver`on these elements (#8763)
-- if you enhanced the global typings through the `svelte.JSX`namespace before, you need to migrate this to use the`svelteHTML`namespace. Similarly if you used the`svelte.JSX`namespace to use type definitions from it, you need to migrate those to use the types from`svelte/elements`instead. You can find more information about what to do here
+- Removal of DOM nodes is now batched which slightly changes its order, which might affect the order of events fired if you're using a `MutationObserver`on these elements ([#8763](https://github.com/sveltejs/svelte/pull/8763))
+- if you enhanced the global typings through the `svelte.JSX`namespace before, you need to migrate this to use the`svelteHTML`namespace. Similarly if you used the`svelte.JSX`namespace to use type definitions from it, you need to migrate those to use the types from`svelte/elements`instead. You can find more information about what to do[here](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-getting-deprecation-warnings-for-sveltejsx--i-want-to-migrate-to-the-new-typings)
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/06-v4-migration-guide.md) [ llms.txt](/docs/svelte/v4-migration-guide/llms.txt)
 
 # Citations
 

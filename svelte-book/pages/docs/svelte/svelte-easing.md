@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/easing • Svelte Docs
 description: svelte/easing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-easing
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/easing 
@@ -105,7 +105,7 @@ import {
 
 `function sineInOut(t: number): number;`## sineOut
 
-`function sineOut(t: number): number;`Edit this page on GitHub llms.txt
+`function sineOut(t: number): number;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-easing.md) [ llms.txt](/docs/svelte/svelte-easing/llms.txt)
 
 previous next
 

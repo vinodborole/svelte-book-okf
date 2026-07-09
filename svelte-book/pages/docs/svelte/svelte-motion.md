@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/motion • Svelte Docs
 description: svelte/motion • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-motion
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/motion 
@@ -43,7 +43,7 @@ move towards it over time, taking account of the `delay`, `duration` and `easing
 ```
 
 Tween,
-	`const prefersReducedMotion: MediaQuery`A media query that matches if the user prefers reduced motion.
+	`const prefersReducedMotion: MediaQuery`A [media query](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery) that matches if the user [prefers reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
 
 ```
 <script>
@@ -139,7 +139,7 @@ If `options` are provided, they will override the tween's defaults.
 
 Available since 5.7.0
 
-A media query that matches if the user prefers reduced motion.
+A [media query](/docs/svelte/svelte-reactivity#MediaQuery) that matches if the user [prefers reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
 
 ```
 <script>
@@ -160,7 +160,7 @@ A media query that matches if the user prefers reduced motion.
 
 Use
 
-`Spring`instead
+[instead](/docs/svelte/svelte-motion#Spring)`Spring`
 
 The spring function in Svelte creates a store whose value is animated, with a motion that simulates the behavior of a spring. This means when the value changes, instead of transitioning at a steady rate, it "bounces" like a spring would, depending on the physics parameters provided. This adds a level of realism to the transitions and can enhance the user experience.
 
@@ -174,7 +174,7 @@ function spring<T = any>(
 
 Use
 
-`Tween`instead
+[instead](/docs/svelte/svelte-motion#Tween)`Tween`
 
 A tweened store in Svelte is a special type of store that provides smooth transitions between state values over time.
 
@@ -208,7 +208,7 @@ function tweened<T>(
 
 `interface Tweened<T> extends Readable<T> {…}``set(value: T, opts?: TweenOptions<T>): Promise<void>;``update(updater: Updater<T>, opts?: TweenOptions<T>): Promise<void>;`## Updater
 
-`type Updater<T> = (target_value: T, value: T) => T;`Edit this page on GitHub llms.txt
+`type Updater<T> = (target_value: T, value: T) => T;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-motion.md) [ llms.txt](/docs/svelte/svelte-motion/llms.txt)
 
 # Citations
 

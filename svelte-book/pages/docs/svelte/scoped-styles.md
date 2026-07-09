@@ -3,7 +3,7 @@ type: Web Page
 title: Scoped styles • Svelte Docs
 description: Scoped styles • Svelte documentation
 resource: https://svelte.dev/docs/svelte/scoped-styles
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Scoped styles
@@ -22,7 +22,7 @@ This works by adding a class to affected elements, which is based on a hash of t
 ```
 ## Specificity
 
-Each scoped selector receives a specificity increase of 0-1-0, as a result of the scoping class (e.g. `.svelte-123xyz`) being added to the selector. This means that (for example) a `p` selector defined in a component will take precedence over a `p` selector defined in a global stylesheet, even if the global stylesheet is loaded later.
+Each scoped selector receives a [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) increase of 0-1-0, as a result of the scoping class (e.g. `.svelte-123xyz`) being added to the selector. This means that (for example) a `p` selector defined in a component will take precedence over a `p` selector defined in a global stylesheet, even if the global stylesheet is loaded later.
 
 In some cases, the scoping class must be added to a selector multiple times, but after the first occurrence it is added with `:where(.svelte-xyz123)` in order to not increase specificity further.
 
@@ -41,7 +41,7 @@ If a component defines `@keyframes`, the name is scoped to the component using t
 	}
 </style>
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/01-scoped-styles.md) [ llms.txt](/docs/svelte/scoped-styles/llms.txt)
 
 # Citations
 

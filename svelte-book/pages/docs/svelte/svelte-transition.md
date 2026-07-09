@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/transition • Svelte Docs
 description: svelte/transition • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-transition
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/transition 
@@ -25,7 +25,7 @@ function crossfade({ fallback, ...defaults }: CrossfadeParams & {
 }) => () => TransitionConfig]
 ```
 
-The `crossfade` function creates a pair of transitions called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
+The `crossfade` function creates a pair of [transitions](https://svelte.dev/docs/svelte/transition) called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
 
 crossfade,
 	```
@@ -67,7 +67,7 @@ function blur(
 ```
 ## crossfade
 
-The `crossfade` function creates a pair of transitions called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
+The `crossfade` function creates a pair of [transitions](/docs/svelte/transition) called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
 
 ```
 function crossfade({
@@ -187,7 +187,7 @@ function slide(
 
 `interface SlideParams {…}``delay?: number;``duration?: number;``easing?: EasingFunction;``axis?: 'x' | 'y';`## TransitionConfig
 
-`interface TransitionConfig {…}``delay?: number;``duration?: number;``easing?: EasingFunction;``css?: (t: number, u: number) => string;``tick?: (t: number, u: number) => void;`Edit this page on GitHub llms.txt
+`interface TransitionConfig {…}``delay?: number;``duration?: number;``easing?: EasingFunction;``css?: (t: number, u: number) => string;``tick?: (t: number, u: number) => void;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-transition.md) [ llms.txt](/docs/svelte/svelte-transition/llms.txt)
 
 # Citations
 

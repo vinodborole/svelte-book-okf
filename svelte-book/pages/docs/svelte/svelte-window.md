@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:window> • Svelte Docs
 description: <svelte:window> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-window
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # <svelte:window>
@@ -37,7 +37,7 @@ All except `scrollX` and `scrollY` are readonly.
 
 `scrollX`and`scrollY`will cause scrolling. If you have a legitimate reason to scroll when the component is rendered, call`scrollTo()`in an`$effect`.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/05-special-elements/02-svelte-window.md) [ llms.txt](/docs/svelte/svelte-window/llms.txt)
 
 previous next
 

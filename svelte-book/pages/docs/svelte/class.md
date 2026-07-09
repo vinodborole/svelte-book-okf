@@ -3,7 +3,7 @@ type: Web Page
 title: class • Svelte Docs
 description: class • Svelte documentation
 resource: https://svelte.dev/docs/svelte/class
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # class
@@ -20,7 +20,7 @@ Primitive values are treated like any other attribute:
 
 ### Objects and arrays
 
-Since Svelte 5.16, `class` can be an object or array, and is converted to a string using clsx.
+Since Svelte 5.16, `class` can be an object or array, and is converted to a string using [clsx](https://github.com/lukeed/clsx).
 
 If the value is an object, the truthy keys are added:
 

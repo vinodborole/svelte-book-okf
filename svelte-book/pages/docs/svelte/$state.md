@@ -3,7 +3,7 @@ type: Web Page
 title: $state • Svelte Docs
 description: $state • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$state
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $state
@@ -22,7 +22,7 @@ Unlike other frameworks you may have encountered, there is no API for interactin
 
 ### Deep state
 
-If `$state` is used with an array or a simple object, the result is a deeply reactive *state proxy*. Proxies allow Svelte to run code when you read or write properties, including via methods like `array.push(...)`, triggering granular updates.
+If `$state` is used with an array or a simple object, the result is a deeply reactive *state proxy*. [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) allow Svelte to run code when you read or write properties, including via methods like `array.push(...)`, triggering granular updates.
 
 State is proxified recursively until Svelte finds something other than an array or simple object (like a class or an object created with `Object.create`). In a case like this...
 
@@ -99,7 +99,7 @@ push({
 	`text: string`text: 'eat lunch'
 });When you update properties of proxies, the original object is
 
-notmutated. If you need to use your own proxy handlers in a state proxy, you should wrap the objectafterwrapping it in`$state`.
+notmutated. If you need to use your own proxy handlers in a state proxy,[you should wrap the object](https://svelte.dev/playground/hello-world?version=latest#H4sIAAAAAAAACpWR3WoDIRCFX2UqhWyIJL3erAulL9C7XnQLMe5ksbUqOpsfln33YuyGFNJC8UKdc2bOhw7Myk9kJXsJ0nttO9jcR5KEG9AWJDwHdzwxznbaYGTl68Do5JM_FRifuh-9X8Y9Gkq1rYx4q66cJbQUWcmqqIL2VDe2IYMEbvuOikBADi-GJDSkXG-phId0G-frye2DO2psQYDFQ0Ys8gQO350dUkEydEg82T0GOs0nsSG9g2IqgxACZueo2ZUlpdvoDC6N64qsg1QKY8T2bpZp8gpIfbCQ85Zn50Ud82HkeY83uDjspenxv3jXcSDyjPWf9L1vJf0GH666J-jLu1ery4dV257IWXBWGa0-xFDMQdTTn2ScxWKsn86ROsLwQxqrVR5QM84Ij8TKFD2-cUZSm4O2LSt30kQcvwCgCmfZnAIAAA==).afterwrapping it in`$state`
 
 Note that if you destructure a reactive value, the references are not reactive — as in normal JavaScript, they are evaluated at the point of destructuring:
 
@@ -166,9 +166,9 @@ $state(`text: any`text);
 
 `done`and`text`into`get`/`set`methods on the class prototype referencing private fields. This means the properties are not enumerable.
 
-When calling methods in JavaScript, the value of `this` matters. This won't work, because `this` inside the `reset` method will be the `<button>` rather than the `Todo`:
+When calling methods in JavaScript, the value of [ this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) matters. This won't work, because 
 
-```
+`this` inside the `reset` method will be the `<button>` rather than the `Todo`:```
 <button onclick={todo.reset}>
 	reset
 </button>
@@ -215,7 +215,7 @@ $state(`text: any`text);
 	}
 }### Built-in classes
 
-Svelte provides reactive implementations of built-in classes like `Set`, `Map`, `Date` and `URL` that can be imported from `svelte/reactivity`.
+Svelte provides reactive implementations of built-in classes like `Set`, `Map`, `Date` and `URL` that can be imported from [ svelte/reactivity](svelte-reactivity).
 
 ## $state.raw
 
@@ -317,7 +317,7 @@ If a value has a `toJSON` method, the snapshot will clone the value returned fro
 
 ## $state.eager
 
-When state changes, it may not be reflected in the UI immediately if it is used by an `await` expression, because updates are synchronized.
+When state changes, it may not be reflected in the UI immediately if it is used by an `await` expression, because [updates are synchronized](await-expressions#Synchronized-updates).
 
 In some cases, you may want to update the UI as soon as the state changes. For example, you might want to update a navigation bar when the user clicks on a link, so that they get visual feedback while waiting for the new page to load. To do this, use `$state.eager(value)`:
 
@@ -352,10 +352,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -398,8 +399,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -409,7 +409,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: number`total); // 3
 `let a: number`a = 3;
@@ -420,10 +420,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -466,8 +467,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -477,7 +477,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: number`total); // still 3!`function ``function add(a: number, b: number): number`add(`a: number`a: number, `b: number`b: number) {
 	return `a: number`a + `b: number`b;
@@ -491,10 +491,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -537,8 +538,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -548,7 +548,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: number`total); // 3
 `let a: number`a = 3;
@@ -559,10 +559,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -605,8 +606,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -616,7 +616,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: number`total); // still 3!If `add` wanted to have access to the *current* values of `a` and `b`, and to return the current `total` value, you would need to use functions instead:
 
@@ -639,10 +639,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -685,8 +686,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -696,7 +696,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: () => number`total()); // 3
 `let a: number`a = 3;
@@ -707,10 +707,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -753,8 +754,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -764,7 +764,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: () => number`total()); // 7`function ``function add(getA: () => number, getB: () => number): () => number`add(`getA: () => number`getA: () => number, `getB: () => number`getB: () => number) {
 	return () => `getA: () => number`getA() + `getB: () => number`getB();
@@ -778,10 +778,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -824,8 +825,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -835,7 +835,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: () => number`total()); // 3
 `let a: number`a = 3;
@@ -846,10 +846,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -892,8 +893,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -903,7 +903,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`let total: () => number`total()); // 7State in Svelte is no different — when you reference something declared with the `$state` rune...
 
@@ -921,9 +921,11 @@ Example:
 
 `let count = $state(0);`...you're accessing its *current value*.
 
-Note that 'functions' is broad — it encompasses properties of proxies and `get`/`set` properties...
+Note that 'functions' is broad — it encompasses properties of proxies and [ get](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/
 
-```
+[properties...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+
+`set````
 /**
  * @param {{ a: number, b: number }} input
  */
@@ -1022,10 +1024,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -1068,8 +1071,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -1079,7 +1081,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(```
 let total: {
@@ -1112,10 +1114,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -1158,8 +1161,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -1169,7 +1171,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(```
 let total: {
@@ -1270,10 +1272,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -1316,8 +1319,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -1327,7 +1329,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(```
 let total: {
@@ -1358,10 +1360,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -1404,8 +1407,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -1415,7 +1417,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(```
 let total: {
@@ -1423,7 +1425,7 @@ let total: {
 }
 ```
 
-`value: number`value); // 7...though if you find yourself writing code like that, consider using classes instead.
+`value: number`value); // 7...though if you find yourself writing code like that, consider using [classes](#Classes) instead.
 
 ## Passing state across modules
 
@@ -1448,7 +1450,9 @@ export function `function increment(): void`increment() {
 `export let ``let count: Signal<number>`count = `const $: Svelte`$.`Svelte.state<number>(value?: number | undefined): Signal<number>`state(0);
 export function `function increment(): void`increment() {
 	`const $: Svelte`$.`Svelte.set<number>(source: Signal<number>, value: number): void`set(`let count: Signal<number>`count, `const $: Svelte`$.`Svelte.get<number>(source: Signal<number>): number`get(`let count: Signal<number>`count) + 1);
-}You can see the code Svelte generates by clicking the 'JS Output' tab in the playground.
+}You can see the code Svelte generates by clicking the 'JS Output' tab in the
+
+[playground](/playground).
 
 Since the compiler only operates on one file at a time, if another file imports `count` Svelte doesn't know that it needs to wrap each reference in `$.get` and `$.set`:
 
@@ -1459,10 +1463,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -1505,8 +1510,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -1516,7 +1520,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(typeof `let count: number`count); // 'object', not 'number'This leaves you with two options for sharing state between modules — either don't reassign it...
 
@@ -1579,7 +1583,7 @@ export function `function getCount(): number`getCount() {
 }
 export function `function increment(): void`increment() {
 	`let count: number`count += 1;
-}Edit this page on GitHub llms.txt
+}[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/02-runes/02-$state.md) [ llms.txt](/docs/svelte/$state/llms.txt)
 
 # Citations
 

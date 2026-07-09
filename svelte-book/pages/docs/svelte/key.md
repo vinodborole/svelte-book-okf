@@ -3,7 +3,7 @@ type: Web Page
 title: '{#key ...} • Svelte Docs'
 description: '{#key ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/key
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # {#key ...}
@@ -22,7 +22,7 @@ It's also useful if you want a transition to play whenever a value changes:
 	<div transition:fade>{value}</div>
 {/key}
 ```
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/04-key.md) [ llms.txt](/docs/svelte/key/llms.txt)
 
 previous next
 

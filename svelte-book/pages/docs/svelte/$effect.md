@@ -3,16 +3,16 @@ type: Web Page
 title: $effect • Svelte Docs
 description: $effect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$effect
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $effect
 
 Effects are functions that run when state updates, and can be used for things like calling third-party libraries, drawing on `<canvas>` elements, or making network requests. They only run in the browser, not during server-side rendering.
 
-Generally speaking, you should *not* update state inside effects, as it will make code more convoluted and will often lead to never-ending update cycles. If you find yourself doing so, see when not to use `$effect` to learn about alternative approaches.
+Generally speaking, you should *not* update state inside effects, as it will make code more convoluted and will often lead to never-ending update cycles. If you find yourself doing so, see [when not to use  $effect](#When-not-to-use-$effect) to learn about alternative approaches.
 
-You can create an effect with the `$effect` rune (demo):
+You can create an effect with the `$effect` rune ([demo](/playground/untitled#H4sIAAAAAAAAE31S246bMBD9lZF3pSRSAqTVvrCAVPUP2sdSKY4ZwJJjkD0hSVH-vbINuWxXfQH5zMyZc2ZmZLVUaFn6a2R06ZGlHmBrpvnBvb71fWQHVOSwPbf4GS46TajJspRlVhjZU1HqkhQSWPkHIYdXS5xw-Zas3ueI6FRn7qHFS11_xSRZhIxbFtcDtw7SJb1iXaOg5XIFeQGjzyPRaevYNOGZIJ8qogbpe8CWiy_VzEpTXiQUcvPDkSVrSNZz1UlW1N5eLcqmpdXUvaQ4BmqlhZNUCgxuzFHDqUWNAxrYeUM76AzsnOsdiJbrBp_71lKpn3RRbii-4P3f-IMsRxS-wcDV_bL4PmSdBa2wl7pKnbp8DMgVvJm8ZNskKRkEM_OzyOKQFkgqOYBQ3Nq89Ns0nbIl81vMFN-jKoLMTOr-SOBOJS-Z8f5Y6D1wdcR8dFqvEBdetK-PHwj-z-cH8oHPY54wRJ8Ys7iSQ3Bg3VA9azQbmC9k35kKzYa6PoVtfwbbKVnBixBiGn7Pq0rqJoUtHiCZwAM3jdTPWCVtr_glhVrhecIa3vuksJ_b7TqFs4DPyriSjd5IwoNNQaAmNI-ESfR2p8zimzvN1swdCkvJHPH6-_oX8o1SgcIDAAA=)):
 
 ```
 <script>
@@ -29,15 +29,15 @@ You can create an effect with the `$effect` rune (demo):
 </script>
 <canvas bind:this={canvas} width="100" height="100"></canvas>
 ```
-When Svelte runs an effect function, it tracks which pieces of state (and derived state) are accessed (unless accessed inside `untrack`), and re-runs the function when that state later changes.
+When Svelte runs an effect function, it tracks which pieces of state (and derived state) are accessed (unless accessed inside [ untrack](svelte#untrack)), and re-runs the function when that state later changes.
 
 If you're having difficulty understanding why your
 
-`$effect`is rerunning or is not running see understanding dependencies. Effects are triggered differently than the`$:`blocks you may be used to if coming from Svelte 4.
+`$effect`is rerunning or is not running see[understanding dependencies](#Understanding-dependencies). Effects are triggered differently than the`$:`blocks you may be used to if coming from Svelte 4.
 
 ### Understanding lifecycle
 
-Your effects run after the component has been mounted to the DOM, and in a microtask after state changes. Re-runs are batched (i.e. changing `color` and `size` in the same moment won't cause two separate runs), and happen after any DOM updates have been applied.
+Your effects run after the component has been mounted to the DOM, and in a [microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) after state changes. Re-runs are batched (i.e. changing `color` and `size` in the same moment won't cause two separate runs), and happen after any DOM updates have been applied.
 
 You can use `$effect` anywhere, not just at the top level of a component, as long as it is called while a parent effect is running.
 
@@ -95,9 +95,9 @@ Teardown functions also run when the effect is destroyed, which happens when its
 
 `$effect` automatically picks up any reactive values (`$state`, `$derived`, `$props`) that are *synchronously* read inside its function body (including indirectly, via function calls) and registers them as dependencies. When those dependencies change, the `$effect` schedules a re-run.
 
-If `$state` and `$derived` are used directly inside the `$effect` (for example, during creation of a reactive class), those values will *not* be treated as dependencies.
+If `$state` and `$derived` are used directly inside the `$effect` (for example, during creation of a [reactive class](https://svelte.dev/docs/svelte/$state#Classes)), those values will *not* be treated as dependencies.
 
-Values that are read *asynchronously* — after an `await` or inside a `setTimeout`, for example — will not be tracked. Here, the canvas will be repainted when `color` changes, but not when `size` changes (demo):
+Values that are read *asynchronously* — after an `await` or inside a `setTimeout`, for example — will not be tracked. Here, the canvas will be repainted when `color` changes, but not when `size` changes ([demo](/playground/untitled#H4sIAAAAAAAAE31T246bMBD9lZF3pWSlBEirfaEQqdo_2PatVIpjBrDkGGQPJGnEv1e2IZfVal-wfHzmzJyZ4cIqqdCy9M-F0blDlnqArZjmB3f72XWRHVCRw_bc4me4aDWhJstSlllhZEfbQhekkMDKfwg5PFvihMvX5OXH_CJa1Zrb0-Kpqr5jkiwC48rieuDWQbqgZ6wqFLRcvkC-hYvnkWi1dWqa8ESQTxFRjfQWsOXiWzmr0sSLhEJu3p1YsoJkNUcdZUnN9dagrBu6FVRQHAM10sJRKgUG16bXcGxQ44AGdt7SDkTDdY02iqLHnJVU6hedlWuIp94JW6Tf8oBt_8GdTxlF0b4n0C35ZLBzXb3mmYn3ae6cOW74zj0YVzDNYXRHFt9mprNgHfZSl6mzml8CMoLvTV6wTZIUDEJv5us2iwMtiJRyAKG4tXnhl8O0yhbML0Wm-B7VNlSSSd31BG7z8oIZZ6dgIffAVY_5xdU9Qrz1Bnx8fCfwtZ7v8Qc9j3nB8PqgmMWlHIID6-bkVaPZwDySfWtKNGtquxQ23Qlsq2QJT0KIqb8dL0up6xQ2eIBkAg_c1FI_YqW0neLnFCqFpwmreedJYT7XX8FVOBfwWRhXstZrSXiwKQjUhOZeMIleb5JZfHWn2Yq5pWEpmR7Hv-N_wEqT8hEEAAA=)):
 
 ```
 function $effect(fn: () => void | (() => void)): void
@@ -163,7 +163,7 @@ setTimeout(() => {
 		// ...but not when `size` changes
 		`const context: CanvasRenderingContext2D`context.`CanvasRect.fillRect(x: number, y: number, w: number, h: number): void`fillRect(0, 0, `let size: number`size, `let size: number`size);
 	}, 0);
-});An effect only reruns when the object it reads changes, not when a property inside it changes. (If you want to observe changes *inside* an object at dev time, you can use `$inspect`.)
+});An effect only reruns when the object it reads changes, not when a property inside it changes. (If you want to observe changes *inside* an object at dev time, you can use [ $inspect]($inspect).)
 
 ```
 <script>
@@ -189,7 +189,7 @@ setTimeout(() => {
 ```
 An effect only depends on the values that it read the last time it ran. This has interesting implications for effects that have conditional code.
 
-For instance, if `condition` is `true` in the code snippet below, the code inside the `if` block will run and `color` will be evaluated. This means that changes to either `condition` or `color` will cause the effect to re-run.
+For instance, if `condition` is `true` in the code snippet below, the code inside the `if` block will run and `color` will be evaluated. This means that changes to either `condition` or `color` [will cause the effect to re-run](/playground/untitled#H4sIAAAAAAAAE21RQW6DMBD8ytaNBJHaJFLViwNIVZ8RcnBgXVk1xsILTYT4e20TQg89IOPZ2fHM7siMaJBx9tmaWpFqjQNlAKXEihx7YVJpdIyfRkY3G4gB8Pi97cPanRtQU8AuwuF_eNUaQuPlOMtc1SlLRWlKUo1tOwJflUikQHZtA0klzCDc64Imx0ANn8bInV1CDhtHgjClrsftcSXotluLybOUb3g4JJHhOZs5WZpuIS9gjNqkJKQP5e2ClrR4SMdZ13E4xZ8zTPOTJU2A2uE_PQ9COCI926_hTVarIU4hu_REPlBrKq2q73ycrf1N-vS4TMUsulaVg3EtR8H9rFgsg8uUsT1B2F9eshigZHBRpuaD0D3mY8Qm2BfB5N2YyRzdNEYVDy0Ja-WsFjcOUuP1HvFLWA6H3XuHTUSmmDV2--0TXonxsKbp7G9C6R__NONS-MFNvxj_d6mBAgAA).
 
 Conversely, if `condition` is `false`, `color` will not be evaluated, and the effect will *only* re-run again when `condition` changes.
 
@@ -292,11 +292,15 @@ The `$effect.tracking` rune is an advanced feature that tells you whether or not
 </script>
 <p>in template: {$effect.tracking()}</p> <!-- true -->
 ```
-It is used to implement abstractions like `createSubscriber`, which will create listeners to update reactive values but *only* if those values are being tracked (rather than, for example, read inside an event handler).
+It is used to implement abstractions like [ createSubscriber](/docs/svelte/svelte-reactivity#createSubscriber), which will create listeners to update reactive values but 
+
+*only*if those values are being tracked (rather than, for example, read inside an event handler).
 
 ## $effect.pending
 
-When using `await` in components, the `$effect.pending()` rune tells you how many promises are pending in the current boundary, not including child boundaries:
+When using [ await](await-expressions) in components, the 
+
+`$effect.pending()` rune tells you how many promises are pending in the current [boundary](svelte-boundary), not including child boundaries:
 
 ```
 <script>
@@ -422,7 +426,7 @@ For things that are more complicated than a simple expression like
 
 `count * 2`, you can also use`$derived.by`.
 
-If you're using an effect because you want to be able to reassign the derived value (to build an optimistic UI, for example) note that deriveds can be directly overridden as of Svelte 5.25.
+If you're using an effect because you want to be able to reassign the derived value (to build an optimistic UI, for example) note that [deriveds can be directly overridden]($derived#Overriding-derived-values) as of Svelte 5.25.
 
 You might be tempted to do something convoluted with effects to link one value to another. The following example shows two inputs for "money spent" and "money left" that are connected to each other. If you update one, the other should update accordingly. Instead of using effects for this...
 
@@ -480,7 +484,7 @@ You might be tempted to do something convoluted with effects to link one value t
 	}
 </style>
 ```
-...use `oninput` callbacks or — better still — function bindings where possible:
+...use `oninput` callbacks or — better still — [function bindings](bind#Function-bindings) where possible:
 
 ```
 <script>
@@ -530,7 +534,7 @@ You might be tempted to do something convoluted with effects to link one value t
 	}
 </style>
 ```
-If you absolutely have to update `$state` within an effect and run into an infinite loop because you read and write to the same `$state`, use untrack.
+If you absolutely have to update `$state` within an effect and run into an infinite loop because you read and write to the same `$state`, use [untrack](svelte#untrack).
 
 # Citations
 

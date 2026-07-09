@@ -3,7 +3,7 @@ type: Web Page
 title: $inspect • Svelte Docs
 description: $inspect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$inspect
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $inspect
@@ -60,7 +60,7 @@ On updates, a stack trace will be printed, making it easy to find the origin of 
 ```
 ## $inspect.trace(...)
 
-This rune, added in 5.14, causes the surrounding function to be *traced* in development. Any time the function re-runs as part of an effect or a derived, information will be printed to the console about which pieces of reactive state caused the effect to fire.
+This rune, added in 5.14, causes the surrounding function to be *traced* in development. Any time the function re-runs as part of an [effect]($effect) or a [derived]($derived), information will be printed to the console about which pieces of reactive state caused the effect to fire.
 
 ```
 <script>

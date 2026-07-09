@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler warnings • Svelte Docs
 description: Compiler warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-warnings
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Compiler warnings
@@ -62,9 +62,9 @@ You can list multiple rules in a single comment (separated by commas), and add a
 
 Users should first consider whether an interactive element might be more appropriate such as a `<button type="button">` element for actions or `<a>` element for navigations. These elements are more semantically meaningful and will have built-in key handling. E.g. `Space` and `Enter` will trigger a `<button>` and `Enter` will trigger an `<a>` element.
 
-If a non-interactive element is required then `onclick` should be accompanied by an `onkeyup` or `onkeydown` handler that enables the user to perform equivalent actions via the keyboard. In order for the user to be able to trigger a key press, the element will also need to be focusable by adding a `tabindex`. While an `onkeypress` handler will also silence this warning, it should be noted that the `keypress` event is deprecated.
+If a non-interactive element is required then `onclick` should be accompanied by an `onkeyup` or `onkeydown` handler that enables the user to perform equivalent actions via the keyboard. In order for the user to be able to trigger a key press, the element will also need to be focusable by adding a [ tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex). While an 
 
-```
+`onkeypress` handler will also silence this warning, it should be noted that the `keypress` event is deprecated.```
 <!-- A11y: visible, non-interactive elements with an onclick event must be accompanied by a keyboard event handler. -->
 <div onclick={() => {}}></div>
 ```
@@ -205,7 +205,7 @@ The captions should contain all important and relevant information to understand
 
 ``<%name%>` element should have %article% %sequence% attribute`Enforce that attributes required for accessibility are present on an element. This includes the following checks:
 
-- `<a>`should have an href (unless it's a fragment-defining tag)
+- `<a>`should have an href (unless it's a- [fragment-defining tag](https://github.com/sveltejs/svelte/issues/4697))
 - `<area>`should have alt, aria-label, or aria-labelledby
 - `<html>`should have lang
 - `<iframe>`should have title
@@ -245,7 +245,7 @@ The captions should contain all important and relevant information to understand
 
 `Abstract role '%role%' is forbidden`### a11y_no_interactive_element_to_noninteractive_role
 
-``<%element%>` cannot have role '%role%'`WAI-ARIA roles should not be used to convert an interactive element to a non-interactive element. Non-interactive ARIA roles include `article`, `banner`, `complementary`, `img`, `listitem`, `main`, `region` and `tooltip`.
+``<%element%>` cannot have role '%role%'`[WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) roles should not be used to convert an interactive element to a non-interactive element. Non-interactive ARIA roles include `article`, `banner`, `complementary`, `img`, `listitem`, `main`, `region` and `tooltip`.
 
 ```
 <!-- A11y: <textarea> cannot have role 'listitem' -->
@@ -253,7 +253,7 @@ The captions should contain all important and relevant information to understand
 ```
 ### a11y_no_noninteractive_element_interactions
 
-`Non-interactive element `<%element%>` should not be assigned mouse or keyboard event listeners`A non-interactive element does not support event handlers (mouse and key handlers). Non-interactive elements include `<main>`, `<area>`, `<h1>` (,`<h2>`, etc), `<p>`, `<img>`, `<li>`, `<ul>` and `<ol>`. Non-interactive WAI-ARIA roles include `article`, `banner`, `complementary`, `img`, `listitem`, `main`, `region` and `tooltip`.
+`Non-interactive element `<%element%>` should not be assigned mouse or keyboard event listeners`A non-interactive element does not support event handlers (mouse and key handlers). Non-interactive elements include `<main>`, `<area>`, `<h1>` (,`<h2>`, etc), `<p>`, `<img>`, `<li>`, `<ul>` and `<ol>`. Non-interactive [WAI-ARIA roles](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) include `article`, `banner`, `complementary`, `img`, `listitem`, `main`, `region` and `tooltip`.
 
 ```
 <!-- `A11y: Non-interactive element <li> should not be assigned mouse or keyboard event listeners.` -->
@@ -263,7 +263,7 @@ The captions should contain all important and relevant information to understand
 ```
 ### a11y_no_noninteractive_element_to_interactive_role
 
-`Non-interactive element `<%element%>` cannot have interactive role '%role%'`WAI-ARIA roles should not be used to convert a non-interactive element to an interactive element. Interactive ARIA roles include `button`, `link`, `checkbox`, `menuitem`, `menuitemcheckbox`, `menuitemradio`, `option`, `radio`, `searchbox`, `switch` and `textbox`.
+`Non-interactive element `<%element%>` cannot have interactive role '%role%'`[WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) roles should not be used to convert a non-interactive element to an interactive element. Interactive ARIA roles include `button`, `link`, `checkbox`, `menuitem`, `menuitemcheckbox`, `menuitemradio`, `option`, `radio`, `searchbox`, `switch` and `textbox`.
 
 ```
 <!-- A11y: Non-interactive element <h3> cannot have interactive role 'searchbox' -->
@@ -279,7 +279,7 @@ The captions should contain all important and relevant information to understand
 ```
 ### a11y_no_redundant_roles
 
-`Redundant role '%role%'`Some HTML elements have default ARIA roles. Giving these elements an ARIA role that is already set by the browser has no effect and is redundant.
+`Redundant role '%role%'`Some HTML elements have default ARIA roles. Giving these elements an ARIA role that is already set by the browser [has no effect](https://www.w3.org/TR/using-aria/#aria-does-nothing) and is redundant.
 
 ```
 <!-- A11y: Redundant role 'button' -->
@@ -333,7 +333,7 @@ The captions should contain all important and relevant information to understand
 ```
 ### a11y_unknown_aria_attribute
 
-`Unknown aria attribute 'aria-%attribute%'``Unknown aria attribute 'aria-%attribute%'. Did you mean '%suggestion%'?`Enforce that only known ARIA attributes are used. This is based on the WAI-ARIA States and Properties spec.
+`Unknown aria attribute 'aria-%attribute%'``Unknown aria attribute 'aria-%attribute%'. Did you mean '%suggestion%'?`Enforce that only known ARIA attributes are used. This is based on the [WAI-ARIA States and Properties spec](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties).
 
 ```
 <!-- A11y: Unknown aria attribute 'aria-labeledby' (did you mean 'labelledby'?) -->
@@ -341,7 +341,7 @@ The captions should contain all important and relevant information to understand
 ```
 ### a11y_unknown_role
 
-`Unknown role '%role%'``Unknown role '%role%'. Did you mean '%suggestion%'?`Elements with ARIA roles must use a valid, non-abstract ARIA role. A reference to role definitions can be found at WAI-ARIA site.
+`Unknown role '%role%'``Unknown role '%role%'. Did you mean '%suggestion%'?`Elements with ARIA roles must use a valid, non-abstract ARIA role. A reference to role definitions can be found at [WAI-ARIA](https://www.w3.org/TR/wai-aria/#role_definitions) site.
 
 ```
 <!-- A11y: Unknown role 'toooltip' (did you mean 'tooltip'?) -->
@@ -359,7 +359,7 @@ The captions should contain all important and relevant information to understand
 
 `Quoted attributes on components and custom elements will be stringified in a future version of Svelte. If this isn't what you want, remove the quotes`### bidirectional_control_characters
 
-`A bidirectional control character was detected in your code. These characters can be used to alter the visual direction of your code and could have unintended consequences`Bidirectional control characters can alter the direction in which text appears to be in. For example, via control characters, you can make `defabc` look like `abcdef`. As a result, if you were to unknowingly copy and paste some code that has these control characters, they may alter the behavior of your code in ways you did not intend. See trojansource.codes for more information.
+`A bidirectional control character was detected in your code. These characters can be used to alter the visual direction of your code and could have unintended consequences`Bidirectional control characters can alter the direction in which text appears to be in. For example, via control characters, you can make `defabc` look like `abcdef`. As a result, if you were to unknowingly copy and paste some code that has these control characters, they may alter the behavior of your code in ways you did not intend. See [trojansource.codes](https://trojansource.codes/) for more information.
 
 ### bind_invalid_each_rest
 
@@ -371,7 +371,7 @@ The captions should contain all important and relevant information to understand
 
 `Unused CSS selector "%name%"`Svelte traverses both the template and the `<style>` tag to find out which of the CSS selectors are not used within the template, so it can remove them.
 
-In some situations a selector may target an element that is not 'visible' to the compiler, for example because it is part of an `{@html ...}` tag or you're overriding styles in a child component. In these cases, use `:global` to preserve the selector as-is:
+In some situations a selector may target an element that is not 'visible' to the compiler, for example because it is part of an `{@html ...}` tag or you're overriding styles in a child component. In these cases, use [ :global](/docs/svelte/global-styles) to preserve the selector as-is:
 
 ```
 <div class="post">{@html content}</div>
@@ -398,7 +398,7 @@ Similarly, a parent element's closing tag will implicitly close all child elemen
 
 ### element_invalid_self_closing_tag
 
-`Self-closing HTML tags for non-void elements are ambiguous — use `<%name% ...></%name%>` rather than `<%name% ... />``In HTML, there's no such thing as a self-closing tag. While this *looks* like a self-contained element with some text next to it...
+`Self-closing HTML tags for non-void elements are ambiguous — use `<%name% ...></%name%>` rather than `<%name% ... />``In HTML, there's [no such thing as a self-closing tag](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). While this *looks* like a self-contained element with some text next to it...
 
 ```
 <div>
@@ -420,7 +420,7 @@ To automate this, run the dedicated migration:
 
 ### event_directive_deprecated
 
-`Using `on:%name%` to listen to the %name% event is deprecated. Use the event attribute `on%name%` instead`See the migration guide for more info.
+`Using `on:%name%` to listen to the %name% event is deprecated. Use the event attribute `on%name%` instead`See [the migration guide](v5-migration-guide#Event-changes) for more info.
 
 ### export_let_unused
 
@@ -428,7 +428,7 @@ To automate this, run the dedicated migration:
 
 ``%code%` is no longer valid — please use `%suggestion%` instead`### legacy_component_creation
 
-`Svelte 5 components are no longer classes. Instantiate them using `mount` or `hydrate` (imported from 'svelte') instead.`See the migration guide for more info.
+`Svelte 5 components are no longer classes. Instantiate them using `mount` or `hydrate` (imported from 'svelte') instead.`See the [migration guide](v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 ### node_invalid_placement_ssr
 
@@ -497,7 +497,7 @@ To fix this, wrap your variable declaration with `$state`.
 
 `Unrecognised attribute — should be one of `generics`, `lang` or `module`. If this exists for a preprocessor, ensure that the preprocessor removes it`### slot_element_deprecated
 
-`Using `<slot>` to render parent content is deprecated. Use `{@render ...}` tags instead`See the migration guide for more info.
+`Using `<slot>` to render parent content is deprecated. Use `{@render ...}` tags instead`See [the migration guide](v5-migration-guide#Snippets-instead-of-slots) for more info.
 
 ### state_referenced_locally
 
@@ -585,7 +585,7 @@ To fix this, reference the variable such that it is lazily evaluated. For the ab
 <!-- This will update -->
 <p>The count is {count()}</p>
 ```
-For more info, see Passing state into functions.
+For more info, see [Passing state into functions]($state#Passing-state-into-functions).
 
 ### store_rune_conflict
 
@@ -621,11 +621,11 @@ A derived value may be used in other contexts:
 
 ``this` should be an `{expression}`. Using a string attribute value will cause an error in future versions of Svelte`### svelte_self_deprecated
 
-``<svelte:self>` is deprecated — use self-imports (e.g. `import %name% from './%basename%'`) instead`See the note in the docs for more info.
+``<svelte:self>` is deprecated — use self-imports (e.g. `import %name% from './%basename%'`) instead`See [the note in the docs](legacy-svelte-self) for more info.
 
 ### unknown_code
 
-``%code%` is not a recognised code```%code%` is not a recognised code (did you mean `%suggestion%`?)`Edit this page on GitHub llms.txt
+``%code%` is not a recognised code```%code%` is not a recognised code (did you mean `%suggestion%`?)`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-compiler-warnings.md) [ llms.txt](/docs/svelte/compiler-warnings/llms.txt)
 
 # Citations
 

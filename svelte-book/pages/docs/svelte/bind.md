@@ -3,14 +3,14 @@ type: Web Page
 title: 'bind: • Svelte Docs'
 description: 'bind: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/bind
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # bind:
 
 Data ordinarily flows down, from parent to child. The `bind:` directive allows data to flow the other way, from child to parent.
 
-The general syntax is `bind:property={expression}`, where `expression` is an *lvalue* (i.e. a variable or an object property). When the expression is an identifier with the same name as the property, we can omit the expression — in other words these are equivalent:
+The general syntax is `bind:property={expression}`, where `expression` is an [ lvalue](https://press.rebus.community/programmingfundamentals/chapter/lvalue-and-rvalue/) (i.e. a variable or an object property). When the expression is an identifier with the same name as the property, we can omit the expression — in other words these are equivalent:
 
 ```
 <input bind:value={value} />
@@ -30,7 +30,7 @@ You can also use `bind:property={get, set}`, where `get` and `set` are functions
 	(v) => value = v.toLowerCase()}
 />
 ```
-In the case of readonly bindings like dimension bindings, the `get` value should be `null`:
+In the case of readonly bindings like [dimension bindings](#Dimensions), the `get` value should be `null`:
 
 ```
 <div
@@ -125,7 +125,7 @@ Use
 
 ## <input bind:indeterminate>
 
-Checkboxes can be in an indeterminate state, independently of whether they are checked or unchecked:
+Checkboxes can be in an [indeterminate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/indeterminate) state, independently of whether they are checked or unchecked:
 
 ```
 <script>
@@ -199,9 +199,11 @@ Inputs that work together can use `bind:group`:
 
 ## <input bind:files>
 
-On `<input>` elements with `type="file"`, you can use `bind:files` to get the `FileList` of selected files. When you want to update the files programmatically, you always need to use a `FileList` object. Currently `FileList` objects cannot be constructed directly, so you need to create a new `DataTransfer` object and get `files` from there.
+On `<input>` elements with `type="file"`, you can use `bind:files` to get the [ FileList of selected files](https://developer.mozilla.org/en-US/docs/Web/API/FileList). When you want to update the files programmatically, you always need to use a 
 
-```
+`FileList` object. Currently `FileList` objects cannot be constructed directly, so you need to create a new [object and get](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer)
+
+`DataTransfer``files` from there.```
 <script>
 	let files = $state();
 	function clear() {
@@ -264,9 +266,13 @@ You can give the `<select>` a default value by adding a `selected` attribute to 
 
 `<audio src={clip} bind:duration bind:currentTime bind:paused></audio>`## <video>
 
-`<video>` elements have all the same bindings as `<audio>` elements, plus readonly `videoWidth` and `videoHeight` bindings.
+`<video>` elements have all the same bindings as [ <audio>](#audio) elements, plus readonly 
 
-## <img>
+[and](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoWidth)
+
+`videoWidth`[bindings.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoHeight)
+
+`videoHeight`## <img>
 
 `<img>` elements have two readonly bindings:
 
@@ -282,15 +288,17 @@ You can give the `<select>` a default value by adding a `selected` attribute to 
 ```
 ## window and document
 
-To bind to properties of `window` and `document`, see `<svelte:window>` and `<svelte:document>`.
+To bind to properties of `window` and `document`, see [ <svelte:window>](svelte-window) and 
 
-## Contenteditable bindings
+[.](svelte-document)
+
+`<svelte:document>`## Contenteditable bindings
 
 Elements with the `contenteditable` attribute support the following bindings:
 
-There are subtle differences between
+There are
 
-`innerText`and`textContent`.
+[subtle differences between](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext).`innerText`and`textContent`
 
 `<div contenteditable="true" bind:innerHTML={html}></div>`## Dimensions
 
@@ -350,7 +358,9 @@ Components also support `bind:this`, allowing you to interact with component ins
 	}
 </script>
 ```
-In case of using the function bindings, the getter is required to ensure that the correct value is nullified on component or element destruction.
+In case of using
+
+[the function bindings](#Function-bindings), the getter is required to ensure that the correct value is nullified on component or element destruction.
 
 ## bind:*property* for components
 
@@ -358,7 +368,7 @@ In case of using the function bindings, the getter is required to ensure that th
 
 `<Keypad bind:value={pin} />`While Svelte props are reactive without binding, that reactivity only flows downward into the component by default. Using `bind:property` allows changes to the property from within the component to flow back up out of the component.
 
-To mark a property as bindable, use the `$bindable` rune:
+To mark a property as bindable, use the [ $bindable]($bindable) rune:
 
 ```
 <script>
@@ -376,7 +386,7 @@ Bindable properties can have a fallback value:
 ```
 This fallback value *only* applies when the property is *not* bound. When the property is bound and a fallback value is present, the parent is expected to provide a value other than `undefined`, else a runtime error is thrown. This prevents hard-to-reason-about situations where it's unclear which value should apply.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/12-bind.md) [ llms.txt](/docs/svelte/bind/llms.txt)
 
 # Citations
 

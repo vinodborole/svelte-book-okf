@@ -3,7 +3,7 @@ type: Web Page
 title: Imperative component API • Svelte Docs
 description: Imperative component API • Svelte documentation
 resource: https://svelte.dev/docs/svelte/imperative-component-api
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Imperative component API
@@ -63,9 +63,11 @@ Note that unlike calling `new App(...)` in Svelte 4, things like effects (includ
 
 ## unmount
 
-Unmounts a component that was previously created with `mount` or `hydrate`.
+Unmounts a component that was previously created with [ mount](#mount) or 
 
-If `options.outro` is `true`, transitions will play before the component is removed from the DOM:
+[.](#hydrate)
+
+`hydrate`If `options.outro` is `true`, [transitions](transition) will play before the component is removed from the DOM:
 
 `import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
@@ -78,7 +80,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -135,7 +137,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -208,7 +210,7 @@ body; // HTML for somewhere in this <body> tag
 
 head; // HTML for somewhere in this <head> tag## hydrate
 
-Like `mount`, but will reuse up any HTML rendered by Svelte's SSR output (from the `render` function) inside the target and make it interactive:
+Like `mount`, but will reuse up any HTML rendered by Svelte's SSR output (from the [ render](#render) function) inside the target and make it interactive:
 
 `import { ````
 function hydrate<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: {} extends Props ? {
@@ -271,7 +273,7 @@ querySelector('#app'),
 	`props?: Record<string, any> | undefined`props: { `some: string`some: 'property' }
 });As with `mount`, effects will not run during `hydrate` — use `flushSync()` immediately afterwards if you need them to.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/04-imperative-component-api.md) [ llms.txt](/docs/svelte/imperative-component-api/llms.txt)
 
 # Citations
 

@@ -3,12 +3,12 @@ type: Web Page
 title: '{#await ...} • Svelte Docs'
 description: '{#await ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/await
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # {#await ...}
 
-`{#await expression}...{:then name}...{:catch name}...{/await}``{#await expression}...{:then name}...{/await}``{#await expression then name}...{/await}``{#await expression catch name}...{/await}`Await blocks allow you to branch on the three possible states of a `Promise` — pending, fulfilled or rejected.
+`{#await expression}...{:then name}...{:catch name}...{/await}``{#await expression}...{:then name}...{/await}``{#await expression then name}...{/await}``{#await expression catch name}...{/await}`Await blocks allow you to branch on the three possible states of a [ Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) — pending, fulfilled or rejected.
 
 ```
 {#await promise}
@@ -55,9 +55,9 @@ Similarly, if you only want to show the error state, you can omit the `then` blo
 ```
 You can use
 
-`#await`with`import(...)`to render components lazily:`{#await import('./Component.svelte') then { default: Component }} <Component /> {/await}`
+`#await`with[to render components lazily:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)`import(...)``{#await import('./Component.svelte') then { default: Component }} <Component /> {/await}`
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/05-await.md) [ llms.txt](/docs/svelte/await/llms.txt)
 
 previous next
 

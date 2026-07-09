@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:element> • Svelte Docs
 description: <svelte:element> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-element
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # <svelte:element>
@@ -14,7 +14,7 @@ The only supported binding is `bind:this`, since Svelte's built-in bindings do n
 
 If `this` has a nullish value, the element and its children will not be rendered.
 
-If `this` is the name of a void element (e.g., `br`) and `<svelte:element>` has child elements, a runtime error will be thrown in development mode:
+If `this` is the name of a [void element](https://developer.mozilla.org/en-US/docs/Glossary/Void_element) (e.g., `br`) and `<svelte:element>` has child elements, a runtime error will be thrown in development mode:
 
 ```
 <script>
@@ -28,7 +28,7 @@ Svelte tries its best to infer the correct namespace from the element's surround
 
 `<svelte:element this={tag} xmlns="http://www.w3.org/2000/svg" />``this` needs to be a valid DOM element tag, things like `#text` or `svelte:head` will not work.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/05-special-elements/06-svelte-element.md) [ llms.txt](/docs/svelte/svelte-element/llms.txt)
 
 # Citations
 

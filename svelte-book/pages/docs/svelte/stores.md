@@ -3,12 +3,12 @@ type: Web Page
 title: Stores • Svelte Docs
 description: Stores • Svelte documentation
 resource: https://svelte.dev/docs/svelte/stores
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Stores
 
-A *store* is an object that allows reactive access to a value via a simple *store contract*. The `svelte/store` module contains minimal store implementations which fulfil this contract.
+A *store* is an object that allows reactive access to a value via a simple *store contract*. The [ svelte/store module](../svelte-store) contains minimal store implementations which fulfil this contract.
 
 Any time you have a reference to a store, you can access its value inside a component by prefixing it with the `$` character. This causes Svelte to declare the prefixed variable, subscribe to the store at component initialisation and unsubscribe when appropriate.
 
@@ -113,10 +113,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -159,8 +160,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -170,7 +170,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`value: number`value);
 }); // logs '0'
@@ -193,10 +193,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -239,8 +240,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -250,7 +250,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('got a subscriber');
 	return () => `var console: Console`The `console` module provides a simple debugging console that is similar to the
@@ -259,10 +259,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -305,8 +306,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -316,7 +316,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log('no more subscribers');
 });
@@ -332,10 +332,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -378,8 +379,7 @@ myConsole.warn(`Danger ${name}! Danger!`);
 
 console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)`
-(the arguments are all passed to `util.format()`).
+values similar to `printf(3)``util.format()`
 
 ```
 const count = 5;
@@ -389,7 +389,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()` for more information.
+See `util.format()`
 
 log(`value: number`value);
 }); // logs 'got a subscriber', then '1'
@@ -612,10 +612,11 @@ JavaScript console mechanism provided by web browsers.
 The module exports two specific components:
 
 - A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`and`process.stderr`. The global`console`can be used without importing the`node:console`module.
+- A global `console`instance configured to write to`process.stdout`
+`process.stderr`
+`console`can be used without importing the`node:console`module.
 
-**Warning**`note on process I/O` for
-more information.
+**Warning**`note on process I/O`
 
 Example using the global `console`:
 
@@ -675,7 +676,9 @@ const `const value: string`value = `get<string>(store: Readable<string>): string
 
 get(`const store: Writable<string>`store);## Store contract
 
-`store = { ``subscribe: (subscription: (value: any) => void) => () => undefined`subscribe: (`subscription: (value: any) => void`subscription: (`value: any`value: any) => void) => (() => void), `set: (value: any) => undefined`set?: (`value: any`value: any) => void }You can create your own stores without relying on `svelte/store`, by implementing the *store contract*:
+`store = { ``subscribe: (subscription: (value: any) => void) => () => undefined`subscribe: (`subscription: (value: any) => void`subscription: (`value: any`value: any) => void) => (() => void), `set: (value: any) => undefined`set?: (`value: any`value: any) => void }You can create your own stores without relying on [ svelte/store](../svelte-store), by implementing the 
+
+*store contract*:
 
 - A store must contain a `.subscribe`method, which must accept as its argument a subscription function. This subscription function must be immediately and synchronously called with the store's current value upon calling`.subscribe`. All of a store's active subscription functions must later be synchronously called whenever the store's value changes.
 - The `.subscribe`method must return an unsubscribe function. Calling an unsubscribe function must stop its subscription, and its corresponding subscription function must not be called again by the store.
@@ -683,7 +686,7 @@ get(`const store: Writable<string>`store);## Store contract
 
 For interoperability with RxJS Observables, the `.subscribe` method is also allowed to return an object with an `.unsubscribe` method, rather than return the unsubscription function directly. Note however that unless `.subscribe` synchronously calls the subscription (which is not required by the Observable spec), Svelte will see the value of the store as `undefined` until it does.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/01-stores.md) [ llms.txt](/docs/svelte/stores/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: $props • Svelte Docs
 description: $props • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$props
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # $props
@@ -36,7 +36,7 @@ On the other side, inside `MyComponent.svelte`, we can receive props with the `$
 </script>
 <p>this component is {props.adjective}</p>
 ```
-...though more commonly, you'll *destructure* your props:
+...though more commonly, you'll [ destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) your props:
 
 ```
 <script>
@@ -63,7 +63,9 @@ Declares the props that a component accepts. Example:
 
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
-$props();Fallback values are not turned into reactive state proxies (see Updating props for more info)
+$props();Fallback values are not turned into reactive state proxies (see
+
+[Updating props](#Updating-props)for more info)
 
 ## Renaming props
 
@@ -131,7 +133,7 @@ References to a prop inside a component update when the prop itself updates — 
 	clicks (child): {count}
 </button>
 ```
-While you can temporarily *reassign* props, you should not *mutate* props unless they are bindable.
+While you can temporarily *reassign* props, you should not *mutate* props unless they are [bindable]($bindable).
 
 If the prop is a regular object, the mutation will have no effect:
 
@@ -169,7 +171,7 @@ If the prop is a regular object, the mutation will have no effect:
 	clicks: {object.count}
 </button>
 ```
-If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an `ownership_invalid_mutation` warning, because the component is mutating state that does not 'belong' to it:
+If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an [ ownership_invalid_mutation](runtime-warnings#Client-warnings-ownership_invalid_mutation) warning, because the component is mutating state that does not 'belong' to it:
 
 ```
 <script>
@@ -247,7 +249,7 @@ The fallback value of a prop not declared with `$bindable` is left untouched —
 	clicks: {object.count}
 </button>
 ```
-In summary: don't mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the `$bindable` rune.
+In summary: don't mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the [ $bindable]($bindable) rune.
 
 ## Type safety
 
@@ -278,9 +280,9 @@ You can, of course, separate the type declaration from the annotation:
 ```
 Interfaces for native DOM elements are provided in the
 
-`svelte/elements`module (see Typing wrapper components)
+`svelte/elements`module (see[Typing wrapper components](typescript#Typing-wrapper-components))
 
-If your component exposes snippet props like `children`, these should be typed using the `Snippet` interface imported from `'svelte'` — see Typing snippets for examples.
+If your component exposes [snippet](snippet) props like `children`, these should be typed using the `Snippet` interface imported from `'svelte'` — see [Typing snippets](snippet#Typing-snippets) for examples.
 
 Adding types is recommended, as it ensures that people using your component can easily discover which props they should provide.
 

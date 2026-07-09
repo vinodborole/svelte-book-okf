@@ -3,12 +3,12 @@ type: Web Page
 title: TypeScript • Svelte Docs
 description: TypeScript • Svelte documentation
 resource: https://svelte.dev/docs/svelte/typescript
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # TypeScript
 
-You can use TypeScript within Svelte components. IDE extensions like the Svelte VS Code extension will help you catch errors right in your editor, and `svelte-check` does the same on the command line, which you can integrate into your CI.
+You can use TypeScript within Svelte components. IDE extensions like the [Svelte VS Code extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) will help you catch errors right in your editor, and [ svelte-check](https://www.npmjs.com/package/svelte-check) does the same on the command line, which you can integrate into your CI.
 
 ## <script lang="ts">
 
@@ -61,7 +61,7 @@ const config: {
 
 ### Using other build tools
 
-If you're using tools like Rollup (via rollup-plugin-svelte) or Webpack (via svelte-loader) instead, install `typescript` and `svelte-preprocess` and add the preprocessor to the plugin config. See the respective plugin READMEs for more info.
+If you're using tools like Rollup (via [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)) or Webpack (via [svelte-loader](https://github.com/sveltejs/svelte-loader)) instead, install `typescript` and `svelte-preprocess` and add the preprocessor to the plugin config. See the respective plugin READMEs for more info.
 
 If you're starting a new project, we recommend using SvelteKit or Vite instead
 
@@ -69,9 +69,9 @@ If you're starting a new project, we recommend using SvelteKit or Vite instead
 
 When using TypeScript, make sure your `tsconfig.json` is setup correctly.
 
-- Use a `target`of at least`ES2015`so classes are not compiled to functions
-- Set `verbatimModuleSyntax`to`true`so that imports are left as-is
-- Set `isolatedModules`to`true`so that each file is looked at in isolation. TypeScript has a few features which require cross-file analysis and compilation, which the Svelte compiler and tooling like Vite don't do.
+- Use a `target``ES2015`so classes are not compiled to functions
+- Set `verbatimModuleSyntax``true`so that imports are left as-is
+- Set `isolatedModules``true`so that each file is looked at in isolation. TypeScript has a few features which require cross-file analysis and compilation, which the Svelte compiler and tooling like Vite don't do.
 
 ## Typing $props
 
@@ -759,7 +759,7 @@ ComponentProps<`function (type parameter) TComponent in withProps<TComponent ext
 ```
 ## Enhancing built-in DOM types
 
-Svelte provides a best effort of all the HTML DOM types that exist. Sometimes you may want to use experimental attributes or custom events coming from an action. In these cases, TypeScript will throw a type error, saying that it does not know these types. If it's a non-experimental standard attribute/event, this may very well be a missing typing from our HTML typings. In that case, you are welcome to open an issue and/or a PR fixing it.
+Svelte provides a best effort of all the HTML DOM types that exist. Sometimes you may want to use experimental attributes or custom events coming from an action. In these cases, TypeScript will throw a type error, saying that it does not know these types. If it's a non-experimental standard attribute/event, this may very well be a missing typing from our [HTML typings](https://github.com/sveltejs/svelte/blob/main/packages/svelte/elements.d.ts). In that case, you are welcome to open an issue and/or a PR fixing it.
 
 In case this is a custom or experimental attribute/event, you can enhance the typings by augmenting the `svelte/elements` module like this:
 
@@ -783,7 +783,7 @@ declare module 'svelte/elements' {
 }
 export {}; // ensure this is not an ambient module, else types will be overridden instead of augmentedThen make sure that the `d.ts` file is referenced in your `tsconfig.json`. If it reads something like `"include": ["src/**/*"]` and your `d.ts` file is inside `src`, it should work. You may need to reload for the changes to take effect.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/03-typescript.md) [ llms.txt](/docs/svelte/typescript/llms.txt)
 
 # Citations
 

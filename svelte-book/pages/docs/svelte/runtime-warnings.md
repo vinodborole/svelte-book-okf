@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime warnings • Svelte Docs
 description: Runtime warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-warnings
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Runtime warnings
@@ -202,11 +202,13 @@ $derived(await `let bPromise: Promise<number>`bPromise);### binding_property_non
 
 ``%binding%` is binding to a non-reactive property```%binding%` (%location%) is binding to a non-reactive property`### console_log_state
 
-`Your `console.%method%` contained `$state` proxies. Consider using `$inspect(...)` or `$state.snapshot(...)` instead`When logging a proxy, browser devtools will log the proxy itself rather than the value it represents. In the case of Svelte, the 'target' of a `$state` proxy might not resemble its current value, which can be confusing.
+`Your `console.%method%` contained `$state` proxies. Consider using `$inspect(...)` or `$state.snapshot(...)` instead`When logging a [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), browser devtools will log the proxy itself rather than the value it represents. In the case of Svelte, the 'target' of a `$state` proxy might not resemble its current value, which can be confusing.
 
-The easiest way to log a value as it changes over time is to use the `$inspect` rune. Alternatively, to log things on a one-off basis (for example, inside an event handler) you can use `$state.snapshot` to take a snapshot of the current value.
+The easiest way to log a value as it changes over time is to use the [ $inspect](/docs/svelte/$inspect) rune. Alternatively, to log things on a one-off basis (for example, inside an event handler) you can use 
 
-### derived_inert
+[to take a snapshot of the current value.](/docs/svelte/$state#$state.snapshot)
+
+`$state.snapshot`### derived_inert
 
 `Reading a derived belonging to a now-destroyed effect may result in stale values`A `$derived` value created inside an effect will stop updating when the effect is destroyed. You should create the `$derived` outside the effect, or inside an `$effect.root`.
 
@@ -229,7 +231,7 @@ The easiest way to log a value as it changes over time is to use the `$inspect` 
 
 `The `%attribute%` attribute on `%html%` changed its value between server and client renders. The client value, `%value%`, will be ignored in favour of the server value`Certain attributes like `src` on an `<img>` element will not be repaired during hydration, i.e. the server value will be kept. That's because updating these attributes can cause the image to be refetched (or in the case of an `<iframe>`, for the frame to be reloaded), even if they resolve to the same resource.
 
-To fix this, either silence the warning with a `svelte-ignore` comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
+To fix this, either silence the warning with a [ svelte-ignore](basic-markup#Comments) comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
 
 ```
 <script>
@@ -251,7 +253,7 @@ To fix this, either silence the warning with a `svelte-ignore` comment, or ensur
 
 `The value of an `{@html ...}` block changed between server and client renders. The client value will be ignored in favour of the server value``The value of an `{@html ...}` block %location% changed between server and client renders. The client value will be ignored in favour of the server value`If the `{@html ...}` value changes between the server and the client, it will not be repaired during hydration, i.e. the server value will be kept. That's because change detection during hydration is expensive and usually unnecessary.
 
-To fix this, either silence the warning with a `svelte-ignore` comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
+To fix this, either silence the warning with a [ svelte-ignore](basic-markup#Comments) comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
 
 ```
 <script>
@@ -321,7 +323,7 @@ To fix it, `bind:` to the value instead of just passing a property (i.e. in this
 ```
 `Child` is mutating `person` which is owned by `App` without being explicitly "allowed" to do so. This is strongly discouraged since it can create code that is hard to reason about at scale ("who mutated this value?"), hence the warning.
 
-To fix it, either create callback props to communicate changes, or mark `person` as `$bindable`.
+To fix it, either create callback props to communicate changes, or mark `person` as [ $bindable]($bindable).
 
 ### select_multiple_invalid_value
 
@@ -334,7 +336,7 @@ To silence the warning, ensure that `value`:
 
 ### state_proxy_equality_mismatch
 
-`Reactive `$state(...)` proxies and the values they proxy have different identities. Because of this, comparisons with `%operator%` will produce unexpected results``$state(...)` creates a proxy of the value it is passed. The proxy and the value have different identities, meaning equality checks will always return `false`:
+`Reactive `$state(...)` proxies and the values they proxy have different identities. Because of this, comparisons with `%operator%` will produce unexpected results``$state(...)` creates a [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the value it is passed. The proxy and the value have different identities, meaning equality checks will always return `false`:
 
 ```
 <script>
@@ -404,7 +406,7 @@ function unmount(component: Record<string, any>, options?: {
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
-Since 5.13.0, if `options.outro` is `true`, transitions will play before the component is removed from the DOM.
+Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
@@ -427,9 +429,9 @@ Avoid using `$state` here. If `component` *does* need to be reactive for some re
 
 ### svelte_boundary_reset_noop
 
-`A `<svelte:boundary>` `reset` function only resets the boundary the first time it is called`When an error occurs while rendering the contents of a `<svelte:boundary>`, the `onerror` handler is called with the error plus a `reset` function that attempts to re-render the contents.
+`A `<svelte:boundary>` `reset` function only resets the boundary the first time it is called`When an error occurs while rendering the contents of a [ <svelte:boundary>](https://svelte.dev/docs/svelte/svelte-boundary), the 
 
-This `reset` function should only be called once. After that, it has no effect — in a case like this, where a reference to `reset` is stored outside the boundary, clicking the button while `<Contents />` is rendered will *not* cause the contents to be rendered again.
+`onerror` handler is called with the error plus a `reset` function that attempts to re-render the contents.This `reset` function should only be called once. After that, it has no effect — in a case like this, where a reference to `reset` is stored outside the boundary, clicking the button while `<Contents />` is rendered will *not* cause the contents to be rendered again.
 
 ```
 <script>
@@ -445,7 +447,7 @@ This `reset` function should only be called once. After that, it has no effect �
 ```
 ### transition_slide_display
 
-`The `slide` transition does not work correctly for elements with `display: %value%``The slide transition works by animating the `height` of the element, which requires a `display` style like `block`, `flex` or `grid`. It does not work for:
+`The `slide` transition does not work correctly for elements with `display: %value%``The [slide](/docs/svelte/svelte-transition#slide) transition works by animating the `height` of the element, which requires a `display` style like `block`, `flex` or `grid`. It does not work for:
 
 - `display: inline`(which is the default for elements like- `<span>`), and its variants like- `inline-block`,- `inline-flex`and- `inline-grid`
 - `display: table`and- `table-[name]`, which are the defaults for elements like- `<table>`and- `<tr>`
@@ -637,7 +639,7 @@ const object: {
 }
 ```
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-runtime-warnings.md) [ llms.txt](/docs/svelte/runtime-warnings/llms.txt)
 
 # Citations
 

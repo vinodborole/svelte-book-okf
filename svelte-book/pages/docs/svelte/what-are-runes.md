@@ -3,7 +3,7 @@ type: Web Page
 title: What are runes? • Svelte Docs
 description: What are runes? • Svelte documentation
 resource: https://svelte.dev/docs/svelte/what-are-runes
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # What are runes?
@@ -35,7 +35,7 @@ $state('hello');They differ from normal JavaScript functions in important ways, 
 
 Runes didn't exist prior to Svelte 5.
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/02-runes/01-what-are-runes.md) [ llms.txt](/docs/svelte/what-are-runes/llms.txt)
 
 previous next
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler errors • Svelte Docs
 description: Compiler errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-errors
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Compiler errors
@@ -32,7 +32,7 @@ timestamp: '2026-07-07T10:59:37.245126+00:00'
 
 `Comma-separated expressions are not allowed as attribute/directive values in runes mode, unless wrapped in parentheses`An attribute value cannot be a comma-separated sequence of expressions — in other words this is disallowed:
 
-`<div class={size, color}>...</div>`Instead, make sure that the attribute value contains a single expression. In the example above it's likely that this was intended (see the class documentation for more details):
+`<div class={size, color}>...</div>`Instead, make sure that the attribute value contains a single expression. In the example above it's likely that this was intended (see the [class documentation](class) for more details):
 
 `<div class={[size, color]}>...</div>`If you *do* need to use the comma operator for some reason, wrap the sequence in parentheses:
 
@@ -481,15 +481,15 @@ $state(0);
 
 `"props" must be a statically analyzable object literal of the form "{ [key: string]: { attribute?: string; reflect?: boolean; type?: "String" | "Boolean" | "Number" | "Array" | "Object" }"`### svelte_options_invalid_customelement_shadow
 
-`"shadow" must be either "open", "none" or `ShadowRootInit` object.`See https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#options for more information on valid shadow root constructor options
+`"shadow" must be either "open", "none" or `ShadowRootInit` object.`See [https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#options](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#options) for more information on valid shadow root constructor options
 
 ### svelte_options_invalid_tagname
 
-`Tag name must be lowercase and hyphenated`See https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name for more information on valid tag names
+`Tag name must be lowercase and hyphenated`See [https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) for more information on valid tag names
 
 ### svelte_options_reserved_tagname
 
-`Tag name is reserved`See https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name for more information on valid tag names
+`Tag name is reserved`See [https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) for more information on valid tag names
 
 ### svelte_options_unknown_attribute
 
@@ -519,7 +519,7 @@ $state(0);
 
 `Unterminated string constant`### void_element_invalid_content
 
-`Void elements cannot have children or closing tags`Edit this page on GitHub llms.txt
+`Void elements cannot have children or closing tags`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-compiler-errors.md) [ llms.txt](/docs/svelte/compiler-errors/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Best practices • Svelte Docs
 description: Best practices • Svelte documentation
 resource: https://svelte.dev/docs/svelte/best-practices
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # Best practices
@@ -70,7 +70,7 @@ If the derived expression is an object or array, it will be returned as-is — i
 Effects are an escape hatch and should mostly be avoided. In particular, avoid updating state inside effects.
 
 - If you need to sync state to an external library such as D3, it is often neater to use `{@attach ...}`
-- If you need to run some code in response to user interaction, put the code directly in an event handler or use a function binding as appropriate
+- If you need to run some code in response to user interaction, put the code directly in an event handler or use a [function binding](bind#Function-bindings)as appropriate
 - If you need to log values for debugging purposes, use `$inspect`
 - If you need to observe something external to Svelte, use `createSubscriber`
 
@@ -131,7 +131,7 @@ Avoid using `onMount` or `$effect` for this.
 
 ## Snippets
 
-Snippets are a way to define reusable chunks of markup that can be instantiated with the `{@render ...}` tag, or passed to components as props. They must be declared within the template.
+[Snippets](snippet) are a way to define reusable chunks of markup that can be instantiated with the [ {@render ...}](@render) tag, or passed to components as props. They must be declared within the template.
 
 ```
 {#snippet greeting(name)}
@@ -145,7 +145,7 @@ Snippets declared at the top level of a component (i.e. not inside elements or b
 
 ## Each blocks
 
-Prefer to use keyed each blocks — this improves performance by allowing Svelte to surgically insert or remove items rather than updating the DOM belonging to existing items.
+Prefer to use [keyed each blocks](each#Keyed-each-blocks) — this improves performance by allowing Svelte to surgically insert or remove items rather than updating the DOM belonging to existing items.
 
 The key
 
@@ -196,7 +196,7 @@ Use `createContext` rather than `setContext` and `getContext`, as it provides ty
 
 ## Async Svelte
 
-If using version 5.36 or higher, you can use await expressions and hydratable to use promises directly inside components. Note that these require the `experimental.async` option to be enabled in `svelte.config.js` as they are not yet considered fully stable.
+If using version 5.36 or higher, you can use [await expressions](await-expressions) and [hydratable](hydratable) to use promises directly inside components. Note that these require the `experimental.async` option to be enabled in `svelte.config.js` as they are not yet considered fully stable.
 
 ## Avoid legacy features
 
@@ -213,7 +213,7 @@ Always use runes mode for new code, and avoid features that have more modern rep
 - use `{@attach ...}`instead of`use:action`
 - use clsx-style arrays and objects in `class`attributes, instead of the`class:`directive
 
-Edit this page on GitHub llms.txt
+[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/01-best-practices.md) [ llms.txt](/docs/svelte/best-practices/llms.txt)
 
 # Citations
 

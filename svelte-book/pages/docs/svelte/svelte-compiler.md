@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/compiler • Svelte Docs
 description: svelte/compiler • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-compiler
-timestamp: '2026-07-07T10:59:37.245126+00:00'
+timestamp: '2026-07-09T12:17:00.027378+00:00'
 ---
 
 # svelte/compiler 
@@ -170,6 +170,8 @@ function preprocess(
 		| undefined
 ): Promise<Processed>;
 ```
+## print
+
 `print` converts a Svelte AST node back into Svelte source code.
 It is primarily intended for tools that parse and transform components using the compiler’s modern AST representation.
 
@@ -674,7 +676,7 @@ If `true`, whitespace inside and between elements is kept as you typed it, rathe
 
 Which strategy to use when cloning DOM fragments:
 
-- `html`populates a- `<template>`with- `innerHTML`and clones it. This is faster, but cannot be used if your app's Content Security Policy includes- `require-trusted-types-for 'script'`
+- `html`populates a- `<template>`with- `innerHTML`and clones it. This is faster, but cannot be used if your app's- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)includes- `require-trusted-types-for 'script'`
 - `tree`creates the fragment one element at a time and- *then*clones it. This is slower, but works everywhere
 
 `runes?: boolean | undefined | ((options: { filename: string }) => boolean | undefined);`- default `undefined`
@@ -685,7 +687,7 @@ Set to `undefined` (the default) to infer runes mode from the component code.
 Is always `true` for JS/TS modules compiled with Svelte.
 Will be `true` by default in Svelte 6.
 Note that setting this to `true` in your `svelte.config.js` will force runes mode for your entire project, including components in `node_modules`,
-which is likely not what you want. If you're using Vite, consider using dynamicCompileOptions instead.
+which is likely not what you want. If you're using Vite, consider using [dynamicCompileOptions](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#dynamiccompileoptions) instead.
 
 `discloseVersion?: boolean;`- default `true`
 
@@ -844,7 +846,7 @@ The result of a preprocessor run. If the preprocessor does not return a result, 
 
 `toString?: () => string;`## Warning
 
-`interface Warning extends ICompileDiagnostic {}`Edit this page on GitHub llms.txt
+`interface Warning extends ICompileDiagnostic {}`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-compiler.md) [ llms.txt](/docs/svelte/svelte-compiler/llms.txt)
 
 # Citations
 
