@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/reactivity • Svelte Docs
 description: svelte/reactivity • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # svelte/reactivity 
@@ -507,7 +507,7 @@ on(this.#query, 'change', `update: () => void`update);
 		// This makes the getter reactive, if read in an effect
 		this.#subscribe();
 		// Return the current state of the query, whether or not we're in an effect
-		return this.#query.`MediaQueryList.matches: boolean`The `matches``true` if the document currently matches the media query list, or `false` if not.
+		return this.#query.`MediaQueryList.matches: boolean`The `matches`
 
 matches;
 	}

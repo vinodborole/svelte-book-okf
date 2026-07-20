@@ -3,7 +3,7 @@ type: Web Page
 title: Svelte 5 migration guide • Svelte Docs
 description: Svelte 5 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v5-migration-guide
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Svelte 5 migration guide
@@ -574,7 +574,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 ```
 const app: {
@@ -607,7 +607,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `events?: Record<string, (e: any) => any> | undefined`Allows the specification of events.
 
@@ -646,7 +646,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `props?: Record<string, any> | undefined`Component properties.
 
@@ -688,7 +688,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `function unmount(component: Record<string, any>, options?: {`
 
@@ -724,7 +724,7 @@ Takes the same options as a Svelte 4 component and the component function and re
 
 `component: Component<Record<string, any>, {}, string> | ComponentType<SvelteComponent<Record<string, any>, any, any>>`component: `const App: LegacyComponentType`App, `ComponentConstructorOptions<Props extends Record<string, any> = Record<string, any>>.target: Document | Element | ShadowRoot`target: `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `const app: SvelteComponent<Record<string, any>, any, any> & Record<string, any>`app;If this component is not under your control, you can use the `compatibility.componentApi` compiler option for auto-applied backwards compatibility, which means code using `new Component(...)` keeps working without adjustments (note that this adds a bit of overhead to each component). This will also add `$set` and `$on` methods for all component instances you get through `bind:this`.
 
@@ -1036,7 +1036,7 @@ Transitions will play during the initial render unless the `intro` option is set
 
 `var document: Document`** window.document** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`Returns the first element within node's descendants whose ID is elementId.
+`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `props?: Record<string, any> | undefined`Component properties.
 

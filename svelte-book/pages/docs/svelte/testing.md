@@ -3,7 +3,7 @@ type: Web Page
 title: Testing • Svelte Docs
 description: Testing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/testing
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Testing
@@ -492,18 +492,18 @@ mount(`const Component: LegacyComponentType`Component, {
 
 target: `var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body, // `document` exists because of jsdom
+ or body, // `document` exists because of jsdom
 		`props?: Record<string, any> | undefined`Component properties.
 
 props: { `initial: number`initial: 0 }
 	});
 	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`The `innerHTML`
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.
@@ -512,9 +512,9 @@ toBe('<button>0</button>');
 	// Click the button, then flush the changes so you can synchronously write expectations
 	`var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body.`ParentNode.querySelector<"button">(selectors: "button"): HTMLButtonElement | null (+4 overloads)`Returns the first element that is a descendant of node that matches selectors.
+ or body.`ParentNode.querySelector<"button">(selectors: "button"): HTMLButtonElement | null (+4 overloads)`Returns the first element that is a descendant of node that matches selectors.
 
 querySelector('button')?.`HTMLElement.click(): void`The `HTMLElement.click()`
 
@@ -525,9 +525,9 @@ Returns void if no callback is provided, otherwise returns the result of calling
 flushSync();
 	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`The `innerHTML`
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.
@@ -563,9 +563,9 @@ const component: {
 
 While the process is very straightforward, it is also low level and somewhat brittle, as the precise structure of your component may change frequently. Tools like [@testing-library/svelte](https://testing-library.com/docs/svelte-testing-library/intro/) can help streamline your tests. The above test could be rewritten like this:
 
-`import { ``function render<C extends Component<any, any, string> | SvelteComponent<any, any, any>, Q extends Queries = typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<C>, options?: ComponentOptions<C>, renderOptions?: RenderOptions<Q>): RenderResult<C, Q>`Render a component into the document.
+`import { ``function render<C extends Component<any, any, string> | SvelteComponent<any, any, any>, Q extends Queries = typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<C>, options?: ComponentOptions<C>, renderOptions?: RenderOptions<Q>): RenderResult<C, Q>`Render a component into the document.
 
-render, `const screen: Screen<typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen } from '@testing-library/svelte';
+render, `const screen: Screen<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen } from '@testing-library/svelte';
 import ```
 const userEvent: {
     readonly setup: typeof setupMain;
@@ -613,10 +613,10 @@ const userEvent: {
 All APIs returned by this function share an input device state and a default configuration.
 
 setup();
-	`render<SvelteComponent<Record<string, any>, any, any>, typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<SvelteComponent<Record<string, any>, any, any>>, options?: ComponentOptions<SvelteComponent<Record<string, any>, any, any>> | undefined, renderOptions?: RenderOptions<typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")> | undefined): RenderResult<...>`Render a component into the document.
+	`render<SvelteComponent<Record<string, any>, any, any>, typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<SvelteComponent<Record<string, any>, any, any>>, options?: ComponentOptions<SvelteComponent<Record<string, any>, any, any>> | undefined, renderOptions?: RenderOptions<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")> | undefined): RenderResult<...>`Render a component into the document.
 
 render(`const Component: LegacyComponentType`Component);
-	const `const button: HTMLElement`button = `const screen: Screen<typeof import("/vercel/path0/node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen.`getByRole<HTMLElement>(role: ByRoleMatcher, options?: ByRoleOptions | undefined): HTMLElement (+1 overload)`getByRole('button');
+	const `const button: HTMLElement`button = `const screen: Screen<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen.`getByRole<HTMLElement>(role: ByRoleMatcher, options?: ByRoleOptions | undefined): HTMLElement (+1 overload)`getByRole('button');
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(0);
 	await `const user: UserEvent`user.`click: (element: Element) => Promise<void>`click(`const button: HTMLElement`button);
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(1);

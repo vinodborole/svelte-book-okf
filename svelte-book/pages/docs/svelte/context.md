@@ -3,7 +3,7 @@ type: Web Page
 title: Context • Svelte Docs
 description: Context • Svelte documentation
 resource: https://svelte.dev/docs/svelte/context
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Context
@@ -293,15 +293,15 @@ function (local function) Wrapper(...args: any[]): {
 
 target: `var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body
+ or body
 	});
 	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`The `innerHTML`
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.

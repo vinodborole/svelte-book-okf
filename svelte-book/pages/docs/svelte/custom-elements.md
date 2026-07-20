@@ -3,7 +3,7 @@ type: Web Page
 title: Custom elements • Svelte Docs
 description: Custom elements • Svelte documentation
 resource: https://svelte.dev/docs/svelte/custom-elements
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Custom elements
@@ -38,9 +38,9 @@ var document: Document
 
 `window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`The `innerHTML`
 
 innerHTML = `
 	<my-element>

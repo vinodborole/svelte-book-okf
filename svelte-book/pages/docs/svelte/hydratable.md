@@ -3,7 +3,7 @@ type: Web Page
 title: Hydratable data • Svelte Docs
 description: Hydratable data • Svelte documentation
 resource: https://svelte.dev/docs/svelte/hydratable
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Hydratable data
@@ -92,7 +92,7 @@ render(`const App: LegacyComponentType`App, {
 
 `let response: Response`response.`Response.headers: Headers`The `headers`
 
-headers.`Headers.set(name: string, value: string): void`The `set()``Headers` object, or adds the header if it does not already exist.
+headers.`Headers.set(name: string, value: string): void`The `set()`
 
 set(
   'Content-Security-Policy',
@@ -130,7 +130,7 @@ render(`const App: LegacyComponentType`App, {
 
 `let response: Response`response.`Response.headers: Headers`The `headers`
 
-headers.`Headers.set(name: string, value: string): void`The `set()``Headers` object, or adds the header if it does not already exist.
+headers.`Headers.set(name: string, value: string): void`The `set()`
 
 set(
   'Content-Security-Policy',

@@ -3,7 +3,7 @@ type: Web Page
 title: Imperative component API • Svelte Docs
 description: Imperative component API • Svelte documentation
 resource: https://svelte.dev/docs/svelte/imperative-component-api
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Imperative component API
@@ -125,9 +125,9 @@ mount(`const App: LegacyComponentType`App, { `target: Document | Element | Shado
 
 target: `var document: Document``window.document`
 
-document.`Document.body: HTMLElement`The `Document.body``null` if no such element exists.
+document.`Document.body: HTMLElement`The `Document.body`
 
-body });
+ or body });
 // later
 ```
 function unmount(component: Record<string, any>, options?: {

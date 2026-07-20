@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime warnings • Svelte Docs
 description: Runtime warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-warnings
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-20T08:31:47.948207+00:00'
 ---
 
 # Runtime warnings
@@ -536,17 +536,17 @@ const snapshot: {
                     ... 6 more ...;
                     dispatchEvent: {};
                 };
-                ... 35 more ...;
+                ... 36 more ...;
                 readonly storage: {
                     ...;
                 };
             };
-            ... 215 more ...;
+            ... 218 more ...;
             readonly sessionStorage: {
                 ...;
             };
         };
-        ... 955 more ...;
+        ... 1014 more ...;
         undefined: undefined;
     };
 }
@@ -600,17 +600,17 @@ function $state.snapshot<{
                 readonly login: {
                     setStatus: {};
                 };
-                ... 38 more ...;
+                ... 39 more ...;
                 readonly storage: {
                     ...;
                 };
             };
-            ... 215 more ...;
+            ... 218 more ...;
             readonly sessionStorage: {
                 ...;
             };
         };
-        ... 955 more ...;
+        ... 1014 more ...;
         undefined: undefined;
     };
 }
