@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-07-20T08:31:47.997191+00:00",
+  "updated_at": "2026-07-27T09:01:17.601329+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -292,7 +292,7 @@
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "8f2f27b3527af97dfd54c535d4028cd70a6e1de0a0b897dba42586cd8b844068"
+      "hash": "cd4d52fd69609ebb0b3758a5edd43c622ad59a3187a907ce573ac3464cdaf236"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -400,7 +400,7 @@
       "path": "pages/docs/svelte/svelte-boundary.md",
       "url": "https://svelte.dev/docs/svelte/svelte-boundary",
       "title": "<svelte:boundary> • Svelte Docs",
-      "hash": "8e2b966f57a562461aa21991c30465ca965cbe2adf83db4feca4188572b87a49"
+      "hash": "a024637f0ece73ce051b98239b2374884bed065464c8d4416a58f19c48447511"
     },
     {
       "path": "pages/docs/svelte/svelte-compiler.md",
@@ -1880,9 +1880,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-07-20T08:31:47.956555+00:00",
+    "synced_at": "2026-07-27T09:01:17.568354+00:00",
     "added": 0,
-    "changed": 10,
+    "changed": 2,
     "removed": 0,
     "pages": 90
   }

@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:boundary> • Svelte Docs
 description: <svelte:boundary> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-boundary
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-07-27T09:01:17.564941+00:00'
 ---
 
 # <svelte:boundary>
@@ -103,7 +103,7 @@ Since 5.51 you can control this behaviour for boundaries with a `failed` snippet
 
 `transformError` function.If you're using Svelte via a framework such as SvelteKit, you most likely don't have direct access to the
 
-`render(...)`call — the framework must configure`transformError`on your behalf. SvelteKit will add support for this in the near future, via the[hook.](../kit/hooks#Shared-hooks-handleError)`handleError`
+`render(...)`call — the framework must configure`transformError`on your behalf. SvelteKit will add support for this in the near future, via the[hook.](../kit/hooks#handleError)`handleError`
 
 The `transformError` function must return a JSON-stringifiable object which will be used to render the `failed` snippet. This object will be serialized and used to hydrate the snippet in the browser:
 
