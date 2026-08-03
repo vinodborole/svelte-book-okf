@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime errors • Svelte Docs
 description: Runtime errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-errors
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Runtime errors
@@ -12,13 +12,8 @@ timestamp: '2026-07-09T12:17:00.027378+00:00'
 
 ### async_derived_orphan
 
-`Cannot create a `$derived(...)` with an `await` expression outside of an effect tree`In Svelte there are two types of reaction — [ $derived](/docs/svelte/$derived) and 
-
-[. Deriveds can be created anywhere, because they run](/docs/svelte/$effect)
-
-`$effect`*lazily*and can be
-
-[garbage collected](https://developer.mozilla.org/en-US/docs/Glossary/Garbage_collection)if nothing references them. Effects, by contrast, keep running eagerly whenever their dependencies change, until they are destroyed.
+``Cannot create a `$derived(...)` with an `await` expression outside of an effect tree``
+In Svelte there are two types of reaction — [`$derived`](/docs/svelte/$derived) and [`$effect`](/docs/svelte/$effect). Deriveds can be created anywhere, because they run *lazily* and can be [garbage collected](https://developer.mozilla.org/en-US/docs/Glossary/Garbage_collection) if nothing references them. Effects, by contrast, keep running eagerly whenever their dependencies change, until they are destroyed.
 
 Because of this, effects can only be created inside other effects (or [effect roots](/docs/svelte/$effect#$effect.root), such as the one that is created when you first mount a component) so that Svelte knows when to destroy them.
 
@@ -26,43 +21,56 @@ Some sleight of hand occurs when a derived contains an `await` expression: Since
 
 ### bind_invalid_checkbox_value
 
-`Using `bind:value` together with a checkbox input is not allowed. Use `bind:checked` instead`### bind_invalid_export
+``Using `bind:value` together with a checkbox input is not allowed. Use `bind:checked` instead``
+### bind_invalid_export
 
-`Component %component% has an export named `%key%` that a consumer component is trying to access using `bind:%key%`, which is disallowed. Instead, use `bind:this` (e.g. `<%name% bind:this={component} />`) and then access the property on the bound component instance (e.g. `component.%key%`)`### bind_not_bindable
+``Component %component% has an export named `%key%` that a consumer component is trying to access using `bind:%key%`, which is disallowed. Instead, use `bind:this` (e.g. `<%name% bind:this={component} />`) and then access the property on the bound component instance (e.g. `component.%key%`)``
+### bind_not_bindable
 
-`A component is attempting to bind to a non-bindable property `%key%` belonging to %component% (i.e. `<%name% bind:%key%={...}>`). To mark a property as bindable: `let { %key% = $bindable() } = $props()``### component_api_changed
+`` A component is attempting to bind to a non-bindable property `%key%` belonging to %component% (i.e. `<%name% bind:%key%={...}>`). To mark a property as bindable: `let { %key% = $bindable() } = $props()` ``
+### component_api_changed
 
-`Calling `%method%` on a component instance (of %component%) is no longer valid in Svelte 5`See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
+``Calling `%method%` on a component instance (of %component%) is no longer valid in Svelte 5``
+See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
 
 ### component_api_invalid_new
 
-`Attempted to instantiate %component% with `new %name%`, which is no longer valid in Svelte 5. If this component is not under your control, set the `compatibility.componentApi` compiler option to `4` to keep it working.`See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
+``Attempted to instantiate %component% with `new %name%`, which is no longer valid in Svelte 5. If this component is not under your control, set the `compatibility.componentApi` compiler option to `4` to keep it working.``
+See the [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
 
 ### derived_references_self
 
-`A derived value cannot reference itself recursively`### each_key_duplicate
+`A derived value cannot reference itself recursively`
+### each_key_duplicate
 
-`Keyed each block has duplicate key at indexes %a% and %b%``Keyed each block has duplicate key `%value%` at indexes %a% and %b%`### each_key_volatile
+`Keyed each block has duplicate key at indexes %a% and %b%```Keyed each block has duplicate key `%value%` at indexes %a% and %b%``
+### each_key_volatile
 
-`Keyed each block has key that is not idempotent — the key for item at index %index% was `%a%` but is now `%b%`. Keys must be the same each time for a given item`The key expression in a keyed each block must return the same value when called multiple times for the same item. Using expressions like `[item.a, item.b]` creates a new array each time, which will never be equal to itself. Instead, use a primitive value or create a stable key like `item.a + '-' + item.b`.
+``Keyed each block has key that is not idempotent — the key for item at index %index% was `%a%` but is now `%b%`. Keys must be the same each time for a given item``
+The key expression in a keyed each block must return the same value when called multiple times for the same item. Using expressions like `[item.a, item.b]` creates a new array each time, which will never be equal to itself. Instead, use a primitive value or create a stable key like `item.a + '-' + item.b`.
 
 ### effect_in_teardown
 
-``%rune%` cannot be used inside an effect cleanup function`### effect_in_unowned_derived
+`` `%rune%` cannot be used inside an effect cleanup function ``
+### effect_in_unowned_derived
 
-`Effect cannot be created inside a `$derived` value that was not itself created inside an effect`### effect_orphan
+``Effect cannot be created inside a `$derived` value that was not itself created inside an effect``
+### effect_orphan
 
-``%rune%` can only be used inside an effect (e.g. during component initialisation)`Effects can only be created while a parent effect is running. This means that they cannot, for example, be created inside an event handler or after an `await` expression (unless the `await` occurs directly inside a component's `<script>` tag, and not inside an async function).
+`` `%rune%` can only be used inside an effect (e.g. during component initialisation) ``
+Effects can only be created while a parent effect is running. This means that they cannot, for example, be created inside an event handler or after an `await` expression (unless the `await` occurs directly inside a component's `<script>` tag, and not inside an async function).
 
-In very rare cases, it is appropriate to use [ $effect.root]($effect#$effect.root) so that you can create effects outside the normal component lifecycle.
+In very rare cases, it is appropriate to use [`$effect.root`]($effect#$effect.root) so that you can create effects outside the normal component lifecycle.
 
 ### effect_pending_outside_reaction
 
-``$effect.pending()` can only be called inside an effect or derived`### effect_update_depth_exceeded
+`` `$effect.pending()` can only be called inside an effect or derived ``
+### effect_update_depth_exceeded
 
-`Maximum update depth exceeded. This typically indicates that an effect reads and writes the same piece of state`If an effect updates some state that it also depends on, it will re-run, potentially in a loop:
+`Maximum update depth exceeded. This typically indicates that an effect reads and writes the same piece of state`
+If an effect updates some state that it also depends on, it will re-run, potentially in a loop:
 
-`let ``let count: number`count = ```
+`let` `let count: number`count = ```
 function $state<0>(initial: 0): 0 (+1 overload)
 namespace $state
 ```
@@ -94,11 +102,12 @@ $effect(() => {
 	// this both reads and writes `count`,
 	// so will run in an infinite loop
 	`let count: number`count += 1;
-});(Svelte intervenes before this can crash your browser tab.)
+});
+(Svelte intervenes before this can crash your browser tab.)
 
 The same applies to array mutations, since these both read and write to the array:
 
-`let ``let array: string[]`array = ```
+`let` `let array: string[]`array = ```
 function $state<string[]>(initial: string[]): string[] (+1 overload)
 namespace $state
 ```
@@ -127,10 +136,12 @@ If you return a function from the effect, it will be called right before the eff
 Does not run during server-side rendering.
 
 $effect(() => {
-	`let array: string[]`array.`Array<string>.push(...items: string[]): number`Appends new elements to the end of an array, and returns the new length of the array.
+	`let array: string[]`array.`Array<string>.push(...items: string[]): number`
+Appends new elements to the end of an array, and returns the new length of the array.
 
 push('goodbye');
-});Note that it's fine for an effect to re-run itself as long as it 'settles':
+});
+Note that it's fine for an effect to re-run itself as long as it 'settles':
 
 ```
 function $effect(fn: () => void | (() => void)): void
@@ -151,27 +162,34 @@ Does not run during server-side rendering.
 $effect(() => {
 	// this is okay, because sorting an already-sorted array
 	// won't result in a mutation
-	`let array: string[]`array.`Array<string>.sort(compareFn?: ((a: string, b: string) => number) | undefined): string[]`Sorts an array in place.
+	`let array: string[]`array.`Array<string>.sort(compareFn?: ((a: string, b: string) => number) | undefined): string[]`
+Sorts an array in place.
 This method mutates the array and returns a reference to the same array.
 
 sort();
-});Often when encountering this issue, the value in question shouldn't be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — [which you should avoid]($effect#When-not-to-use-$effect) — you can read the state with [untrack](svelte#untrack) to avoid adding it as a dependency.
+});
+Often when encountering this issue, the value in question shouldn't be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — [which you should avoid]($effect#When-not-to-use-$effect) — you can read the state with [untrack](svelte#untrack) to avoid adding it as a dependency.
 
 ### flush_sync_in_effect
 
-`Cannot use `flushSync` inside an effect`The `flushSync()` function can be used to flush any pending effects synchronously. It cannot be used if effects are currently being flushed — in other words, you can call it after a state change but *not* inside an effect.
+``Cannot use `flushSync` inside an effect``
+The `flushSync()` function can be used to flush any pending effects synchronously. It cannot be used if effects are currently being flushed — in other words, you can call it after a state change but *not* inside an effect.
 
 This restriction only applies when using the `experimental.async` option, which will be active by default in Svelte 6.
 
 ### fork_discarded
 
-`Cannot commit a fork that was already discarded`### fork_timing
+`Cannot commit a fork that was already discarded`
+### fork_timing
 
-`Cannot create a fork inside an effect or when state changes are pending`### get_abort_signal_outside_reaction
+`Cannot create a fork inside an effect or when state changes are pending`
+### get_abort_signal_outside_reaction
 
-``getAbortSignal()` can only be called inside an effect or derived`### hydratable_missing_but_required
+`` `getAbortSignal()` can only be called inside an effect or derived ``
+### hydratable_missing_but_required
 
-`Expected to find a hydratable with key `%key%` during hydration, but did not.`This can happen if you render a hydratable on the client that was not rendered on the server, and means that it was forced to fall back to running its function blockingly during hydration. This is bad for performance, as it blocks hydration until the asynchronous work completes.
+``Expected to find a hydratable with key `%key%` during hydration, but did not.``
+This can happen if you render a hydratable on the client that was not rendered on the server, and means that it was forced to fall back to running its function blockingly during hydration. This is bad for performance, as it blocks hydration until the asynchronous work completes.
 
 ```
 <script>
@@ -184,27 +202,37 @@ This restriction only applies when using the `experimental.async` option, which 
 ```
 ### hydration_failed
 
-`Failed to hydrate the application`### invalid_snippet
+`Failed to hydrate the application`
+### invalid_snippet
 
-`Could not `{@render}` snippet due to the expression being `null` or `undefined`. Consider using optional chaining `{@render snippet?.()}``### lifecycle_legacy_only
+`` Could not `{@render}` snippet due to the expression being `null` or `undefined`. Consider using optional chaining `{@render snippet?.()}` ``
+### lifecycle_legacy_only
 
-``%name%(...)` cannot be used in runes mode`### props_invalid_value
+`` `%name%(...)` cannot be used in runes mode ``
+### props_invalid_value
 
-`Cannot do `bind:%key%={undefined}` when `%key%` has a fallback value`### props_rest_readonly
+``Cannot do `bind:%key%={undefined}` when `%key%` has a fallback value``
+### props_rest_readonly
 
-`Rest element properties of `$props()` such as `%property%` are readonly`### rune_outside_svelte
+``Rest element properties of `$props()` such as `%property%` are readonly``
+### rune_outside_svelte
 
-`The `%rune%` rune is only available inside `.svelte` and `.svelte.js/ts` files`### set_context_after_init
+``The `%rune%` rune is only available inside `.svelte` and `.svelte.js/ts` files``
+### set_context_after_init
 
-``setContext` must be called when a component first initializes, not in a subsequent effect or after an `await` expression`This restriction only applies when using the `experimental.async` option, which will be active by default in Svelte 6.
+`` `setContext` must be called when a component first initializes, not in a subsequent effect or after an `await` expression ``
+This restriction only applies when using the `experimental.async` option, which will be active by default in Svelte 6.
 
 ### state_descriptors_fixed
 
-`Property descriptors defined on `$state` objects must contain `value` and always be `enumerable`, `configurable` and `writable`.`### state_prototype_fixed
+``Property descriptors defined on `$state` objects must contain `value` and always be `enumerable`, `configurable` and `writable`.``
+### state_prototype_fixed
 
-`Cannot set prototype of `$state` object`### state_unsafe_mutation
+``Cannot set prototype of `$state` object``
+### state_unsafe_mutation
 
-`Updating state inside `$derived(...)`, `$inspect(...)` or a template expression is forbidden. If the value should not be reactive, declare it without `$state``This error occurs when state is updated while evaluating a `$derived`. You might encounter it while trying to 'derive' two pieces of state in one go:
+`` Updating state inside `$derived(...)`, `$inspect(...)` or a template expression is forbidden. If the value should not be reactive, declare it without `$state` ``
+This error occurs when state is updated while evaluating a `$derived`. You might encounter it while trying to 'derive' two pieces of state in one go:
 
 ```
 <script>
@@ -221,7 +249,7 @@ This restriction only applies when using the `experimental.async` option, which 
 ```
 This is forbidden because it introduces instability: if `<p>{count} is even: {even}</p>` is updated before `odd` is recalculated, `even` will be stale. In most cases the solution is to make everything derived:
 
-`let ``let even: boolean`even = ```
+`let` `let even: boolean`even = ```
 function $derived<boolean>(expression: boolean): boolean
 namespace $derived
 ```
@@ -246,13 +274,15 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(!`let even: boolean`even);If side-effects are unavoidable, use [ $effect]($effect) instead.
+$derived(!`let even: boolean`even);
+If side-effects are unavoidable, use [`$effect`]($effect) instead.
 
 ### svelte_boundary_reset_onerror
 
-`A `<svelte:boundary>` `reset` function cannot be called while an error is still being handled`If a [ <svelte:boundary>](https://svelte.dev/docs/svelte/svelte-boundary) has an 
+``A `<svelte:boundary>` `reset` function cannot be called while an error is still being handled``
+If a [`<svelte:boundary>`](https://svelte.dev/docs/svelte/svelte-boundary) has an `onerror` function, it must not call the provided `reset` function synchronously since the boundary is still in a broken state. Typically, `reset()` is called later, once the error has been resolved.
 
-`onerror` function, it must not call the provided `reset` function synchronously since the boundary is still in a broken state. Typically, `reset()` is called later, once the error has been resolved.If it's possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using [ tick](https://svelte.dev/docs/svelte/lifecycle-hooks#tick):
+If it's possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using [`tick`](https://svelte.dev/docs/svelte/lifecycle-hooks#tick):
 
 ```
 <svelte:boundary onerror={async (error, reset) => {
@@ -266,21 +296,23 @@ $derived(!`let even: boolean`even);If side-effects are unavoidable, use [ $effec
 
 ### async_local_storage_unavailable
 
-`The node API `AsyncLocalStorage` is not available, but is required to use async server rendering.`Some platforms require configuration flags to enable this API. Consult your platform's documentation.
+``The node API `AsyncLocalStorage` is not available, but is required to use async server rendering.``
+Some platforms require configuration flags to enable this API. Consult your platform's documentation.
 
 ### await_invalid
 
-`Encountered asynchronous work while rendering synchronously.`You (or the framework you're using) called [ render(...)](svelte-server#render) with a component containing an 
+`Encountered asynchronous work while rendering synchronously.`
+You (or the framework you're using) called [`render(...)`](svelte-server#render) with a component containing an `await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a [`<svelte:boundary>`](svelte-boundary) with a `pending` snippet.
 
-`await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a [with a](svelte-boundary)
+### dynamic_element_invalid_tag
 
-`<svelte:boundary>``pending` snippet.### dynamic_element_invalid_tag
-
-``<svelte:element this="%tag%">` is not a valid element name — the element will not be rendered`The value passed to the `this` prop of `<svelte:element>` must be a valid HTML element, SVG element, MathML element, or custom element name. A value containing invalid characters (such as whitespace or special characters) was provided, which could be a security risk. Ensure only valid tag names are passed.
+`` `<svelte:element this="%tag%">` is not a valid element name — the element will not be rendered ``
+The value passed to the `this` prop of `<svelte:element>` must be a valid HTML element, SVG element, MathML element, or custom element name. A value containing invalid characters (such as whitespace or special characters) was provided, which could be a security risk. Ensure only valid tag names are passed.
 
 ### html_deprecated
 
-`The `html` property of server render results has been deprecated. Use `body` instead.`### hydratable_clobbering
+``The `html` property of server render results has been deprecated. Use `body` instead.``
+### hydratable_clobbering
 
 ```
 Attempted to set `hydratable` with key `%key%` twice with different values.
@@ -309,23 +341,29 @@ Cause:
 ```
 ### invalid_csp
 
-``csp.nonce` was set while `csp.hash` was `true`. These options cannot be used simultaneously.`### invalid_id_prefix
+`` `csp.nonce` was set while `csp.hash` was `true`. These options cannot be used simultaneously. ``
+### invalid_id_prefix
 
-`The `idPrefix` option cannot include `--`.`### lifecycle_function_unavailable
+``The `idPrefix` option cannot include `--`.``
+### lifecycle_function_unavailable
 
-``%name%(...)` is not available on the server`Certain methods such as `mount` cannot be invoked while running in a server context. Avoid calling them eagerly, i.e. not during render.
+`` `%name%(...)` is not available on the server ``
+Certain methods such as `mount` cannot be invoked while running in a server context. Avoid calling them eagerly, i.e. not during render.
 
 ### server_context_required
 
-`Could not resolve `render` context.`Certain functions such as `hydratable` cannot be invoked outside of a `render(...)` call, such as at the top level of a module.
+``Could not resolve `render` context.``
+Certain functions such as `hydratable` cannot be invoked outside of a `render(...)` call, such as at the top level of a module.
 
 ## Shared errors
 
 ### experimental_async_required
 
-`Cannot use `%name%(...)` unless the `experimental.async` compiler option is `true``### invalid_default_snippet
+`` Cannot use `%name%(...)` unless the `experimental.async` compiler option is `true` ``
+### invalid_default_snippet
 
-`Cannot use `{@render children(...)}` if the parent component uses `let:` directives. Consider using a named snippet instead`This error would be thrown in a setup like this:
+``Cannot use `{@render children(...)}` if the parent component uses `let:` directives. Consider using a named snippet instead``
+This error would be thrown in a setup like this:
 
 ```
 <List {items} let:entry>
@@ -356,11 +394,14 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 
 ### invalid_snippet_arguments
 
-`A snippet function was passed invalid arguments. Snippets should only be instantiated via `{@render ...}``### invariant_violation
+`` A snippet function was passed invalid arguments. Snippets should only be instantiated via `{@render ...}` ``
+### invariant_violation
 
-`An invariant violation occurred, meaning Svelte's internal assumptions were flawed. This is a bug in Svelte, not your app — please open an issue at https://github.com/sveltejs/svelte, citing the following message: "%message%"`### lifecycle_outside_component
+`An invariant violation occurred, meaning Svelte's internal assumptions were flawed. This is a bug in Svelte, not your app — please open an issue at https://github.com/sveltejs/svelte, citing the following message: "%message%"`
+### lifecycle_outside_component
 
-``%name%(...)` can only be used during component initialisation`Certain lifecycle methods can only be used during component initialisation. To fix this, make sure you're invoking the method inside the *top level of the instance script* of your component.
+`` `%name%(...)` can only be used during component initialisation ``
+Certain lifecycle methods can only be used during component initialisation. To fix this, make sure you're invoking the method inside the *top level of the instance script* of your component.
 
 ```
 <script>
@@ -376,11 +417,13 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 ```
 ### missing_context
 
-`Context was not set in a parent component`The [ createContext()](svelte#createContext) utility returns a 
+`Context was not set in a parent component`
+The [`createContext()`](svelte#createContext) utility returns a `[get, set]` pair of functions. `get` will throw an error if `set` was not used to set the context in a parent component.
 
-`[get, set]` pair of functions. `get` will throw an error if `set` was not used to set the context in a parent component.### snippet_without_render_tag
+### snippet_without_render_tag
 
-`Attempted to render a snippet without a `{@render}` block. This would cause the snippet code to be stringified instead of its content being rendered to the DOM. To fix this, change `{snippet}` to `{@render snippet()}`.`A component throwing this error will look something like this (`children` is not being rendered):
+``Attempted to render a snippet without a `{@render}` block. This would cause the snippet code to be stringified instead of its content being rendered to the DOM. To fix this, change `{snippet}` to `{@render snippet()}`.``
+A component throwing this error will look something like this (`children` is not being rendered):
 
 ```
 <script>
@@ -413,9 +456,11 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 ```
 ### store_invalid_shape
 
-``%name%` is not a store with a `subscribe` method`### svelte_element_invalid_this_value
+`` `%name%` is not a store with a `subscribe` method ``
+### svelte_element_invalid_this_value
 
-`The `this` prop on `<svelte:element>` must be a string, if defined`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-runtime-errors.md) [ llms.txt](/docs/svelte/runtime-errors/llms.txt)
+``The `this` prop on `<svelte:element>` must be a string, if defined``
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/30-runtime-errors.md)  [llms.txt](/docs/svelte/runtime-errors/llms.txt)
 
 # Citations
 

@@ -3,12 +3,13 @@ type: Web Page
 title: '{#if ...} • Svelte Docs'
 description: '{#if ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/if
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {#if ...}
 
-`{#if expression}...{/if}``{#if expression}...{:else if expression}...{/if}``{#if expression}...{:else}...{/if}`Content that is conditionally rendered can be wrapped in an if block.
+`{#if expression}...{/if}``{#if expression}...{:else if expression}...{/if}``{#if expression}...{:else}...{/if}`
+Content that is conditionally rendered can be wrapped in an if block.
 
 ```
 {#if answer === 42}
@@ -28,7 +29,7 @@ Additional conditions can be added with `{:else if expression}`, optionally endi
 ```
 (Blocks don't have to wrap elements, they can also wrap text within elements.)
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/02-if.md) [ llms.txt](/docs/svelte/if/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/02-if.md)  [llms.txt](/docs/svelte/if/llms.txt)
 
 previous next
 

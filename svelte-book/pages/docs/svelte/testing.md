@@ -3,7 +3,7 @@ type: Web Page
 title: Testing • Svelte Docs
 description: Testing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/testing
-timestamp: '2026-07-20T08:31:47.948207+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Testing
@@ -16,14 +16,16 @@ Unit tests allow you to test small isolated parts of your code. Integration test
 
 To setup Vitest manually, first install it:
 
-`npm install -D vitest`Then adjust your `vite.config.js`:
+`npm install -D vitest`
+Then adjust your `vite.config.js`:
 
-`import { ``function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig } from 'vitest/config';
+`import {` `function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig } from 'vitest/config';
 export default `function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig({
 	// ...
 	// Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node
-	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`The `process.env` property returns an object containing the user environment.
-See `environ(7)`
+	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`
+The `process.env` property returns an object containing the user environment.
+See [`environ(7)`](http://man7.org/linux/man-pages/man7/environ.7.html).
 
 An example of this object looks like:
 
@@ -103,9 +105,8 @@ env.`string | undefined`VITEST
 				`EnvironmentResolveOptions.conditions?: string[] | undefined`conditions: ['browser']
 			}
 		: `var undefined`undefined
-});If loading the browser version of all your packages is undesirable, because (for example) you also test backend libraries,
-
-[you may need to resort to an alias configuration](https://github.com/testing-library/svelte-testing-library/issues/222#issuecomment-1909993331)
+});
+ If loading the browser version of all your packages is undesirable, because (for example) you also test backend libraries, [you may need to resort to an alias configuration](https://github.com/testing-library/svelte-testing-library/issues/222#issuecomment-1909993331)
 
 You can now write unit tests for code inside your `.js/.ts` files:
 
@@ -156,7 +157,7 @@ $state(`initial: number`initial);
 			`let count: number`count = `c: number`c;
 		}
 	};
-}`export function ````
+}`export function` ```
 function multiplier(initial: number, k: number): {
     readonly value: number;
     set: (c: number) => void;
@@ -184,7 +185,8 @@ $state(`initial: number`initial);
 			`let count: number`count = `c: number`c;
 		}
 	};
-}### Using runes inside your test files
+}
+### Using runes inside your test files
 
 Since Vitest processes your test files the same way as your source files, you can use runes inside your tests as long as the filename includes `.svelte`:
 
@@ -219,7 +221,7 @@ function multiplier(getCount: () => number, k: number): {
 			return `getCount: () => number`getCount() * `k: number`k;
 		}
 	};
-}`export function ````
+}`export function` ```
 function multiplier(getCount: () => number, k: number): {
     readonly value: number;
 }
@@ -231,7 +233,8 @@ function multiplier(getCount: () => number, k: number): {
 			return `getCount: () => number`getCount() * `k: number`k;
 		}
 	};
-}If the code being tested uses effects, you need to wrap the test inside `$effect.root`:
+}
+If the code being tested uses effects, you need to wrap the test inside `$effect.root`:
 
 ```
 import { flushSync } from 'svelte';
@@ -262,7 +265,8 @@ export function
 `function logger(getValue: () => any): any[]`logger(`getValue: () => any`getValue) {
 	/** @type {any[]} */
 	let `let log: any[]`log = [];
-	```
+	
+```
 function $effect(fn: () => void | (() => void)): void
 namespace $effect
 ```
@@ -279,14 +283,16 @@ If you return a function from the effect, it will be called right before the eff
 Does not run during server-side rendering.
 
 $effect(() => {
-		`let log: any[]`log.`Array<any>.push(...items: any[]): number`Appends new elements to the end of an array, and returns the new length of the array.
+		`let log: any[]`log.`Array<any>.push(...items: any[]): number`
+Appends new elements to the end of an array, and returns the new length of the array.
 
 push(`getValue: () => any`getValue());
 	});
 	return `let log: any[]`log;
-}`export function ``function logger(getValue: () => any): any[]`logger(`getValue: () => any`getValue: () => any) {
+}`export function` `function logger(getValue: () => any): any[]`logger(`getValue: () => any`getValue: () => any) {
 	let `let log: any[]`log: any[] = [];
-	```
+	
+```
 function $effect(fn: () => void | (() => void)): void
 namespace $effect
 ```
@@ -303,37 +309,41 @@ If you return a function from the effect, it will be called right before the eff
 Does not run during server-side rendering.
 
 $effect(() => {
-		`let log: any[]`log.`Array<any>.push(...items: any[]): number`Appends new elements to the end of an array, and returns the new length of the array.
+		`let log: any[]`log.`Array<any>.push(...items: any[]): number`
+Appends new elements to the end of an array, and returns the new length of the array.
 
 push(`getValue: () => any`getValue());
 	});
 	return `let log: any[]`log;
-}### Component testing
+}
+### Component testing
 
 It is possible to test your components in isolation, which allows you to render them in a browser (real or simulated), simulate behavior, and make assertions, without spinning up your whole app.
 
-Before writing component tests, think about whether you actually need to test the component, or if it's more about the logic
-
-insidethe component. If so, consider extracting out that logic to test it in isolation, without the overhead of a component.
+ Before writing component tests, think about whether you actually need to test the component, or if it's more about the logic *inside* the component. If so, consider extracting out that logic to test it in isolation, without the overhead of a component.
 
 To get started, install jsdom (a library that shims DOM APIs):
 
-`npm install -D jsdom`Then adjust your `vite.config.js`:
+`npm install -D jsdom`
+Then adjust your `vite.config.js`:
 
-`import { ``function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig } from 'vitest/config';
+`import {` `function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig } from 'vitest/config';
 export default `function defineConfig(config: UserConfig): UserConfig (+4 overloads)`defineConfig({
-	`UserConfig.plugins?: PluginOption[] | undefined`Array of vite plugins to use.
+	`UserConfig.plugins?: PluginOption[] | undefined`
+Array of vite plugins to use.
 
 plugins: [
 		/* ... */
 	],
-	`UserConfig.test?: InlineConfig | undefined`Options for Vitest
+	`UserConfig.test?: InlineConfig | undefined`
+Options for Vitest
 
 test: {
 		// If you are testing components client-side, you need to set up a DOM environment.
 		// If not all your files should have this environment, you can use a
 		// `// @vitest-environment jsdom` comment at the top of the test files instead.
-		`InlineConfig.environment?: VitestEnvironment | undefined`Running environment
+		`InlineConfig.environment?: VitestEnvironment | undefined`
+Running environment
 
 Supports 'node', 'jsdom', 'happy-dom', 'edge-runtime'
 
@@ -342,8 +352,9 @@ If used unsupported string, will try to load the package `vitest-environment-${e
 environment: 'jsdom'
 	},
 	// Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node
-	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`The `process.env` property returns an object containing the user environment.
-See `environ(7)`
+	`resolve?: AllResolveOptions | undefined`resolve: `var process: NodeJS.Process`process.`NodeJS.Process.env: NodeJS.ProcessEnv`
+The `process.env` property returns an object containing the user environment.
+See [`environ(7)`](http://man7.org/linux/man-pages/man7/environ.7.html).
 
 An example of this object looks like:
 
@@ -423,12 +434,15 @@ env.`string | undefined`VITEST
 				`EnvironmentResolveOptions.conditions?: string[] | undefined`conditions: ['browser']
 			}
 		: `var undefined`undefined
-});After that, you can create a test file in which you import the component to test, interact with it programmatically and write expectations about the results:
+});
+After that, you can create a test file in which you import the component to test, interact with it programmatically and write expectations about the results:
 
-`import { ``function flushSync<T = void>(fn?: (() => T) | undefined): T`Synchronously flush any pending updates.
+`import {` `function flushSync<T = void>(fn?: (() => T) | undefined): T`
+Synchronously flush any pending updates.
 Returns void if no callback is provided, otherwise returns the result of calling the callback.
 
-flushSync, `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+flushSync, `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount, ```
@@ -452,7 +466,8 @@ unmount(app, { outro: true });
 ```
 
 unmount } from 'svelte';
-import { `const expect: ExpectStatic`expect, `const test: TestAPI`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+import { `const expect: ExpectStatic`expect, `const test: TestAPI`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test } from 'vitest';
 import ```
@@ -460,7 +475,8 @@ type Component = SvelteComponent<Record<string, any>, any, any>
 const Component: LegacyComponentType
 ```
 
-`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test('Component', () => {
 	// Instantiate the component using Svelte's `mount` API
@@ -488,53 +504,71 @@ Mounts a component to the given target and returns the exports and potentially t
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount(`const Component: LegacyComponentType`Component, {
-		`target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+		`target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-target: `var document: Document``window.document`
+target: `var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
  or body, // `document` exists because of jsdom
-		`props?: Record<string, any> | undefined`Component properties.
+		`props?: Record<string, any> | undefined`
+Component properties.
 
 props: { `initial: number`initial: 0 }
 	});
-	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
+	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
- or body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`
+The **`innerHTML`** property of the Element interface gets or sets the HTML or XML markup contained within the element, omitting any shadow roots in both cases.
 
-innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
+innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
+Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.
 
 toBe('<button>0</button>');
 	// Click the button, then flush the changes so you can synchronously write expectations
-	`var document: Document``window.document`
+	`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
- or body.`ParentNode.querySelector<"button">(selectors: "button"): HTMLButtonElement | null (+4 overloads)`Returns the first element that is a descendant of node that matches selectors.
+ or body.`ParentNode.querySelector<"button">(selectors: "button"): HTMLButtonElement | null (+4 overloads)`
+Returns the first element that is a descendant of node that matches selectors.
 
-querySelector('button')?.`HTMLElement.click(): void`The `HTMLElement.click()`
+querySelector('button')?.`HTMLElement.click(): void`
+The **`HTMLElement.click()`** method simulates a mouse click on an element. When called on an element, the element's click event is fired (unless its disabled attribute is set).
 
 click();
-	`flushSync<void>(fn?: (() => void) | undefined): void`Synchronously flush any pending updates.
+	`flushSync<void>(fn?: (() => void) | undefined): void`
+Synchronously flush any pending updates.
 Returns void if no callback is provided, otherwise returns the result of calling the callback.
 
 flushSync();
-	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
+	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
- or body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`
+The **`innerHTML`** property of the Element interface gets or sets the HTML or XML markup contained within the element, omitting any shadow roots in both cases.
 
-innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
+innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
+Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.
 
 toBe('<button>1</button>');
 	// Remove the component from the DOM
-	```
+	
+```
 function unmount(component: Record<string, any>, options?: {
     outro?: boolean;
 } | undefined): Promise<void>
@@ -554,7 +588,8 @@ const app = mount(App, { target: document.body });
 unmount(app, { outro: true });
 ```
 
-unmount(```
+unmount(
+```
 const component: {
     $on?(type: string, callback: (e: any) => void): () => void;
     $set?(props: Partial<Record<string, any>>): void;
@@ -563,7 +598,8 @@ const component: {
 
 While the process is very straightforward, it is also low level and somewhat brittle, as the precise structure of your component may change frequently. Tools like [@testing-library/svelte](https://testing-library.com/docs/svelte-testing-library/intro/) can help streamline your tests. The above test could be rewritten like this:
 
-`import { ``function render<C extends Component<any, any, string> | SvelteComponent<any, any, any>, Q extends Queries = typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<C>, options?: ComponentOptions<C>, renderOptions?: RenderOptions<Q>): RenderResult<C, Q>`Render a component into the document.
+`import {` `function render<C extends Component<any, any, string> | SvelteComponent<any, any, any>, Q extends Queries = typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<C>, options?: ComponentOptions<C>, renderOptions?: RenderOptions<Q>): RenderResult<C, Q>`
+Render a component into the document.
 
 render, `const screen: Screen<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen } from '@testing-library/svelte';
 import ```
@@ -582,7 +618,8 @@ const userEvent: {
 }
 ```
 
-`const expect: ExpectStatic`expect, `const test: TestAPI`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+`const expect: ExpectStatic`expect, `const test: TestAPI`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test } from 'vitest';
 import ```
@@ -590,7 +627,8 @@ type Component = SvelteComponent<Record<string, any>, any, any>
 const Component: LegacyComponentType
 ```
 
-`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test('Component', async () => {
 	const `const user: UserEvent`user = ```
@@ -609,18 +647,21 @@ const userEvent: {
 }
 ```
 
-`setup: (options?: Options) => UserEvent`Start a "session" with userEvent.
+`setup: (options?: Options) => UserEvent`
+Start a "session" with userEvent.
 All APIs returned by this function share an input device state and a default configuration.
 
 setup();
-	`render<SvelteComponent<Record<string, any>, any, any>, typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<SvelteComponent<Record<string, any>, any, any>>, options?: ComponentOptions<SvelteComponent<Record<string, any>, any, any>> | undefined, renderOptions?: RenderOptions<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")> | undefined): RenderResult<...>`Render a component into the document.
+	`render<SvelteComponent<Record<string, any>, any, any>, typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>(Component: ComponentImport<SvelteComponent<Record<string, any>, any, any>>, options?: ComponentOptions<SvelteComponent<Record<string, any>, any, any>> | undefined, renderOptions?: RenderOptions<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")> | undefined): RenderResult<...>`
+Render a component into the document.
 
 render(`const Component: LegacyComponentType`Component);
 	const `const button: HTMLElement`button = `const screen: Screen<typeof import(".pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/types/queries")>`screen.`getByRole<HTMLElement>(role: ByRoleMatcher, options?: ByRoleOptions | undefined): HTMLElement (+1 overload)`getByRole('button');
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(0);
 	await `const user: UserEvent`user.`click: (element: Element) => Promise<void>`click(`const button: HTMLElement`button);
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(1);
-});When writing component tests that involve two-way bindings, context or snippet props, it's best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some [examples](https://testing-library.com/docs/svelte-testing-library/example).
+});
+When writing component tests that involve two-way bindings, context or snippet props, it's best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some [examples](https://testing-library.com/docs/svelte-testing-library/example).
 
 ## Component tests with Storybook
 
@@ -661,13 +702,11 @@ You can create stories for component variations and test interactions with the [
 
 E2E (short for 'end to end') tests allow you to test your full application through the eyes of the user. This section uses [Playwright](https://playwright.dev/) as an example, but you can also use other solutions like [Cypress](https://www.cypress.io/) or [NightwatchJS](https://nightwatchjs.org/).
 
-You can use the Svelte CLI to [setup Playwright](/docs/cli/playwright) either during project creation or later on. You can also [set it up with  npm init playwright](https://playwright.dev/docs/intro). Additionally, you may also want to install an IDE plugin such as 
-
-[the VS Code extension](https://playwright.dev/docs/getting-started-vscode)to be able to execute tests from inside your IDE.
+You can use the Svelte CLI to [setup Playwright](/docs/cli/playwright) either during project creation or later on. You can also [set it up with `npm init playwright`](https://playwright.dev/docs/intro). Additionally, you may also want to install an IDE plugin such as [the VS Code extension](https://playwright.dev/docs/getting-started-vscode) to be able to execute tests from inside your IDE.
 
 If you've run `npm init playwright` or are not using Vite, you may need to adjust the Playwright config to tell Playwright what to do before running the tests — mainly starting your application at a certain port. For example:
 
-`const ````
+`const` ```
 const config: {
     webServer: {
         command: string;
@@ -704,11 +743,12 @@ const config: {
 
 You can now start writing tests. These are totally unaware of Svelte as a framework, so you mainly interact with the DOM and write assertions.
 
-`import { ``import expect`expect, `import test`test } from '@playwright/test';
+`import {` `import expect`expect, `import test`test } from '@playwright/test';
 `import test`test('home page has expected h1', async ({ page }) => {
 	await `page: any`page.goto('/');
 	await `import expect`expect(`page: any`page.locator('h1')).toBeVisible();
-});[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/02-testing.md) [ llms.txt](/docs/svelte/testing/llms.txt)
+});
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/02-testing.md)  [llms.txt](/docs/svelte/testing/llms.txt)
 
 # Citations
 

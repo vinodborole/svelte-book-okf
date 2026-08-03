@@ -3,7 +3,7 @@ type: Web Page
 title: class • Svelte Docs
 description: class • Svelte documentation
 resource: https://svelte.dev/docs/svelte/class
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # class
@@ -14,9 +14,8 @@ There are two ways to set classes on elements: the `class` attribute, and the `c
 
 Primitive values are treated like any other attribute:
 
-`<div class={large ? 'large' : 'small'}>...</div>`For historical reasons, falsy values (like
-
-`false`and`NaN`) are stringified (`class="false"`), though`class={undefined}`(or`null`) cause the attribute to be omitted altogether. In a future version of Svelte, all falsy values will cause`class`to be omitted.
+`<div class={large ? 'large' : 'small'}>...</div>`
+For historical reasons, falsy values (like `false` and `NaN`) are stringified (`class="false"`), though `class={undefined}` (or `null`) cause the attribute to be omitted altogether. In a future version of Svelte, all falsy values will cause `class` to be omitted.
 
 ### Objects and arrays
 
@@ -105,9 +104,8 @@ Prior to Svelte 5.16, the `class:` directive was the most convenient way to set 
 ```
 As with other directives, we can use a shorthand when the name of the class coincides with the value:
 
-`<div class:cool class:lame={!cool}>...</div>`Unless you're using an older version of Svelte, consider avoiding
-
-`class:`, since the attribute is more powerful and composable.
+`<div class:cool class:lame={!cool}>...</div>`
+ Unless you're using an older version of Svelte, consider avoiding `class:`, since the attribute is more powerful and composable.
 
 # Citations
 

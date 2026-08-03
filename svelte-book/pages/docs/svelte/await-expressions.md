@@ -3,7 +3,7 @@ type: Web Page
 title: await • Svelte Docs
 description: await • Svelte documentation
 resource: https://svelte.dev/docs/svelte/await-expressions
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # await
@@ -11,7 +11,7 @@ timestamp: '2026-07-09T12:17:00.027378+00:00'
 As of Svelte 5.36, you can use the `await` keyword inside your components in three places where it was previously unavailable:
 
 - at the top level of your component's `<script>`
-- inside `$derived(...)`declarations
+- inside `$derived(...)` declarations
 - inside your markup
 
 This feature is currently experimental, and you must opt in by adding the `experimental.async` option wherever you [configure](/docs/kit/configuration) Svelte, usually `svelte.config.js`:
@@ -37,7 +37,8 @@ experimental: {
 `async: boolean`async: true
 		}
 	}
-};The experimental flag will be removed in Svelte 6.
+};
+The experimental flag will be removed in Svelte 6.
 
 ## Synchronized updates
 
@@ -71,7 +72,8 @@ When an `await` expression depends on a particular piece of state, changes to th
 ```
 ...if you increment `a`, the contents of the `<p>` will *not* immediately update to read this —
 
-`<p>2 + 2 = 3</p>`— instead, the text will update to `2 + 2 = 4` when `add(a, b)` resolves.
+`<p>2 + 2 = 3</p>`
+— instead, the text will update to `2 + 2 = 4` when `add(a, b)` resolves.
 
 Updates can overlap — a fast update will be reflected in the UI while an earlier slow update is still ongoing.
 
@@ -118,21 +120,22 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(await `function two(y: number): Promise<number>`two(`let y: number`y));If you write code like this, expect Svelte to give you an
-
-[warning](runtime-warnings#Client-warnings-await_waterfall)`await_waterfall`
+$derived(await `function two(y: number): Promise<number>`two(`let y: number`y));
+ If you write code like this, expect Svelte to give you an [`await_waterfall`](runtime-warnings#Client-warnings-await_waterfall) warning
 
 ## Indicating loading states
 
-To render placeholder UI, you can wrap content in a `<svelte:boundary>` with a [ pending](svelte-boundary#Properties-pending) snippet. This will be shown when the boundary is first created, but not for subsequent updates, which are globally coordinated.
+To render placeholder UI, you can wrap content in a `<svelte:boundary>` with a [`pending`](svelte-boundary#Properties-pending) snippet. This will be shown when the boundary is first created, but not for subsequent updates, which are globally coordinated.
 
-After the contents of a boundary have resolved for the first time and have replaced the `pending` snippet, you can detect subsequent async work with [ $effect.pending()]($effect#$effect.pending). This is what you would use to display a "we're asynchronously validating your input" spinner next to a form field, for example.
+After the contents of a boundary have resolved for the first time and have replaced the `pending` snippet, you can detect subsequent async work with [`$effect.pending()`]($effect#$effect.pending). This is what you would use to display a "we're asynchronously validating your input" spinner next to a form field, for example.
 
-You can also use [ settled()](svelte#settled) to get a promise that resolves when the current update is complete:
+You can also use [`settled()`](svelte#settled) to get a promise that resolves when the current update is complete:
 
-`import { ``function tick(): Promise<void>`Returns a promise that resolves once any pending state changes have been applied.
+`import {` `function tick(): Promise<void>`
+Returns a promise that resolves once any pending state changes have been applied.
 
-tick, `function settled(): Promise<void>`Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
+tick, `function settled(): Promise<void>`
+Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
 have resolved and the DOM has been updated
 
 settled } from 'svelte';
@@ -141,19 +144,22 @@ async function `function onclick(): Promise<void>`onclick() {
 	// without this, the change to `updating` will be
 	// grouped with the other changes, meaning it
 	// won't be reflected in the UI
-	await `function tick(): Promise<void>`Returns a promise that resolves once any pending state changes have been applied.
+	await `function tick(): Promise<void>`
+Returns a promise that resolves once any pending state changes have been applied.
 
 tick();
 	`let color: string`color = 'octarine';
 	`let answer: number`answer = 42;
-	await `function settled(): Promise<void>`Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
+	await `function settled(): Promise<void>`
+Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
 have resolved and the DOM has been updated
 
 settled();
 	// any updates affected by `color` or `answer`
 	// have now been applied
 	`let updating: boolean`updating = false;
-}## Error handling
+}
+## Error handling
 
 Errors in `await` expressions will bubble to the nearest [error boundary](svelte-boundary).
 
@@ -161,7 +167,7 @@ Errors in `await` expressions will bubble to the nearest [error boundary](svelte
 
 Svelte supports asynchronous server-side rendering (SSR) with the `render(...)` API. To use it, simply await the return value:
 
-`import { ````
+`import {` ```
 function render<Comp extends SvelteComponent<any> | Component<any>, Props extends ComponentProps<Comp> = ComponentProps<Comp>>(...args: {} extends Props ? [component: Comp extends SvelteComponent<any> ? ComponentType<Comp> : Comp, options?: {
     props?: Omit<Props, "$$slots" | "$$events">;
     context?: Map<any, any>;
@@ -186,9 +192,11 @@ type App = SvelteComponent<Record<string, any>, any, any>
 const App: LegacyComponentType
 ```
 
-`const head: string`HTML that goes into the `<head>`
+`const head: string`
+HTML that goes into the `<head>`
 
-head, `const body: string`HTML that goes somewhere into the `<body>`
+head, `const body: string`
+HTML that goes somewhere into the `<body>`
 
 body } = await ```
 render<SvelteComponent<Record<string, any>, any, any>, Record<string, any>>(component: ComponentType<SvelteComponent<Record<string, any>, any, any>>, options?: {
@@ -203,7 +211,8 @@ render<SvelteComponent<Record<string, any>, any, any>, Record<string, any>>(comp
 Only available on the server and when compiling with the `server` option.
 Takes a component and returns an object with `body` and `head` properties on it, which you can use to populate the HTML when server-rendering your app.
 
-render(`const App: LegacyComponentType`App);If you're using a framework like SvelteKit, this is done on your behalf.
+render(`const App: LegacyComponentType`App);
+If you're using a framework like SvelteKit, this is done on your behalf.
 
 If a `<svelte:boundary>` with a `pending` snippet is encountered during SSR, that snippet will be rendered while the rest of the content is ignored. All `await` expressions encountered outside boundaries with `pending` snippets will resolve and render their contents prior to `await render(...)` returning.
 
@@ -211,9 +220,7 @@ In the future, we plan to add a streaming implementation that renders the conten
 
 ## Forking
 
-The [ fork(...)](svelte#fork) API, added in 5.42, makes it possible to run 
-
-`await` expressions that you *expect*to happen in the near future. This is mainly intended for frameworks like SvelteKit to implement preloading when (for example) users signal an intent to navigate.
+The [`fork(...)`](svelte#fork) API, added in 5.42, makes it possible to run `await` expressions that you *expect* to happen in the near future. This is mainly intended for frameworks like SvelteKit to implement preloading when (for example) users signal an intent to navigate.
 
 ```
 <script>
@@ -259,7 +266,7 @@ As an experimental feature, the details of how `await` is handled (and related A
 
 Effects run in a slightly different order when the `experimental.async` option is `true`. Specifically, *block* effects like `{#if ...}` and `{#each ...}` now run before an `$effect.pre` or `beforeUpdate` in the same component, which means that in [very rare situations](/playground/untitled?#H4sIAAAAAAAAE22R3VLDIBCFX2WLvUhnTHsf0zre-Q7WmfwtFV2BgU1rJ5N3F0jaOuoVcPbw7VkYhK4_URTiGYkMnIyjDjLsFGO3EvdCKkIvipdB8NlGXxSCPt96snbtj0gctab2-J_eGs2oOWBE6VunLO_2es-EDKZ5x5ZhC0vPNWM2gHXGouNzAex6hHH1cPHil_Lsb95YT9VQX6KUAbS2DrNsBdsdDFHe8_XSYjH1SrhELTe3MLpsemajweiWVPuxHSbKNd-8eQTdE0EBf4OOaSg2hwNhhE_ABB_ulJzjj9FULvIcqgm5vnAqUB7wWFMfhuugQWkcAr8hVD-mq8D12kOep24J_IszToOXdveGDsuNnZwbJUNlXsKnhJdhUcTo42s41YpOSneikDV5HL8BktM6yRcCAAA=) it is possible to update a block that should no longer exist, but only if you update state inside an effect, [which you should avoid]($effect#When-not-to-use-$effect).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/19-await-expressions.md) [ llms.txt](/docs/svelte/await-expressions/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/19-await-expressions.md)  [llms.txt](/docs/svelte/await-expressions/llms.txt)
 
 # Citations
 

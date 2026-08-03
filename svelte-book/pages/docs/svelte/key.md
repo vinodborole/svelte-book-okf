@@ -3,12 +3,13 @@ type: Web Page
 title: '{#key ...} • Svelte Docs'
 description: '{#key ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/key
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {#key ...}
 
-`{#key expression}...{/key}`Key blocks destroy and recreate their contents when the value of an expression changes. When used around components, this will cause them to be reinstantiated and reinitialised:
+`{#key expression}...{/key}`
+Key blocks destroy and recreate their contents when the value of an expression changes. When used around components, this will cause them to be reinstantiated and reinitialised:
 
 ```
 {#key value}
@@ -22,7 +23,7 @@ It's also useful if you want a transition to play whenever a value changes:
 	<div transition:fade>{value}</div>
 {/key}
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/04-key.md) [ llms.txt](/docs/svelte/key/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/04-key.md)  [llms.txt](/docs/svelte/key/llms.txt)
 
 previous next
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Context • Svelte Docs
 description: Context • Svelte documentation
 resource: https://svelte.dev/docs/svelte/context
-timestamp: '2026-07-20T08:31:47.948207+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Context
@@ -60,7 +60,8 @@ By creating a `[get, set]` pair of functions with `createContext`, you can set t
 </script>
 <h1>hello {user.name}, inside Child.svelte</h1>
 ```
-`import { ``function createContext<T>(): [() => T, (context: T) => T]`Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+`import {` `function createContext<T>(): [() => T, (context: T) => T]`
+Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
 `get` will throw an error if no parent component called `set`.
 
@@ -68,13 +69,13 @@ createContext } from 'svelte';
 interface User {
 	`User.name: string`name: string;
 }
-export const [`const getUserContext: () => User`getUserContext, `const setUserContext: (context: User) => User`setUserContext] = `createContext<User>(): [() => User, (context: User) => User]`Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+export const [`const getUserContext: () => User`getUserContext, `const setUserContext: (context: User) => User`setUserContext] = `createContext<User>(): [() => User, (context: User) => User]`
+Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
 `get` will throw an error if no parent component called `set`.
 
 createContext<User>();
-
-`createContext`was added in version 5.40. If you are using an earlier version of Svelte, you must use`setContext`and`getContext`instead.
+ `createContext` was added in version 5.40. If you are using an earlier version of Svelte, you must use `setContext` and `getContext` instead.
 
 This is particularly useful when `Parent.svelte` is not directly aware of `Child.svelte`, but instead renders it as part of a `children` [snippet](snippet) as shown above.
 
@@ -112,17 +113,11 @@ As an alternative to `createContext`, you can use `setContext` and `getContext` 
 ```
 The key (`'my-context'`, in the example above) and the context itself can be any JavaScript value.
 
-`createContext`is preferred since it provides better type safety and makes it unnecessary to use keys.
+ `createContext` is preferred since it provides better type safety and makes it unnecessary to use keys.
 
-In addition to [ setContext](svelte#setContext) and 
+In addition to [`setContext`](svelte#setContext) and [`getContext`](svelte#getContext), Svelte exposes [`hasContext`](svelte#hasContext) and [`getAllContexts`](svelte#getAllContexts) functions.
 
-[, Svelte exposes](svelte#getContext)
-
-`getContext`[and](svelte#hasContext)
-
-`hasContext`[functions.](svelte#getAllContexts)
-
-`getAllContexts`## Using context with state
+## Using context with state
 
 You can store reactive state in context...
 
@@ -178,7 +173,8 @@ You can store reactive state in context...
 </script>
 <p>{counter.count}</p>
 ```
-`import { ``function createContext<T>(): [() => T, (context: T) => T]`Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+`import {` `function createContext<T>(): [() => T, (context: T) => T]`
+Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
 `get` will throw an error if no parent component called `set`.
 
@@ -186,11 +182,13 @@ createContext } from 'svelte';
 interface Counter {
 	`Counter.count: number`count: number;
 }
-export const [`const getCounter: () => Counter`getCounter, `const setCounter: (context: Counter) => Counter`setCounter] = `createContext<Counter>(): [() => Counter, (context: Counter) => Counter]`Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+export const [`const getCounter: () => Counter`getCounter, `const setCounter: (context: Counter) => Counter`setCounter] = `createContext<Counter>(): [() => Counter, (context: Counter) => Counter]`
+Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
 `get` will throw an error if no parent component called `set`.
 
-createContext<Counter>();...though note that if you *reassign* `counter` instead of updating it, you will 'break the link' — in other words instead of this...
+createContext<Counter>();
+...though note that if you *reassign* `counter` instead of updating it, you will 'break the link' — in other words instead of this...
 
 ```
 <button onclick={() => counter = { count: 0 } }>
@@ -212,7 +210,8 @@ Similarly, to pass primitive values through context, use functions as described 
 
 When writing [component tests](testing#Unit-and-component-tests-with-Vitest-Component-testing), it can be useful to create a wrapper component that sets the context in order to check the behaviour of a component that uses it. As of version 5.49, you can do this sort of thing:
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount, ```
@@ -236,7 +235,8 @@ unmount(app, { outro: true });
 ```
 
 unmount } from 'svelte';
-import { `const expect: ExpectStatic`expect, `const test: TestAPI`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+import { `const expect: ExpectStatic`expect, `const test: TestAPI`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test } from 'vitest';
 import { `import setUserContext`setUserContext } from './context';
@@ -245,7 +245,8 @@ type MyComponent = SvelteComponent<Record<string, any>, any, any>
 const MyComponent: LegacyComponentType
 ```
 
-`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`Defines a test case with a given name and test function. The test function can optionally be configured with test options.
+`test<object>(name: string | Function, fn?: TestFunction<object> | undefined, options?: number): void (+1 overload)`
+Defines a test case with a given name and test function. The test function can optionally be configured with test options.
 
 test('MyComponent', () => {
 	function ```
@@ -282,32 +283,41 @@ mount<Record<string, any>, {
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-mount(```
+mount(
+```
 function (local function) Wrapper(...args: any[]): {
     $on?(type: string, callback: (e: any) => void): () => void;
     $set?(props: Partial<Record<string, any>>): void;
 } & Record<string, any>
 ```
 
-`target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-target: `var document: Document``window.document`
+target: `var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
  or body
 	});
-	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document``window.document`
+	`expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)`expect(`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
- or body.`Element.innerHTML: string`The `innerHTML`
+ or body.`Element.innerHTML: string`
+The **`innerHTML`** property of the Element interface gets or sets the HTML or XML markup contained within the element, omitting any shadow roots in both cases.
 
-innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`Checks that a value is what you expect. It calls `Object.is` to compare values.
+innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
+Checks that a value is what you expect. It calls `Object.is` to compare values.
 Don't use `toBe` with floating-point numbers.
 
 toBe('<h1>Hello Bob!</h1>');
-	```
+	
+```
 function unmount(component: Record<string, any>, options?: {
     outro?: boolean;
 } | undefined): Promise<void>
@@ -327,22 +337,21 @@ const app = mount(App, { target: document.body });
 unmount(app, { outro: true });
 ```
 
-unmount(```
+unmount(
+```
 const component: {
     $on?(type: string, callback: (e: any) => void): () => void;
     $set?(props: Partial<Record<string, any>>): void;
 } & Record<string, any>
 ```
 
-This approach also works with [ hydrate](imperative-component-api#hydrate) and 
+This approach also works with [`hydrate`](imperative-component-api#hydrate) and [`render`](imperative-component-api#render).
 
-[.](imperative-component-api#render)
-
-`render`## Replacing global state
+## Replacing global state
 
 When you have state shared by many different components, you might be tempted to put it in its own module and just import it wherever it's needed:
 
-`export const ````
+`export const` ```
 const myGlobalState: {
     user: {};
 }
@@ -370,7 +379,8 @@ $state({
 		// ...
 	}
 	// ...
-});In many cases this is perfectly fine, but there is a risk: if you mutate the state during server-side rendering (which is discouraged, but entirely possible!)...
+});
+In many cases this is perfectly fine, but there is a risk: if you mutate the state during server-side rendering (which is discouraged, but entirely possible!)...
 
 ```
 <script>
@@ -392,7 +402,7 @@ $state({
 ```
 ...then the data may be accessible by the *next* user. Context solves this problem because it is not shared between requests.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/02-context.md) [ llms.txt](/docs/svelte/context/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/02-context.md)  [llms.txt](/docs/svelte/context/llms.txt)
 
 # Citations
 

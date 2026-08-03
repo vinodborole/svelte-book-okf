@@ -3,7 +3,7 @@ type: Web Page
 title: '{@attach ...} • Svelte Docs'
 description: '{@attach ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/@attach
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {@attach ...}
@@ -100,19 +100,16 @@ Attachments can also be created inline ([demo](/playground/untitled#H4sIAAAAAAAA
 	}}
 ></canvas>
 ```
-The nested effect runs whenever
-
-`color`changes, while the outer effect (where`canvas.getContext(...)`is called) only runs once, since it doesn't read any reactive state.
+The nested effect runs whenever `color` changes, while the outer effect (where `canvas.getContext(...)` is called) only runs once, since it doesn't read any reactive state.
 
 ## Conditional attachments
 
 Falsy values like `false` or `undefined` are treated as no attachment, enabling conditional usage:
 
-`<div {@attach enabled && myAttachment}>...</div>`## Passing attachments to components
+`<div {@attach enabled && myAttachment}>...</div>`
+## Passing attachments to components
 
-When used on a component, `{@attach ...}` will create a prop whose key is a [ Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol). If the component then 
-
-[spreads](/tutorial/svelte/spread-props)props onto an element, the element will receive those attachments.
+When used on a component, `{@attach ...}` will create a prop whose key is a [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol). If the component then [spreads](/tutorial/svelte/spread-props) props onto an element, the element will receive those attachments.
 
 This allows you to create *wrapper components* that augment elements ([demo](/playground/untitled#H4sIAAAAAAAAE3VUS3ObMBD-KxvajnFqsJM2PhA7TXrKob31FjITAbKtRkiMtDhJPfz3LiAMdpxhGJvdb1_fPnaeYjn3Iu-WIbJ04028lZDcetHDzsO3olbVApI74F1RhHbLJdayhFl-Sp5qhVwhufEWNjWiwJtYxSjyQhsEFEXxBiujcxg1_8O_dnQ9APwsEbVyiHDafjrvDZCgkiO4MLCEzxYZcn90z6XUZ6OxA61KlaIgV6i1pFC-sxjDrlbHaDiWRoGvdMbHsLzp5DES0mJnRxGaRBvcBHb7yFUTCQeunEWYcYtGv12TqgFUDbCK1WLaM6IWQhUlQiJUFm2ZLPly51xXMG0Rjoyd69C7UqqG2nu95QZyXvtvLVpri2-SN4hoLXXCZFfhQ8aQBU1VgdEaH_vSgyBZR_BpPp_vi0tY-rw2ulRZkGqpTQRbZvwa2BPgFC8bgbw31CbjJjAsE6WNYBZeGp7vtQXLMqHWnZx-5kM1TR5ycpkZXQR2wzL94l8Ur1C_3-g168SfQf1MyfRi3LW9fs77emJEw5QV9SREoLTq06tcczq7d6xEUcJX2vAhO1b843XK34e5unZEMBr15ekuKEusluWAF8lXhE2ZTP2r2RcIHJ-163FPKerCgYJLOB9i4GvNwviI5-gAQiFFBk3tBTOU3HFXEk0R8o86WvUD64aINhv5K3oRmpJXkw8uxMG6Hh6JY9X7OwGSqfUy9tDG3sHNoEi0d_d_fv9qndxRU0VClFqo3KVo3U655Hnt1PXB3Qra2Y2QGdEwgTAMCxopsoxOe6SD0gD8movDhT0LAnhqlE8gVCpLWnRoV7OJCkFAwEXitrYL1W7p7pbiE_P7XH6E_rihODm5s52XtiH9Ekaw0VgI9exadWL1uoEYjPtg2672k5szsxbKyWB2fdT0w5Y_0hcT8oXOlRetmLS8-g-6TLXXQgYAAA==)):
 
@@ -179,39 +176,43 @@ This allows you to create *wrapper components* that augment elements ([demo](/pl
 
 Attachments, unlike [actions](use), are fully reactive: `{@attach foo(bar)}` will re-run on changes to `foo` *or* `bar` (or any state read inside `foo`):
 
-`function ``function foo(bar: any): (node: any) => void`foo(bar) {
+`function` `function foo(bar: any): (node: any) => void`foo(bar) {
 	return (node) => {
 		veryExpensiveSetupWork(`node: any`node);
 		update(`node: any`node, `bar: any`bar);
 	};
-}In the rare case that this is a problem (for example, if `foo` does expensive and unavoidable setup work) consider passing the data inside a function and reading it in a child effect:
+}
+In the rare case that this is a problem (for example, if `foo` does expensive and unavoidable setup work) consider passing the data inside a function and reading it in a child effect:
 
-`function ``function foo(getBar: any): (node: any) => void`foo(getBar) {
+`function` `function foo(getBar: any): (node: any) => void`foo(getBar) {
 	return (node) => {
 		veryExpensiveSetupWork(`node: any`node);
-		`function $effect(fn: () => void | (() => void)): void`
+		
+`function $effect(fn: () => void | (() => void)): void`
 
 Runs code when a component is mounted to the DOM, and then whenever its dependencies change, i.e. `$state` or `$derived` values.
 The timing of the execution is after the DOM has been updated.
 
 Example:
 
-`$effect(() => console.log('The count is now ' + count));`If you return a function from the effect, it will be called right before the effect is run again, or when the component is unmounted.
+`$effect(() => console.log('The count is now ' + count));`
+If you return a function from the effect, it will be called right before the effect is run again, or when the component is unmounted.
 
 Does not run during server-side rendering.
 
 `node: any`node, `getBar: any`getBar());
 		});
 	}
-}## Creating attachments programmatically
+}
+## Creating attachments programmatically
 
-To add attachments to an object that will be spread onto a component or element, use [ createAttachmentKey](svelte-attachments#createAttachmentKey).
+To add attachments to an object that will be spread onto a component or element, use [`createAttachmentKey`](svelte-attachments#createAttachmentKey).
 
 ## Converting actions to attachments
 
-If you're using a library that only provides actions, you can convert them to attachments with [ fromAction](svelte-attachments#fromAction), allowing you to (for example) use them with components.
+If you're using a library that only provides actions, you can convert them to attachments with [`fromAction`](svelte-attachments#fromAction), allowing you to (for example) use them with components.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/09-@attach.md) [ llms.txt](/docs/svelte/@attach/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/09-@attach.md)  [llms.txt](/docs/svelte/@attach/llms.txt)
 
 # Citations
 

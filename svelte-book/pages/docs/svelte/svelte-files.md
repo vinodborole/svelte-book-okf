@@ -3,7 +3,7 @@ type: Web Page
 title: .svelte files • Svelte Docs
 description: .svelte files • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-files
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # .svelte files
@@ -59,15 +59,11 @@ A `<script>` tag with a `module` attribute runs once when the module first evalu
 ```
 You can `export` bindings from this block, and they will become exports of the compiled module. You cannot `export default`, since the default export is the component itself.
 
-If you are using TypeScript and import such exports from a
-
-`module`block into a`.ts`file, make sure to have your editor setup so that TypeScript knows about them. This is the case for our VS Code extension and the IntelliJ plugin, but in other cases you might need to setup our[TypeScript editor plugin](https://www.npmjs.com/package/typescript-svelte-plugin).
+ If you are using TypeScript and import such exports from a `module` block into a `.ts` file, make sure to have your editor setup so that TypeScript knows about them. This is the case for our VS Code extension and the IntelliJ plugin, but in other cases you might need to setup our [TypeScript editor plugin](https://www.npmjs.com/package/typescript-svelte-plugin).
 
 ## Legacy mode
 
-In Svelte 4, this script tag was created using
-
-`<script context="module">`
+In Svelte 4, this script tag was created using `<script context="module">`
 
 ## <style>
 
@@ -83,7 +79,7 @@ CSS inside a `<style>` block will be scoped to that component.
 ```
 For more information, head to the section on [styling](scoped-styles).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/03-svelte-files.md) [ llms.txt](/docs/svelte/svelte-files/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/03-svelte-files.md)  [llms.txt](/docs/svelte/svelte-files/llms.txt)
 
 # Citations
 

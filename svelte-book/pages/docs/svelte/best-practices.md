@@ -3,7 +3,7 @@ type: Web Page
 title: Best practices • Svelte Docs
 description: Best practices • Svelte documentation
 resource: https://svelte.dev/docs/svelte/best-practices
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Best practices
@@ -58,8 +58,7 @@ Does not run during server-side rendering.
 $effect(() => {
 	`let square: number`square = `let num: number`num * `let num: number`num;
 });
-
-`$derived`is given an expression,nota function. If you need to use a function (because the expression is complex, for example) use`$derived.by`.
+ `$derived` is given an expression, *not* a function. If you need to use a function (because the expression is complex, for example) use `$derived.by`.
 
 Deriveds are writable — you can assign to them, just like `$state`, except that they will re-evaluate when their expression changes.
 
@@ -69,10 +68,10 @@ If the derived expression is an object or array, it will be returned as-is — i
 
 Effects are an escape hatch and should mostly be avoided. In particular, avoid updating state inside effects.
 
-- If you need to sync state to an external library such as D3, it is often neater to use `{@attach ...}`
-- If you need to run some code in response to user interaction, put the code directly in an event handler or use a [function binding](bind#Function-bindings)as appropriate
-- If you need to log values for debugging purposes, use `$inspect`
-- If you need to observe something external to Svelte, use `createSubscriber`
+- If you need to sync state to an external library such as D3, it is often neater to use [`{@attach ...}`](@attach)
+- If you need to run some code in response to user interaction, put the code directly in an event handler or use a [function binding](bind#Function-bindings) as appropriate
+- If you need to log values for debugging purposes, use [`$inspect`]($inspect)
+- If you need to observe something external to Svelte, use [`createSubscriber`](svelte-reactivity#createSubscriber)
 
 Never wrap the contents of an effect in `if (browser) {...}` or similar — effects do not run on the server.
 
@@ -80,7 +79,7 @@ Never wrap the contents of an effect in `if (browser) {...}` or similar — effe
 
 Treat props as though they will change. For example, values that depend on props should usually use `$derived`:
 
-`let { ``let type: any`type } = ```
+`let {` `let type: any`type } = ```
 function $props(): any
 namespace $props
 ```
@@ -131,7 +130,7 @@ Avoid using `onMount` or `$effect` for this.
 
 ## Snippets
 
-[Snippets](snippet) are a way to define reusable chunks of markup that can be instantiated with the [ {@render ...}](@render) tag, or passed to components as props. They must be declared within the template.
+[Snippets](snippet) are a way to define reusable chunks of markup that can be instantiated with the [`{@render ...}`](@render) tag, or passed to components as props. They must be declared within the template.
 
 ```
 {#snippet greeting(name)}
@@ -139,17 +138,13 @@ Avoid using `onMount` or `$effect` for this.
 {/snippet}
 {@render greeting('world')}
 ```
-Snippets declared at the top level of a component (i.e. not inside elements or blocks) can be referenced inside
-
-`<script>`. A snippet that doesn't reference component state is also available in a`<script module>`, in which case it can be exported for use by other components.
+ Snippets declared at the top level of a component (i.e. not inside elements or blocks) can be referenced inside `<script>`. A snippet that doesn't reference component state is also available in a `<script module>`, in which case it can be exported for use by other components.
 
 ## Each blocks
 
 Prefer to use [keyed each blocks](each#Keyed-each-blocks) — this improves performance by allowing Svelte to surgically insert or remove items rather than updating the DOM belonging to existing items.
 
-The key
-
-mustuniquely identify the object. Do not use the index as a key.
+ The key *must* uniquely identify the object. Do not use the index as a key.
 
 Avoid destructuring if you need to mutate the item (with something like `bind:value={item.count}`, for example).
 
@@ -157,7 +152,8 @@ Avoid destructuring if you need to mutate the item (with something like `bind:va
 
 If you have a JS variable that you want to use inside CSS you can set a CSS custom property with the `style:` directive.
 
-`<div style:--columns={columns}>...</div>`You can then reference `var(--columns)` inside the component's `<style>`.
+`<div style:--columns={columns}>...</div>`
+You can then reference `var(--columns)` inside the component's `<style>`.
 
 ## Styling child components
 
@@ -202,18 +198,18 @@ If using version 5.36 or higher, you can use [await expressions](await-expressio
 
 Always use runes mode for new code, and avoid features that have more modern replacements:
 
-- use `$state`instead of implicit reactivity (e.g.`let count = 0; count += 1`)
-- use `$derived`and`$effect`instead of`$:`assignments and statements (but only use effects when there is no better solution)
-- use `$props`instead of`export let`,`$$props`and`$$restProps`
-- use `onclick={...}`instead of`on:click={...}`
-- use `{#snippet ...}`and`{@render ...}`instead of`<slot>`and`$$slots`and`<svelte:fragment>`
-- use `<DynamicComponent>`instead of`<svelte:component this={DynamicComponent}>`
-- use `import Self from './ThisComponent.svelte'`and`<Self>`instead of`<svelte:self>`
-- use classes with `$state`fields to share reactivity between components, instead of using stores
-- use `{@attach ...}`instead of`use:action`
-- use clsx-style arrays and objects in `class`attributes, instead of the`class:`directive
+- use `$state` instead of implicit reactivity (e.g.`let count = 0; count += 1` )
+- use `$derived` and`$effect` instead of`$:` assignments and statements (but only use effects when there is no better solution)
+- use `$props` instead of`export let` ,`$$props` and`$$restProps`
+- use `onclick={...}` instead of`on:click={...}`
+- use `{#snippet ...}` and`{@render ...}` instead of`<slot>` and`$$slots` and`<svelte:fragment>`
+- use `<DynamicComponent>` instead of`<svelte:component this={DynamicComponent}>`
+- use `import Self from './ThisComponent.svelte'` and`<Self>` instead of`<svelte:self>`
+- use classes with `$state` fields to share reactivity between components, instead of using stores
+- use `{@attach ...}` instead of`use:action`
+- use clsx-style arrays and objects in `class` attributes, instead of the`class:` directive
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/01-best-practices.md) [ llms.txt](/docs/svelte/best-practices/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/01-best-practices.md)  [llms.txt](/docs/svelte/best-practices/llms.txt)
 
 # Citations
 

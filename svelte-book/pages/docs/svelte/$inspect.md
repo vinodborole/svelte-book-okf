@@ -3,12 +3,12 @@ type: Web Page
 title: $inspect • Svelte Docs
 description: $inspect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$inspect
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # $inspect
 
-`$inspect`only works during development. In a production build it becomes a noop.
+ `$inspect` only works during development. In a production build it becomes a noop.
 
 The `$inspect` rune is roughly equivalent to `console.log`, with the exception that it will re-run whenever its argument changes. `$inspect` tracks reactive state deeply, meaning that updating something inside an object or array using fine-grained reactivity will cause it to re-fire:
 

@@ -3,12 +3,13 @@ type: Web Page
 title: '{#await ...} • Svelte Docs'
 description: '{#await ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/await
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {#await ...}
 
-`{#await expression}...{:then name}...{:catch name}...{/await}``{#await expression}...{:then name}...{/await}``{#await expression then name}...{/await}``{#await expression catch name}...{/await}`Await blocks allow you to branch on the three possible states of a [ Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) — pending, fulfilled or rejected.
+`{#await expression}...{:then name}...{:catch name}...{/await}``{#await expression}...{:then name}...{/await}``{#await expression then name}...{/await}``{#await expression catch name}...{/await}`
+Await blocks allow you to branch on the three possible states of a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) — pending, fulfilled or rejected.
 
 ```
 {#await promise}
@@ -24,9 +25,7 @@ timestamp: '2026-07-09T12:17:00.027378+00:00'
 ```
 During server-side rendering, only the pending branch will be rendered.
 
-If the provided expression is not a
-
-`Promise`, only the`:then`branch will be rendered, including during server-side rendering.
+If the provided expression is not a `Promise`, only the `:then` branch will be rendered, including during server-side rendering.
 
 The `catch` block can be omitted if you don't need to render anything when the promise rejects (or no error is possible).
 
@@ -53,11 +52,15 @@ Similarly, if you only want to show the error state, you can omit the `then` blo
 	<p>The error is {error}</p>
 {/await}
 ```
-You can use
+ You can use `#await` with [`import(...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) to render components lazily:
 
-`#await`with[to render components lazily:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)`import(...)``{#await import('./Component.svelte') then { default: Component }} <Component /> {/await}`
+```
+{#await import('./Component.svelte') then { default: Component }}
+	<Component />
+{/await}
+```
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/05-await.md) [ llms.txt](/docs/svelte/await/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/05-await.md)  [llms.txt](/docs/svelte/await/llms.txt)
 
 previous next
 

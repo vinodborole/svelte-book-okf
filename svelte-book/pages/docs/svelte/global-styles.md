@@ -3,7 +3,7 @@ type: Web Page
 title: Global styles • Svelte Docs
 description: Global styles • Svelte documentation
 resource: https://svelte.dev/docs/svelte/global-styles
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Global styles
@@ -61,11 +61,9 @@ To apply styles to a group of selectors globally, create a `:global {...}` block
 	}
 </style>
 ```
-The second example above could also be written as an equivalent
+ The second example above could also be written as an equivalent `.a :global .b .c .d` selector, where everything after the `:global` is unscoped, though the nested form is preferred.
 
-`.a :global .b .c .d`selector, where everything after the`:global`is unscoped, though the nested form is preferred.
-
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/02-global-styles.md) [ llms.txt](/docs/svelte/global-styles/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/02-global-styles.md)  [llms.txt](/docs/svelte/global-styles/llms.txt)
 
 previous next
 

@@ -3,14 +3,12 @@ type: Web Page
 title: 'use: • Svelte Docs'
 description: 'use: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/use
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # use:
 
-In Svelte 5.29 and newer, consider using
-
-[attachments](@attach)instead, as they are more flexible and composable.
+In Svelte 5.29 and newer, consider using [attachments](@attach) instead, as they are more flexible and composable.
 
 Actions are functions that are called when an element is mounted. They are added with the `use:` directive, and will typically use an `$effect` so that they can reset any state when the element is unmounted:
 
@@ -68,9 +66,7 @@ The action is only called once (but not during server-side rendering) — it wil
 
 ## Legacy mode
 
-Prior to the
-
-`$effect`rune, actions could return an object with`update`and`destroy`methods, where`update`would be called with the latest value of the argument if it changed. Using effects is preferred.
+Prior to the `$effect` rune, actions could return an object with `update` and `destroy` methods, where `update` would be called with the latest value of the argument if it changed. Using effects is preferred.
 
 ## Typing
 
@@ -130,7 +126,7 @@ The `Action` interface receives three optional type arguments — a node type (w
 	onswiperight={prev}
 >...</div>
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/13-use.md) [ llms.txt](/docs/svelte/use/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/13-use.md)  [llms.txt](/docs/svelte/use/llms.txt)
 
 # Citations
 

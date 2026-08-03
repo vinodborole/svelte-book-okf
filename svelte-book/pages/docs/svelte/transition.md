@@ -3,7 +3,7 @@ type: Web Page
 title: 'transition: • Svelte Docs'
 description: 'transition: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/transition
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # transition:
@@ -38,7 +38,7 @@ Transitions are local by default. Local transitions only play when the block the
 ```
 ## Built-in transitions
 
-A selection of built-in transitions can be imported from the [ svelte/transition](svelte-transition) module.
+A selection of built-in transitions can be imported from the [`svelte/transition`](svelte-transition) module.
 
 ## Transition parameters
 
@@ -65,7 +65,8 @@ options: {
 	easing?: (`t: number`t: number) => number,
 	css?: (`t: number`t: number, `u: number`u: number) => string,
 	tick?: (`t: number`t: number, `u: number`u: number) => void
-}Transitions can use custom functions. If the returned object has a `css` function, Svelte will generate keyframes for a [web animation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).
+}
+Transitions can use custom functions. If the returned object has a `css` function, Svelte will generate keyframes for a [web animation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).
 
 The `t` argument passed to `css` is a value between `0` and `1` after the `easing` function has been applied. *In* transitions run from `0` to `1`, *out* transitions run from `1` to `0` — in other words, `1` is the element's natural state, as though no transition had been applied. The `u` argument is equal to `1 - t`.
 
@@ -114,9 +115,7 @@ The function is called repeatedly *before* the transition begins, with different
 ```
 A custom transition function can also return a `tick` function, which is called *during* the transition with the same `t` and `u` arguments.
 
-If it's possible to use
-
-`css`instead of`tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
+ If it's possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
 
 ```
 <script>
@@ -174,7 +173,7 @@ Transition functions also receive a third argument, `options`, which contains in
 
 Available values in the `options` object are:
 
-- `direction`- one of- `in`,- `out`, or- `both`depending on the type of transition
+- `direction` - one of`in` ,`out` , or`both` depending on the type of transition
 
 ## Transition events
 
@@ -198,7 +197,7 @@ An element with transitions will dispatch the following events in addition to an
 	</p>
 {/if}
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/14-transition.md) [ llms.txt](/docs/svelte/transition/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/14-transition.md)  [llms.txt](/docs/svelte/transition/llms.txt)
 
 # Citations
 

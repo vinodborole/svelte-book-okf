@@ -3,7 +3,7 @@ type: Web Page
 title: $derived • Svelte Docs
 description: $derived • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$derived
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # $derived
@@ -24,9 +24,7 @@ The expression inside `$derived(...)` should be free of side-effects. Svelte wil
 
 As with `$state`, you can mark class fields as `$derived`.
 
-Code in Svelte components is only executed once at creation. Without the
-
-`$derived`rune,`doubled`would maintain its original value even when`count`changes.
+ Code in Svelte components is only executed once at creation. Without the `$derived` rune, `doubled` would maintain its original value even when `count` changes.
 
 ## $derived.by
 
@@ -53,11 +51,9 @@ In essence, `$derived(expression)` is equivalent to `$derived.by(() => expressio
 
 Anything read synchronously inside the `$derived` expression (or `$derived.by` function body) is considered a *dependency* of the derived state. When the state changes, the derived will be marked as *dirty* and recalculated when it is next read.
 
-In addition, if an expression contains an [ await](await-expressions), Svelte transforms it such that any state 
+In addition, if an expression contains an [`await`](await-expressions), Svelte transforms it such that any state *after* the `await` is also tracked — in other words, in a case like this...
 
-*after*the
-
-`await` is also tracked — in other words, in a case like this...`let ``let total: number`total = ```
+`let` `let total: number`total = ```
 function $derived<number>(expression: number): number
 namespace $derived
 ```
@@ -69,9 +65,10 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(await `let a: Promise<number>`a + `let b: number`b);...both `a` and `b` are tracked, even though `b` is only read once `a` has resolved, after the initial execution. (This does not apply to `await` in functions that are called by the expression, only the expression itself.)
+$derived(await `let a: Promise<number>`a + `let b: number`b);
+...both `a` and `b` are tracked, even though `b` is only read once `a` has resolved, after the initial execution. (This does not apply to `await` in functions that are called by the expression, only the expression itself.)
 
-To exempt a piece of state from being treated as a dependency, use [ untrack](svelte#untrack).
+To exempt a piece of state from being treated as a dependency, use [`untrack`](svelte#untrack).
 
 ## Overriding derived values
 
@@ -101,7 +98,7 @@ Prior to Svelte 5.25, deriveds were read-only.
 
 Unlike `$state`, which converts objects and arrays to [deeply reactive proxies]($state#Deep-state), `$derived` values are left as-is. For example, [in a case like this](/playground/untitled#H4sIAAAAAAAAE4VU22rjMBD9lUHd3aaQi9PdstS1A3t5XvpQ2Ic4D7I1iUUV2UjjNMX431eS7TRdSosxgjMzZ45mjt0yzffIYibvy0ojFJWqDKCQVBk2ZVup0LJ43TJ6rn2aBxw-FP2o67k9oCKP5dziW3hRaUJNjoYltjCyplWmM1JIIAn3FlL4ZIkTTtYez6jtj4w8WwyXv9GiIXiQxLVs9pfTMR7EuoSLIuLFbX7Z4930bZo_nBrD1bs834tlfvsBz9_SyX6PZXu9XaL4gOWn4sXjeyzftv4ZWfyxubpzxzg6LfD4MrooxELEosKCUPigQCMPKCZh0OtQE1iSxcsmdHuBvCiHZXALLXiN08EL3RRkaJ_kDVGle0HcSD5TPEeVtj67O4Nrg9aiSNtBY5oODJkrL5QsHtN2cgXp6nSJMWzpWWGasdlsGEMbzi5jPr5KFr0Ep7pdeM2-TCelCddIhDxAobi1jqF3cMaC1RKp64bAW9iFAmXGIHfd4wNXDabtOLN53w8W53VvJoZLh7xk4Rr3CoL-UNoLhWHrT1JQGcM17u96oES5K-kc2XOzkzqGCKL5De79OUTyyrg1zgwXsrEx3ESfx4Bz0M5UjVMHB24mw9SuXtXFoN13fYKOM1tyUT3FbvbWmSWCZX2Er-41u5xPoml45svRahl9Wb9aasbINJixDZwcPTbyTLZSUsAvrg_cPuCR7s782_WU8343Y72Qtlb8OYatwuOQvuN13M_hJKNfxann1v1U_B1KZ_D_mzhzhz24fw85CSz2irtN9w9HshBK7AQAAA==)...
 
-`let items = ````
+`let items =` ```
 function $state<never[]>(initial: never[]): never[] (+1 overload)
 namespace $state
 ```
@@ -137,13 +134,14 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(`let items: any[]`items[`let index: number`index]);...you can change (or `bind:` to) properties of `selected` and it will affect the underlying `items` array. If `items` was *not* deeply reactive, mutating `selected` would have no effect.
+$derived(`let items: any[]`items[`let index: number`index]);
+...you can change (or `bind:` to) properties of `selected` and it will affect the underlying `items` array. If `items` was *not* deeply reactive, mutating `selected` would have no effect.
 
 ## Destructuring
 
 If you use destructuring with a `$derived` declaration, the resulting variables will all be reactive — this...
 
-`let { ``let a: number`a, `let b: number`b, `let c: number`c } = ```
+`let {` `let a: number`a, `let b: number`b, `let c: number`c } = ```
 function $derived<{
     a: number;
     b: number;
@@ -167,7 +165,8 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(```
+$derived(
+```
 function stuff(): {
     a: number;
     b: number;
@@ -177,7 +176,7 @@ function stuff(): {
 
 ...is roughly equivalent to this:
 
-`let ````
+`let` ```
 let _stuff: {
     a: number;
     b: number;
@@ -209,7 +208,8 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(```
+$derived(
+```
 function stuff(): {
     a: number;
     b: number;
@@ -229,7 +229,8 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(```
+$derived(
+```
 let _stuff: {
     a: number;
     b: number;
@@ -250,7 +251,8 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(```
+$derived(
+```
 let _stuff: {
     a: number;
     b: number;
@@ -271,7 +273,8 @@ Example:
 
 `let double = $derived(count * 2);`
 
-$derived(```
+$derived(
+```
 let _stuff: {
     a: number;
     b: number;
@@ -279,7 +282,8 @@ let _stuff: {
 }
 ```
 
-`c: number`c);## Update propagation
+`c: number`c);
+## Update propagation
 
 Svelte uses something called *push-pull reactivity* — when state is updated, everything that depends on the state (whether directly or indirectly) is immediately notified of the change (the 'push'), but derived values are not re-evaluated until they are actually read (the 'pull').
 

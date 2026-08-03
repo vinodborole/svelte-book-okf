@@ -3,14 +3,14 @@ type: Web Page
 title: $effect • Svelte Docs
 description: $effect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$effect
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # $effect
 
 Effects are functions that run when state updates, and can be used for things like calling third-party libraries, drawing on `<canvas>` elements, or making network requests. They only run in the browser, not during server-side rendering.
 
-Generally speaking, you should *not* update state inside effects, as it will make code more convoluted and will often lead to never-ending update cycles. If you find yourself doing so, see [when not to use  $effect](#When-not-to-use-$effect) to learn about alternative approaches.
+Generally speaking, you should *not* update state inside effects, as it will make code more convoluted and will often lead to never-ending update cycles. If you find yourself doing so, see [when not to use `$effect`](#When-not-to-use-$effect) to learn about alternative approaches.
 
 You can create an effect with the `$effect` rune ([demo](/playground/untitled#H4sIAAAAAAAAE31S246bMBD9lZF3pSRSAqTVvrCAVPUP2sdSKY4ZwJJjkD0hSVH-vbINuWxXfQH5zMyZc2ZmZLVUaFn6a2R06ZGlHmBrpvnBvb71fWQHVOSwPbf4GS46TajJspRlVhjZU1HqkhQSWPkHIYdXS5xw-Zas3ueI6FRn7qHFS11_xSRZhIxbFtcDtw7SJb1iXaOg5XIFeQGjzyPRaevYNOGZIJ8qogbpe8CWiy_VzEpTXiQUcvPDkSVrSNZz1UlW1N5eLcqmpdXUvaQ4BmqlhZNUCgxuzFHDqUWNAxrYeUM76AzsnOsdiJbrBp_71lKpn3RRbii-4P3f-IMsRxS-wcDV_bL4PmSdBa2wl7pKnbp8DMgVvJm8ZNskKRkEM_OzyOKQFkgqOYBQ3Nq89Ns0nbIl81vMFN-jKoLMTOr-SOBOJS-Z8f5Y6D1wdcR8dFqvEBdetK-PHwj-z-cH8oHPY54wRJ8Ys7iSQ3Bg3VA9azQbmC9k35kKzYa6PoVtfwbbKVnBixBiGn7Pq0rqJoUtHiCZwAM3jdTPWCVtr_glhVrhecIa3vuksJ_b7TqFs4DPyriSjd5IwoNNQaAmNI-ESfR2p8zimzvN1swdCkvJHPH6-_oX8o1SgcIDAAA=)):
 
@@ -29,11 +29,9 @@ You can create an effect with the `$effect` rune ([demo](/playground/untitled#H4
 </script>
 <canvas bind:this={canvas} width="100" height="100"></canvas>
 ```
-When Svelte runs an effect function, it tracks which pieces of state (and derived state) are accessed (unless accessed inside [ untrack](svelte#untrack)), and re-runs the function when that state later changes.
+When Svelte runs an effect function, it tracks which pieces of state (and derived state) are accessed (unless accessed inside [`untrack`](svelte#untrack)), and re-runs the function when that state later changes.
 
-If you're having difficulty understanding why your
-
-`$effect`is rerunning or is not running see[understanding dependencies](#Understanding-dependencies). Effects are triggered differently than the`$:`blocks you may be used to if coming from Svelte 4.
+ If you're having difficulty understanding why your `$effect` is rerunning or is not running see [understanding dependencies](#Understanding-dependencies). Effects are triggered differently than the `$:` blocks you may be used to if coming from Svelte 4.
 
 ### Understanding lifecycle
 
@@ -41,9 +39,7 @@ Your effects run after the component has been mounted to the DOM, and in a [micr
 
 You can use `$effect` anywhere, not just at the top level of a component, as long as it is called while a parent effect is running.
 
-Svelte uses effects internally to represent logic and expressions in your template — this is how
-
-`<h1>hello {name}!</h1>`updates when`name`changes.
+ Svelte uses effects internally to represent logic and expressions in your template — this is how `<h1>hello {name}!</h1>` updates when `name` changes.
 
 An effect can return a *teardown function* which will run immediately before the effect re-runs:
 
@@ -144,7 +140,8 @@ let canvas: {
 `height: number`height);
 	// this will re-run whenever `color` changes...
 	`const context: CanvasRenderingContext2D`context.`CanvasFillStrokeStyles.fillStyle: string | CanvasGradient | CanvasPattern`fillStyle = `let color: string`color;
-	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules execution of a one-time `callback` after `delay` milliseconds.
+	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules execution of a one-time `callback` after `delay` milliseconds.
 
 The `callback` will likely not be invoked in precisely `delay` milliseconds.
 Node.js makes no guarantees about the exact timing of when callbacks will fire,
@@ -163,7 +160,8 @@ setTimeout(() => {
 		// ...but not when `size` changes
 		`const context: CanvasRenderingContext2D`context.`CanvasRect.fillRect(x: number, y: number, w: number, h: number): void`fillRect(0, 0, `let size: number`size, `let size: number`size);
 	}, 0);
-});An effect only reruns when the object it reads changes, not when a property inside it changes. (If you want to observe changes *inside* an object at dev time, you can use [ $inspect]($inspect).)
+});
+An effect only reruns when the object it reads changes, not when a property inside it changes. (If you want to observe changes *inside* an object at dev time, you can use [`$inspect`]($inspect).)
 
 ```
 <script>
@@ -193,7 +191,7 @@ For instance, if `condition` is `true` in the code snippet below, the code insid
 
 Conversely, if `condition` is `false`, `color` will not be evaluated, and the effect will *only* re-run again when `condition` changes.
 
-`import ``function confetti(opts?: ConfettiOptions): void`confetti from 'canvas-confetti';
+`import` `function confetti(opts?: ConfettiOptions): void`confetti from 'canvas-confetti';
 let `let condition: boolean`condition = ```
 function $state<true>(initial: true): true (+1 overload)
 namespace $state
@@ -240,7 +238,8 @@ $effect(() => {
 	} else {
 		`function confetti(opts?: ConfettiOptions): void`confetti();
 	}
-});## $effect.pre
+});
+## $effect.pre
 
 In rare cases, you may need to run code *before* the DOM updates. For this we can use the `$effect.pre` rune:
 
@@ -292,15 +291,11 @@ The `$effect.tracking` rune is an advanced feature that tells you whether or not
 </script>
 <p>in template: {$effect.tracking()}</p> <!-- true -->
 ```
-It is used to implement abstractions like [ createSubscriber](/docs/svelte/svelte-reactivity#createSubscriber), which will create listeners to update reactive values but 
-
-*only*if those values are being tracked (rather than, for example, read inside an event handler).
+It is used to implement abstractions like [`createSubscriber`](/docs/svelte/svelte-reactivity#createSubscriber), which will create listeners to update reactive values but *only* if those values are being tracked (rather than, for example, read inside an event handler).
 
 ## $effect.pending
 
-When using [ await](await-expressions) in components, the 
-
-`$effect.pending()` rune tells you how many promises are pending in the current [boundary](svelte-boundary), not including child boundaries:
+When using [`await`](await-expressions) in components, the `$effect.pending()` rune tells you how many promises are pending in the current [boundary](svelte-boundary), not including child boundaries:
 
 ```
 <script>
@@ -338,7 +333,7 @@ When using [ await](await-expressions) in components, the
 
 The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn't auto-cleanup. This is useful for nested effects that you want to manually control. This rune also allows for the creation of effects outside of the component initialisation phase.
 
-`const ``const destroy: () => void`destroy = ```
+`const` `const destroy: () => void`destroy = ```
 namespace $effect
 function $effect(fn: () => void | (() => void)): void
 ```
@@ -354,7 +349,8 @@ If you return a function from the effect, it will be called right before the eff
 
 Does not run during server-side rendering.
 
-$effect.`function $effect.root(fn: () => void | (() => void)): () => void`The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn't auto-cleanup. This is useful for
+$effect.`function $effect.root(fn: () => void | (() => void)): () => void`
+The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn't auto-cleanup. This is useful for
 nested effects that you want to manually control. This rune also allows for creation of effects outside of the component
 initialisation phase.
 
@@ -376,7 +372,8 @@ Example:
 ```
 
 root(() => {
-	```
+	
+```
 function $effect(fn: () => void | (() => void)): void
 namespace $effect
 ```
@@ -400,7 +397,8 @@ $effect(() => {
 	};
 });
 // later...
-`const destroy: () => void`destroy();## When not to use $effect
+`const destroy: () => void`destroy();
+## When not to use $effect
 
 In general, `$effect` is best considered something of an escape hatch — useful for things like analytics and direct DOM manipulation — rather than a tool you should use frequently. In particular, avoid using it to synchronise state. Instead of this...
 
@@ -422,9 +420,7 @@ In general, `$effect` is best considered something of an escape hatch — useful
 	let doubled = $derived(count * 2);
 </script>
 ```
-For things that are more complicated than a simple expression like
-
-`count * 2`, you can also use`$derived.by`.
+ For things that are more complicated than a simple expression like `count * 2`, you can also use `$derived.by`.
 
 If you're using an effect because you want to be able to reassign the derived value (to build an optimistic UI, for example) note that [deriveds can be directly overridden]($derived#Overriding-derived-values) as of Svelte 5.25.
 

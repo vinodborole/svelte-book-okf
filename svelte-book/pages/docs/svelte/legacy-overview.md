@@ -3,7 +3,7 @@ type: Web Page
 title: Overview • Svelte Docs
 description: Overview • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-overview
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Overview
@@ -19,7 +19,7 @@ Since Svelte 3/4 syntax still works in Svelte 5, we will distinguish between *le
 
 If you're exclusively interested in the Svelte 3/4 syntax, you can browse its documentation at [v4.svelte.dev](https://v4.svelte.dev).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/00-legacy-overview.md) [ llms.txt](/docs/svelte/legacy-overview/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/00-legacy-overview.md)  [llms.txt](/docs/svelte/legacy-overview/llms.txt)
 
 # Citations
 

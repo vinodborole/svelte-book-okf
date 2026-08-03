@@ -3,18 +3,16 @@ type: Web Page
 title: Introduction • SvelteKit Docs
 description: Introduction • SvelteKit documentation
 resource: https://svelte.dev/docs/kit/introduction
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Introduction
 
 ## Before we begin
 
-If you're new to Svelte or SvelteKit we recommend checking out the
+ If you're new to Svelte or SvelteKit we recommend checking out the [interactive tutorial](/tutorial/kit).
 
-[interactive tutorial](/tutorial/kit).If you get stuck, reach out for help in the
-
-[Discord chatroom](/chat).
+If you get stuck, reach out for help in the [Discord chatroom](/chat).
 
 ## What is SvelteKit?
 
@@ -34,7 +32,7 @@ SvelteKit helps you build web apps while following modern best practices and pro
 
 It reflects changes to your code in the browser instantly to provide a lightning-fast and feature-rich development experience by leveraging [Vite](https://vitejs.dev/) with a [Svelte plugin](https://github.com/sveltejs/vite-plugin-svelte) to do [Hot Module Replacement (HMR)](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#hot).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/kit/edit/main/documentation/docs/10-getting-started/10-introduction.md) [ llms.txt](/docs/kit/introduction/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/kit/edit/main/documentation/docs/10-getting-started/10-introduction.md)  [llms.txt](/docs/kit/introduction/llms.txt)
 
 # Citations
 

@@ -3,23 +3,22 @@ type: Web Page
 title: <svelte:boundary> • Svelte Docs
 description: <svelte:boundary> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-boundary
-timestamp: '2026-07-27T09:01:17.564941+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # <svelte:boundary>
 
-`<svelte:boundary onerror={handler}>...</svelte:boundary>`This feature was added in 5.3.0
+`<svelte:boundary onerror={handler}>...</svelte:boundary>`
+This feature was added in 5.3.0
 
 Boundaries allow you to 'wall off' parts of your app, so that you can:
 
-- provide UI that should be shown when `await`
+- provide UI that should be shown when [`await`](await-expressions) expressions are first resolving
 - handle errors that occur during rendering or while running effects, and provide UI that should be rendered when an error happens
 
 If a boundary handles an error (with a `failed` snippet or `onerror` handler, or both) its existing content will be removed.
 
-Errors occurring outside the rendering process (for example, in event handlers or after a
-
-`setTimeout`or async work) arenotcaught by error boundaries.
+ Errors occurring outside the rendering process (for example, in event handlers or after a `setTimeout` or async work) are *not* caught by error boundaries.
 
 ## Properties
 
@@ -27,9 +26,7 @@ For the boundary to do anything, one or more of the following must be provided.
 
 ### pending
 
-This snippet will be shown when the boundary is first created, and will remain visible until all the [ await](await-expressions) expressions inside the boundary have resolved (
-
-[demo](/playground/untitled#H4sIAAAAAAAAE21QQW6DQAz8ytY9BKQVpFdKkPqDHnorPWzAaSwt3tWugUaIv1eE0KpKD5as8YxnNBOw6RAKKOOAVrA4up5bEy6VGknOyiO3xJ8qMnmPAhpOZDFC8T6BXPyiXADQ258X77P1FWg4moj_4Y1jQZZ49W0CealqruXUcyPkWLVozQXbZDC2R606spYiNo7bqA7qab_fp2paFLUElD6wYhzVa3AdRUySgNHZAVN1qDZaLRHljTp0vSTJ9XJjrSbpX5f0eZXN6zLXXOa_QfmurIVU-moyoyH5ib87o7XuYZfOZe6vnGWmx1uZW7lJOq9upa-sMwuUZdkmmfIbfQ1xZwwaBL8ECgk9zh8axJAdiVsoTsZGnL8Bg4tX_OMBAAA=)):
+This snippet will be shown when the boundary is first created, and will remain visible until all the [`await`](await-expressions) expressions inside the boundary have resolved ([demo](/playground/untitled#H4sIAAAAAAAAE21QQW6DQAz8ytY9BKQVpFdKkPqDHnorPWzAaSwt3tWugUaIv1eE0KpKD5as8YxnNBOw6RAKKOOAVrA4up5bEy6VGknOyiO3xJ8qMnmPAhpOZDFC8T6BXPyiXADQ258X77P1FWg4moj_4Y1jQZZ49W0CealqruXUcyPkWLVozQXbZDC2R606spYiNo7bqA7qab_fp2paFLUElD6wYhzVa3AdRUySgNHZAVN1qDZaLRHljTp0vSTJ9XJjrSbpX5f0eZXN6zLXXOa_QfmurIVU-moyoyH5ib87o7XuYZfOZe6vnGWmx1uZW7lJOq9upa-sMwuUZdkmmfIbfQ1xZwwaBL8ECgk9zh8axJAdiVsoTsZGnL8Bg4tX_OMBAAA=)):
 
 ```
 <svelte:boundary>
@@ -39,11 +36,9 @@ This snippet will be shown when the boundary is first created, and will remain v
 	{/snippet}
 </svelte:boundary>
 ```
-The `pending` snippet will *not* be shown for subsequent async updates — for these, you can use [ $effect.pending()]($effect#$effect.pending).
+The `pending` snippet will *not* be shown for subsequent async updates — for these, you can use [`$effect.pending()`]($effect#$effect.pending).
 
-In the
-
-[playground](/playground), your app is rendered inside a boundary with an empty pending snippet, so that you can use`await`without having to create one.
+ In the [playground](/playground), your app is rendered inside a boundary with an empty pending snippet, so that you can use `await` without having to create one.
 
 ### failed
 
@@ -57,9 +52,10 @@ If a `failed` snippet is provided, it will be rendered when an error is thrown i
 	{/snippet}
 </svelte:boundary>
 ```
-As with
+As with [snippets passed to components](snippet#Passing-snippets-to-components), the `failed` snippet can be passed explicitly as a property...
 
-[snippets passed to components](snippet#Passing-snippets-to-components), the`failed`snippet can be passed explicitly as a property...`<svelte:boundary {failed}>...</svelte:boundary>`...or implicitly by declaring it directly inside the boundary, as in the example above.
+`<svelte:boundary {failed}>...</svelte:boundary>`
+...or implicitly by declaring it directly inside the boundary, as in the example above.
 
 ### onerror
 
@@ -99,15 +95,13 @@ If an error occurs inside the `onerror` function (or if you rethrow the error), 
 
 By default, error boundaries have no effect on the server — if an error occurs during rendering, the render as a whole will fail.
 
-Since 5.51 you can control this behaviour for boundaries with a `failed` snippet, by calling [ render(...)](imperative-component-api#render) with a 
+Since 5.51 you can control this behaviour for boundaries with a `failed` snippet, by calling [`render(...)`](imperative-component-api#render) with a `transformError` function.
 
-`transformError` function.If you're using Svelte via a framework such as SvelteKit, you most likely don't have direct access to the
-
-`render(...)`call — the framework must configure`transformError`on your behalf. SvelteKit will add support for this in the near future, via the[hook.](../kit/hooks#handleError)`handleError`
+ If you're using Svelte via a framework such as SvelteKit, you most likely don't have direct access to the `render(...)` call — the framework must configure `transformError` on your behalf. SvelteKit will add support for this in the near future, via the [`handleError`](../kit/hooks#handleError) hook.
 
 The `transformError` function must return a JSON-stringifiable object which will be used to render the `failed` snippet. This object will be serialized and used to hydrate the snippet in the browser:
 
-`import { ````
+`import {` ```
 function render<Comp extends SvelteComponent<any> | Component<any>, Props extends ComponentProps<Comp> = ComponentProps<Comp>>(...args: {} extends Props ? [component: Comp extends SvelteComponent<any> ? ComponentType<Comp> : Comp, options?: {
     props?: Omit<Props, "$$slots" | "$$events">;
     context?: Map<any, any>;
@@ -132,9 +126,11 @@ type App = SvelteComponent<Record<string, any>, any, any>
 const App: LegacyComponentType
 ```
 
-`const head: string`HTML that goes into the `<head>`
+`const head: string`
+HTML that goes into the `<head>`
 
-head, `const body: string`HTML that goes somewhere into the `<body>`
+head, `const body: string`
+HTML that goes somewhere into the `<body>`
 
 body } = await ```
 render<SvelteComponent<Record<string, any>, any, any>, Record<string, any>>(component: ComponentType<SvelteComponent<Record<string, any>, any, any>>, options?: {
@@ -152,17 +148,19 @@ Takes a component and returns an object with `body` and `head` properties on it,
 render(`const App: LegacyComponentType`App, {
 	`transformError?: ((error: unknown) => unknown | Promise<unknown>) | undefined`transformError: (`error: unknown`error) => {
 		// log the original error, with the stack trace...
-		`var console: Console`The `console` module provides a simple debugging console that is similar to the
+		`var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -203,9 +201,11 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.error(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stderr` with newline. Multiple arguments can be passed, with the
+console.`Console.error(message?: any, ...optionalParams: any[]): void (+1 overload)`
+Prints to `stderr` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)``util.format()`
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)
+(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).
 
 ```
 const code = 5;
@@ -216,7 +216,9 @@ console.error('error', code);
 ```
 
 If formatting elements (e.g. `%d`) are not found in the first string then
-`util.inspect()``util.format()`
+[`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) is called on each argument and the
+resulting string values are concatenated. See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)
+for more information.
 
 error(`error: unknown`error);
 		// ...and return a sanitized user-friendly error
@@ -225,19 +227,16 @@ error(`error: unknown`error);
 			`message: string`message: 'An error occurred!'
 		};
 	};
-});If `transformError` throws (or rethrows) an error, `render(...)` as a whole will fail with that error.
+});
+If `transformError` throws (or rethrows) an error, `render(...)` as a whole will fail with that error.
 
-Errors that occur during server-side rendering can contain sensitive information in the
-
-`message`and`stack`. It's recommended to redact these rather than sending them unaltered to the browser.
+ Errors that occur during server-side rendering can contain sensitive information in the `message` and `stack`. It's recommended to redact these rather than sending them unaltered to the browser.
 
 If the boundary has an `onerror` handler, it will be called upon hydration with the deserialized error object.
 
-The [ mount](imperative-component-api#mount) and 
+The [`mount`](imperative-component-api#mount) and [`hydrate`](imperative-component-api#hydrate) functions also accept a `transformError` option, which defaults to the identity function. As with `render`, this function transforms a render-time error before it is passed to a `failed` snippet or `onerror` handler.
 
-[functions also accept a](imperative-component-api#hydrate)
-
-`hydrate``transformError` option, which defaults to the identity function. As with `render`, this function transforms a render-time error before it is passed to a `failed` snippet or `onerror` handler.[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/05-special-elements/01-svelte-boundary.md) [ llms.txt](/docs/svelte/svelte-boundary/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/05-special-elements/01-svelte-boundary.md)  [llms.txt](/docs/svelte/svelte-boundary/llms.txt)
 
 # Citations
 

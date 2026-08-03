@@ -3,7 +3,7 @@ type: Web Page
 title: Hydratable data • Svelte Docs
 description: Hydratable data • Svelte documentation
 resource: https://svelte.dev/docs/svelte/hydratable
-timestamp: '2026-07-20T08:31:47.948207+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Hydratable data
@@ -38,18 +38,21 @@ To fix the example above:
 ```
 This API can also be used to provide access to random or time-based values that are stable between server rendering and hydration. For example, to get a random number that doesn't update on hydration:
 
-`import { ``function hydratable<T>(key: string, fn: () => T): T`hydratable } from 'svelte';
-const `const rand: number`rand = `hydratable<number>(key: string, fn: () => number): number`hydratable('random', () => `var Math: Math`An intrinsic object that provides basic mathematics functionality and constants.
+`import {` `function hydratable<T>(key: string, fn: () => T): T`hydratable } from 'svelte';
+const `const rand: number`rand = `hydratable<number>(key: string, fn: () => number): number`hydratable('random', () => `var Math: Math`
+An intrinsic object that provides basic mathematics functionality and constants.
 
-Math.`Math.random(): number`Returns a pseudorandom number between 0 and 1.
+Math.`Math.random(): number`
+Returns a pseudorandom number between 0 and 1.
 
-random());If you're a library author, be sure to prefix the keys of your `hydratable` values with the name of your library so that your keys don't conflict with other libraries.
+random());
+If you're a library author, be sure to prefix the keys of your `hydratable` values with the name of your library so that your keys don't conflict with other libraries.
 
 ## Serialization
 
-All data returned from a `hydratable` function must be serializable. But this doesn't mean you're limited to JSON — Svelte uses [ devalue](https://npmjs.com/package/devalue), which can serialize all sorts of things including 
+All data returned from a `hydratable` function must be serializable. But this doesn't mean you're limited to JSON — Svelte uses [`devalue`](https://npmjs.com/package/devalue), which can serialize all sorts of things including `Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:
 
-`Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:```
+```
 <script>
   import { hydratable } from 'svelte';
   const promises = hydratable('random', () => {
@@ -66,12 +69,16 @@ All data returned from a `hydratable` function must be serializable. But this do
 
 `hydratable` adds an inline `<script>` block to the `head` returned from `render`. If you're using [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (CSP), this script will likely fail to run. You can provide a `nonce` to `render`:
 
-`const ``const nonce: `${string}-${string}-${string}-${string}-${string}``nonce = `var crypto: Crypto`crypto.`Crypto.randomUUID(): `${string}-${string}-${string}-${string}-${string}``The `randomUUID()`
+`const` `` const nonce: `${string}-${string}-${string}-${string}-${string}` ``nonce = `var crypto: Crypto`crypto.`` Crypto.randomUUID(): `${string}-${string}-${string}-${string}-${string}` ``
+The **`randomUUID()`** method of the Crypto interface is used to generate a v4 UUID using a cryptographically secure random number generator.
+Available only in secure contexts.
 
 randomUUID();
-const { `const head: string`HTML that goes into the `<head>`
+const { `const head: string`
+HTML that goes into the `<head>`
 
-head, `const body: string`HTML that goes somewhere into the `<body>`
+head, `const body: string`
+HTML that goes somewhere into the `<body>`
 
 body } = await ```
 render<SvelteComponent<Record<string, any>, any, any>, Record<string, any>>(component: ComponentType<SvelteComponent<Record<string, any>, any, any>>, options?: {
@@ -88,22 +95,28 @@ Takes a component and returns an object with `body` and `head` properties on it,
 
 render(`const App: LegacyComponentType`App, {
 	`csp?: Csp | undefined`csp: { `nonce?: string | undefined`nonce }
-});This will add the `nonce` to the script block, on the assumption that you will later add the same nonce to the CSP header of the document that contains it:
+});
+This will add the `nonce` to the script block, on the assumption that you will later add the same nonce to the CSP header of the document that contains it:
 
-`let response: Response`response.`Response.headers: Headers`The `headers`
+`let response: Response`response.`Response.headers: Headers`
+The **`headers`** read-only property of the Response interface contains the Headers object associated with the response.
 
-headers.`Headers.set(name: string, value: string): void`The `set()`
+headers.`Headers.set(name: string, value: string): void`
+The **`set()`** method of the Headers interface sets a new value for an existing header inside a Headers object, or adds the header if it does not already exist.
 
 set(
   'Content-Security-Policy',
   `script-src 'nonce-${`let nonce: string`nonce}'`
- );It's essential that a `nonce` — which, British slang definition aside, means 'number used once' — is only used when dynamically server rendering an individual response.
+ );
+It's essential that a `nonce` — which, British slang definition aside, means 'number used once' — is only used when dynamically server rendering an individual response.
 
 If instead you are generating static HTML ahead of time, you must use hashes instead:
 
-`const { ``const head: string`HTML that goes into the `<head>`
+`const {` `const head: string`
+HTML that goes into the `<head>`
 
-head, `const body: string`HTML that goes somewhere into the `<body>`
+head, `const body: string`
+HTML that goes somewhere into the `<body>`
 
 body, ```
 const hashes: {
@@ -126,28 +139,35 @@ Takes a component and returns an object with `body` and `head` properties on it,
 
 render(`const App: LegacyComponentType`App, {
 	`csp?: Csp | undefined`csp: { `hash?: boolean | undefined`hash: true }
-});`hashes.script` will be an array of strings like `["sha256-abcd123"]`. As with `nonce`, the hashes should be used in your CSP header:
+});
+`hashes.script` will be an array of strings like `["sha256-abcd123"]`. As with `nonce`, the hashes should be used in your CSP header:
 
-`let response: Response`response.`Response.headers: Headers`The `headers`
+`let response: Response`response.`Response.headers: Headers`
+The **`headers`** read-only property of the Response interface contains the Headers object associated with the response.
 
-headers.`Headers.set(name: string, value: string): void`The `set()`
+headers.`Headers.set(name: string, value: string): void`
+The **`set()`** method of the Headers interface sets a new value for an existing header inside a Headers object, or adds the header if it does not already exist.
 
 set(
   'Content-Security-Policy',
-  `script-src ${```
+  `script-src ${
+```
 let hashes: {
     script: string[];
 }
 ```
 
-`script: string[]`script.`Array<string>.map<string>(callbackfn: (value: string, index: number, array: string[]) => string, thisArg?: any): string[]`Calls a defined callback function on each element of an array, and returns an array that contains the results.
+`script: string[]`script.`Array<string>.map<string>(callbackfn: (value: string, index: number, array: string[]) => string, thisArg?: any): string[]`
+Calls a defined callback function on each element of an array, and returns an array that contains the results.
 
-map((`hash: string`hash) => `'${`hash: string`hash}'`).`Array<string>.join(separator?: string): string`Adds all the elements of an array into a string, separated by the specified separator string.
+map((`hash: string`hash) => `'${`hash: string`hash}'`).`Array<string>.join(separator?: string): string`
+Adds all the elements of an array into a string, separated by the specified separator string.
 
 join(' ')}`
- );We recommend using `nonce` over hash if you can, as `hash` will interfere with streaming SSR in the future.
+ );
+We recommend using `nonce` over hash if you can, as `hash` will interfere with streaming SSR in the future.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/05-hydratable.md) [ llms.txt](/docs/svelte/hydratable/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/05-hydratable.md)  [llms.txt](/docs/svelte/hydratable/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: <slot> • Svelte Docs
 description: <slot> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-slots
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # <slot>
@@ -29,13 +29,11 @@ In legacy mode, content inside component tags is considered *slotted content*, w
 	<slot></slot>
 </div>
 ```
-If you want to render a regular
-
-`<slot>`element, you can use`<svelte:element this={'slot'} />`.
+ If you want to render a regular `<slot>` element, you can use `<svelte:element this={'slot'} />`.
 
 ## Named slots
 
-A component can have *named* slots in addition to the default slot. On the parent side, add a `slot="..."` attribute to an element, component or [ <svelte:fragment>](legacy-svelte-fragment) directly inside the component tags.
+A component can have *named* slots in addition to the default slot. On the parent side, add a `slot="..."` attribute to an element, component or [`<svelte:fragment>`](legacy-svelte-fragment) directly inside the component tags.
 
 ```
 <script>

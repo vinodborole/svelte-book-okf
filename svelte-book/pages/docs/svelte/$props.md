@@ -3,7 +3,7 @@ type: Web Page
 title: $props • Svelte Docs
 description: $props • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$props
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # $props
@@ -36,7 +36,7 @@ On the other side, inside `MyComponent.svelte`, we can receive props with the `$
 </script>
 <p>this component is {props.adjective}</p>
 ```
-...though more commonly, you'll [ destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) your props:
+...though more commonly, you'll [*destructure*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) your props:
 
 ```
 <script>
@@ -54,7 +54,7 @@ On the other side, inside `MyComponent.svelte`, we can receive props with the `$
 
 Destructuring allows us to declare fallback values, which are used if the parent component does not set a given prop (or the value is `undefined`):
 
-`let { ``let adjective: any`adjective = 'happy' } = ```
+`let {` `let adjective: any`adjective = 'happy' } = ```
 function $props(): any
 namespace $props
 ```
@@ -63,15 +63,14 @@ Declares the props that a component accepts. Example:
 
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
-$props();Fallback values are not turned into reactive state proxies (see
-
-[Updating props](#Updating-props)for more info)
+$props();
+ Fallback values are not turned into reactive state proxies (see [Updating props](#Updating-props) for more info)
 
 ## Renaming props
 
 We can also use the destructuring assignment to rename props, which is necessary if they're invalid identifiers, or a JavaScript keyword like `super`:
 
-`let { super: ``let trouper: any`trouper = 'lights are gonna find me' } = ```
+`let { super:` `let trouper: any`trouper = 'lights are gonna find me' } = ```
 function $props(): any
 namespace $props
 ```
@@ -80,11 +79,12 @@ Declares the props that a component accepts. Example:
 
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
-$props();## Rest props
+$props();
+## Rest props
 
 Finally, we can use a *rest property* to get, well, the rest of the props:
 
-`let { ``let a: any`a, `let b: any`b, `let c: any`c, ...`let others: any`others } = ```
+`let {` `let a: any`a, `let b: any`b, `let c: any`c, ...`let others: any`others } = ```
 function $props(): any
 namespace $props
 ```
@@ -93,7 +93,8 @@ Declares the props that a component accepts. Example:
 
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
-$props();## Updating props
+$props();
+## Updating props
 
 References to a prop inside a component update when the prop itself updates — when `count` changes in `App.svelte`, it will also change inside `Child.svelte`. But the child component is able to temporarily override the prop value, which can be useful for unsaved ephemeral state:
 
@@ -171,7 +172,7 @@ If the prop is a regular object, the mutation will have no effect:
 	clicks: {object.count}
 </button>
 ```
-If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an [ ownership_invalid_mutation](runtime-warnings#Client-warnings-ownership_invalid_mutation) warning, because the component is mutating state that does not 'belong' to it:
+If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an [`ownership_invalid_mutation`](runtime-warnings#Client-warnings-ownership_invalid_mutation) warning, because the component is mutating state that does not 'belong' to it:
 
 ```
 <script>
@@ -249,7 +250,7 @@ The fallback value of a prop not declared with `$bindable` is left untouched —
 	clicks: {object.count}
 </button>
 ```
-In summary: don't mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the [ $bindable]($bindable) rune.
+In summary: don't mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the [`$bindable`]($bindable) rune.
 
 ## Type safety
 
@@ -278,9 +279,7 @@ You can, of course, separate the type declaration from the annotation:
 	let { adjective }: Props = $props();
 </script>
 ```
-Interfaces for native DOM elements are provided in the
-
-`svelte/elements`module (see[Typing wrapper components](typescript#Typing-wrapper-components))
+ Interfaces for native DOM elements are provided in the `svelte/elements` module (see [Typing wrapper components](typescript#Typing-wrapper-components))
 
 If your component exposes [snippet](snippet) props like `children`, these should be typed using the `Snippet` interface imported from `'svelte'` — see [Typing snippets](snippet#Typing-snippets) for examples.
 

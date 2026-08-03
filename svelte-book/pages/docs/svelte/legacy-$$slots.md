@@ -3,7 +3,7 @@ type: Web Page
 title: $$slots • Svelte Docs
 description: $$slots • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-$$slots
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # $$slots
@@ -32,7 +32,7 @@ App
 	<!-- No slot named "description" was provided so the optional slot will not be rendered. -->
 </Card>
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/21-legacy-$$slots.md) [ llms.txt](/docs/svelte/legacy-$$slots/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/21-legacy-$$slots.md)  [llms.txt](/docs/svelte/legacy-$$slots/llms.txt)
 
 previous next
 

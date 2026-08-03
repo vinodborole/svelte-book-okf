@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/easing • Svelte Docs
 description: svelte/easing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-easing
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # svelte/easing 
@@ -43,69 +43,101 @@ import {
 	`function sineIn(t: number): number`sineIn,
 	`function sineInOut(t: number): number`sineInOut,
 	`function sineOut(t: number): number`sineOut
-} from 'svelte/easing';## backIn
+} from 'svelte/easing';
+## backIn
 
-`function backIn(t: number): number;`## backInOut
+`function backIn(t: number): number;`
+## backInOut
 
-`function backInOut(t: number): number;`## backOut
+`function backInOut(t: number): number;`
+## backOut
 
-`function backOut(t: number): number;`## bounceIn
+`function backOut(t: number): number;`
+## bounceIn
 
-`function bounceIn(t: number): number;`## bounceInOut
+`function bounceIn(t: number): number;`
+## bounceInOut
 
-`function bounceInOut(t: number): number;`## bounceOut
+`function bounceInOut(t: number): number;`
+## bounceOut
 
-`function bounceOut(t: number): number;`## circIn
+`function bounceOut(t: number): number;`
+## circIn
 
-`function circIn(t: number): number;`## circInOut
+`function circIn(t: number): number;`
+## circInOut
 
-`function circInOut(t: number): number;`## circOut
+`function circInOut(t: number): number;`
+## circOut
 
-`function circOut(t: number): number;`## cubicIn
+`function circOut(t: number): number;`
+## cubicIn
 
-`function cubicIn(t: number): number;`## cubicInOut
+`function cubicIn(t: number): number;`
+## cubicInOut
 
-`function cubicInOut(t: number): number;`## cubicOut
+`function cubicInOut(t: number): number;`
+## cubicOut
 
-`function cubicOut(t: number): number;`## elasticIn
+`function cubicOut(t: number): number;`
+## elasticIn
 
-`function elasticIn(t: number): number;`## elasticInOut
+`function elasticIn(t: number): number;`
+## elasticInOut
 
-`function elasticInOut(t: number): number;`## elasticOut
+`function elasticInOut(t: number): number;`
+## elasticOut
 
-`function elasticOut(t: number): number;`## expoIn
+`function elasticOut(t: number): number;`
+## expoIn
 
-`function expoIn(t: number): number;`## expoInOut
+`function expoIn(t: number): number;`
+## expoInOut
 
-`function expoInOut(t: number): number;`## expoOut
+`function expoInOut(t: number): number;`
+## expoOut
 
-`function expoOut(t: number): number;`## linear
+`function expoOut(t: number): number;`
+## linear
 
-`function linear(t: number): number;`## quadIn
+`function linear(t: number): number;`
+## quadIn
 
-`function quadIn(t: number): number;`## quadInOut
+`function quadIn(t: number): number;`
+## quadInOut
 
-`function quadInOut(t: number): number;`## quadOut
+`function quadInOut(t: number): number;`
+## quadOut
 
-`function quadOut(t: number): number;`## quartIn
+`function quadOut(t: number): number;`
+## quartIn
 
-`function quartIn(t: number): number;`## quartInOut
+`function quartIn(t: number): number;`
+## quartInOut
 
-`function quartInOut(t: number): number;`## quartOut
+`function quartInOut(t: number): number;`
+## quartOut
 
-`function quartOut(t: number): number;`## quintIn
+`function quartOut(t: number): number;`
+## quintIn
 
-`function quintIn(t: number): number;`## quintInOut
+`function quintIn(t: number): number;`
+## quintInOut
 
-`function quintInOut(t: number): number;`## quintOut
+`function quintInOut(t: number): number;`
+## quintOut
 
-`function quintOut(t: number): number;`## sineIn
+`function quintOut(t: number): number;`
+## sineIn
 
-`function sineIn(t: number): number;`## sineInOut
+`function sineIn(t: number): number;`
+## sineInOut
 
-`function sineInOut(t: number): number;`## sineOut
+`function sineInOut(t: number): number;`
+## sineOut
 
-`function sineOut(t: number): number;`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-easing.md) [ llms.txt](/docs/svelte/svelte-easing/llms.txt)
+`function sineOut(t: number): number;`
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-easing.md)  [llms.txt](/docs/svelte/svelte-easing/llms.txt)
 
 previous next
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Basic markup • Svelte Docs
 description: Basic markup • Svelte documentation
 resource: https://svelte.dev/docs/svelte/basic-markup
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Basic markup
@@ -33,11 +33,14 @@ By default, attributes work exactly like their HTML counterparts.
 ```
 As in HTML, values may be unquoted.
 
-`<input type=checkbox />`Attribute values can contain JavaScript expressions.
+`<input type=checkbox />`
+Attribute values can contain JavaScript expressions.
 
-`<a href="page/{p}">page {p}</a>`Or they can *be* JavaScript expressions.
+`<a href="page/{p}">page {p}</a>`
+Or they can *be* JavaScript expressions.
 
-`<button disabled={!clickable}>...</button>`Boolean attributes are included on the element if their value is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and excluded if it's [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
+`<button disabled={!clickable}>...</button>`
+Boolean attributes are included on the element if their value is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and excluded if it's [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
 All other attributes are included unless their value is [nullish](https://developer.mozilla.org/en-US/docs/Glossary/Nullish) (`null` or `undefined`).
 
@@ -63,17 +66,20 @@ By convention, values passed to components are referred to as *properties* or *p
 
 As with elements, `name={name}` can be replaced with the `{name}` shorthand.
 
-`<Widget foo={bar} answer={42} text="hello" />`## Spread attributes
+`<Widget foo={bar} answer={42} text="hello" />`
+## Spread attributes
 
 *Spread attributes* allow many attributes or properties to be passed to an element or component at once.
 
 An element or component can have multiple spread attributes, interspersed with regular ones. Order matters — if `things.a` exists it will take precedence over `a="b"`, while `c="d"` would take precedence over `things.c`:
 
-`<Widget a="b" {...things} c="d" />`## Events
+`<Widget a="b" {...things} c="d" />`
+## Events
 
 Listening to DOM events is possible by adding attributes to the element that start with `on`. For example, to listen to the `click` event, add the `onclick` attribute to a button:
 
-`<button onclick={() => console.log('clicked')}>click me</button>`Event attributes are case sensitive. `onclick` listens to the `click` event, `onClick` listens to the `Click` event, which is different. This ensures you can listen to custom events that have uppercase characters in them.
+`<button onclick={() => console.log('clicked')}>click me</button>`
+Event attributes are case sensitive. `onclick` listens to the `click` event, `onClick` listens to the `Click` event, which is different. This ensures you can listen to custom events that have uppercase characters in them.
 
 Because events are just attributes, the same rules as for attributes apply:
 
@@ -84,7 +90,7 @@ Timing-wise, event attributes always fire after events from bindings (e.g. `onin
 
 When using `ontouchstart` and `ontouchmove` event attributes, the handlers are [passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) for better performance. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
 
-In the very rare cases that you need to prevent these event defaults, you should use [ on](svelte-events#on) instead (for example inside an action).
+In the very rare cases that you need to prevent these event defaults, you should use [`on`](svelte-events#on) instead (for example inside an action).
 
 ### Event delegation
 
@@ -92,8 +98,8 @@ To reduce memory footprint and increase performance, Svelte uses a technique cal
 
 There are a few gotchas to be aware of:
 
-- when you manually dispatch an event with a delegated listener, make sure to set the `{ bubbles: true }`option or it won't reach the application root
-- when using `addEventListener`directly, avoid calling`stopPropagation`or the event won't reach the application root and handlers won't be invoked. Similarly, handlers added manually inside the application root will run*before*handlers added declaratively deeper in the DOM (with e.g.`onclick={...}`), in both capturing and bubbling phases. For these reasons it's better to use the`on`function imported from`svelte/events`rather than`addEventListener`, as it will ensure that order is preserved and`stopPropagation`is handled correctly.
+- when you manually dispatch an event with a delegated listener, make sure to set the `{ bubbles: true }` option or it won't reach the application root
+- when using `addEventListener` directly, avoid calling`stopPropagation` or the event won't reach the application root and handlers won't be invoked. Similarly, handlers added manually inside the application root will run*before* handlers added declaratively deeper in the DOM (with e.g.`onclick={...}` ), in both capturing and bubbling phases. For these reasons it's better to use the`on` function imported from`svelte/events` rather than`addEventListener` , as it will ensure that order is preserved and`stopPropagation` is handled correctly.
 
 The following event handlers are delegated:
 
@@ -125,7 +131,8 @@ The following event handlers are delegated:
 
 A JavaScript expression can be included as text by surrounding it with curly braces.
 
-`{expression}`Expressions that are `null` or `undefined` will be omitted; all others are [coerced to strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+`{expression}`
+Expressions that are `null` or `undefined` will be omitted; all others are [coerced to strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 
 Curly braces can be included in a Svelte template by using their [HTML entity](https://developer.mozilla.org/docs/Glossary/Entity) strings: `{`, `{`, or `{` for `{` and `}`, `}`, or `}` for `}`.
 
@@ -138,15 +145,15 @@ If you're using a regular expression (`RegExp`) [literal notation](https://devel
 ```
 The expression will be stringified and escaped to prevent code injections. If you want to render HTML, use the `{@html}` tag instead.
 
-`{@html potentiallyUnsafeHtmlString}`Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent
-
-[XSS attacks](https://owasp.org/www-community/attacks/xss/)
+`{@html potentiallyUnsafeHtmlString}`
+ Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent [XSS attacks](https://owasp.org/www-community/attacks/xss/)
 
 ## Comments
 
 You can use HTML comments inside components.
 
-`<!-- this is a comment! --><h1>Hello world</h1>`Comments beginning with `svelte-ignore` disable warnings for the next block of markup. Usually, these are accessibility warnings; make sure that you're disabling them for a good reason.
+`<!-- this is a comment! --><h1>Hello world</h1>`
+Comments beginning with `svelte-ignore` disable warnings for the next block of markup. Usually, these are accessibility warnings; make sure that you're disabling them for a good reason.
 
 ```
 <!-- svelte-ignore a11y_autofocus -->
@@ -154,7 +161,7 @@ You can use HTML comments inside components.
 ```
 You can add a special comment starting with `@component` that will show up when hovering over the component name in other files.
 
-```
+````
 <!--
 @component
 - You can use markdown here.
@@ -172,7 +179,7 @@ You can add a special comment starting with `@component` that will show up when 
 		Hello, {name}
 	</h1>
 </main>
-```
+````
 
 # Citations
 

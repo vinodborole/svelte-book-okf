@@ -3,7 +3,7 @@ type: Web Page
 title: Svelte 5 migration guide • Svelte Docs
 description: Svelte 5 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v5-migration-guide
-timestamp: '2026-07-20T08:31:47.948207+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Svelte 5 migration guide
@@ -29,7 +29,7 @@ Nothing else changes. `count` is still the number itself, and you read and write
 
 ## Why we did this
 
-`let`being implicitly reactive at the top level worked great, but it meant that reactivity was constrained — a`let`declaration anywhere else was not reactive. This forced you to resort to using stores when refactoring code out of the top level of components for reuse. This meant you had to learn an entirely separate reactivity model, and the result often wasn't as nice to work with. Because reactivity is more explicit in Svelte 5, you can keep using the same API outside the top level of components. Head to[the tutorial](/tutorial)to learn more.
+`let` being implicitly reactive at the top level worked great, but it meant that reactivity was constrained — a `let` declaration anywhere else was not reactive. This forced you to resort to using stores when refactoring code out of the top level of components for reuse. This meant you had to learn an entirely separate reactivity model, and the result often wasn't as nice to work with. Because reactivity is more explicit in Svelte 5, you can keep using the same API outside the top level of components. Head to [the tutorial](/tutorial) to learn more.
 
 ### $: → $derived/$effect
 
@@ -55,18 +55,21 @@ A `$:` statement could also be used to create side effects. In Svelte 5, this is
 	});
 </script>
 ```
-Note that [when  $effect runs is different]($effect#Understanding-dependencies) than when 
+Note that [when `$effect` runs is different]($effect#Understanding-dependencies) than when `$:` runs.
 
-`$:` runs.## Why we did this
+## Why we did this
 
-`$:`was a great shorthand and easy to get started with: you could slap a`$:`in front of most code and it would somehow work. This intuitiveness was also its drawback the more complicated your code became, because it wasn't as easy to reason about. Was the intent of the code to create a derivation, or a side effect? With`$derived`and`$effect`, you have a bit more up-front decision making to do (spoiler alert: 90% of the time you want`$derived`), but future-you and other developers on your team will have an easier time.There were also gotchas that were hard to spot:
+`$:` was a great shorthand and easy to get started with: you could slap a `$:` in front of most code and it would somehow work. This intuitiveness was also its drawback the more complicated your code became, because it wasn't as easy to reason about. Was the intent of the code to create a derivation, or a side effect? With `$derived` and `$effect`, you have a bit more up-front decision making to do (spoiler alert: 90% of the time you want `$derived`), but future-you and other developers on your team will have an easier time.
 
-`$:`only updated directly before rendering, which meant you could read stale values in-between rerenders
-`$:`only ran once per tick, which meant that statements may run less often than you think
-`$:`dependencies were determined through static analysis of the dependencies. This worked in most cases, but could break in subtle ways during a refactoring where dependencies would be for example moved into a function and no longer be visible as a result
-`$:`statements were also ordered by using static analysis of the dependencies. In some cases there could be ties and the ordering would be wrong as a result, needing manual interventions. Ordering could also break while refactoring code and some dependencies no longer being visible as a result.Lastly, it wasn't TypeScript-friendly (our editor tooling had to jump through some hoops to make it valid for TypeScript), which was a blocker for making Svelte's reactivity model truly universal.
+There were also gotchas that were hard to spot:
 
-`$derived`and`$effect`fix all of these by
+`$:` only updated directly before rendering, which meant you could read stale values in-between rerenders
+`$:` only ran once per tick, which meant that statements may run less often than you think
+`$:` dependencies were determined through static analysis of the dependencies. This worked in most cases, but could break in subtle ways during a refactoring where dependencies would be for example moved into a function and no longer be visible as a result
+`$:` statements were also ordered by using static analysis of the dependencies. In some cases there could be ties and the ordering would be wrong as a result, needing manual interventions. Ordering could also break while refactoring code and some dependencies no longer being visible as a result.
+Lastly, it wasn't TypeScript-friendly (our editor tooling had to jump through some hoops to make it valid for TypeScript), which was a blocker for making Svelte's reactivity model truly universal.
+
+`$derived` and `$effect` fix all of these by
 
 - always returning the latest value
 - running as often as needed to be stable
@@ -87,7 +90,7 @@ In Svelte 4, properties of a component were declared using `export let`. Each pr
 ```
 There are multiple cases where declaring properties becomes less straightforward than having a few `export let` declarations:
 
-- you want to rename the property, for example because the name is a reserved identifier (e.g. `class`)
+- you want to rename the property, for example because the name is a reserved identifier (e.g. `class` )
 - you don't know which other properties to expect in advance
 - you want to forward every property to another component
 
@@ -113,9 +116,9 @@ In Svelte 5, the `$props` rune makes this straightforward without any additional
 ```
 ## Why we did this
 
-`export let`was one of the more controversial API decisions, and there was a lot of debate about whether you should think about a property being`export`ed or`import`ed.`$props`doesn't have this trait. It's also in line with the other runes, and the general thinking reduces to "everything special to reactivity in Svelte is a rune".There were also a lot of limitations around
+`export let` was one of the more controversial API decisions, and there was a lot of debate about whether you should think about a property being `export`ed or `import`ed. `$props` doesn't have this trait. It's also in line with the other runes, and the general thinking reduces to "everything special to reactivity in Svelte is a rune".
 
-`export let`, which required additional API, as shown above.`$props`unite this in one syntactical concept that leans heavily on regular JavaScript destructuring syntax.
+There were also a lot of limitations around `export let`, which required additional API, as shown above. `$props` unite this in one syntactical concept that leans heavily on regular JavaScript destructuring syntax.
 
 ## Event changes
 
@@ -266,7 +269,8 @@ Note that this also means you can 'spread' event handlers onto the element along
 
 In Svelte 4, you can add event modifiers to handlers:
 
-`<button on:click|once|preventDefault={handler}>...</button>`Modifiers are specific to `on:` and so do not work with modern event handlers. Adding things like `event.preventDefault()` inside the handler itself is preferable, since all the logic lives in one place rather than being split between handler and modifiers.
+`<button on:click|once|preventDefault={handler}>...</button>`
+Modifiers are specific to `on:` and so do not work with modern event handlers. Adding things like `event.preventDefault()` inside the handler itself is preferable, since all the logic lives in one place rather than being split between handler and modifiers.
 
 Since event handlers are just functions, you can create your own wrappers as necessary:
 
@@ -291,13 +295,15 @@ There are three modifiers — `capture`, `passive` and `nonpassive` — that can
 
 For `capture`, we add the modifier to the event name:
 
-`<button onclickcapture={...}>...</button>`Changing the [ passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) option of an event handler, meanwhile, is not something to be done lightly. If you have a use case for it — and you probably don't! — then you will need to use an action to apply the event handler yourself.
+`<button onclickcapture={...}>...</button>`
+Changing the [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) option of an event handler, meanwhile, is not something to be done lightly. If you have a use case for it — and you probably don't! — then you will need to use an action to apply the event handler yourself.
 
 ### Multiple event handlers
 
 In Svelte 4, this is possible:
 
-`<button on:click={one} on:click={two}>...</button>`Duplicate attributes/properties on elements — which now includes event handlers — are not allowed. Instead, do this:
+`<button on:click={one} on:click={two}>...</button>`
+Duplicate attributes/properties on elements — which now includes event handlers — are not allowed. Instead, do this:
 
 ```
 <button
@@ -324,26 +330,25 @@ When spreading props, local event handlers must go *after* the spread, or they r
 ```
 ## Why we did this
 
-`createEventDispatcher`was always a bit boilerplate-y:
+`createEventDispatcher` was always a bit boilerplate-y:
 
 - import the function
 - call the function to get a dispatch function
 - call said dispatch function with a string and possibly a payload
 - retrieve said payload on the other end through a
-`.detail`property, because the event itself was always a`CustomEvent`It was always possible to use component callback props, but because you had to listen to DOM events using
+`.detail` property, because the event itself was always a `CustomEvent`
+It was always possible to use component callback props, but because you had to listen to DOM events using `on:`, it made sense to use `createEventDispatcher` for component events due to syntactical consistency. Now that we have event attributes (`onclick`), it's the other way around: Callback props are now the more sensible thing to do.
 
-`on:`, it made sense to use`createEventDispatcher`for component events due to syntactical consistency. Now that we have event attributes (`onclick`), it's the other way around: Callback props are now the more sensible thing to do.The removal of event modifiers is arguably one of the changes that seems like a step back for those who've liked the shorthand syntax of event modifiers. Given that they are not used that frequently, we traded a smaller surface area for more explicitness. Modifiers also were inconsistent, because most of them were only usable on DOM elements.
+The removal of event modifiers is arguably one of the changes that seems like a step back for those who've liked the shorthand syntax of event modifiers. Given that they are not used that frequently, we traded a smaller surface area for more explicitness. Modifiers also were inconsistent, because most of them were only usable on DOM elements.
 
-Multiple listeners for the same event are also no longer possible, but it was something of an anti-pattern anyway, since it impedes readability: if there are many attributes, it becomes harder to spot that there are two handlers unless they are right next to each other. It also implies that the two handlers are independent, when in fact something like
+Multiple listeners for the same event are also no longer possible, but it was something of an anti-pattern anyway, since it impedes readability: if there are many attributes, it becomes harder to spot that there are two handlers unless they are right next to each other. It also implies that the two handlers are independent, when in fact something like `event.stopImmediatePropagation()` inside `one` would prevent `two` from being called.
 
-`event.stopImmediatePropagation()`inside`one`would prevent`two`from being called.By deprecating
-
-`createEventDispatcher`and the`on:`directive in favour of callback props and normal element properties, we:
+By deprecating `createEventDispatcher` and the `on:` directive in favour of callback props and normal element properties, we:
 
 - reduce Svelte's learning curve
 - remove boilerplate, particularly around
 `createEventDispatcher`- remove the overhead of creating
-`CustomEvent`objects for events that may not even have listeners- add the ability to spread event handlers
+`CustomEvent` objects for events that may not even have listeners- add the ability to spread event handlers
 - add the ability to know which event handlers were provided to a component
 - add the ability to express whether a given event handler is required or optional
 - increase type safety (previously, it was effectively impossible for Svelte to guarantee that a component didn't emit a particular event)
@@ -381,7 +386,7 @@ They continue to work, however, and you can pass snippets to a component that us
 	{/snippet}
 </Child>
 ```
-(The reverse is not true — you cannot pass slotted content to a component that uses [ {@render ...}](/docs/svelte/@render) tags.)
+(The reverse is not true — you cannot pass slotted content to a component that uses [`{@render ...}`](/docs/svelte/@render) tags.)
 
 When using custom elements, you should still use `<slot />` like before. In a future version, when Svelte removes its internal version of slots, it will leave those slots as-is, i.e. output a regular DOM tag instead of transforming it.
 
@@ -490,12 +495,11 @@ In Svelte 4, you would pass data to a `<slot />` and then retrieve it with `let:
 Slots were easy to get started with, but the more advanced the use case became, the more involved and confusing the syntax became:
 
 - the
-`let:`syntax was confusing to many people as itcreatesa variable whereas all other`:`directivesreceivea variable- the scope of a variable declared with
-`let:`wasn't clear. In the example above, it may look like you can use the`item`slot prop in the`empty`slot, but that's not true- named slots had to be applied to an element using the
-`slot`attribute. Sometimes you didn't want to create an element, so we had to add the`<svelte:fragment>`API- named slots could also be applied to a component, which changed the semantics of where
-`let:`directives are available (even today us maintainers often don't know which way around it works)Snippets solve all of these problems by being much more readable and clear. At the same time they're more powerful as they allow you to define sections of UI that you can render
-
-anywhere, not just passing them as props to a component.
+`let:` syntax was confusing to many people as it *creates* a variable whereas all other `:` directives *receive* a variable- the scope of a variable declared with
+`let:` wasn't clear. In the example above, it may look like you can use the `item` slot prop in the `empty` slot, but that's not true- named slots had to be applied to an element using the
+`slot` attribute. Sometimes you didn't want to create an element, so we had to add the `<svelte:fragment>` API- named slots could also be applied to a component, which changed the semantics of where
+`let:` directives are available (even today us maintainers often don't know which way around it works)
+Snippets solve all of these problems by being much more readable and clear. At the same time they're more powerful as they allow you to define sections of UI that you can render *anywhere*, not just passing them as props to a component.
 
 ## Migration script
 
@@ -504,11 +508,11 @@ By now you should have a pretty good understanding of the before/after and how t
 We thought the same, which is why we provide a migration script to do most of the migration automatically. You can upgrade your project by using `npx sv migrate svelte-5`. This will do the following things:
 
 - bump core dependencies in your `package.json`
-- migrate to runes (`let`→`$state`etc)
-- migrate to event attributes for DOM elements (`on:click`→`onclick`)
-- migrate slot creations to render tags (`<slot />`→`{@render children()}`)
-- migrate slot usages to snippets (`<div slot="x">...</div>`→`{#snippet x()}<div>...</div>{/snippet}`)
-- migrate obvious component creations (`new Component(...)`→`mount(Component, ...)`)
+- migrate to runes (`let` →`$state` etc)
+- migrate to event attributes for DOM elements (`on:click` →`onclick` )
+- migrate slot creations to render tags (`<slot />` →`{@render children()}` )
+- migrate slot usages to snippets (`<div slot="x">...</div>` →`{#snippet x()}<div>...</div>{/snippet}` )
+- migrate obvious component creations (`new Component(...)` →`mount(Component, ...)` )
 
 You can also migrate a single component in VS Code through the `Migrate Component to Svelte 5 Syntax` command, or in our Playground through the `Migrate` button.
 
@@ -554,7 +558,8 @@ The migration script does not convert `beforeUpdate/afterUpdate`. It doesn't do 
 
 In Svelte 3 and 4, components are classes. In Svelte 5 they are functions and should be instantiated differently. If you need to manually instantiate components, you should use `mount` or `hydrate` (imported from `svelte`) instead. If you see this error using SvelteKit, try updating to the latest version of SvelteKit first, which adds support for Svelte 5. If you're using Svelte without SvelteKit, you'll likely have a `main.js` file (or similar) which you need to adjust:
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount } from 'svelte';
@@ -570,11 +575,14 @@ const App: LegacyComponentType
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-`var document: Document`** window.document** returns a reference to the document contained in the window.
+`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 ```
 const app: {
@@ -587,7 +595,8 @@ const app: {
 
 For `$on`, instead of listening to events, pass them via the `events` property on the options argument.
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount } from 'svelte';
@@ -603,21 +612,25 @@ const App: LegacyComponentType
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-`var document: Document`** window.document** returns a reference to the document contained in the window.
+`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
-`events?: Record<string, (e: any) => any> | undefined`Allows the specification of events.
+`events?: Record<string, (e: any) => any> | undefined`
+Allows the specification of events.
 
-`event: any`event: callback } });Note that using
-
-`events`is discouraged — instead,[use callbacks](#Event-changes)
+`event: any`event: callback } });
+ Note that using `events` is discouraged — instead, [use callbacks](#Event-changes)
 
 For `$set`, use `$state` instead to create a reactive property object and manipulate it. If you're doing this inside a `.js` or `.ts` file, adjust the ending to include `.svelte`, i.e. `.svelte.js` or `.svelte.ts`.
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount } from 'svelte';
@@ -642,19 +655,25 @@ const `const app: {`
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-`var document: Document`** window.document** returns a reference to the document contained in the window.
+`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
-`props?: Record<string, any> | undefined`Component properties.
+`props?: Record<string, any> | undefined`
+Component properties.
 
 `const props: {`
 
-`foo: string`foo = 'baz';For `$destroy`, use `unmount` instead.
+`foo: string`foo = 'baz';
+For `$destroy`, use `unmount` instead.
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount, `function unmount(component: Record<string, any>, options?: {`
@@ -684,11 +703,14 @@ const App: LegacyComponentType
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-`var document: Document`** window.document** returns a reference to the document contained in the window.
+`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 `function unmount(component: Record<string, any>, options?: {`
 
@@ -709,7 +731,7 @@ unmount(app, { outro: true });
 
 As a stop-gap-solution, you can also use `createClassComponent` or `asClassComponent` (imported from `svelte/legacy`) instead to keep the same API known from Svelte 4 after instantiating.
 
-`import { ``function createClassComponent<Props extends Record<string, any>, Exports extends Record<string, any>, Events extends Record<string, any>, Slots extends Record<string, any>>(options: ComponentConstructorOptions<Props> & {`
+`import {` `function createClassComponent<Props extends Record<string, any>, Exports extends Record<string, any>, Events extends Record<string, any>, Slots extends Record<string, any>>(options: ComponentConstructorOptions<Props> & {`
 
 Takes the same options as a Svelte 4 component and the component function and returns a Svelte 4 compatible component.
 
@@ -722,11 +744,14 @@ const App: LegacyComponentType
 
 Takes the same options as a Svelte 4 component and the component function and returns a Svelte 4 compatible component.
 
-`component: Component<Record<string, any>, {}, string> | ComponentType<SvelteComponent<Record<string, any>, any, any>>`component: `const App: LegacyComponentType`App, `ComponentConstructorOptions<Props extends Record<string, any> = Record<string, any>>.target: Document | Element | ShadowRoot`target: `var document: Document`** window.document** returns a reference to the document contained in the window.
+`component: Component<Record<string, any>, {}, string> | ComponentType<SvelteComponent<Record<string, any>, any, any>>`component: `const App: LegacyComponentType`App, `ComponentConstructorOptions<Props extends Record<string, any> = Record<string, any>>.target: Document | Element | ShadowRoot`target: `var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
-`const app: SvelteComponent<Record<string, any>, any, any> & Record<string, any>`app;If this component is not under your control, you can use the `compatibility.componentApi` compiler option for auto-applied backwards compatibility, which means code using `new Component(...)` keeps working without adjustments (note that this adds a bit of overhead to each component). This will also add `$set` and `$on` methods for all component instances you get through `bind:this`.
+`const app: SvelteComponent<Record<string, any>, any, any> & Record<string, any>`app;
+If this component is not under your control, you can use the `compatibility.componentApi` compiler option for auto-applied backwards compatibility, which means code using `new Component(...)` keeps working without adjustments (note that this adds a bit of overhead to each component). This will also add `$set` and `$on` methods for all component instances you get through `bind:this`.
 
 ```
 /// svelte.config.js
@@ -750,13 +775,14 @@ compatibility: {
 `componentApi: number`componentApi: 4
 		}
 	}
-};Note that `mount` and `hydrate` are *not* synchronous, so things like `onMount` won't have been called by the time the function returns and the pending block of promises will not have been rendered yet (because `#await` waits a microtask to wait for a potentially immediately-resolved promise). If you need that guarantee, call `flushSync` (import from `'svelte'`) after calling `mount/hydrate`.
+};
+Note that `mount` and `hydrate` are *not* synchronous, so things like `onMount` won't have been called by the time the function returns and the pending block of promises will not have been rendered yet (because `#await` waits a microtask to wait for a potentially immediately-resolved promise). If you need that guarantee, call `flushSync` (import from `'svelte'`) after calling `mount/hydrate`.
 
 ### Server API changes
 
 Similarly, components no longer have a `render` method when compiled for server-side rendering. Instead, pass the function to `render` from `svelte/server`:
 
-`import { ``function render<Comp extends SvelteComponent<any> | Component<any>, Props extends ComponentProps<Comp> = ComponentProps<Comp>>(...args: {} extends Props ? [component: Comp extends SvelteComponent<any> ? ComponentType<Comp> : Comp, options?: {`
+`import {` `function render<Comp extends SvelteComponent<any> | Component<any>, Props extends ComponentProps<Comp> = ComponentProps<Comp>>(...args: {} extends Props ? [component: Comp extends SvelteComponent<any> ? ComponentType<Comp> : Comp, options?: {`
 
 Only available on the server and when compiling with the `server` option.
 Takes a component and returns an object with `body` and `head` properties on it, which you can use to populate the HTML when server-rendering your app.
@@ -766,20 +792,23 @@ type App = SvelteComponent<Record<string, any>, any, any>
 const App: LegacyComponentType
 ```
 
-`const html: string`html, `const head: string`HTML that goes into the `<head>`
+`const html: string`html, `const head: string`
+HTML that goes into the `<head>`
 
 `render<SvelteComponent<Record<string, any>, any, any>, Record<string, any>>(component: ComponentType<SvelteComponent<Record<string, any>, any, any>>, options?: {`
 
 Only available on the server and when compiling with the `server` option.
 Takes a component and returns an object with `body` and `head` properties on it, which you can use to populate the HTML when server-rendering your app.
 
-`const App: LegacyComponentType`App, { `props?: Omit<Record<string, any>, "$$slots" | "$$events"> | undefined`props: { `message: string`message: 'hello' }});In Svelte 4, rendering a component to a string also returned the CSS of all components. In Svelte 5, this is no longer the case by default because most of the time you're using a tooling chain that takes care of it in other ways (like SvelteKit). If you need CSS to be returned from `render`, you can set the `css` compiler option to `'injected'` and it will add `<style>` elements to the `head`.
+`const App: LegacyComponentType`App, { `props?: Omit<Record<string, any>, "$$slots" | "$$events"> | undefined`props: { `message: string`message: 'hello' }});
+In Svelte 4, rendering a component to a string also returned the CSS of all components. In Svelte 5, this is no longer the case by default because most of the time you're using a tooling chain that takes care of it in other ways (like SvelteKit). If you need CSS to be returned from `render`, you can set the `css` compiler option to `'injected'` and it will add `<style>` elements to the `head`.
 
 ### Component typing changes
 
 The change from classes towards functions is also reflected in the typings: `SvelteComponent`, the base class from Svelte 4, is deprecated in favour of the new `Component` type which defines the function shape of a Svelte component. To manually define a component shape in a `d.ts` file:
 
-`import type { ``interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+`import type {` `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -810,7 +839,8 @@ const MyComponent: Component<{
 }, {}, string>
 ```
 
-`interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+`interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -836,11 +866,13 @@ with TypeScript:
 
 Component<{
 	`foo: string`foo: string;
-}>;To declare that a component of a certain type is required:
+}>;
+To declare that a component of a certain type is required:
 
-`import { ``import ComponentA`ComponentA, `import ComponentB`ComponentB } from 'component-library';
+`import {` `import ComponentA`ComponentA, `import ComponentB`ComponentB } from 'component-library';
 import type { SvelteComponent } from 'svelte';
-import type { `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+import type { `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -868,7 +900,8 @@ Component } from 'svelte';
 let C: typeof SvelteComponent<{ foo: string }> = $state(
 let `let C: Component<{`
 
-`interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+`interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -894,12 +927,15 @@ Declares reactive state.
 
 Example:
 
-`let count = $state(0);``var Math: Math`An intrinsic object that provides basic mathematics functionality and constants.
+`let count = $state(0);``var Math: Math`
+An intrinsic object that provides basic mathematics functionality and constants.
 
-`Math.random(): number`Returns a pseudorandom number between 0 and 1.
+`Math.random(): number`
+Returns a pseudorandom number between 0 and 1.
 
 `import ComponentA`ComponentA : `import ComponentB`ComponentB
-);The two utility types `ComponentEvents` and `ComponentType` are also deprecated. `ComponentEvents` is obsolete because events are defined as callback props now, and `ComponentType` is obsolete because the new `Component` type is the component type already (i.e. `ComponentType<SvelteComponent<{ prop: string }>>` is equivalent to `Component<{ prop: string }>`).
+);
+The two utility types `ComponentEvents` and `ComponentType` are also deprecated. `ComponentEvents` is obsolete because events are defined as callback props now, and `ComponentType` is obsolete because the new `Component` type is the component type already (i.e. `ComponentType<SvelteComponent<{ prop: string }>>` is equivalent to `Component<{ prop: string }>`).
 
 ### bind:this changes
 
@@ -940,11 +976,12 @@ In Svelte 4, `<foo.bar>` would create an element with a tag name of `"foo.bar"`.
 
 Previously, Svelte employed a very complicated algorithm to determine if whitespace should be kept or not. Svelte 5 simplifies this which makes it easier to reason about as a developer. The rules are:
 
-- Whitespace between nodes is collapsed to one whitespace 
-- Whitespace at the start and end of a tag is removed completely - This new behavior is slightly different from native HTML rendering. For example, - `<p>foo<span> - bar</span></p>`will render:- `foo - bar`in HTML
-- `foo- bar`in Svelte 5
- - You can reintroduce the missing space by moving it outside the - `<span>`...- `<p>foo <span>- bar</span></p>`- ...or, if necessary for styling reasons, including it as an expression: - `<p>foo<span>{' '}- bar</span></p>`
-- Certain exceptions apply such as keeping whitespace inside - `pre`tags
+- Whitespace between nodes is collapsed to one whitespace
+- Whitespace at the start and end of a tag is removed completely This new behavior is slightly different from native HTML rendering. For example, `<p>foo<span> - bar</span></p>` will render:
+  - `foo - bar` in HTML
+  - `foo- bar` in Svelte 5
+ You can reintroduce the missing space by moving it outside the `<span>` ...`<p>foo <span>- bar</span></p>`...or, if necessary for styling reasons, including it as an expression: `<p>foo<span>{' '}- bar</span></p>`
+- Certain exceptions apply such as keeping whitespace inside `pre` tags
 
 As before, you can disable whitespace trimming by setting the `preserveWhitespace` option in your compiler settings or on a per-component basis in `<svelte:options>`.
 
@@ -952,20 +989,20 @@ As before, you can disable whitespace trimming by setting the `preserveWhitespac
 
 Svelte 5 requires a modern browser (in other words, not Internet Explorer) for various reasons:
 
-- it uses `Proxies`
-- elements with `clientWidth`/`clientHeight`/`offsetWidth`/`offsetHeight`bindings use a`ResizeObserver``<iframe>`hack
-- `<input type="range" bind:value={...} />`only uses an- `input`event listener, rather than also listening for- `change`events as a fallback
+- it uses [`Proxies`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- elements with `clientWidth` /`clientHeight` /`offsetWidth` /`offsetHeight` bindings use a[`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) rather than a convoluted`<iframe>` hack
+- `<input type="range" bind:value={...} />` only uses an`input` event listener, rather than also listening for`change` events as a fallback
 
 The `legacy` compiler option, which generated bulkier but IE-friendly code, no longer exists.
 
 ## Changes to compiler options
 
-- The `false`/`true`(already deprecated previously) and the`"none"`values were removed as valid values from the`css`option
-- The `legacy`option was repurposed
-- The `hydratable`option has been removed. Svelte components are always hydratable now
-- The `enableSourcemap`option has been removed. Source maps are always generated now, tooling can choose to ignore it
-- The `tag`option was removed. Use`<svelte:options customElement="tag-name" />`inside the component instead
-- The `loopGuardTimeout`,`format`,`sveltePath`,`errorMode`and`varsReport`options were removed
+- The `false` /`true` (already deprecated previously) and the`"none"` values were removed as valid values from the`css` option
+- The `legacy` option was repurposed
+- The `hydratable` option has been removed. Svelte components are always hydratable now
+- The `enableSourcemap` option has been removed. Source maps are always generated now, tooling can choose to ignore it
+- The `tag` option was removed. Use`<svelte:options customElement="tag-name" />` inside the component instead
+- The `loopGuardTimeout` ,`format` ,`sveltePath` ,`errorMode` and`varsReport` options were removed
 
 ## The children prop is reserved
 
@@ -1007,7 +1044,8 @@ In runes mode, properties are never accessible on the component instance. You ca
 ```
 Alternatively, if the place where they are instantiated is under your control, you can also make use of runes inside `.js/.ts` files by adjusting their ending to include `.svelte`, i.e. `.svelte.js` or `.svelte.ts`, and then use `$state`:
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount } from 'svelte';
@@ -1032,17 +1070,22 @@ const `const app: {`
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-`var document: Document`** window.document** returns a reference to the document contained in the window.
+`var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-`Document.getElementById(elementId: string): HTMLElement | null`The ** getElementById()** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+`Document.getElementById(elementId: string): HTMLElement | null`
+The **`getElementById()`** method of the Document interface returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
-`props?: Record<string, any> | undefined`Component properties.
+`props?: Record<string, any> | undefined`
+Component properties.
 
 `const props: {`
 
-`foo: string`foo = 'baz';### immutable option is ignored
+`foo: string`foo = 'baz';
+### immutable option is ignored
 
 Setting the `immutable` option has no effect in runes mode. This concept is replaced by how `$state` and its variations work.
 
@@ -1063,15 +1106,17 @@ This is because the Svelte compiler treated the assignment to `foo.value` as an 
 
 When using `ontouchstart` and `ontouchmove` event attributes, the handlers are [passive](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners) to align with browser defaults. This greatly improves responsiveness by allowing the browser to scroll the document immediately, rather than waiting to see if the event handler calls `event.preventDefault()`.
 
-In the very rare cases that you need to prevent these event defaults, you should use [ on](/docs/svelte/svelte-events#on) instead (for example inside an action).
+In the very rare cases that you need to prevent these event defaults, you should use [`on`](/docs/svelte/svelte-events#on) instead (for example inside an action).
 
 ### Attribute/prop syntax is stricter
 
 In Svelte 4, complex attribute values needn't be quoted:
 
-`<Component prop=this{is}valid />`This is a footgun. In runes mode, if you want to concatenate stuff you must wrap the value in quotes:
+`<Component prop=this{is}valid />`
+This is a footgun. In runes mode, if you want to concatenate stuff you must wrap the value in quotes:
 
-`<Component prop="this{is}valid" />`Note that Svelte 5 will also warn if you have a single expression wrapped in quotes, like `answer="{42}"` — in Svelte 6, that will cause the value to be converted to a string, rather than passed as a number.
+`<Component prop="this{is}valid" />`
+Note that Svelte 5 will also warn if you have a single expression wrapped in quotes, like `answer="{42}"` — in Svelte 6, that will cause the value to be converted to a string, rather than passed as a number.
 
 ### HTML structure is stricter
 
@@ -1155,7 +1200,8 @@ If you have a `contenteditable` node with a corresponding binding *and* a reacti
 
 In Svelte 4, it was possible to specify event attributes on HTML elements as a string:
 
-`<button onclick="alert('hello')">...</button>`This is not recommended, and is no longer possible in Svelte 5, where properties like `onclick` replace `on:click` as the mechanism for adding event handlers.
+`<button onclick="alert('hello')">...</button>`
+This is not recommended, and is no longer possible in Svelte 5, where properties like `onclick` replace `on:click` as the mechanism for adding event handlers.
 
 ### null and undefined become the empty string
 
@@ -1185,7 +1231,8 @@ Svelte 4 replaced the `<slot />` tag in all places with its own version of slots
 
 In Svelte 4, `<svelte:element this="div">` is valid code. This makes little sense — you should just do `<div>`. In the vanishingly rare case that you *do* need to use a literal value for some reason, you can do this:
 
-`<svelte:element this={"div"}>`Note that whereas Svelte 4 would treat `<svelte:element this="input">` (for example) identically to `<input>` for the purposes of determining which `bind:` directives could be applied, Svelte 5 does not.
+`<svelte:element this={"div"}>`
+Note that whereas Svelte 4 would treat `<svelte:element this="input">` (for example) identically to `<input>` for the purposes of determining which `bind:` directives could be applied, Svelte 5 does not.
 
 ### mount plays transitions by default
 
@@ -1227,7 +1274,7 @@ Event attributes replace event directives: Instead of `on:click={handler}` you w
 
 Svelte 5 uses an extra `<svelte-css-wrapper>` element instead of a `<div>` to wrap the component when using CSS custom properties.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/07-v5-migration-guide.md) [ llms.txt](/docs/svelte/v5-migration-guide/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/07-v5-migration-guide.md)  [llms.txt](/docs/svelte/v5-migration-guide/llms.txt)
 
 # Citations
 

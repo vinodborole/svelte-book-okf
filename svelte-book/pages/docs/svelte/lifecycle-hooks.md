@@ -3,7 +3,7 @@ type: Web Page
 title: Lifecycle hooks • Svelte Docs
 description: Lifecycle hooks • Svelte documentation
 resource: https://svelte.dev/docs/svelte/lifecycle-hooks
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Lifecycle hooks
@@ -37,9 +37,7 @@ If a function is returned from `onMount`, it will be called when the component i
 	});
 </script>
 ```
-This behaviour will only work when the function passed to
-
-`onMount`issynchronous.`async`functions always return a`Promise`.
+ This behaviour will only work when the function passed to `onMount` is *synchronous*. `async` functions always return a `Promise`.
 
 ## onDestroy
 
@@ -139,7 +137,7 @@ With runes, we can use `$effect.pre`, which behaves the same as `$effect` but ru
 	<button onclick={toggle}> Toggle dark mode </button>
 </div>
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/03-lifecycle-hooks.md) [ llms.txt](/docs/svelte/lifecycle-hooks/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/03-lifecycle-hooks.md)  [llms.txt](/docs/svelte/lifecycle-hooks/llms.txt)
 
 # Citations
 

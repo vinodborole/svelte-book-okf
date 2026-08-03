@@ -3,7 +3,7 @@ type: Web Page
 title: '{let/const ...} • Svelte Docs'
 description: '{let/const ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/declaration-tags
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {let/const ...} 
@@ -32,9 +32,7 @@ timestamp: '2026-07-09T12:17:00.027378+00:00'
 ```
 Declaration tags are available since Svelte 5.56.
 
-The
-
-[syntax is considered legacy — use declaration tags instead.](@const)`{@const ...}`
+ The [`{@const ...}`](@const) syntax is considered legacy — use declaration tags instead.
 
 When values should be reactive, you can use `$state` and `$derived`:
 
@@ -90,7 +88,7 @@ Declaration tags can be used anywhere inside the component. They can reference v
 </div>
 {hello} <!-- 'hello' -->
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/11-declaration-tags.md) [ llms.txt](/docs/svelte/declaration-tags/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/11-declaration-tags.md)  [llms.txt](/docs/svelte/declaration-tags/llms.txt)
 
 previous next
 

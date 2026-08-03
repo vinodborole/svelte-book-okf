@@ -3,12 +3,12 @@ type: Web Page
 title: Stores • Svelte Docs
 description: Stores • Svelte documentation
 resource: https://svelte.dev/docs/svelte/stores
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Stores
 
-A *store* is an object that allows reactive access to a value via a simple *store contract*. The [ svelte/store module](../svelte-store) contains minimal store implementations which fulfil this contract.
+A *store* is an object that allows reactive access to a value via a simple *store contract*. The [`svelte/store` module](../svelte-store) contains minimal store implementations which fulfil this contract.
 
 Any time you have a reference to a store, you can access its value inside a component by prefixing it with the `$` character. This causes Svelte to declare the prefixed variable, subscribe to the store at component initialisation and unsubscribe when appropriate.
 
@@ -33,10 +33,10 @@ Local variables (that do not represent store values) must *not* have a `$` prefi
 
 Prior to Svelte 5, stores were the go-to solution for creating cross-component reactive states or extracting logic. With runes, these use cases have greatly diminished.
 
-- when extracting logic, it's better to take advantage of runes' universal reactivity: You can use runes outside the top level of components and even place them into JavaScript or TypeScript files (using a `.svelte.js`or`.svelte.ts`file ending)
-- when creating shared state, you can create a `$state`object containing the values you need and then manipulate said state
+- when extracting logic, it's better to take advantage of runes' universal reactivity: You can use runes outside the top level of components and even place them into JavaScript or TypeScript files (using a `.svelte.js` or`.svelte.ts` file ending)
+- when creating shared state, you can create a `$state` object containing the values you need and then manipulate said state
 
-`export const ````
+`export const` ```
 const userState: {
     name: string;
 }
@@ -98,26 +98,31 @@ Function that creates a store which has values that can be set from 'outside' co
 
 `update` is a method that takes one argument which is a callback. The callback takes the existing store value as its argument and returns the new value to be set to the store.
 
-`import { ``function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`Create a `Writable` store that allows both updating and reading by subscription.
+`import {` `function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable } from 'svelte/store';
-const `const count: Writable<number>`count = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`Create a `Writable` store that allows both updating and reading by subscription.
+const `const count: Writable<number>`count = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable(0);
-`const count: Writable<number>`count.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`Subscribe on value changes.
+`const count: Writable<number>`count.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`
+Subscribe on value changes.
 
 subscribe((`value: number`value) => {
-	`var console: Console`The `console` module provides a simple debugging console that is similar to the
+	`var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -158,9 +163,11 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
+console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`
+Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)``util.format()`
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)
+(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).
 
 ```
 const count = 5;
@@ -170,34 +177,41 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()`
+See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.
 
 log(`value: number`value);
 }); // logs '0'
-`const count: Writable<number>`count.`Writable<number>.set(this: void, value: number): void`Set value and inform subscribers.
+`const count: Writable<number>`count.`Writable<number>.set(this: void, value: number): void`
+Set value and inform subscribers.
 
 set(1); // logs '1'
-`const count: Writable<number>`count.`Writable<number>.update(this: void, updater: Updater<number>): void`Update value using callback and inform subscribers.
+`const count: Writable<number>`count.`Writable<number>.update(this: void, updater: Updater<number>): void`
+Update value using callback and inform subscribers.
 
-update((`n: number`n) => `n: number`n + 1); // logs '2'If a function is passed as the second argument, it will be called when the number of subscribers goes from zero to one (but not from one to two, etc). That function will be passed a `set` function which changes the value of the store, and an `update` function which works like the `update` method on the store, taking a callback to calculate the store's new value from its old value. It must return a `stop` function that is called when the subscriber count goes from one to zero.
+update((`n: number`n) => `n: number`n + 1); // logs '2'
+If a function is passed as the second argument, it will be called when the number of subscribers goes from zero to one (but not from one to two, etc). That function will be passed a `set` function which changes the value of the store, and an `update` function which works like the `update` method on the store, taking a callback to calculate the store's new value from its old value. It must return a `stop` function that is called when the subscriber count goes from one to zero.
 
-`import { ``function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`Create a `Writable` store that allows both updating and reading by subscription.
+`import {` `function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable } from 'svelte/store';
-const `const count: Writable<number>`count = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`Create a `Writable` store that allows both updating and reading by subscription.
+const `const count: Writable<number>`count = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable(0, () => {
-	`var console: Console`The `console` module provides a simple debugging console that is similar to the
+	`var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -238,9 +252,11 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
+console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`
+Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)``util.format()`
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)
+(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).
 
 ```
 const count = 5;
@@ -250,20 +266,22 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()`
+See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.
 
 log('got a subscriber');
-	return () => `var console: Console`The `console` module provides a simple debugging console that is similar to the
+	return () => `var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -304,9 +322,11 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
+console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`
+Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)``util.format()`
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)
+(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).
 
 ```
 const count = 5;
@@ -316,27 +336,31 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()`
+See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.
 
 log('no more subscribers');
 });
-`const count: Writable<number>`count.`Writable<number>.set(this: void, value: number): void`Set value and inform subscribers.
+`const count: Writable<number>`count.`Writable<number>.set(this: void, value: number): void`
+Set value and inform subscribers.
 
 set(1); // does nothing
-const `const unsubscribe: Unsubscriber`unsubscribe = `const count: Writable<number>`count.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`Subscribe on value changes.
+const `const unsubscribe: Unsubscriber`unsubscribe = `const count: Writable<number>`count.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`
+Subscribe on value changes.
 
 subscribe((`value: number`value) => {
-	`var console: Console`The `console` module provides a simple debugging console that is similar to the
+	`var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -377,9 +401,11 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`Prints to `stdout` with newline. Multiple arguments can be passed, with the
+console.`Console.log(message?: any, ...optionalParams: any[]): void (+1 overload)`
+Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to `printf(3)``util.format()`
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)
+(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).
 
 ```
 const count = 5;
@@ -389,20 +415,23 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See `util.format()`
+See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.
 
 log(`value: number`value);
 }); // logs 'got a subscriber', then '1'
-`const unsubscribe: () => void`unsubscribe(); // logs 'no more subscribers'Note that the value of a `writable` is lost when it is destroyed, for example when the page is refreshed. However, you can write your own logic to sync the value to for example the `localStorage`.
+`const unsubscribe: () => void`unsubscribe(); // logs 'no more subscribers'
+Note that the value of a `writable` is lost when it is destroyed, for example when the page is refreshed. However, you can write your own logic to sync the value to for example the `localStorage`.
 
 ### readable
 
 Creates a store whose value cannot be set from 'outside', the first argument is the store's initial value, and the second argument to `readable` is the same as the second argument to `writable`.
 
-`import { ``function readable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Readable<T>`Creates a `Readable` store that allows reading by subscription.
+`import {` `function readable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Readable<T>`
+Creates a `Readable` store that allows reading by subscription.
 
 readable } from 'svelte/store';
-const `const time: Readable<Date>`time = `readable<Date>(value?: Date | undefined, start?: StartStopNotifier<Date> | undefined): Readable<Date>`Creates a `Readable` store that allows reading by subscription.
+const `const time: Readable<Date>`time = `readable<Date>(value?: Date | undefined, start?: StartStopNotifier<Date> | undefined): Readable<Date>`
+Creates a `Readable` store that allows reading by subscription.
 
 readable(new ```
 var Date: DateConstructor
@@ -415,7 +444,8 @@ var Date: DateConstructor
 new () => Date (+4 overloads)
 ```
 
-`const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules repeated execution of `callback` every `delay` milliseconds.
+`const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules repeated execution of `callback` every `delay` milliseconds.
 
 When `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`
 will be set to `1`. Non-integer delays are truncated to an integer.
@@ -431,14 +461,17 @@ var Date: DateConstructor
 new () => Date (+4 overloads)
 ```
 
-`function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`Cancels a `Timeout` object created by `setInterval()`.
+`function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`
+Cancels a `Timeout` object created by `setInterval()`.
 
 clearInterval(`const interval: NodeJS.Timeout`interval);
 });
-const `const ticktock: Readable<string>`ticktock = `readable<string>(value?: string | undefined, start?: StartStopNotifier<string> | undefined): Readable<string>`Creates a `Readable` store that allows reading by subscription.
+const `const ticktock: Readable<string>`ticktock = `readable<string>(value?: string | undefined, start?: StartStopNotifier<string> | undefined): Readable<string>`
+Creates a `Readable` store that allows reading by subscription.
 
 readable('tick', (`set: (value: string) => void`set, `update: (fn: Updater<string>) => void`update) => {
-	const `const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules repeated execution of `callback` every `delay` milliseconds.
+	const `const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules repeated execution of `callback` every `delay` milliseconds.
 
 When `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`
 will be set to `1`. Non-integer delays are truncated to an integer.
@@ -451,37 +484,45 @@ This method has a custom variant for promises that is available using
 setInterval(() => {
 		`update: (fn: Updater<string>) => void`update((`sound: string`sound) => (`sound: string`sound === 'tick' ? 'tock' : 'tick'));
 	}, 1000);
-	return () => `function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`Cancels a `Timeout` object created by `setInterval()`.
+	return () => `function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`
+Cancels a `Timeout` object created by `setInterval()`.
 
 clearInterval(`const interval: NodeJS.Timeout`interval);
-});### derived
+});
+### derived
 
 Derives a store from one or more other stores. The callback runs initially when the first subscriber subscribes and then whenever the store dependencies change.
 
 In the simplest version, `derived` takes a single store, and the callback returns a derived value.
 
-`import { ``function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+`import {` `function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived } from 'svelte/store';
-const `const doubled: Readable<number>`doubled = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number) => number, initial_value?: number | undefined): Readable<number> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const doubled: Readable<number>`doubled = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number) => number, initial_value?: number | undefined): Readable<number> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
-derived(`const a: Writable<number>`a, (`$a: number`$a) => `$a: number`$a * 2);The callback can set a value asynchronously by accepting a second argument, `set`, and an optional third argument, `update`, calling either or both of them when appropriate.
+derived(`const a: Writable<number>`a, (`$a: number`$a) => `$a: number`$a * 2);
+The callback can set a value asynchronously by accepting a second argument, `set`, and an optional third argument, `update`, calling either or both of them when appropriate.
 
 In this case, you can also pass a third argument to `derived` — the initial value of the derived store before `set` or `update` is first called. If no initial value is specified, the store's initial value will be `undefined`.
 
-`import { ``function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+`import {` `function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived } from 'svelte/store';
-const `const delayed: Readable<number>`delayed = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number, set: (value: number) => void, update: (fn: Updater<number>) => void) => Unsubscriber | void, initial_value?: number | undefined): Readable<number> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const delayed: Readable<number>`delayed = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number, set: (value: number) => void, update: (fn: Updater<number>) => void) => Unsubscriber | void, initial_value?: number | undefined): Readable<number> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived(
 	`const a: Writable<number>`a,
 	(`$a: number`$a, `set: (value: number) => void`set) => {
-		`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules execution of a one-time `callback` after `delay` milliseconds.
+		`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules execution of a one-time `callback` after `delay` milliseconds.
 
 The `callback` will likely not be invoked in precisely `delay` milliseconds.
 Node.js makes no guarantees about the exact timing of when callbacks will fire,
@@ -500,12 +541,14 @@ setTimeout(() => `set: (value: number) => void`set(`$a: number`$a), 1000);
 	},
 	2000
 );
-const `const delayedIncrement: Readable<unknown>`delayedIncrement = `derived<Writable<number>, unknown>(stores: Writable<number>, fn: (values: number, set: (value: unknown) => void, update: (fn: Updater<unknown>) => void) => Unsubscriber | void, initial_value?: unknown): Readable<unknown> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const delayedIncrement: Readable<unknown>`delayedIncrement = `derived<Writable<number>, unknown>(stores: Writable<number>, fn: (values: number, set: (value: unknown) => void, update: (fn: Updater<unknown>) => void) => Unsubscriber | void, initial_value?: unknown): Readable<unknown> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived(`const a: Writable<number>`a, (`$a: number`$a, `set: (value: unknown) => void`set, `update: (fn: Updater<unknown>) => void`update) => {
 	`set: (value: unknown) => void`set(`$a: number`$a);
-	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules execution of a one-time `callback` after `delay` milliseconds.
+	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules execution of a one-time `callback` after `delay` milliseconds.
 
 The `callback` will likely not be invoked in precisely `delay` milliseconds.
 Node.js makes no guarantees about the exact timing of when callbacks will fire,
@@ -523,19 +566,23 @@ This method has a custom variant for promises that is available using
 setTimeout(() => `update: (fn: Updater<unknown>) => void`update((`x: unknown`x) => x + 1), 1000);
 	// every time $a produces a value, this produces two
 	// values, $a immediately and then $a + 1 a second later
-});If you return a function from the callback, it will be called when a) the callback runs again, or b) the last subscriber unsubscribes.
+});
+If you return a function from the callback, it will be called when a) the callback runs again, or b) the last subscriber unsubscribes.
 
-`import { ``function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+`import {` `function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived } from 'svelte/store';
-const `const tick: Readable<number>`tick = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number, set: (value: number) => void, update: (fn: Updater<number>) => void) => Unsubscriber | void, initial_value?: number | undefined): Readable<number> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const tick: Readable<number>`tick = `derived<Writable<number>, number>(stores: Writable<number>, fn: (values: number, set: (value: number) => void, update: (fn: Updater<number>) => void) => Unsubscriber | void, initial_value?: number | undefined): Readable<number> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived(
 	`const frequency: Writable<number>`frequency,
 	(`$frequency: number`$frequency, `set: (value: number) => void`set) => {
-		const `const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules repeated execution of `callback` every `delay` milliseconds.
+		const `const interval: NodeJS.Timeout`interval = `function setInterval<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules repeated execution of `callback` every `delay` milliseconds.
 
 When `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`
 will be set to `1`. Non-integer delays are truncated to an integer.
@@ -546,34 +593,42 @@ This method has a custom variant for promises that is available using
 `timersPromises.setInterval()`.
 
 setInterval(() => {
-			`set: (value: number) => void`set(`var Date: DateConstructor`Enables basic storage and retrieval of dates and times.
+			`set: (value: number) => void`set(`var Date: DateConstructor`
+Enables basic storage and retrieval of dates and times.
 
-Date.`DateConstructor.now(): number`Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).
+Date.`DateConstructor.now(): number`
+Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).
 
 now());
 		}, 1000 / `$frequency: number`$frequency);
 		return () => {
-			`function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`Cancels a `Timeout` object created by `setInterval()`.
+			`function clearInterval(timeout: NodeJS.Timeout | string | number | undefined): void (+1 overload)`
+Cancels a `Timeout` object created by `setInterval()`.
 
 clearInterval(`const interval: NodeJS.Timeout`interval);
 		};
 	},
 	2000
-);In both cases, an array of arguments can be passed as the first argument instead of a single store.
+);
+In both cases, an array of arguments can be passed as the first argument instead of a single store.
 
-`import { ``function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+`import {` `function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived } from 'svelte/store';
-const `const summed: Readable<number>`summed = `derived<[Writable<number>, Writable<number>], number>(stores: [Writable<number>, Writable<number>], fn: (values: [number, number]) => number, initial_value?: number | undefined): Readable<number> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const summed: Readable<number>`summed = `derived<[Writable<number>, Writable<number>], number>(stores: [Writable<number>, Writable<number>], fn: (values: [number, number]) => number, initial_value?: number | undefined): Readable<number> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived([`const a: Writable<number>`a, `const b: Writable<number>`b], ([`$a: number`$a, `$b: number`$b]) => `$a: number`$a + `$b: number`$b);
-const `const delayed: Readable<unknown>`delayed = `derived<[Writable<number>, Writable<number>], unknown>(stores: [Writable<number>, Writable<number>], fn: (values: [number, number], set: (value: unknown) => void, update: (fn: Updater<unknown>) => void) => Unsubscriber | void, initial_value?: unknown): Readable<unknown> (+1 overload)`Derived value store by synchronizing one or more readable stores and
+const `const delayed: Readable<unknown>`delayed = `derived<[Writable<number>, Writable<number>], unknown>(stores: [Writable<number>, Writable<number>], fn: (values: [number, number], set: (value: unknown) => void, update: (fn: Updater<unknown>) => void) => Unsubscriber | void, initial_value?: unknown): Readable<unknown> (+1 overload)`
+Derived value store by synchronizing one or more readable stores and
 applying an aggregation function over its input values.
 
 derived([`const a: Writable<number>`a, `const b: Writable<number>`b], ([`$a: number`$a, `$b: number`$b], `set: (value: unknown) => void`set) => {
-	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`Schedules execution of a one-time `callback` after `delay` milliseconds.
+	`function setTimeout<[]>(callback: () => void, delay?: number): NodeJS.Timeout (+2 overloads)`
+Schedules execution of a one-time `callback` after `delay` milliseconds.
 
 The `callback` will likely not be invoked in precisely `delay` milliseconds.
 Node.js makes no guarantees about the exact timing of when callbacks will fire,
@@ -589,34 +644,42 @@ This method has a custom variant for promises that is available using
 `timersPromises.setTimeout()`.
 
 setTimeout(() => `set: (value: unknown) => void`set(`$a: number`$a + `$b: number`$b), 1000);
-});### readonly
+});
+### readonly
 
 This simple helper function makes a store readonly. You can still subscribe to the changes from the original one using this new readable store.
 
-`import { ``function readonly<T>(store: Readable<T>): Readable<T>`Takes a store and returns a new one derived from the old one that is readable.
+`import {` `function readonly<T>(store: Readable<T>): Readable<T>`
+Takes a store and returns a new one derived from the old one that is readable.
 
-readonly, `function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`Create a `Writable` store that allows both updating and reading by subscription.
+readonly, `function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable } from 'svelte/store';
-const `const writableStore: Writable<number>`writableStore = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`Create a `Writable` store that allows both updating and reading by subscription.
+const `const writableStore: Writable<number>`writableStore = `writable<number>(value?: number | undefined, start?: StartStopNotifier<number> | undefined): Writable<number>`
+Create a `Writable` store that allows both updating and reading by subscription.
 
 writable(1);
-const `const readableStore: Readable<number>`readableStore = `readonly<number>(store: Readable<number>): Readable<number>`Takes a store and returns a new one derived from the old one that is readable.
+const `const readableStore: Readable<number>`readableStore = `readonly<number>(store: Readable<number>): Readable<number>`
+Takes a store and returns a new one derived from the old one that is readable.
 
 readonly(`const writableStore: Writable<number>`writableStore);
-`const readableStore: Readable<number>`readableStore.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`Subscribe on value changes.
+`const readableStore: Readable<number>`readableStore.`Readable<number>.subscribe(this: void, run: Subscriber<number>, invalidate?: () => void): Unsubscriber`
+Subscribe on value changes.
 
-subscribe(`var console: Console`The `console` module provides a simple debugging console that is similar to the
+subscribe(`var console: Console`
+The `console` module provides a simple debugging console that is similar to the
 JavaScript console mechanism provided by web browsers.
 
 The module exports two specific components:
 
-- A `Console`class with methods such as`console.log()`,`console.error()`and`console.warn()`that can be used to write to any Node.js stream.
-- A global `console`instance configured to write to`process.stdout`
-`process.stderr`
-`console`can be used without importing the`node:console`module.
+- A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
+- A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-**Warning**`note on process I/O`
+***Warning***: The global console object's methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
+more information.
 
 Example using the global `console`:
 
@@ -657,36 +720,41 @@ myConsole.warn(`Danger ${name}! Danger!`);
 // Prints: Danger Will Robinson! Danger!, to err
 ```
 
-console.`Console.log(...data: any[]): void (+1 overload)`The `console.log()`
+console.`Console.log(...data: any[]): void (+1 overload)`
+The **`console.log()`** static method outputs a message to the console.
 
 log);
-`const writableStore: Writable<number>`writableStore.`Writable<number>.set(this: void, value: number): void`Set value and inform subscribers.
+`const writableStore: Writable<number>`writableStore.`Writable<number>.set(this: void, value: number): void`
+Set value and inform subscribers.
 
 set(2); // console: 2
-`const readableStore: Readable<number>`readableStore.set(2); // ERROR### get
+`const readableStore: Readable<number>`readableStore.set(2); // ERROR
+### get
 
 Generally, you should read the value of a store by subscribing to it and using the value as it changes over time. Occasionally, you may need to retrieve the value of a store to which you're not subscribed. `get` allows you to do so.
 
 This works by creating a subscription, reading the value, then unsubscribing. It's therefore not recommended in hot code paths.
 
-`import { ``function get<T>(store: Readable<T>): T`Get the current value from a store by subscribing and immediately unsubscribing.
+`import {` `function get<T>(store: Readable<T>): T`
+Get the current value from a store by subscribing and immediately unsubscribing.
 
 get } from 'svelte/store';
-const `const value: string`value = `get<string>(store: Readable<string>): string`Get the current value from a store by subscribing and immediately unsubscribing.
+const `const value: string`value = `get<string>(store: Readable<string>): string`
+Get the current value from a store by subscribing and immediately unsubscribing.
 
-get(`const store: Writable<string>`store);## Store contract
+get(`const store: Writable<string>`store);
+## Store contract
 
-`store = { ``subscribe: (subscription: (value: any) => void) => () => undefined`subscribe: (`subscription: (value: any) => void`subscription: (`value: any`value: any) => void) => (() => void), `set: (value: any) => undefined`set?: (`value: any`value: any) => void }You can create your own stores without relying on [ svelte/store](../svelte-store), by implementing the 
+`store = {` `subscribe: (subscription: (value: any) => void) => () => undefined`subscribe: (`subscription: (value: any) => void`subscription: (`value: any`value: any) => void) => (() => void), `set: (value: any) => undefined`set?: (`value: any`value: any) => void }
+You can create your own stores without relying on [`svelte/store`](../svelte-store), by implementing the *store contract*:
 
-*store contract*:
-
-- A store must contain a `.subscribe`method, which must accept as its argument a subscription function. This subscription function must be immediately and synchronously called with the store's current value upon calling`.subscribe`. All of a store's active subscription functions must later be synchronously called whenever the store's value changes.
-- The `.subscribe`method must return an unsubscribe function. Calling an unsubscribe function must stop its subscription, and its corresponding subscription function must not be called again by the store.
-- A store may *optionally*contain a`.set`method, which must accept as its argument a new value for the store, and which synchronously calls all of the store's active subscription functions. Such a store is called a*writable store*.
+1. A store must contain a `.subscribe` method, which must accept as its argument a subscription function. This subscription function must be immediately and synchronously called with the store's current value upon calling`.subscribe` . All of a store's active subscription functions must later be synchronously called whenever the store's value changes.
+2. The `.subscribe` method must return an unsubscribe function. Calling an unsubscribe function must stop its subscription, and its corresponding subscription function must not be called again by the store.
+3. A store may *optionally* contain a`.set` method, which must accept as its argument a new value for the store, and which synchronously calls all of the store's active subscription functions. Such a store is called a*writable store* .
 
 For interoperability with RxJS Observables, the `.subscribe` method is also allowed to return an object with an `.unsubscribe` method, rather than return the unsubscription function directly. Note however that unless `.subscribe` synchronously calls the subscription (which is not required by the Observable spec), Svelte will see the value of the store as `undefined` until it does.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/01-stores.md) [ llms.txt](/docs/svelte/stores/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/06-runtime/01-stores.md)  [llms.txt](/docs/svelte/stores/llms.txt)
 
 # Citations
 

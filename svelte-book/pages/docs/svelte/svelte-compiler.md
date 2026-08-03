@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/compiler • Svelte Docs
 description: svelte/compiler • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-compiler
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # svelte/compiler 
@@ -12,16 +12,20 @@ timestamp: '2026-07-09T12:17:00.027378+00:00'
 import {
 	
 ```
-`const VERSION: string`The current version, as set in package.json.
+`const VERSION: string`
+The current version, as set in package.json.
 
 VERSION,
-	`function compile(source: string, options: CompileOptions): CompileResult``compile` converts your `.svelte` source code into a JavaScript module that exports a component
+	`function compile(source: string, options: CompileOptions): CompileResult`
+`compile` converts your `.svelte` source code into a JavaScript module that exports a component
 
 compile,
-	`function compileModule(source: string, options: ModuleCompileOptions): CompileResult``compileModule` takes your JavaScript source code containing runes, and turns it into a JavaScript module.
+	`function compileModule(source: string, options: ModuleCompileOptions): CompileResult`
+`compileModule` takes your JavaScript source code containing runes, and turns it into a JavaScript module.
 
 compileModule,
-	```
+	
+```
 function migrate(source: string, { filename, use_ts }?: {
     filename?: string;
     use_ts?: boolean;
@@ -34,7 +38,8 @@ Does a best-effort migration of Svelte code towards using runes, event attribute
 May throw an error if the code is too complex to migrate automatically.
 
 migrate,
-	```
+	
+```
 function parse(source: string, options: {
     filename?: string;
     modern: true;
@@ -48,10 +53,12 @@ The `modern` option (`false` by default in Svelte 5) makes the parser return a m
 `modern` will become `true` by default in Svelte 6, and the option will be removed in Svelte 7.
 
 parse,
-	`function parseCss(source: string): _CSS.StyleSheetFile`The parseCss function parses a CSS stylesheet, returning its abstract syntax tree.
+	`function parseCss(source: string): _CSS.StyleSheetFile`
+The parseCss function parses a CSS stylesheet, returning its abstract syntax tree.
 
 parseCss,
-	```
+	
+```
 function preprocess(source: string, preprocessor: PreprocessorGroup | PreprocessorGroup[], options?: {
     filename?: string;
 } | undefined): Promise<Processed>
@@ -61,7 +68,8 @@ The preprocess function provides convenient hooks for arbitrarily transforming c
 For example, it can be used to convert a `<style lang="sass">` block into vanilla CSS.
 
 preprocess,
-	```
+	
+```
 function print(ast: AST.SvelteNode, options?: Options | undefined): {
     code: string;
     map: any;
@@ -77,11 +85,13 @@ The output is valid Svelte, but formatting details such as whitespace or quoting
 
 print,
 	`function walk(): never`walk
-} from 'svelte/compiler';## VERSION
+} from 'svelte/compiler';
+## VERSION
 
 The current version, as set in package.json.
 
-`const VERSION: string;`## compile
+`const VERSION: string;`
+## compile
 
 `compile` converts your `.svelte` source code into a JavaScript module that exports a component
 
@@ -154,7 +164,8 @@ function parse(
 
 The parseCss function parses a CSS stylesheet, returning its abstract syntax tree.
 
-`function parseCss(source: string): AST.CSS.StyleSheetFile;`## preprocess
+`function parseCss(source: string): AST.CSS.StyleSheetFile;`
+## preprocess
 
 The preprocess function provides convenient hooks for arbitrarily transforming component source code.
 For example, it can be used to convert a `<style lang="sass">` block into vanilla CSS.
@@ -190,13 +201,12 @@ function print(
 ```
 ## walk
 
-Replace this with
+Replace this with `import { walk } from 'estree-walker'`
 
-`import { walk } from 'estree-walker'`
+`function walk(): never;`
+## AST
 
-`function walk(): never;`## AST
-
-```
+````
 namespace AST {
 	export interface BaseNode {
 		type: string;
@@ -624,62 +634,75 @@ namespace AST {
 		| Script;
 	export type { _CSS as CSS };
 }
-```
+````
 ## CompileError
 
-`interface CompileError extends ICompileDiagnostic {}`## CompileOptions
+`interface CompileError extends ICompileDiagnostic {}`
+## CompileOptions
 
-`interface CompileOptions extends ModuleCompileOptions {…}``name?: string;`Sets the name of the resulting JavaScript class (though the compiler will rename it if it would otherwise conflict with other variables in scope).
+`interface CompileOptions extends ModuleCompileOptions {…}``name?: string;`
+Sets the name of the resulting JavaScript class (though the compiler will rename it if it would otherwise conflict with other variables in scope).
 If unspecified, will be inferred from `filename`
 
-`customElement?: boolean | ((options: { filename: string }) => boolean);`- default `false`
+`customElement?: boolean | ((options: { filename: string }) => boolean);`
+- default `false`
 
 If `true`, tells the compiler to generate a custom element constructor instead of a regular Svelte component.
 
 You can also pass a function that receives `{ filename }` and returns a boolean.
 
-`accessors?: boolean;`- default `false`
+`accessors?: boolean;`
+- default `false`
 - deprecated This will have no effect in runes mode
 
 If `true`, getters and setters will be created for the component's props. If `false`, they will only be created for readonly exported values (i.e. those declared with `const`, `class` and `function`). If compiling with `customElement: true` this option defaults to `true`.
 
-`namespace?: Namespace;`- default `'html'`
+`namespace?: Namespace;`
+- default `'html'`
 
 The namespace of the element; e.g., `"html"`, `"svg"`, `"mathml"`.
 
-`immutable?: boolean;`- default `false`
+`immutable?: boolean;`
+- default `false`
 - deprecated This will have no effect in runes mode
 
 If `true`, tells the compiler that you promise not to mutate any objects.
 This allows it to be less conservative about checking whether values have changed.
 
-`css?: 'injected' | 'external' | ((options: { filename: string }) => 'injected' | 'external');`- `'injected'`: styles will be included in the- `head`when using- `render(...)`, and injected into the document (if not already present) when the component mounts. For components compiled as custom elements, styles are injected to the shadow root.
-- `'external'`: the CSS will only be returned in the- `css`field of the compilation result. Most Svelte bundler plugins will set this to- `'external'`and use the CSS that is statically generated for better performance, as it will result in smaller JavaScript bundles and the output can be served as cacheable- `.css`files. This is always- `'injected'`when compiling with- `customElement`mode.
+`css?: 'injected' | 'external' | ((options: { filename: string }) => 'injected' | 'external');`
+- `'injected'` : styles will be included in the`head` when using`render(...)` , and injected into the document (if not already present) when the component mounts. For components compiled as custom elements, styles are injected to the shadow root.
+- `'external'` : the CSS will only be returned in the`css` field of the compilation result. Most Svelte bundler plugins will set this to`'external'` and use the CSS that is statically generated for better performance, as it will result in smaller JavaScript bundles and the output can be served as cacheable`.css` files.
+This is always`'injected'` when compiling with`customElement` mode.
 
 You can also pass a function that receives `{ filename }` and returns either `'injected'` or `'external'`.
 
-`cssHash?: CssHashGetter;`- default `undefined`
+`cssHash?: CssHashGetter;`
+- default `undefined`
 
 A function that takes a `{ hash, css, name, filename }` argument and returns the string that is used as a classname for scoped CSS.
 It defaults to returning `svelte-${hash(filename ?? css)}`.
 
-`preserveComments?: boolean;`- default `false`
+`preserveComments?: boolean;`
+- default `false`
 
 If `true`, your HTML comments will be preserved in the output. By default, they are stripped out.
 
-`preserveWhitespace?: boolean;`- default `false`
+`preserveWhitespace?: boolean;`
+- default `false`
 
 If `true`, whitespace inside and between elements is kept as you typed it, rather than removed or collapsed to a single space where possible.
 
-`fragments?: 'html' | 'tree';`- default `'html'`
+`fragments?: 'html' | 'tree';`
+- default `'html'`
 - available since v5.33
 
 Which strategy to use when cloning DOM fragments:
 
-- `html`populates a- `<template>`with- `innerHTML`and clones it. This is faster, but cannot be used if your app's- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)includes- `require-trusted-types-for 'script'`
-- `tree`creates the fragment one element at a time and- *then*clones it. This is slower, but works everywhere
+- `html` populates a`<template>` with`innerHTML` and clones it. This is faster, but cannot be used if your app's[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) includes[`require-trusted-types-for 'script'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)
+- `tree` creates the fragment one element at a time and*then* clones it. This is slower, but works everywhere
 
-`runes?: boolean | undefined | ((options: { filename: string }) => boolean | undefined);`- default `undefined`
+`runes?: boolean | undefined | ((options: { filename: string }) => boolean | undefined);`
+- default `undefined`
 
 Set to `true` to force the compiler into runes mode, even if there are no indications of runes usage.
 Set to `false` to force the compiler into ignoring runes, even if there are indications of runes usage.
@@ -689,35 +712,43 @@ Will be `true` by default in Svelte 6.
 Note that setting this to `true` in your `svelte.config.js` will force runes mode for your entire project, including components in `node_modules`,
 which is likely not what you want. If you're using Vite, consider using [dynamicCompileOptions](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#dynamiccompileoptions) instead.
 
-`discloseVersion?: boolean;`- default `true`
+`discloseVersion?: boolean;`
+- default `true`
 
 If `true`, exposes the Svelte major version in the browser by adding it to a `Set` stored in the global `window.__svelte.v`.
 
-`compatibility?: {…}`- deprecated Use these only as a temporary solution before migrating your code
+`compatibility?: {…}`
+- deprecated Use these only as a temporary solution before migrating your code
 
-`componentApi?: 4 | 5;`- default `5`
+`componentApi?: 4 | 5;`
+- default `5`
 
 Applies a transformation so that the default export of Svelte files can still be instantiated the same way as in Svelte 4 —
 as a class when compiling for the browser (as though using `createClassComponent(MyComponent, {...})` from `svelte/legacy`)
 or as an object with a `.render(...)` method when compiling for the server
 
-`sourcemap?: object | string;`- default `null`
+`sourcemap?: object | string;`
+- default `null`
 
 An initial sourcemap that will be merged into the final output sourcemap. This is usually the preprocessor sourcemap.
 
-`outputFilename?: string;`- default `null`
+`outputFilename?: string;`
+- default `null`
 
 Used for your JavaScript sourcemap.
 
-`cssOutputFilename?: string;`- default `null`
+`cssOutputFilename?: string;`
+- default `null`
 
 Used for your CSS sourcemap.
 
-`hmr?: boolean;`- default `false`
+`hmr?: boolean;`
+- default `false`
 
 If `true`, compiles components with hot reloading support.
 
-`modernAst?: boolean;`- default `false`
+`modernAst?: boolean;`
+- default `false`
 
 If `true`, returns the modern version of the AST.
 Will become `true` by default in Svelte 6, and the option will be removed in Svelte 7.
@@ -726,11 +757,14 @@ Will become `true` by default in Svelte 6, and the option will be removed in Sve
 
 The return value of `compile` from `svelte/compiler`
 
-`interface CompileResult {…}``js: {…}`The compiled JavaScript
+`interface CompileResult {…}``js: {…}`
+The compiled JavaScript
 
-`code: string;`The generated code
+`code: string;`
+The generated code
 
-`map: SourceMap;`A source map
+`map: SourceMap;`
+A source map
 
 ```
 css: null | {
@@ -744,18 +778,22 @@ css: null | {
 ```
 The compiled CSS
 
-`warnings: Warning[];`An array of warning objects that were generated during compilation. Each warning has several properties:
+`warnings: Warning[];`
+An array of warning objects that were generated during compilation. Each warning has several properties:
 
-- `code`is a string identifying the category of warning
-- `message`describes the issue in human-readable terms
-- `start`and- `end`, if the warning relates to a specific location, are objects with- `line`,- `column`and- `character`properties
+- `code` is a string identifying the category of warning
+- `message` describes the issue in human-readable terms
+- `start` and`end` , if the warning relates to a specific location, are objects with`line` ,`column` and`character` properties
 
-`metadata: {…}`Metadata about the compiled component
+`metadata: {…}`
+Metadata about the compiled component
 
-`runes: boolean;`Whether the file was compiled in runes mode, either because of an explicit option or inferred from usage.
+`runes: boolean;`
+Whether the file was compiled in runes mode, either because of an explicit option or inferred from usage.
 For `compileModule`, this is always `true`
 
-`ast: any;`The AST
+`ast: any;`
+The AST
 
 ## MarkupPreprocessor
 
@@ -775,30 +813,37 @@ type MarkupPreprocessor = (options: {
 ```
 ## ModuleCompileOptions
 
-`interface ModuleCompileOptions {…}``dev?: boolean;`- default `false`
+`interface ModuleCompileOptions {…}``dev?: boolean;`
+- default `false`
 
 If `true`, causes extra code to be added that will perform runtime checks and provide debugging information during development.
 
-`generate?: 'client' | 'server' | false;`- default `'client'`
+`generate?: 'client' | 'server' | false;`
+- default `'client'`
 
 If `"client"`, Svelte emits code designed to run in the browser.
 If `"server"`, Svelte emits code suitable for server-side rendering.
 If `false`, nothing is generated. Useful for tooling that is only interested in warnings.
 
-`filename?: string;`Used for debugging hints and sourcemaps. Your bundler plugin will set it automatically.
+`filename?: string;`
+Used for debugging hints and sourcemaps. Your bundler plugin will set it automatically.
 
-`rootDir?: string;`- default `process.cwd() on node-like environments, undefined elsewhere`
+`rootDir?: string;`
+- default `process.cwd() on node-like environments, undefined elsewhere`
 
 Used for ensuring filenames don't leak filesystem information. Your bundler plugin will set it automatically.
 
-`warningFilter?: (warning: Warning) => boolean;`A function that gets a `Warning` as an argument and returns a boolean.
+`warningFilter?: (warning: Warning) => boolean;`
+A function that gets a `Warning` as an argument and returns a boolean.
 Use this to filter out warnings. Return `true` to keep the warning, `false` to discard it.
 
-`experimental?: {…}`- available since v5.36
+`experimental?: {…}`
+- available since v5.36
 
 Experimental options
 
-`async?: boolean;`- available since v5.36
+`async?: boolean;`
+- available since v5.36
 
 Allow `await` keyword in deriveds, template expressions, and the top level of components
 
@@ -830,23 +875,31 @@ type Preprocessor = (options: {
 
 A preprocessor group is a set of preprocessors that are applied to a Svelte file.
 
-`interface PreprocessorGroup {…}``name?: string;`Name of the preprocessor. Will be a required option in the next major version
+`interface PreprocessorGroup {…}``name?: string;`
+Name of the preprocessor. Will be a required option in the next major version
 
-`markup?: MarkupPreprocessor;``style?: Preprocessor;``script?: Preprocessor;`## Processed
+`markup?: MarkupPreprocessor;``style?: Preprocessor;``script?: Preprocessor;`
+## Processed
 
 The result of a preprocessor run. If the preprocessor does not return a result, it is assumed that the code is unchanged.
 
-`interface Processed {…}``code: string;`The new code
+`interface Processed {…}``code: string;`
+The new code
 
-`map?: string | object;`A source map mapping back to the original code
+`map?: string | object;`
+A source map mapping back to the original code
 
-`dependencies?: string[];`A list of additional files to watch for changes
+`dependencies?: string[];`
+A list of additional files to watch for changes
 
-`attributes?: Record<string, string | boolean>;`Only for script/style preprocessors: The updated attributes to set on the tag. If undefined, attributes stay unchanged.
+`attributes?: Record<string, string | boolean>;`
+Only for script/style preprocessors: The updated attributes to set on the tag. If undefined, attributes stay unchanged.
 
-`toString?: () => string;`## Warning
+`toString?: () => string;`
+## Warning
 
-`interface Warning extends ICompileDiagnostic {}`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-compiler.md) [ llms.txt](/docs/svelte/svelte-compiler/llms.txt)
+`interface Warning extends ICompileDiagnostic {}`
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-compiler.md)  [llms.txt](/docs/svelte/svelte-compiler/llms.txt)
 
 # Citations
 

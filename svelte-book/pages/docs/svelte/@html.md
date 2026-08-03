@@ -3,7 +3,7 @@ type: Web Page
 title: '{@html ...} • Svelte Docs'
 description: '{@html ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/@html
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # {@html ...}
@@ -15,13 +15,12 @@ To inject raw HTML into your component, use the `{@html ...}` tag:
 	{@html content}
 </article>
 ```
-Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent
-
-[XSS attacks](https://owasp.org/www-community/attacks/xss/). Never render unsanitized content.
+ Make sure that you either escape the passed string or only populate it with values that are under your control in order to prevent [XSS attacks](https://owasp.org/www-community/attacks/xss/). Never render unsanitized content.
 
 The expression should be valid standalone HTML — this will not work, because `</div>` is not valid HTML:
 
-`{@html '<div>'}content{@html '</div>'}`It also will not compile Svelte code.
+`{@html '<div>'}content{@html '</div>'}`
+It also will not compile Svelte code.
 
 ## Styling
 
@@ -48,7 +47,7 @@ Instead, use the `:global` modifier to target everything inside the `<article>`:
 	}
 </style>
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/08-@html.md) [ llms.txt](/docs/svelte/@html/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/08-@html.md)  [llms.txt](/docs/svelte/@html/llms.txt)
 
 previous next
 

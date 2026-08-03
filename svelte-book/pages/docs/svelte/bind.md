@@ -3,14 +3,14 @@ type: Web Page
 title: 'bind: • Svelte Docs'
 description: 'bind: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/bind
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # bind:
 
 Data ordinarily flows down, from parent to child. The `bind:` directive allows data to flow the other way, from child to parent.
 
-The general syntax is `bind:property={expression}`, where `expression` is an [ lvalue](https://press.rebus.community/programmingfundamentals/chapter/lvalue-and-rvalue/) (i.e. a variable or an object property). When the expression is an identifier with the same name as the property, we can omit the expression — in other words these are equivalent:
+The general syntax is `bind:property={expression}`, where `expression` is an [*lvalue*](https://press.rebus.community/programmingfundamentals/chapter/lvalue-and-rvalue/) (i.e. a variable or an object property). When the expression is an identifier with the same name as the property, we can omit the expression — in other words these are equivalent:
 
 ```
 <input bind:value={value} />
@@ -119,9 +119,7 @@ Since 5.6.0, if an `<input>` has a `defaultChecked` attribute and is part of a f
 	<input type="reset" value="Reset">
 </form>
 ```
-Use
-
-`bind:group`for radio inputs instead of`bind:checked`.
+ Use `bind:group` for radio inputs instead of `bind:checked`.
 
 ## <input bind:indeterminate>
 
@@ -194,16 +192,13 @@ Inputs that work together can use `bind:group`:
 	}
 </style>
 ```
-
-`bind:group`only works if the inputs are in the same Svelte component.
+ `bind:group` only works if the inputs are in the same Svelte component.
 
 ## <input bind:files>
 
-On `<input>` elements with `type="file"`, you can use `bind:files` to get the [ FileList of selected files](https://developer.mozilla.org/en-US/docs/Web/API/FileList). When you want to update the files programmatically, you always need to use a 
+On `<input>` elements with `type="file"`, you can use `bind:files` to get the [`FileList` of selected files](https://developer.mozilla.org/en-US/docs/Web/API/FileList). When you want to update the files programmatically, you always need to use a `FileList` object. Currently `FileList` objects cannot be constructed directly, so you need to create a new [`DataTransfer`](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer) object and get `files` from there.
 
-`FileList` object. Currently `FileList` objects cannot be constructed directly, so you need to create a new [object and get](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer)
-
-`DataTransfer``files` from there.```
+```
 <script>
 	let files = $state();
 	function clear() {
@@ -216,7 +211,7 @@ On `<input>` elements with `type="file"`, you can use `bind:files` to get the [ 
 ```
 `FileList` objects also cannot be modified, so if you want to e.g. delete a single file from the list, you need to create a new `DataTransfer` object and add the files you want to keep.
 
-`DataTransfer`may not be available in server-side JS runtimes. Leaving the state that is bound to`files`uninitialized prevents potential errors if components are server-side rendered.
+ `DataTransfer` may not be available in server-side JS runtimes. Leaving the state that is bound to `files` uninitialized prevents potential errors if components are server-side rendered.
 
 ## <select bind:value>
 
@@ -264,15 +259,12 @@ You can give the `<select>` a default value by adding a `selected` attribute to 
 
 ...and six readonly ones:
 
-`<audio src={clip} bind:duration bind:currentTime bind:paused></audio>`## <video>
+`<audio src={clip} bind:duration bind:currentTime bind:paused></audio>`
+## <video>
 
-`<video>` elements have all the same bindings as [ <audio>](#audio) elements, plus readonly 
+`<video>` elements have all the same bindings as [`<audio>`](#audio) elements, plus readonly [`videoWidth`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoWidth) and [`videoHeight`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoHeight) bindings.
 
-[and](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoWidth)
-
-`videoWidth`[bindings.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/videoHeight)
-
-`videoHeight`## <img>
+## <img>
 
 `<img>` elements have two readonly bindings:
 
@@ -288,42 +280,30 @@ You can give the `<select>` a default value by adding a `selected` attribute to 
 ```
 ## window and document
 
-To bind to properties of `window` and `document`, see [ <svelte:window>](svelte-window) and 
+To bind to properties of `window` and `document`, see [`<svelte:window>`](svelte-window) and [`<svelte:document>`](svelte-document).
 
-[.](svelte-document)
-
-`<svelte:document>`## Contenteditable bindings
+## Contenteditable bindings
 
 Elements with the `contenteditable` attribute support the following bindings:
 
-There are
+ There are [subtle differences between `innerText` and `textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext).
 
-[subtle differences between](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext).`innerText`and`textContent`
-
-`<div contenteditable="true" bind:innerHTML={html}></div>`## Dimensions
+`<div contenteditable="true" bind:innerHTML={html}></div>`
+## Dimensions
 
 All visible elements have the following readonly bindings, measured with a `ResizeObserver`:
-
-- `clientWidth`
-- `clientHeight`
-- `offsetWidth`
-- `offsetHeight`
-- `contentRect`
-- `contentBoxSize`
-- `borderBoxSize`
-- `devicePixelContentBoxSize`
 
 ```
 <div bind:offsetWidth={width} bind:offsetHeight={height}>
 	<Chart {width} {height} />
 </div>
 ```
-
-`display: inline`elements do not have a width or height (except for elements with 'intrinsic' dimensions, like`<img>`and`<canvas>`), and cannot be observed with a`ResizeObserver`. You will need to change the`display`style of these elements to something else, such as`inline-block`. Note that CSS transformations do not trigger`ResizeObserver`callbacks.
+ `display: inline` elements do not have a width or height (except for elements with 'intrinsic' dimensions, like `<img>` and `<canvas>`), and cannot be observed with a `ResizeObserver`. You will need to change the `display` style of these elements to something else, such as `inline-block`. Note that CSS transformations do not trigger `ResizeObserver` callbacks.
 
 ## bind:this
 
-`bind:this={dom_node}`To get a reference to a DOM node, use `bind:this`. The value will be `undefined` until the component is mounted — in other words, you should read it inside an effect or an event handler, but not during component initialisation:
+`bind:this={dom_node}`
+To get a reference to a DOM node, use `bind:this`. The value will be `undefined` until the component is mounted — in other words, you should read it inside an effect or an event handler, but not during component initialisation:
 
 ```
 <script>
@@ -358,17 +338,17 @@ Components also support `bind:this`, allowing you to interact with component ins
 	}
 </script>
 ```
-In case of using
-
-[the function bindings](#Function-bindings), the getter is required to ensure that the correct value is nullified on component or element destruction.
+ In case of using [the function bindings](#Function-bindings), the getter is required to ensure that the correct value is nullified on component or element destruction.
 
 ## bind:*property* for components
 
-`bind:property={variable}`You can bind to component props using the same syntax as for elements.
+`bind:property={variable}`
+You can bind to component props using the same syntax as for elements.
 
-`<Keypad bind:value={pin} />`While Svelte props are reactive without binding, that reactivity only flows downward into the component by default. Using `bind:property` allows changes to the property from within the component to flow back up out of the component.
+`<Keypad bind:value={pin} />`
+While Svelte props are reactive without binding, that reactivity only flows downward into the component by default. Using `bind:property` allows changes to the property from within the component to flow back up out of the component.
 
-To mark a property as bindable, use the [ $bindable]($bindable) rune:
+To mark a property as bindable, use the [`$bindable`]($bindable) rune:
 
 ```
 <script>
@@ -386,7 +366,7 @@ Bindable properties can have a fallback value:
 ```
 This fallback value *only* applies when the property is *not* bound. When the property is bound and a fallback value is present, the parent is expected to provide a value other than `undefined`, else a runtime error is thrown. This prevents hard-to-reason-about situations where it's unclear which value should apply.
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/12-bind.md) [ llms.txt](/docs/svelte/bind/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/12-bind.md)  [llms.txt](/docs/svelte/bind/llms.txt)
 
 # Citations
 

@@ -3,7 +3,7 @@ type: Web Page
 title: Scoped styles • Svelte Docs
 description: Scoped styles • Svelte documentation
 resource: https://svelte.dev/docs/svelte/scoped-styles
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Scoped styles
@@ -41,7 +41,7 @@ If a component defines `@keyframes`, the name is scoped to the component using t
 	}
 </style>
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/01-scoped-styles.md) [ llms.txt](/docs/svelte/scoped-styles/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/01-scoped-styles.md)  [llms.txt](/docs/svelte/scoped-styles/llms.txt)
 
 # Citations
 

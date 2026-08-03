@@ -3,7 +3,7 @@ type: Web Page
 title: svelte • Svelte Docs
 description: svelte • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte
-timestamp: '2026-07-20T08:31:47.948207+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # svelte
@@ -12,33 +12,38 @@ timestamp: '2026-07-20T08:31:47.948207+00:00'
 import {
 	
 ```
-`class SvelteComponent<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`This was the base class for Svelte components in Svelte 4. Svelte 5+ components
+`class SvelteComponent<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`
+This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
 To instantiate components, use `mount` instead.
 See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 SvelteComponent,
 	`class SvelteComponentTyped<Props extends Record<string, any> = Record<string, any>, Events extends Record<string, any> = any, Slots extends Record<string, any> = any>`SvelteComponentTyped,
-	`function afterUpdate(fn: () => void): void`Schedules a callback to run immediately after the component has been updated.
+	`function afterUpdate(fn: () => void): void`
+Schedules a callback to run immediately after the component has been updated.
 
 The first time the callback runs will be after the initial `onMount`.
 
 In runes mode use `$effect` instead.
 
 afterUpdate,
-	`function beforeUpdate(fn: () => void): void`Schedules a callback to run immediately before the component is updated after any state change.
+	`function beforeUpdate(fn: () => void): void`
+Schedules a callback to run immediately before the component is updated after any state change.
 
 The first time the callback runs will be before the initial `onMount`.
 
 In runes mode use `$effect.pre` instead.
 
 beforeUpdate,
-	`function createContext<T>(): [() => T, (context: T) => T]`Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+	`function createContext<T>(): [() => T, (context: T) => T]`
+Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
 `get` will throw an error if no parent component called `set`.
 
 createContext,
-	`function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`Creates an event dispatcher that can be used to dispatch [component events](https://svelte.dev/docs/svelte/legacy-on#Component-events).
+	`function createEventDispatcher<EventMap extends Record<string, any> = any>(): EventDispatcher<EventMap>`
+Creates an event dispatcher that can be used to dispatch [component events](https://svelte.dev/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
 
 Component events created with `createEventDispatcher` create a
@@ -49,14 +54,15 @@ property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
 
-`const ``const dispatch: any`dispatch = createEventDispatcher<{
+`const` `const dispatch: any`dispatch = createEventDispatcher<{
  `loaded: null`loaded: null; // does not take a detail argument
  `change: string`change: string; // takes a detail argument of type string, which is required
  `optional: number | null`optional: number | null; // takes an optional detail argument of type number
 }>();
 
 createEventDispatcher,
-	```
+	
+```
 function createRawSnippet<Params extends unknown[]>(fn: (...params: Getters<Params>) => {
     render: () => string;
     setup?: (element: Element) => void | (() => void);
@@ -66,11 +72,13 @@ function createRawSnippet<Params extends unknown[]>(fn: (...params: Getters<Para
 Create a snippet programmatically
 
 createRawSnippet,
-	`function flushSync<T = void>(fn?: (() => T) | undefined): T`Synchronously flush any pending updates.
+	`function flushSync<T = void>(fn?: (() => T) | undefined): T`
+Synchronously flush any pending updates.
 Returns void if no callback is provided, otherwise returns the result of calling the callback.
 
 flushSync,
-	`function fork(fn: () => void): Fork`Creates a 'fork', in which state changes are evaluated but not applied to the DOM.
+	`function fork(fn: () => void): Fork`
+Creates a 'fork', in which state changes are evaluated but not applied to the DOM.
 This is useful for speculatively loading data (for example) when you suspect that
 the user is about to take some action.
 
@@ -85,7 +93,8 @@ When it becomes clear that a fork will *not* be committed (e.g. because the
 user navigated elsewhere), it must be discarded to avoid leaking memory.
 
 fork,
-	`function getAbortSignal(): AbortSignal`Returns an `AbortSignal`[derived](https://svelte.dev/docs/svelte/$derived) or [effect](https://svelte.dev/docs/svelte/$effect) re-runs or is destroyed.
+	`function getAbortSignal(): AbortSignal`
+Returns an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that aborts when the current [derived](https://svelte.dev/docs/svelte/$derived) or [effect](https://svelte.dev/docs/svelte/$effect) re-runs or is destroyed.
 
 Must be called while a derived or effect is running.
 
@@ -104,23 +113,27 @@ Must be called while a derived or effect is running.
 ```
 
 getAbortSignal,
-	`function getAllContexts<T extends Map<any, any> = Map<any, any>>(): T`Retrieves the whole context map that belongs to the closest parent component.
+	`function getAllContexts<T extends Map<any, any> = Map<any, any>>(): T`
+Retrieves the whole context map that belongs to the closest parent component.
 Must be called during component initialisation. Useful, for example, if you
 programmatically create a component and want to pass the existing context to it.
 
 getAllContexts,
-	`function getContext<T>(key: any): T`Retrieves the context that belongs to the closest parent component with the specified `key`.
+	`function getContext<T>(key: any): T`
+Retrieves the context that belongs to the closest parent component with the specified `key`.
 Must be called during component initialisation.
 
-`createContext`
+[`createContext`](https://svelte.dev/docs/svelte/svelte#createContext) is a type-safe alternative.
 
 getContext,
-	`function hasContext(key: any): boolean`Checks whether a given `key` has been set in the context of a parent component.
+	`function hasContext(key: any): boolean`
+Checks whether a given `key` has been set in the context of a parent component.
 Must be called during component initialisation.
 
 hasContext,
 	`function hydratable<T>(key: string, fn: () => T): T`hydratable,
-	```
+	
+```
 function hydrate<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: {} extends Props ? {
     target: Document | Element | ShadowRoot;
     props?: Props;
@@ -143,17 +156,21 @@ function hydrate<Props extends Record<string, any>, Exports extends Record<strin
 Hydrates a component on the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component
 
 hydrate,
-	`function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+	`function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount,
-	`function onDestroy(fn: () => any): void`Schedules a callback to run immediately before the component is unmounted.
+	`function onDestroy(fn: () => any): void`
+Schedules a callback to run immediately before the component is unmounted.
 
 Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the
 only one that runs inside a server-side component.
 
 onDestroy,
-	`function onMount<T>(fn: () => NotFunction<T> | Promise<NotFunction<T>> | (() => any)): void``onMount`, like `$effect``$effect`, the provided function only runs once.
+	`function onMount<T>(fn: () => NotFunction<T> | Promise<NotFunction<T>> | (() => any)): void`
+`onMount`, like [`$effect`](https://svelte.dev/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
+Unlike `$effect`, the provided function only runs once.
 
 It must be called during the component's initialisation (but doesn't need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
@@ -162,23 +179,27 @@ it will be called when the component is unmounted.
 `onMount` functions do not run during [server-side rendering](https://svelte.dev/docs/svelte/svelte-server#render).
 
 onMount,
-	`function setContext<T>(key: any, context: T): T`Associates an arbitrary `context` object with the current component and the specified `key`
+	`function setContext<T>(key: any, context: T): T`
+Associates an arbitrary `context` object with the current component and the specified `key`
 and returns that object. The context is then available to children of the component
 (including slotted content) with `getContext`.
 
 Like lifecycle functions, this must be called during component initialisation.
 
-`createContext`
+[`createContext`](https://svelte.dev/docs/svelte/svelte#createContext) is a type-safe alternative.
 
 setContext,
-	`function settled(): Promise<void>`Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
+	`function settled(): Promise<void>`
+Returns a promise that resolves once any state changes, and asynchronous work resulting from them,
 have resolved and the DOM has been updated
 
 settled,
-	`function tick(): Promise<void>`Returns a promise that resolves once any pending state changes have been applied.
+	`function tick(): Promise<void>`
+Returns a promise that resolves once any pending state changes have been applied.
 
 tick,
-	```
+	
+```
 function unmount(component: Record<string, any>, options?: {
     outro?: boolean;
 } | undefined): Promise<void>
@@ -200,7 +221,8 @@ unmount(app, { outro: true });
 
 unmount,
 	`function untrack<T>(fn: () => T): T`untrack
-} from 'svelte';## SvelteComponent
+} from 'svelte';
+## SvelteComponent
 
 This was the base class for Svelte components in Svelte 4. Svelte 5+ components
 are completely different under the hood. For typing, use `Component` instead.
@@ -214,12 +236,16 @@ class SvelteComponent<
 	Slots extends Record<string, any> = any
 > {…}
 ```
-`static element?: typeof HTMLElement;`The custom element version of the component. Only present if compiled with the `customElement` compiler option
+`static element?: typeof HTMLElement;`
+The custom element version of the component. Only present if compiled with the `customElement` compiler option
 
-`[prop: string]: any;``constructor(options: ComponentConstructorOptions<Properties<Props, Slots>>);`- deprecated This constructor only exists when using the `asClassComponent`compatibility helper, which is a stop-gap solution. Migrate towards using`mount`instead. See[migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
+`[prop: string]: any;``constructor(options: ComponentConstructorOptions<Properties<Props, Slots>>);`
+- deprecated This constructor only exists when using the `asClassComponent` compatibility helper, which
+is a stop-gap solution. Migrate towards using`mount` instead. See[migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
-`$destroy(): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which
-is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
+`$destroy(): void;`
+- deprecated This method only exists when using one of the legacy compatibility helpers, which
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 ```
 $on<K extends Extract<keyof Events, string>>(
@@ -228,16 +254,15 @@ $on<K extends Extract<keyof Events, string>>(
 ): () => void;
 ```
 - deprecated This method only exists when using one of the legacy compatibility helpers, which
-is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
-`$set(props: Partial<Props>): void;`- deprecated This method only exists when using one of the legacy compatibility helpers, which
-is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
+`$set(props: Partial<Props>): void;`
+- deprecated This method only exists when using one of the legacy compatibility helpers, which
+is a stop-gap solution. See [migration guide](https://svelte.dev/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more info.
 
 ## SvelteComponentTyped
 
-Use
-
-`Component`instead. See[migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more information.
+Use `Component` instead. See [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes) for more information.
 
 ```
 class SvelteComponentTyped<
@@ -248,9 +273,7 @@ class SvelteComponentTyped<
 ```
 ## afterUpdate
 
-Use
-
-[instead](/docs/svelte/$effect)`$effect`
+Use [`$effect`](/docs/svelte/$effect) instead
 
 Schedules a callback to run immediately after the component has been updated.
 
@@ -258,11 +281,10 @@ The first time the callback runs will be after the initial `onMount`.
 
 In runes mode use `$effect` instead.
 
-`function afterUpdate(fn: () => void): void;`## beforeUpdate
+`function afterUpdate(fn: () => void): void;`
+## beforeUpdate
 
-Use
-
-[instead](/docs/svelte/$effect#$effect.pre)`$effect.pre`
+Use [`$effect.pre`](/docs/svelte/$effect#$effect.pre) instead
 
 Schedules a callback to run immediately before the component is updated after any state change.
 
@@ -270,7 +292,8 @@ The first time the callback runs will be before the initial `onMount`.
 
 In runes mode use `$effect.pre` instead.
 
-`function beforeUpdate(fn: () => void): void;`## createContext
+`function beforeUpdate(fn: () => void): void;`
+## createContext
 
 Available since 5.40.0
 
@@ -278,11 +301,10 @@ Returns a `[get, set]` pair of functions for working with context in a type-safe
 
 `get` will throw an error if no parent component called `set`.
 
-`function createContext<T>(): [() => T, (context: T) => T];`## createEventDispatcher
+`function createContext<T>(): [() => T, (context: T) => T];`
+## createEventDispatcher
 
-Use callback props and/or the
-
-`$host()`rune instead — see[migration guide](/docs/svelte/v5-migration-guide#Event-changes-Component-events)
+Use callback props and/or the `$host()` rune instead — see [migration guide](/docs/svelte/v5-migration-guide#Event-changes-Component-events)
 
 Creates an event dispatcher that can be used to dispatch [component events](/docs/svelte/legacy-on#Component-events).
 Event dispatchers are functions that can take two arguments: `name` and `detail`.
@@ -295,7 +317,7 @@ property and can contain any type of data.
 
 The event dispatcher can be typed to narrow the allowed event names and the type of the `detail` argument:
 
-`const ``const dispatch: any`dispatch = createEventDispatcher<{
+`const` `const dispatch: any`dispatch = createEventDispatcher<{
  `loaded: null`loaded: null; // does not take a detail argument
  `change: string`change: string; // takes a detail argument of type string, which is required
  `optional: number | null`optional: number | null; // takes an optional detail argument of type number
@@ -320,7 +342,8 @@ function createRawSnippet<Params extends unknown[]>(
 
 Synchronously flush any pending updates. Returns void if no callback is provided, otherwise returns the result of calling the callback.
 
-`function flushSync<T = void>(fn?: (() => T) | undefined): T;`## fork
+`function flushSync<T = void>(fn?: (() => T) | undefined): T;`
+## fork
 
 Available since 5.42
 
@@ -335,13 +358,10 @@ if and when the fork is eventually committed.
 When it becomes clear that a fork will *not* be committed (e.g. because the
 user navigated elsewhere), it must be discarded to avoid leaking memory.
 
-`function fork(fn: () => void): Fork;`## getAbortSignal
+`function fork(fn: () => void): Fork;`
+## getAbortSignal
 
-Returns an [ AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that aborts when the current 
-
-[derived](/docs/svelte/$derived)or
-
-[effect](/docs/svelte/$effect)re-runs or is destroyed.
+Returns an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that aborts when the current [derived](/docs/svelte/$derived) or [effect](/docs/svelte/$effect) re-runs or is destroyed.
 
 Must be called while a derived or effect is running.
 
@@ -358,7 +378,8 @@ Must be called while a derived or effect is running.
 	const data = $derived(await getData(id));
 </script>
 ```
-`function getAbortSignal(): AbortSignal;`## getAllContexts
+`function getAbortSignal(): AbortSignal;`
+## getAllContexts
 
 Retrieves the whole context map that belongs to the closest parent component. Must be called during component initialisation. Useful, for example, if you programmatically create a component and want to pass the existing context to it.
 
@@ -372,16 +393,19 @@ function getAllContexts<
 Retrieves the context that belongs to the closest parent component with the specified `key`.
 Must be called during component initialisation.
 
-[ createContext](/docs/svelte/svelte#createContext) is a type-safe alternative.
+[`createContext`](/docs/svelte/svelte#createContext) is a type-safe alternative.
 
-`function getContext<T>(key: any): T;`## hasContext
+`function getContext<T>(key: any): T;`
+## hasContext
 
 Checks whether a given `key` has been set in the context of a parent component.
 Must be called during component initialisation.
 
-`function hasContext(key: any): boolean;`## hydratable
+`function hasContext(key: any): boolean;`
+## hydratable
 
-`function hydratable<T>(key: string, fn: () => T): T;`## hydrate
+`function hydratable<T>(key: string, fn: () => T): T;`
+## hydrate
 
 Hydrates a component on the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component
 
@@ -437,12 +461,13 @@ Schedules a callback to run immediately before the component is unmounted.
 Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the
 only one that runs inside a server-side component.
 
-`function onDestroy(fn: () => any): void;`## onMount
+`function onDestroy(fn: () => any): void;`
+## onMount
 
-`onMount`, like [ $effect](/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
-Unlike 
+`onMount`, like [`$effect`](/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
+Unlike `$effect`, the provided function only runs once.
 
-`$effect`, the provided function only runs once.It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+It must be called during the component's initialisation (but doesn't need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
 it will be called when the component is unmounted.
 
@@ -464,19 +489,22 @@ and returns that object. The context is then available to children of the compon
 
 Like lifecycle functions, this must be called during component initialisation.
 
-[ createContext](/docs/svelte/svelte#createContext) is a type-safe alternative.
+[`createContext`](/docs/svelte/svelte#createContext) is a type-safe alternative.
 
-`function setContext<T>(key: any, context: T): T;`## settled
+`function setContext<T>(key: any, context: T): T;`
+## settled
 
 Available since 5.36
 
 Returns a promise that resolves once any state changes, and asynchronous work resulting from them, have resolved and the DOM has been updated
 
-`function settled(): Promise<void>;`## tick
+`function settled(): Promise<void>;`
+## tick
 
 Returns a promise that resolves once any pending state changes have been applied.
 
-`function tick(): Promise<void>;`## unmount
+`function tick(): Promise<void>;`
+## unmount
 
 Unmounts a component that was previously mounted using `mount` or `hydrate`.
 
@@ -484,7 +512,8 @@ Since 5.13.0, if `options.outro` is `true`, [transitions](/docs/svelte/transitio
 
 Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
 
-`import { ``function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
+`import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
+Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
 mount, ```
@@ -536,11 +565,14 @@ mount<Record<string, any>, {
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
 Transitions will play during the initial render unless the `intro` option is set to `false`.
 
-mount(`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`Target element where the component will be mounted.
+mount(`const App: LegacyComponentType`App, { `target: Document | Element | ShadowRoot`
+Target element where the component will be mounted.
 
-target: `var document: Document``window.document`
+target: `var document: Document`
+**`window.document`** returns a reference to the document contained in the window.
 
-document.`Document.body: HTMLElement`The `Document.body`
+document.`Document.body: HTMLElement`
+The **`Document.body`** property represents the 
 
  or body });
 // later...
@@ -564,7 +596,8 @@ const app = mount(App, { target: document.body });
 unmount(app, { outro: true });
 ```
 
-unmount(```
+unmount(
+```
 const app: {
     $on?(type: string, callback: (e: any) => void): () => void;
     $set?(props: Partial<Record<string, any>>): void;
@@ -583,11 +616,10 @@ function unmount(
 ```
 ## untrack
 
-When used inside a [ $derived](/docs/svelte/$derived) or 
+When used inside a [`$derived`](/docs/svelte/$derived) or [`$effect`](/docs/svelte/$effect),
+any state read inside `fn` will not be treated as a dependency.
 
-[, any state read inside](/docs/svelte/$effect)
-
-`$effect``fn` will not be treated as a dependency.```
+```
 function $effect(fn: () => void | (() => void)): void
 namespace $effect
 ```
@@ -608,7 +640,8 @@ $effect(() => {
 	save(data, {
 		`timestamp: any`timestamp: untrack(() => time)
 	});
-});`function untrack<T>(fn: () => T): T;`## Component
+});`function untrack<T>(fn: () => T): T;`
+## Component
 
 Can be used to create strongly typed Svelte components.
 
@@ -657,27 +690,28 @@ interface Component<
 	$set?(props: Partial<Props>): void;
 } & Exports;
 ```
-- `internal`An internal object used by Svelte. Do not use or modify.
-- `props`The props passed to the component.
+- `internal` An internal object used by Svelte. Do not use or modify.
+- `props` The props passed to the component.
 
-`element?: typeof HTMLElement;`The custom element version of the component. Only present if compiled with the `customElement` compiler option
+`element?: typeof HTMLElement;`
+The custom element version of the component. Only present if compiled with the `customElement` compiler option
 
 ## ComponentConstructorOptions
 
-In Svelte 4, components are classes. In Svelte 5, they are functions. Use
-
-`mount`instead to instantiate components. See[migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)for more info.
+In Svelte 4, components are classes. In Svelte 5, they are functions.
+Use `mount` instead to instantiate components.
+See [migration guide](/docs/svelte/v5-migration-guide#Components-are-no-longer-classes)
+for more info.
 
 ```
 interface ComponentConstructorOptions<
 	Props extends Record<string, any> = Record<string, any>
 > {…}
 ```
-`target: Element | Document | ShadowRoot;``anchor?: Element;``props?: Props;``context?: Map<any, any>;``hydrate?: boolean;``intro?: boolean;``recover?: boolean;``sync?: boolean;``idPrefix?: string;``$$inline?: boolean;``transformError?: (error: unknown) => unknown;`## ComponentEvents
+`target: Element | Document | ShadowRoot;``anchor?: Element;``props?: Props;``context?: Map<any, any>;``hydrate?: boolean;``intro?: boolean;``recover?: boolean;``sync?: boolean;``idPrefix?: string;``$$inline?: boolean;``transformError?: (error: unknown) => unknown;`
+## ComponentEvents
 
-The new
-
-`Component`type does not have a dedicated Events type. Use`ComponentProps`instead.
+The new `Component` type does not have a dedicated Events type. Use `ComponentProps` instead.
 
 ```
 type ComponentEvents<Comp extends SvelteComponent> =
@@ -689,13 +723,15 @@ type ComponentEvents<Comp extends SvelteComponent> =
 
 Internal implementation details that vary between environments
 
-`type ComponentInternals = Branded<{}, 'ComponentInternals'>;`## ComponentProps
+`type ComponentInternals = Branded<{}, 'ComponentInternals'>;`
+## ComponentProps
 
 Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
-`import type { ``type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+`import type {` `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
@@ -727,7 +763,8 @@ type MyComponent = SvelteComponent<Record<string, any>, any, any>
 const MyComponent: LegacyComponentType
 ```
 
-`const props: Record<string, any>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+`const props: Record<string, any>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
@@ -753,13 +790,13 @@ function withProps<TComponent extends Component<any>>(
 withProps(MyComponent, { foo: 'bar' });
 ```
 
-ComponentProps<typeof `const MyComponent: LegacyComponentType`MyComponent> = { `foo: string`foo: 'bar' };In Svelte 4, you would do
-
-`ComponentProps<MyComponent>`because`MyComponent`was a class.
+ComponentProps<typeof `const MyComponent: LegacyComponentType`MyComponent> = { `foo: string`foo: 'bar' };
+ In Svelte 4, you would do `ComponentProps<MyComponent>` because `MyComponent` was a class.
 
 Example: A generic function that accepts some component and infers the type of its props:
 
-`import type { ``interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+`import type {` `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -783,7 +820,8 @@ with TypeScript:
 <MyComponent foo={'bar'} />
 ```
 
-Component, `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+Component, `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
@@ -815,7 +853,8 @@ type MyComponent = SvelteComponent<Record<string, any>, any, any>
 const MyComponent: LegacyComponentType
 ```
 
-`function withProps<TComponent extends Component<any>>(component: TComponent, props: ComponentProps<TComponent>): void`withProps<`function (type parameter) TComponent in withProps<TComponent extends Component<any>>(component: TComponent, props: ComponentProps<TComponent>): void`TComponent extends `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`Can be used to create strongly typed Svelte components.
+`function withProps<TComponent extends Component<any>>(component: TComponent, props: ComponentProps<TComponent>): void`withProps<`function (type parameter) TComponent in withProps<TComponent extends Component<any>>(component: TComponent, props: ComponentProps<TComponent>): void`TComponent extends `interface Component<Props extends Record<string, any> = {}, Exports extends Record<string, any> = {}, Bindings extends keyof Props | "" = string>`
+Can be used to create strongly typed Svelte components.
 
 #### Example:
 
@@ -841,11 +880,13 @@ with TypeScript:
 
 Component<any>>(
 	`component: TComponent extends Component<any>`component: `function (type parameter) TComponent in withProps<TComponent extends Component<any>>(component: TComponent, props: ComponentProps<TComponent>): void`TComponent,
-	`props: ComponentProps<TComponent>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+	`props: ComponentProps<TComponent>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
-`import type { ``type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+`import type {` `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
@@ -877,7 +918,8 @@ type MyComponent = SvelteComponent<Record<string, any>, any, any>
 const MyComponent: LegacyComponentType
 ```
 
-`const props: Record<string, any>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`Convenience type to get the props the given component expects.
+`const props: Record<string, any>`props: `type ComponentProps<Comp extends SvelteComponent | Component<any, any>> = Comp extends SvelteComponent<infer Props extends Record<string, any>, any, any> ? Props : Comp extends Component<infer Props extends Record<string, any>, any, string> ? Props : never`
+Convenience type to get the props the given component expects.
 
 Example: Ensure a variable contains the props expected by `MyComponent`:
 
@@ -935,9 +977,7 @@ type ComponentProps<
 ```
 ## ComponentType
 
-This type is obsolete when working with the new
-
-`Component`type.
+This type is obsolete when working with the new `Component` type.
 
 ```
 type ComponentType<
@@ -975,9 +1015,11 @@ Available since 5.42
 
 Represents work that is happening off-screen, such as data being preloaded in anticipation of the user navigating
 
-`interface Fork {…}``commit(): Promise<void>;`Commit the fork. The promise will resolve once the state change has been applied
+`interface Fork {…}``commit(): Promise<void>;`
+Commit the fork. The promise will resolve once the state change has been applied
 
-`discard(): void;`Discard the fork
+`discard(): void;`
+Discard the fork
 
 ## MountOptions
 
@@ -1034,7 +1076,7 @@ type MountOptions<
 
 The type of a `#snippet` block. You can use it to (for example) express that your component expects a snippet of a certain type:
 
-`let { ````
+`let {` ```
 let banner: Snippet<[{
     text: string;
 }]>
@@ -1055,7 +1097,8 @@ Declares the props that a component accepts. Example:
 
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
-$props();You can only call a snippet through the `{@render ...}` tag.
+$props();
+You can only call a snippet through the `{@render ...}` tag.
 
 See the [snippet documentation](/docs/svelte/snippet) for more info.
 
@@ -1070,7 +1113,7 @@ See the [snippet documentation](/docs/svelte/snippet) for more info.
 	'{@render ...} must be called with a Snippet': "import type { Snippet } from 'svelte'";
 } & typeof SnippetReturn;
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/20-svelte.md) [ llms.txt](/docs/svelte/svelte/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/20-svelte.md)  [llms.txt](/docs/svelte/svelte/llms.txt)
 
 # Citations
 

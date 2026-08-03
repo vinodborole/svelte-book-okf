@@ -3,12 +3,13 @@ type: Web Page
 title: svelte/attachments • Svelte Docs
 description: svelte/attachments • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-attachments
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # svelte/attachments 
 
- `import { ``function createAttachmentKey(): symbol`Creates an object key that will be recognised as an attachment when the object is spread onto an element,
+ `import {` `function createAttachmentKey(): symbol`
+Creates an object key that will be recognised as an attachment when the object is spread onto an element,
 as a programmatic alternative to using `{@attach ...}`. This can be useful for library authors, though
 is generally not needed when building an app.
 
@@ -26,7 +27,8 @@ is generally not needed when building an app.
 <button {...props}>click me</button>
 ```
 
-createAttachmentKey, `function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)`Converts an [action](https://svelte.dev/docs/svelte/use) into an [attachment](https://svelte.dev/docs/svelte/@attach) keeping the same behavior.
+createAttachmentKey, `function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)`
+Converts an [action](https://svelte.dev/docs/svelte/use) into an [attachment](https://svelte.dev/docs/svelte/@attach) keeping the same behavior.
 It's useful if you want to start using attachments on components but you have actions provided by a library.
 
 Note that the second argument, if provided, must be a function that *returns* the argument to the
@@ -39,7 +41,8 @@ action function, not the argument itself.
 <div {@attach fromAction(foo, () => bar)}>...</div>
 ```
 
-fromAction } from 'svelte/attachments';## createAttachmentKey
+fromAction } from 'svelte/attachments';
+## createAttachmentKey
 
 Available since 5.29
 
@@ -60,7 +63,8 @@ is generally not needed when building an app.
 </script>
 <button {...props}>click me</button>
 ```
-`function createAttachmentKey(): symbol;`## fromAction
+`function createAttachmentKey(): symbol;`
+## fromAction
 
 Converts an [action](/docs/svelte/use) into an [attachment](/docs/svelte/@attach) keeping the same behavior.
 It's useful if you want to start using attachments on components but you have actions provided by a library.
@@ -98,9 +102,10 @@ An [attachment](/docs/svelte/@attach) is a function that runs when an element is
 to the DOM, and optionally returns a function that is called when the element is later removed.
 
 It can be attached to an element with an `{@attach ...}` tag, or by spreading an object containing
-a property created with [ createAttachmentKey](/docs/svelte/svelte-attachments#createAttachmentKey).
+a property created with [`createAttachmentKey`](/docs/svelte/svelte-attachments#createAttachmentKey).
 
-`interface Attachment<T extends EventTarget = Element> {…}``(element: T): void | (() => void);`[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-attachments.md) [ llms.txt](/docs/svelte/svelte-attachments/llms.txt)
+`interface Attachment<T extends EventTarget = Element> {…}``(element: T): void | (() => void);`
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-attachments.md)  [llms.txt](/docs/svelte/svelte-attachments/llms.txt)
 
 # Citations
 

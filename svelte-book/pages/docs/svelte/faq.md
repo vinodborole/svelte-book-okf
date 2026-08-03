@@ -3,7 +3,7 @@ type: Web Page
 title: Frequently asked questions • Svelte Docs
 description: Frequently asked questions • Svelte documentation
 resource: https://svelte.dev/docs/svelte/faq
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Frequently asked questions
@@ -38,7 +38,7 @@ You can use prettier with the [prettier-plugin-svelte](https://www.npmjs.com/pac
 
 In editors which use the Svelte Language Server you can document Components, functions and exports using specially formatted comments.
 
-```
+````
 <script>
 	/** What should we call the user? */
 	export let name = 'world';
@@ -59,7 +59,7 @@ It will show up on hover.
 		Hello, {name}
 	</h1>
 </main>
-```
+````
 Note: The `@component` is necessary in the HTML comment which describes your component.
 
 ## Does Svelte scale?
@@ -84,14 +84,6 @@ A Svelte application will typically have three different types of tests: Unit, C
 
 Some resources for getting started with testing:
 
-- [Svelte docs on testing](/docs/svelte/testing)
-- [Setup Vitest using the Svelte CLI](/docs/cli/vitest)
-- [Svelte Testing Library](https://testing-library.com/docs/svelte-testing-library/example/)
-- [Svelte Component Testing in Cypress](https://docs.cypress.io/guides/component-testing/svelte/overview)
-- [Example using uvu test runner with JSDOM](https://github.com/lukeed/uvu/tree/master/examples/svelte)
-- [Test Svelte components using Vitest & Playwright](https://davipon.hashnode.dev/test-svelte-component-using-vitest-playwright)
-- [Component testing with WebdriverIO](https://webdriver.io/docs/component-testing/svelte)
-
 ## Is there a router?
 
 The official routing library is [SvelteKit](/docs/kit). SvelteKit provides a filesystem router, server-side rendering (SSR), and hot module reloading (HMR) in one easy-to-use package. It shares similarities with Next.js for React and Nuxt.js for Vue. SvelteKit also supports hash-based routing for client-side applications.
@@ -110,7 +102,7 @@ No. Svelte removes the styles from the component and warns you about them in ord
 
 Svelte's component style scoping works by generating a class unique to the given component, adding it to the relevant elements in the component that are under Svelte's control, and then adding it to each of the selectors in that component's styles. When the compiler can't see what elements a style selector applies to, there would be two bad options for keeping it:
 
-- If it keeps the selector and adds the scoping class to it, the selector will likely not match the expected elements in the component, and they definitely won't if they were created by a child component or `{@html ...}`.
+- If it keeps the selector and adds the scoping class to it, the selector will likely not match the expected elements in the component, and they definitely won't if they were created by a child component or `{@html ...}` .
 - If it keeps the selector without adding the scoping class to it, the given style will become a global style, affecting your entire page.
 
 If you need to style something that Svelte can't identify at compile time, you will need to explicitly opt into global styles by using `:global(...)`. But also keep in mind that you can wrap `:global(...)` around only part of a selector. `.foo :global(.bar) { ... }` will style any `.bar` elements that appear within the component's `.foo` elements. As long as there's some parent element in the current component to start from, partially global selectors like this will almost always be able to get you what you want.
@@ -125,7 +117,7 @@ The documentation is still available [here](https://v2.svelte.dev/guide).
 
 We recommend using [SvelteKit](/docs/kit), which supports HMR out of the box and is built on top of [Vite](https://vitejs.dev/) and [svelte-hmr](https://github.com/sveltejs/svelte-hmr). There are also community plugins for [rollup](https://github.com/rixo/rollup-plugin-svelte-hot) and [webpack](https://github.com/sveltejs/svelte-loader).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/99-faq.md) [ llms.txt](/docs/svelte/faq/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/99-faq.md)  [llms.txt](/docs/svelte/faq/llms.txt)
 
 # Citations
 

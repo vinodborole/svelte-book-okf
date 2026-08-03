@@ -3,7 +3,7 @@ type: Web Page
 title: Browser support • Svelte Docs
 description: Browser support • Svelte documentation
 resource: https://svelte.dev/docs/svelte/browser-support
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Browser support
@@ -21,9 +21,7 @@ The table below shows the minimum browser versions Svelte is expected to work in
 | Android WebView | 87 | 
 | Internet Explorer | not supported | 
 
-This equates to a
-
-[Baseline](https://web-platform-dx.github.io/baseline/)target of 2020.
+ This equates to a [Baseline](https://web-platform-dx.github.io/baseline/) target of 2020.
 
 This table only covers Svelte itself. It does not include [SvelteKit](/docs/kit), other Svelte libraries, or your own code.
 
@@ -33,11 +31,11 @@ A few Svelte features require a higher minimum browser version. You'll only need
 
 | Feature | Chrome/Edge | Firefox | Safari | 
 |---|---|---|---|
-| `$state.snapshot` | 98 | 94 | 15.4 | 
-| `bind:devicePixelContentBoxSize` | — | 93 | not supported | 
-| `flip`from`svelte/animate` | — | 126 | — | 
+| [`$state.snapshot`](/docs/svelte/$state#$state.snapshot) | 98 | 94 | 15.4 | 
+| [`bind:devicePixelContentBoxSize`](/docs/svelte/bind#Dimensions) | — | 93 | not supported | 
+| [`flip` from `svelte/animate`](/docs/svelte/svelte-animate#flip) | — | 126 | — | 
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/05-browser-support.md) [ llms.txt](/docs/svelte/browser-support/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/05-browser-support.md)  [llms.txt](/docs/svelte/browser-support/llms.txt)
 
 previous next
 

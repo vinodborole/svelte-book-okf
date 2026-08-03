@@ -3,7 +3,7 @@ type: Web Page
 title: 'on: • Svelte Docs'
 description: 'on: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/legacy-on
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # on:
@@ -52,15 +52,15 @@ Add *modifiers* to element event handlers with the `|` character.
 ```
 The following modifiers are available:
 
-- `preventDefault`— calls- `event.preventDefault()`before running the handler
-- `stopPropagation`— calls- `event.stopPropagation()`, preventing the event reaching the next element
-- `stopImmediatePropagation`— calls- `event.stopImmediatePropagation()`, preventing other listeners of the same event from being fired.
-- `passive`— improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
-- `nonpassive`— explicitly set- `passive: false`
-- `capture`— fires the handler during the- *capture*phase instead of the- *bubbling*phase
-- `once`— remove the handler after the first time it runs
-- `self`— only trigger handler if- `event.target`is the element itself
-- `trusted`— only trigger handler if- `event.isTrusted`is- `true`. I.e. if the event is triggered by a user action.
+- `preventDefault` — calls`event.preventDefault()` before running the handler
+- `stopPropagation` — calls`event.stopPropagation()` , preventing the event reaching the next element
+- `stopImmediatePropagation` — calls`event.stopImmediatePropagation()` , preventing other listeners of the same event from being fired.
+- `passive` — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+- `nonpassive` — explicitly set`passive: false`
+- `capture` — fires the handler during the*capture* phase instead of the*bubbling* phase
+- `once` — remove the handler after the first time it runs
+- `self` — only trigger handler if`event.target` is the element itself
+- `trusted` — only trigger handler if`event.isTrusted` is`true` . I.e. if the event is triggered by a user action.
 
 Modifiers can be chained together, e.g. `on:click|once|capture={...}`.
 
@@ -122,9 +122,9 @@ Components can dispatch events by creating a *dispatcher* when they are initiali
 <button on:click={() => dispatch('decrement')}>decrement</button>
 <button on:click={() => dispatch('increment')}>increment</button>
 ```
-`dispatch` creates a [ CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). If a second argument is provided, it becomes the 
+`dispatch` creates a [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). If a second argument is provided, it becomes the `detail` property of the event object.
 
-`detail` property of the event object.A consumer of this component can listen for the dispatched events:
+A consumer of this component can listen for the dispatched events:
 
 ```
 <script>
@@ -141,11 +141,26 @@ Component events do not bubble — a parent component can only listen for events
 
 Other than `once`, modifiers are not valid on component event handlers.
 
-If you're planning an eventual migration to Svelte 5, use callback props instead. This will make upgrading easier as
+If you're planning an eventual migration to Svelte 5, use callback props instead. This will make upgrading easier as `createEventDispatcher` is deprecated:
 
-`createEventDispatcher`is deprecated:Stepper`<script> export let decrement; export let increment; </script> <button on:click={decrement}>decrement</button> <button on:click={increment}>increment</button>``<script lang="ts"> export let decrement; export let increment; </script> <button on:click={decrement}>decrement</button> <button on:click={increment}>increment</button>`
+Stepper```
+<script>
+	export let decrement;
+	export let increment;
+</script>
+<button on:click={decrement}>decrement</button>
+<button on:click={increment}>increment</button>
+```
+```
+<script lang="ts">
+	export let decrement;
+	export let increment;
+</script>
+<button on:click={decrement}>decrement</button>
+<button on:click={increment}>increment</button>
+```
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/10-legacy-on.md) [ llms.txt](/docs/svelte/legacy-on/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/10-legacy-on.md)  [llms.txt](/docs/svelte/legacy-on/llms.txt)
 
 # Citations
 

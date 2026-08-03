@@ -3,7 +3,7 @@ type: Web Page
 title: 'animate: • Svelte Docs'
 description: 'animate: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/animate
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # animate:
@@ -37,7 +37,8 @@ As with actions and transitions, animations can have parameters.
 	easing?: (`t: number`t: number) => number,
 	css?: (`t: number`t: number, `u: number`u: number) => string,
 	tick?: (`t: number`t: number, `u: number`u: number) => void
-}Animations can use custom functions that provide the `node`, an `animation` object and any `parameters` as arguments. The `animation` parameter is an object containing `from` and `to` properties each containing a [DOMRect](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties) describing the geometry of the element in its `start` and `end` positions. The `from` property is the DOMRect of the element in its starting position, and the `to` property is the DOMRect of the element in its final position after the list has been reordered and the DOM updated.
+}
+Animations can use custom functions that provide the `node`, an `animation` object and any `parameters` as arguments. The `animation` parameter is an object containing `from` and `to` properties each containing a [DOMRect](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties) describing the geometry of the element in its `start` and `end` positions. The `from` property is the DOMRect of the element in its starting position, and the `to` property is the DOMRect of the element in its final position after the list has been reordered and the DOM updated.
 
 If the returned object has a `css` method, Svelte will create a [web animation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) that plays on the element.
 
@@ -90,9 +91,7 @@ The function is called repeatedly *before* the animation begins, with different 
 ```
 A custom animation function can also return a `tick` function, which is called *during* the animation with the same `t` and `u` arguments.
 
-If it's possible to use
-
-`css`instead of`tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
+ If it's possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
 
 ```
 <script>
@@ -137,7 +136,7 @@ If it's possible to use
 	<div animate:whizz>{item}</div>
 {/each}
 ```
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/16-animate.md) [ llms.txt](/docs/svelte/animate/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/16-animate.md)  [llms.txt](/docs/svelte/animate/llms.txt)
 
 # Citations
 

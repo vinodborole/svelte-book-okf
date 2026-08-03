@@ -3,7 +3,7 @@ type: Web Page
 title: Overview • Svelte Docs
 description: Overview • Svelte documentation
 resource: https://svelte.dev/docs/svelte/overview
-timestamp: '2026-07-09T12:17:00.027378+00:00'
+timestamp: '2026-08-03T08:54:23.898986+00:00'
 ---
 
 # Overview
@@ -46,7 +46,7 @@ These pages serve as reference documentation. If you're new to Svelte, we recomm
 
 You can also try Svelte online in the [playground](/playground) or, if you need a more fully-featured environment, on [StackBlitz](https://sveltekit.new).
 
-[ Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/01-overview.md) [ llms.txt](/docs/svelte/overview/llms.txt)
+ [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/01-overview.md)  [llms.txt](/docs/svelte/overview/llms.txt)
 
 previous next
 
