@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-08-03T08:54:23.977998+00:00",
+  "updated_at": "2026-08-10T07:02:22.716830+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -292,7 +292,7 @@
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "11d8a4f93125928681ae70f3e3d7012a31ef1c9f4199aeb9a55d3b39746adac8"
+      "hash": "9fca53e88148a652a88594a98152e8dc3a2b4590c785f4a78a2ce1a549781964"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -526,7 +526,7 @@
       "path": "pages/docs/svelte/typescript.md",
       "url": "https://svelte.dev/docs/svelte/typescript",
       "title": "TypeScript • Svelte Docs",
-      "hash": "a01df01cb472cd1763325312650dfc8c718cb44301a8bd256c7fe01544e1c5ca"
+      "hash": "420e7879d4eba3a6770ae8c8fdd7012b4fb82726d23358eca4ee7ce214e80038"
     },
     {
       "path": "pages/docs/svelte/use.md",
@@ -538,7 +538,7 @@
       "path": "pages/docs/svelte/v4-migration-guide.md",
       "url": "https://svelte.dev/docs/svelte/v4-migration-guide",
       "title": "Svelte 4 migration guide • Svelte Docs",
-      "hash": "ed417cb6a5d5e347fabfecc055b661cb17dad2c3cd3e85bbd4ab8adfbf96ac75"
+      "hash": "aab2267d88fbc6856acafdc32f9e41293c4325a43e01a382e675c45cf7801647"
     },
     {
       "path": "pages/docs/svelte/v5-migration-guide.md",
@@ -1880,9 +1880,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-03T08:54:23.945069+00:00",
+    "synced_at": "2026-08-10T07:02:22.676985+00:00",
     "added": 0,
-    "changed": 89,
+    "changed": 3,
     "removed": 0,
     "pages": 90
   }

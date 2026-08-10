@@ -3,7 +3,7 @@ type: Web Page
 title: Svelte 4 migration guide • Svelte Docs
 description: Svelte 4 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v4-migration-guide
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-10T07:02:22.673288+00:00'
 ---
 
 # Svelte 4 migration guide
@@ -727,7 +727,8 @@ This could affect you for example if you are using `MDsveX` - in which case you 
 
 ```
 preprocess: [
-                                        
+	vitePreprocess(),
+	mdsvex(mdsvexConfig)
 	mdsvex(mdsvexConfig),
 	vitePreprocess()
 ]

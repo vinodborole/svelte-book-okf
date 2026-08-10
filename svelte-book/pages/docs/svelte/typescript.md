@@ -3,7 +3,7 @@ type: Web Page
 title: TypeScript • Svelte Docs
 description: TypeScript • Svelte documentation
 resource: https://svelte.dev/docs/svelte/typescript
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-10T07:02:22.673288+00:00'
 ---
 
 # TypeScript
@@ -41,14 +41,14 @@ To use non-type-only TypeScript features within Svelte components, you need to a
 
 If you're using SvelteKit, or Vite *without* SvelteKit, you can use `vitePreprocess` from `@sveltejs/vite-plugin-svelte` in your config file:
 
-`import {` `function vitePreprocess(opts?: VitePreprocessOptions): import("svelte/compiler").PreprocessorGroup`vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+`import {` `function vitePreprocess(opts?: VitePreprocessOptions): PreprocessorGroup`vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const ```
 const config: {
     preprocess: PreprocessorGroup;
 }
 ```
 
-`preprocess: PreprocessorGroup`preprocess: `function vitePreprocess(opts?: VitePreprocessOptions): import("svelte/compiler").PreprocessorGroup`vitePreprocess({ `VitePreprocessOptions.script?: boolean | undefined`
+`preprocess: PreprocessorGroup`preprocess: `function vitePreprocess(opts?: VitePreprocessOptions): PreprocessorGroup`vitePreprocess({ `VitePreprocessOptions.script?: boolean | undefined`
 preprocess script block with vite pipeline.
 Since svelte5 this is not needed for typescript anymore
 
