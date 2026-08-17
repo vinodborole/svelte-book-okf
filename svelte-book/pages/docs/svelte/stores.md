@@ -3,7 +3,7 @@ type: Web Page
 title: Stores • Svelte Docs
 description: Stores • Svelte documentation
 resource: https://svelte.dev/docs/svelte/stores
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Stores
@@ -12,7 +12,7 @@ A *store* is an object that allows reactive access to a value via a simple *stor
 
 Any time you have a reference to a store, you can access its value inside a component by prefixing it with the `$` character. This causes Svelte to declare the prefixed variable, subscribe to the store at component initialisation and unsubscribe when appropriate.
 
-Assignments to `$`-prefixed variables require that the variable be a writable store, and will result in a call to the store's `.set` method.
+Assignments to `$`-prefixed variables require that the variable be a writable store, and will result in a call to the store’s `.set` method.
 
 Note that the store must be declared at the top level of the component — not inside an `if` block or a function, for example.
 
@@ -33,7 +33,7 @@ Local variables (that do not represent store values) must *not* have a `$` prefi
 
 Prior to Svelte 5, stores were the go-to solution for creating cross-component reactive states or extracting logic. With runes, these use cases have greatly diminished.
 
-- when extracting logic, it's better to take advantage of runes' universal reactivity: You can use runes outside the top level of components and even place them into JavaScript or TypeScript files (using a `.svelte.js` or`.svelte.ts` file ending)
+- when extracting logic, it’s better to take advantage of runes’ universal reactivity: You can use runes outside the top level of components and even place them into JavaScript or TypeScript files (using a `.svelte.js` or`.svelte.ts` file ending)
 - when creating shared state, you can create a `$state` object containing the values you need and then manipulate said state
 
 `export const` ```
@@ -84,7 +84,7 @@ $state({
 	change name
 </button>
 ```
-Stores are still a good solution when you have complex asynchronous data streams or it's important to have more manual control over updating values or listening to changes. If you're familiar with RxJs and want to reuse that knowledge, the `$` also comes in handy for you.
+Stores are still a good solution when you have complex asynchronous data streams or it’s important to have more manual control over updating values or listening to changes. If you’re familiar with RxJs and want to reuse that knowledge, the `$` also comes in handy for you.
 
 ## svelte/store
 
@@ -92,7 +92,7 @@ The `svelte/store` module contains a minimal store implementation which fulfil t
 
 ### writable
 
-Function that creates a store which has values that can be set from 'outside' components. It gets created as an object with additional `set` and `update` methods.
+Function that creates a store which has values that can be set from ‘outside’ components. It gets created as an object with additional `set` and `update` methods.
 
 `set` is a method that takes one argument which is the value to be set. The store value gets set to the value of the argument if the store value is not already equal to it.
 
@@ -119,7 +119,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -189,7 +189,7 @@ set(1); // logs '1'
 Update value using callback and inform subscribers.
 
 update((`n: number`n) => `n: number`n + 1); // logs '2'
-If a function is passed as the second argument, it will be called when the number of subscribers goes from zero to one (but not from one to two, etc). That function will be passed a `set` function which changes the value of the store, and an `update` function which works like the `update` method on the store, taking a callback to calculate the store's new value from its old value. It must return a `stop` function that is called when the subscriber count goes from one to zero.
+If a function is passed as the second argument, it will be called when the number of subscribers goes from zero to one (but not from one to two, etc). That function will be passed a `set` function which changes the value of the store, and an `update` function which works like the `update` method on the store, taking a callback to calculate the store’s new value from its old value. It must return a `stop` function that is called when the subscriber count goes from one to zero.
 
 `import {` `function writable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Writable<T>`
 Create a `Writable` store that allows both updating and reading by subscription.
@@ -208,7 +208,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -278,7 +278,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -357,7 +357,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -424,7 +424,7 @@ Note that the value of a `writable` is lost when it is destroyed, for example wh
 
 ### readable
 
-Creates a store whose value cannot be set from 'outside', the first argument is the store's initial value, and the second argument to `readable` is the same as the second argument to `writable`.
+Creates a store whose value cannot be set from ‘outside’, the first argument is the store’s initial value, and the second argument to `readable` is the same as the second argument to `writable`.
 
 `import {` `function readable<T>(value?: T | undefined, start?: StartStopNotifier<T> | undefined): Readable<T>`
 Creates a `Readable` store that allows reading by subscription.
@@ -507,7 +507,7 @@ applying an aggregation function over its input values.
 derived(`const a: Writable<number>`a, (`$a: number`$a) => `$a: number`$a * 2);
 The callback can set a value asynchronously by accepting a second argument, `set`, and an optional third argument, `update`, calling either or both of them when appropriate.
 
-In this case, you can also pass a third argument to `derived` — the initial value of the derived store before `set` or `update` is first called. If no initial value is specified, the store's initial value will be `undefined`.
+In this case, you can also pass a third argument to `derived` — the initial value of the derived store before `set` or `update` is first called. If no initial value is specified, the store’s initial value will be `undefined`.
 
 `import {` `function derived<S extends Stores, T>(stores: S, fn: (values: StoresValues<S>, set: (value: T) => void, update: (fn: Updater<T>) => void) => Unsubscriber | void, initial_value?: T | undefined): Readable<T> (+1 overload)`
 Derived value store by synchronizing one or more readable stores and
@@ -676,7 +676,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -731,9 +731,9 @@ set(2); // console: 2
 `const readableStore: Readable<number>`readableStore.set(2); // ERROR
 ### get
 
-Generally, you should read the value of a store by subscribing to it and using the value as it changes over time. Occasionally, you may need to retrieve the value of a store to which you're not subscribed. `get` allows you to do so.
+Generally, you should read the value of a store by subscribing to it and using the value as it changes over time. Occasionally, you may need to retrieve the value of a store to which you’re not subscribed. `get` allows you to do so.
 
-This works by creating a subscription, reading the value, then unsubscribing. It's therefore not recommended in hot code paths.
+This works by creating a subscription, reading the value, then unsubscribing. It’s therefore not recommended in hot code paths.
 
 `import {` `function get<T>(store: Readable<T>): T`
 Get the current value from a store by subscribing and immediately unsubscribing.
@@ -748,9 +748,9 @@ get(`const store: Writable<string>`store);
 `store = {` `subscribe: (subscription: (value: any) => void) => () => undefined`subscribe: (`subscription: (value: any) => void`subscription: (`value: any`value: any) => void) => (() => void), `set: (value: any) => undefined`set?: (`value: any`value: any) => void }
 You can create your own stores without relying on [`svelte/store`](../svelte-store), by implementing the *store contract*:
 
-1. A store must contain a `.subscribe` method, which must accept as its argument a subscription function. This subscription function must be immediately and synchronously called with the store's current value upon calling`.subscribe` . All of a store's active subscription functions must later be synchronously called whenever the store's value changes.
+1. A store must contain a `.subscribe` method, which must accept as its argument a subscription function. This subscription function must be immediately and synchronously called with the store’s current value upon calling`.subscribe` . All of a store’s active subscription functions must later be synchronously called whenever the store’s value changes.
 2. The `.subscribe` method must return an unsubscribe function. Calling an unsubscribe function must stop its subscription, and its corresponding subscription function must not be called again by the store.
-3. A store may *optionally* contain a`.set` method, which must accept as its argument a new value for the store, and which synchronously calls all of the store's active subscription functions. Such a store is called a*writable store* .
+3. A store may *optionally* contain a`.set` method, which must accept as its argument a new value for the store, and which synchronously calls all of the store’s active subscription functions. Such a store is called a*writable store* .
 
 For interoperability with RxJS Observables, the `.subscribe` method is also allowed to return an object with an `.unsubscribe` method, rather than return the unsubscription function directly. Note however that unless `.subscribe` synchronously calls the subscription (which is not required by the Observable spec), Svelte will see the value of the store as `undefined` until it does.
 

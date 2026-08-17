@@ -3,7 +3,7 @@ type: Web Page
 title: '{#key ...} • Svelte Docs'
 description: '{#key ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/key
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {#key ...}
@@ -16,7 +16,7 @@ Key blocks destroy and recreate their contents when the value of an expression c
 	<Component />
 {/key}
 ```
-It's also useful if you want a transition to play whenever a value changes:
+It’s also useful if you want a transition to play whenever a value changes:
 
 ```
 {#key value}

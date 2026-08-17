@@ -3,7 +3,7 @@ type: Web Page
 title: Best practices • Svelte Docs
 description: Best practices • Svelte documentation
 resource: https://svelte.dev/docs/svelte/best-practices
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Best practices
@@ -14,7 +14,7 @@ This document outlines some best practices that will help you write fast, robust
 
 Only use the `$state` rune for variables that should be *reactive* — in other words, variables that cause an `$effect`, `$derived` or template expression to update. Everything else can be a normal variable.
 
-Objects and arrays (`$state({...})` or `$state([...])`) are made deeply reactive, meaning mutation will trigger updates. This has a trade-off: in exchange for fine-grained reactivity, the objects must be proxied, which has performance overhead. In cases where you're dealing with large objects that are only ever reassigned (rather than mutated), use `$state.raw` instead. This is often the case with API responses, for example.
+Objects and arrays (`$state({...})` or `$state([...])`) are made deeply reactive, meaning mutation will trigger updates. This has a trade-off: in exchange for fine-grained reactivity, the objects must be proxied, which has performance overhead. In cases where you’re dealing with large objects that are only ever reassigned (rather than mutated), use `$state.raw` instead. This is often the case with API responses, for example.
 
 ## $derived
 
@@ -138,7 +138,7 @@ Avoid using `onMount` or `$effect` for this.
 {/snippet}
 {@render greeting('world')}
 ```
- Snippets declared at the top level of a component (i.e. not inside elements or blocks) can be referenced inside `<script>`. A snippet that doesn't reference component state is also available in a `<script module>`, in which case it can be exported for use by other components.
+ Snippets declared at the top level of a component (i.e. not inside elements or blocks) can be referenced inside `<script>`. A snippet that doesn’t reference component state is also available in a `<script module>`, in which case it can be exported for use by other components.
 
 ## Each blocks
 
@@ -153,11 +153,11 @@ Avoid destructuring if you need to mutate the item (with something like `bind:va
 If you have a JS variable that you want to use inside CSS you can set a CSS custom property with the `style:` directive.
 
 `<div style:--columns={columns}>...</div>`
-You can then reference `var(--columns)` inside the component's `<style>`.
+You can then reference `var(--columns)` inside the component’s `<style>`.
 
 ## Styling child components
 
-The CSS in a component's `<style>` is scoped to that component. If a parent component needs to control the child's styles, the preferred way is to use CSS custom properties:
+The CSS in a component’s `<style>` is scoped to that component. If a parent component needs to control the child’s styles, the preferred way is to use CSS custom properties:
 
 ```
 <!-- Parent.svelte -->

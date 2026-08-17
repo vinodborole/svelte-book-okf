@@ -3,14 +3,14 @@ type: Web Page
 title: 'animate: • Svelte Docs'
 description: 'animate: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/animate
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # animate:
 
 An animation is triggered when the contents of a [keyed each block](each#Keyed-each-blocks) are re-ordered. Animations do not run when an element is added or removed, only when the index of an existing data item within the each block changes. Animate directives must be on an element that is an *immediate* child of a keyed each block.
 
-Animations can be used with Svelte's [built-in animation functions](svelte-animate) or [custom animation functions](#Custom-animation-functions).
+Animations can be used with Svelte’s [built-in animation functions](svelte-animate) or [custom animation functions](#Custom-animation-functions).
 
 ```
 <!-- When `list` is reordered the animation will run -->
@@ -22,7 +22,7 @@ Animations can be used with Svelte's [built-in animation functions](svelte-anima
 
 As with actions and transitions, animations can have parameters.
 
-(The double `{{curlies}}` aren't a special syntax; this is an object literal inside an expression tag.)
+(The double `{{curlies}}` aren’t a special syntax; this is an object literal inside an expression tag.)
 
 ```
 {#each list as item, index (item)}
@@ -91,7 +91,7 @@ The function is called repeatedly *before* the animation begins, with different 
 ```
 A custom animation function can also return a `tick` function, which is called *during* the animation with the same `t` and `u` arguments.
 
- If it's possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
+ If it’s possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
 
 ```
 <script>

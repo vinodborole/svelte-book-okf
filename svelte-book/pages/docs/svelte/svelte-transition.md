@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/transition • Svelte Docs
 description: svelte/transition • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-transition
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/transition 
@@ -13,7 +13,7 @@ import {
 	
 ```
 `function blur(node: Element, { delay, duration, easing, amount, opacity }?: BlurParams | undefined): TransitionConfig`
-Animates a `blur` filter alongside an element's opacity.
+Animates a `blur` filter alongside an element’s opacity.
 
 blur,
 	
@@ -27,7 +27,7 @@ function crossfade({ fallback, ...defaults }: CrossfadeParams & {
 }) => () => TransitionConfig]
 ```
 
-The `crossfade` function creates a pair of [transitions](https://svelte.dev/docs/svelte/transition) called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
+The `crossfade` function creates a pair of [transitions](https://svelte.dev/docs/svelte/transition) called `send` and `receive`. When an element is ‘sent’, it looks for a corresponding element being ‘received’, and generates a transition that transforms the element to its counterpart’s position and fades it out. When an element is ‘received’, the reverse happens. If there is no counterpart, the `fallback` transition is used.
 
 crossfade,
 	
@@ -45,11 +45,11 @@ Animates the opacity of an element from 0 to the current opacity for `in` transi
 
 fade,
 	`function fly(node: Element, { delay, duration, easing, x, y, opacity }?: FlyParams | undefined): TransitionConfig`
-Animates the x and y positions and the opacity of an element. `in` transitions animate from the provided values, passed as parameters to the element's default values. `out` transitions animate from the element's default values to the provided values.
+Animates the x and y positions and the opacity of an element. `in` transitions animate from the provided values, passed as parameters to the element’s default values. `out` transitions animate from the element’s default values to the provided values.
 
 fly,
 	`function scale(node: Element, { delay, duration, easing, start, opacity }?: ScaleParams | undefined): TransitionConfig`
-Animates the opacity and scale of an element. `in` transitions animate from the provided values, passed as parameters, to an element's current (default) values. `out` transitions animate from an element's default values to the provided values.
+Animates the opacity and scale of an element. `in` transitions animate from the provided values, passed as parameters, to an element’s current (default) values. `out` transitions animate from an element’s default values to the provided values.
 
 scale,
 	`function slide(node: Element, { delay, duration, easing, axis }?: SlideParams | undefined): TransitionConfig`
@@ -59,7 +59,7 @@ slide
 } from 'svelte/transition';
 ## blur
 
-Animates a `blur` filter alongside an element's opacity.
+Animates a `blur` filter alongside an element’s opacity.
 
 ```
 function blur(
@@ -75,7 +75,7 @@ function blur(
 ```
 ## crossfade
 
-The `crossfade` function creates a pair of [transitions](/docs/svelte/transition) called `send` and `receive`. When an element is 'sent', it looks for a corresponding element being 'received', and generates a transition that transforms the element to its counterpart's position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart, the `fallback` transition is used.
+The `crossfade` function creates a pair of [transitions](/docs/svelte/transition) called `send` and `receive`. When an element is ‘sent’, it looks for a corresponding element being ‘received’, and generates a transition that transforms the element to its counterpart’s position and fades it out. When an element is ‘received’, the reverse happens. If there is no counterpart, the `fallback` transition is used.
 
 ```
 function crossfade({
@@ -131,7 +131,7 @@ function fade(
 ```
 ## fly
 
-Animates the x and y positions and the opacity of an element. `in` transitions animate from the provided values, passed as parameters to the element's default values. `out` transitions animate from the element's default values to the provided values.
+Animates the x and y positions and the opacity of an element. `in` transitions animate from the provided values, passed as parameters to the element’s default values. `out` transitions animate from the element’s default values to the provided values.
 
 ```
 function fly(
@@ -148,7 +148,7 @@ function fly(
 ```
 ## scale
 
-Animates the opacity and scale of an element. `in` transitions animate from the provided values, passed as parameters, to an element's current (default) values. `out` transitions animate from an element's default values to the provided values.
+Animates the opacity and scale of an element. `in` transitions animate from the provided values, passed as parameters, to an element’s current (default) values. `out` transitions animate from an element’s default values to the provided values.
 
 ```
 function scale(

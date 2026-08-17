@@ -3,7 +3,7 @@ type: Web Page
 title: $effect • Svelte Docs
 description: $effect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$effect
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # $effect
@@ -31,11 +31,11 @@ You can create an effect with the `$effect` rune ([demo](/playground/untitled#H4
 ```
 When Svelte runs an effect function, it tracks which pieces of state (and derived state) are accessed (unless accessed inside [`untrack`](svelte#untrack)), and re-runs the function when that state later changes.
 
- If you're having difficulty understanding why your `$effect` is rerunning or is not running see [understanding dependencies](#Understanding-dependencies). Effects are triggered differently than the `$:` blocks you may be used to if coming from Svelte 4.
+ If you’re having difficulty understanding why your `$effect` is rerunning or is not running see [understanding dependencies](#Understanding-dependencies). Effects are triggered differently than the `$:` blocks you may be used to if coming from Svelte 4.
 
 ### Understanding lifecycle
 
-Your effects run after the component has been mounted to the DOM, and in a [microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) after state changes. Re-runs are batched (i.e. changing `color` and `size` in the same moment won't cause two separate runs), and happen after any DOM updates have been applied.
+Your effects run after the component has been mounted to the DOM, and in a [microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) after state changes. Re-runs are batched (i.e. changing `color` and `size` in the same moment won’t cause two separate runs), and happen after any DOM updates have been applied.
 
 You can use `$effect` anywhere, not just at the top level of a component, as long as it is called while a parent effect is running.
 
@@ -331,7 +331,7 @@ When using [`await`](await-expressions) in components, the `$effect.pending()` r
 ```
 ## $effect.root
 
-The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn't auto-cleanup. This is useful for nested effects that you want to manually control. This rune also allows for the creation of effects outside of the component initialisation phase.
+The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn’t auto-cleanup. This is useful for nested effects that you want to manually control. This rune also allows for the creation of effects outside of the component initialisation phase.
 
 `const` `const destroy: () => void`destroy = ```
 namespace $effect
@@ -350,7 +350,7 @@ If you return a function from the effect, it will be called right before the eff
 Does not run during server-side rendering.
 
 $effect.`function $effect.root(fn: () => void | (() => void)): () => void`
-The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn't auto-cleanup. This is useful for
+The `$effect.root` rune is an advanced feature that creates a non-tracked scope that doesn’t auto-cleanup. This is useful for
 nested effects that you want to manually control. This rune also allows for creation of effects outside of the component
 initialisation phase.
 
@@ -422,9 +422,9 @@ In general, `$effect` is best considered something of an escape hatch — useful
 ```
  For things that are more complicated than a simple expression like `count * 2`, you can also use `$derived.by`.
 
-If you're using an effect because you want to be able to reassign the derived value (to build an optimistic UI, for example) note that [deriveds can be directly overridden]($derived#Overriding-derived-values) as of Svelte 5.25.
+If you’re using an effect because you want to be able to reassign the derived value (to build an optimistic UI, for example) note that [deriveds can be directly overridden]($derived#Overriding-derived-values) as of Svelte 5.25.
 
-You might be tempted to do something convoluted with effects to link one value to another. The following example shows two inputs for "money spent" and "money left" that are connected to each other. If you update one, the other should update accordingly. Instead of using effects for this...
+You might be tempted to do something convoluted with effects to link one value to another. The following example shows two inputs for “money spent” and “money left” that are connected to each other. If you update one, the other should update accordingly. Instead of using effects for this...
 
 ```
 <script>

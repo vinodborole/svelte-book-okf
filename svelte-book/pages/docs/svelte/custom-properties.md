@@ -3,7 +3,7 @@ type: Web Page
 title: Custom properties • Svelte Docs
 description: Custom properties • Svelte documentation
 resource: https://svelte.dev/docs/svelte/custom-properties
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Custom properties
@@ -53,9 +53,9 @@ Inside the component, we can read these custom properties (and provide fallback 
 	}
 </style>
 ```
-You don't *have* to specify the values directly on the component; as long as the custom properties are defined on a parent element, the component can use them. It's common to define custom properties on the `:root` element in a global stylesheet so that they apply to your entire application.
+You don’t *have* to specify the values directly on the component; as long as the custom properties are defined on a parent element, the component can use them. It’s common to define custom properties on the `:root` element in a global stylesheet so that they apply to your entire application.
 
- While the extra element will not affect layout, it *will* affect any CSS selectors that (for example) use the `>` combinator to target an element directly inside the component's container.
+ While the extra element will not affect layout, it *will* affect any CSS selectors that (for example) use the `>` combinator to target an element directly inside the component’s container.
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/04-styling/03-custom-properties.md)  [llms.txt](/docs/svelte/custom-properties/llms.txt)
 

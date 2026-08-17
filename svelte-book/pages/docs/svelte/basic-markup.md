@@ -3,7 +3,7 @@ type: Web Page
 title: Basic markup • Svelte Docs
 description: Basic markup • Svelte documentation
 resource: https://svelte.dev/docs/svelte/basic-markup
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Basic markup
@@ -40,7 +40,7 @@ Attribute values can contain JavaScript expressions.
 Or they can *be* JavaScript expressions.
 
 `<button disabled={!clickable}>...</button>`
-Boolean attributes are included on the element if their value is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and excluded if it's [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
+Boolean attributes are included on the element if their value is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and excluded if it’s [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
 All other attributes are included unless their value is [nullish](https://developer.mozilla.org/en-US/docs/Glossary/Nullish) (`null` or `undefined`).
 
@@ -94,12 +94,12 @@ In the very rare cases that you need to prevent these event defaults, you should
 
 ### Event delegation
 
-To reduce memory footprint and increase performance, Svelte uses a technique called event delegation. This means that for certain events — see the list below — a single event listener at the application root takes responsibility for running any handlers on the event's path.
+To reduce memory footprint and increase performance, Svelte uses a technique called event delegation. This means that for certain events — see the list below — a single event listener at the application root takes responsibility for running any handlers on the event’s path.
 
 There are a few gotchas to be aware of:
 
-- when you manually dispatch an event with a delegated listener, make sure to set the `{ bubbles: true }` option or it won't reach the application root
-- when using `addEventListener` directly, avoid calling`stopPropagation` or the event won't reach the application root and handlers won't be invoked. Similarly, handlers added manually inside the application root will run*before* handlers added declaratively deeper in the DOM (with e.g.`onclick={...}` ), in both capturing and bubbling phases. For these reasons it's better to use the`on` function imported from`svelte/events` rather than`addEventListener` , as it will ensure that order is preserved and`stopPropagation` is handled correctly.
+- when you manually dispatch an event with a delegated listener, make sure to set the `{ bubbles: true }` option or it won’t reach the application root
+- when using `addEventListener` directly, avoid calling`stopPropagation` or the event won’t reach the application root and handlers won’t be invoked. Similarly, handlers added manually inside the application root will run*before* handlers added declaratively deeper in the DOM (with e.g.`onclick={...}` ), in both capturing and bubbling phases. For these reasons it’s better to use the`on` function imported from`svelte/events` rather than`addEventListener` , as it will ensure that order is preserved and`stopPropagation` is handled correctly.
 
 The following event handlers are delegated:
 
@@ -136,7 +136,7 @@ Expressions that are `null` or `undefined` will be omitted; all others are [coer
 
 Curly braces can be included in a Svelte template by using their [HTML entity](https://developer.mozilla.org/docs/Glossary/Entity) strings: `{`, `{`, or `{` for `{` and `}`, `}`, or `}` for `}`.
 
-If you're using a regular expression (`RegExp`) [literal notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor), you'll need to wrap it in parentheses.
+If you’re using a regular expression (`RegExp`) [literal notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor), you’ll need to wrap it in parentheses.
 
 ```
 <h1>Hello {name}!</h1>
@@ -153,7 +153,7 @@ The expression will be stringified and escaped to prevent code injections. If yo
 You can use HTML comments inside components.
 
 `<!-- this is a comment! --><h1>Hello world</h1>`
-Comments beginning with `svelte-ignore` disable warnings for the next block of markup. Usually, these are accessibility warnings; make sure that you're disabling them for a good reason.
+Comments beginning with `svelte-ignore` disable warnings for the next block of markup. Usually, these are accessibility warnings; make sure that you’re disabling them for a good reason.
 
 ```
 <!-- svelte-ignore a11y_autofocus -->

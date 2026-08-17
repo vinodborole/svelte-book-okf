@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:fragment> • Svelte Docs
 description: <svelte:fragment> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-svelte-fragment
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # <svelte:fragment>
@@ -45,7 +45,7 @@ App
 	</svelte:fragment>
 </Widget>
 ```
-In Svelte 5+, this concept is obsolete, as snippets don't create a wrapping element
+In Svelte 5+, this concept is obsolete, as snippets don’t create a wrapping element
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/99-legacy/22-legacy-svelte-fragment.md)  [llms.txt](/docs/svelte/legacy-svelte-fragment/llms.txt)
 

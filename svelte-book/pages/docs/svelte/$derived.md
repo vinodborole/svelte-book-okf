@@ -3,7 +3,7 @@ type: Web Page
 title: $derived • Svelte Docs
 description: $derived • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$derived
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # $derived
@@ -28,7 +28,7 @@ As with `$state`, you can mark class fields as `$derived`.
 
 ## $derived.by
 
-Sometimes you need to create complex derivations that don't fit inside a short expression. In these cases, you can use `$derived.by` which accepts a function as its argument.
+Sometimes you need to create complex derivations that don’t fit inside a short expression. In these cases, you can use `$derived.by` which accepts a function as its argument.
 
 ```
 <script>
@@ -72,7 +72,7 @@ To exempt a piece of state from being treated as a dependency, use [`untrack`](s
 
 ## Overriding derived values
 
-Derived expressions are recalculated when their dependencies change, but you can temporarily override their values by reassigning them (unless they are declared with `const`). This can be useful for things like *optimistic UI*, where a value is derived from the 'source of truth' (such as data from your server) but you'd like to show immediate feedback to the user:
+Derived expressions are recalculated when their dependencies change, but you can temporarily override their values by reassigning them (unless they are declared with `const`). This can be useful for things like *optimistic UI*, where a value is derived from the ‘source of truth’ (such as data from your server) but you’d like to show immediate feedback to the user:
 
 ```
 <script>
@@ -285,7 +285,7 @@ let _stuff: {
 `c: number`c);
 ## Update propagation
 
-Svelte uses something called *push-pull reactivity* — when state is updated, everything that depends on the state (whether directly or indirectly) is immediately notified of the change (the 'push'), but derived values are not re-evaluated until they are actually read (the 'pull').
+Svelte uses something called *push-pull reactivity* — when state is updated, everything that depends on the state (whether directly or indirectly) is immediately notified of the change (the ‘push’), but derived values are not re-evaluated until they are actually read (the ‘pull’).
 
 If the new value of a derived is referentially identical to its previous value, downstream updates will be skipped. In other words, Svelte will only update the text inside the button when `large` changes, not when `count` changes, even though `large` depends on `count`:
 

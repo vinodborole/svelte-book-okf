@@ -3,7 +3,7 @@ type: Web Page
 title: Overview • Svelte Docs
 description: Overview • Svelte documentation
 resource: https://svelte.dev/docs/svelte/overview
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Overview
@@ -40,9 +40,9 @@ App
 ```
 ...into lean, tightly optimized JavaScript.
 
-You can use it to build anything on the web, from standalone components to ambitious full stack apps (using Svelte's companion application framework, [SvelteKit](../kit)) and everything in between.
+You can use it to build anything on the web, from standalone components to ambitious full stack apps (using Svelte’s companion application framework, [SvelteKit](../kit)) and everything in between.
 
-These pages serve as reference documentation. If you're new to Svelte, we recommend starting with the [interactive tutorial](/tutorial) and coming back here when you have questions.
+These pages serve as reference documentation. If you’re new to Svelte, we recommend starting with the [interactive tutorial](/tutorial) and coming back here when you have questions.
 
 You can also try Svelte online in the [playground](/playground) or, if you need a more fully-featured environment, on [StackBlitz](https://sveltekit.new).
 

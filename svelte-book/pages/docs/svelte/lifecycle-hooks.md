@@ -3,16 +3,16 @@ type: Web Page
 title: Lifecycle hooks • Svelte Docs
 description: Lifecycle hooks • Svelte documentation
 resource: https://svelte.dev/docs/svelte/lifecycle-hooks
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Lifecycle hooks
 
-In Svelte 5, the component lifecycle consists of only two parts: Its creation and its destruction. Everything in-between — when certain state is updated — is not related to the component as a whole; only the parts that need to react to the state change are notified. This is because under the hood the smallest unit of change is actually not a component, it's the (render) effects that the component sets up upon component initialization. Consequently, there's no such thing as a "before update"/"after update" hook.
+In Svelte 5, the component lifecycle consists of only two parts: Its creation and its destruction. Everything in-between — when certain state is updated — is not related to the component as a whole; only the parts that need to react to the state change are notified. This is because under the hood the smallest unit of change is actually not a component, it’s the (render) effects that the component sets up upon component initialization. Consequently, there’s no such thing as a “before update”/"after update” hook.
 
 ## onMount
 
-The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM. It must be called during the component's initialisation (but doesn't need to live *inside* the component; it can be called from an external module).
+The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM. It must be called during the component’s initialisation (but doesn’t need to live *inside* the component; it can be called from an external module).
 
 `onMount` does not run inside a component that is rendered on the server.
 
@@ -55,7 +55,7 @@ Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the onl
 ```
 ## tick
 
-While there's no "after update" hook, you can use `tick` to ensure that the UI is updated before continuing. `tick` returns a promise that resolves once any pending state changes have been applied, or in the next microtask if there are none.
+While there’s no “after update” hook, you can use `tick` to ensure that the UI is updated before continuing. `tick` returns a promise that resolves once any pending state changes have been applied, or in the next microtask if there are none.
 
 ```
 <script>
@@ -83,13 +83,13 @@ Svelte 4 contained hooks that ran before and after the component as a whole was 
 	});
 </script>
 ```
-Instead of `beforeUpdate` use `$effect.pre` and instead of `afterUpdate` use `$effect` instead — these runes offer more granular control and only react to the changes you're actually interested in.
+Instead of `beforeUpdate` use `$effect.pre` and instead of `afterUpdate` use `$effect` instead — these runes offer more granular control and only react to the changes you’re actually interested in.
 
 ### Chat window example
 
 To implement a chat window that autoscrolls to the bottom when new messages appear (but only if you were *already* scrolled to the bottom), we need to measure the DOM before we update it.
 
-In Svelte 4, we do this with `beforeUpdate`, but this is a flawed approach — it fires before *every* update, whether it's relevant or not. In the example below, we need to introduce checks like `updatingMessages` to make sure we don't mess with the scroll position when someone toggles dark mode.
+In Svelte 4, we do this with `beforeUpdate`, but this is a flawed approach — it fires before *every* update, whether it’s relevant or not. In the example below, we need to introduce checks like `updatingMessages` to make sure we don’t mess with the scroll position when someone toggles dark mode.
 
 With runes, we can use `$effect.pre`, which behaves the same as `$effect` but runs before the DOM is updated. As long as we explicitly reference `messages` inside the effect body, it will run whenever `messages` changes, but *not* when `theme` changes.
 

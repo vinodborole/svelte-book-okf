@@ -3,7 +3,7 @@ type: Web Page
 title: $inspect • Svelte Docs
 description: $inspect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$inspect
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # $inspect
@@ -30,7 +30,7 @@ The `$inspect` rune is roughly equivalent to `console.log`, with the exception t
 <button onclick={() => count++}>Increment</button>
 <input bind:value={message} />
 ```
-On updates, a stack trace will be printed, making it easy to find the origin of a state change (unless you're in the playground, due to technical limitations).
+On updates, a stack trace will be printed, making it easy to find the origin of a state change (unless you’re in the playground, due to technical limitations).
 
 ## $inspect(...).with
 

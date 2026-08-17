@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-08-10T07:02:22.716830+00:00",
+  "updated_at": "2026-08-17T06:25:40.981502+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -28,13 +28,13 @@
       "path": "pages/docs/cli/overview.md",
       "url": "https://svelte.dev/docs/cli/overview",
       "title": "Overview • Svelte CLI Docs",
-      "hash": "253c774981a1d2043032d7e8d3d2c0aef2920cfdd3e0596b643b08df7a4f6eae"
+      "hash": "d1414f95e1baab53e25d9c4834fce820c2c8f1bfc8a6113c00738700ab100547"
     },
     {
       "path": "pages/docs/kit/introduction.md",
       "url": "https://svelte.dev/docs/kit/introduction",
       "title": "Introduction • SvelteKit Docs",
-      "hash": "cb2ca86e8a6e5758f2669357f21984a4f6ab6a8a448c7c7ec32f1760935e6aef"
+      "hash": "3a6fe1b47dd59ecfda198497dcbb463d093a15cd3a4202bd2a8387916782d86b"
     },
     {
       "path": "pages/docs/llms.md",
@@ -46,19 +46,19 @@
       "path": "pages/docs/svelte/$bindable.md",
       "url": "https://svelte.dev/docs/svelte/$bindable",
       "title": "$bindable • Svelte Docs",
-      "hash": "3f80f4133fcf27908ad79b37b78b4b0a84c27b5fe5d8ee86a0989b3c84f9a16c"
+      "hash": "8568e2d20133096e467d9ee92678c1b79c3d7f200d761c3a674799b817abc160"
     },
     {
       "path": "pages/docs/svelte/$derived.md",
       "url": "https://svelte.dev/docs/svelte/$derived",
       "title": "$derived • Svelte Docs",
-      "hash": "9ddbf8875f4db41e30e0b784d5907d8dc092a8d6d5eae619677a452e51e76d40"
+      "hash": "d49b8a82b94f30f41523a2aec5e685e7ebd1418ea62d59d17631bfb7eac2e4f8"
     },
     {
       "path": "pages/docs/svelte/$effect.md",
       "url": "https://svelte.dev/docs/svelte/$effect",
       "title": "$effect • Svelte Docs",
-      "hash": "e104eb9fe3256939af56ddb590c2a31bdbfbd5916b7009e16476838f063720ce"
+      "hash": "ae2b452591d1447fdbeb4a0f2fccc566ed29937638e19bf2013ed3f9b99a845c"
     },
     {
       "path": "pages/docs/svelte/$host.md",
@@ -70,25 +70,25 @@
       "path": "pages/docs/svelte/$inspect.md",
       "url": "https://svelte.dev/docs/svelte/$inspect",
       "title": "$inspect • Svelte Docs",
-      "hash": "582b668bea61037e8d5859d6c9128c72d043c2d1696d2510bac16f09c4aee244"
+      "hash": "47bef22ead29e87e56b5c84f9bee607f0c76d9539a86793f3b4714687ca294f6"
     },
     {
       "path": "pages/docs/svelte/$props.md",
       "url": "https://svelte.dev/docs/svelte/$props",
       "title": "$props • Svelte Docs",
-      "hash": "ae4e8b852822ae413f8f2b337d9ada67965f800ecd652de5b1a19d7b2171adbc"
+      "hash": "d164a00a2f53864a7b0dca989a7d1b43d9f28b25dc2729b4fa674066c2cbb42a"
     },
     {
       "path": "pages/docs/svelte/$state.md",
       "url": "https://svelte.dev/docs/svelte/$state",
       "title": "$state • Svelte Docs",
-      "hash": "daec4202a9fa6140e39b599364936b1b3649c9fa8aab1c9a9016cdad9fabe7a1"
+      "hash": "4987079c0b0e8c2dea6b71303c0593dce0c22752e9611f2085f280bb357d0713"
     },
     {
       "path": "pages/docs/svelte/@attach.md",
       "url": "https://svelte.dev/docs/svelte/@attach",
       "title": "{@attach ...} • Svelte Docs",
-      "hash": "2df6ae461d9e6ff7b4ac7eef68c875c97eba13e893a87d557987e25db593d68f"
+      "hash": "b6b2e94a08650c70eeea056adff2d02fdaee54f1d2b53c13f35f2cad5867d306"
     },
     {
       "path": "pages/docs/svelte/@const.md",
@@ -106,97 +106,97 @@
       "path": "pages/docs/svelte/@html.md",
       "url": "https://svelte.dev/docs/svelte/@html",
       "title": "{@html ...} • Svelte Docs",
-      "hash": "d1c95c5b9344e129c82875ea9f8bb7e190bab1e18c8ab8cb2d3e4e6b6888b452"
+      "hash": "5f94209d1a448f8c9d321b9ea6a8f29e424c673ebd3c4c6c08afa580a476ced4"
     },
     {
       "path": "pages/docs/svelte/@render.md",
       "url": "https://svelte.dev/docs/svelte/@render",
       "title": "{@render ...} • Svelte Docs",
-      "hash": "a1b26e422a4e70647d7c3c41729d3071773ac3b37fc4ed3ea331c1d81c053fd3"
+      "hash": "8242c0a2e9667f0d2d4ac76c24864cbf7e928ad6283f91a48e6bbe01fbfcd5c0"
     },
     {
       "path": "pages/docs/svelte/animate.md",
       "url": "https://svelte.dev/docs/svelte/animate",
       "title": "animate: • Svelte Docs",
-      "hash": "2b6dbdb5c3b3791ef06e6b332f2fa7839ce130f9bd2781807aa2c19b0d177141"
+      "hash": "f55976d1e72f62133e72a251dd41eea47b5c334b877b2a0fadfb99c1eb9443a2"
     },
     {
       "path": "pages/docs/svelte/await-expressions.md",
       "url": "https://svelte.dev/docs/svelte/await-expressions",
       "title": "await • Svelte Docs",
-      "hash": "12f2d241cecb0fcb55aaba8c71a76e2cf45b5380a1aa4e18605265f8e412ff5e"
+      "hash": "0f2dc0e06ce3c75f950c1ba88e97b23d04450fb50713ae8137b291e513145826"
     },
     {
       "path": "pages/docs/svelte/await.md",
       "url": "https://svelte.dev/docs/svelte/await",
       "title": "{#await ...} • Svelte Docs",
-      "hash": "7b12b1e3ba5485bb0472c4715fa2c7aa055b3bc0e7290c72de0b34836e9eec66"
+      "hash": "4eb3e4912f0e756bbc6913a2d34acb355bf2d053ef463a278c10b11700797ec4"
     },
     {
       "path": "pages/docs/svelte/basic-markup.md",
       "url": "https://svelte.dev/docs/svelte/basic-markup",
       "title": "Basic markup • Svelte Docs",
-      "hash": "c5f34fca6e0cfdf3438bb0bbb5c275f15975bfb3d433d72a413cda88f162c0f9"
+      "hash": "070f640991f57736499e64eddc7b62cb741121c3a81cb0ee2069fc7c6955ee77"
     },
     {
       "path": "pages/docs/svelte/best-practices.md",
       "url": "https://svelte.dev/docs/svelte/best-practices",
       "title": "Best practices • Svelte Docs",
-      "hash": "70b01f0fb73861dbf36e94983042f153bece40b37a1973827c51b716e0785572"
+      "hash": "4c53b145fcce491780fbdc4fc5b5ea6b9179f063299629e3289e05a5c36a01af"
     },
     {
       "path": "pages/docs/svelte/bind.md",
       "url": "https://svelte.dev/docs/svelte/bind",
       "title": "bind: • Svelte Docs",
-      "hash": "777eb9159f10800b6ebecd58b836147c43a94b5fc72b0014c161d156d4b053dc"
+      "hash": "58c9bfb68de38c8fdd722606cf409ea4d99d2141da7591007d24c8715819a15f"
     },
     {
       "path": "pages/docs/svelte/browser-support.md",
       "url": "https://svelte.dev/docs/svelte/browser-support",
       "title": "Browser support • Svelte Docs",
-      "hash": "faeee8025cc1d93aaf882bda792e95f24f9ad205c43e4e024271b73524240697"
+      "hash": "556358a2d858248ceb09826b7a905587cf222d6742281f7c4d83f1ffcdde0cd6"
     },
     {
       "path": "pages/docs/svelte/class.md",
       "url": "https://svelte.dev/docs/svelte/class",
       "title": "class • Svelte Docs",
-      "hash": "e443644d7e0f781f1c0cd41e56d4ad8af83ea6dc736f68e86a882eae0f77dd05"
+      "hash": "c3ffaf7df75ae942a0f2783664b18c53873da2ee86ce60b65fb8b41647729e4e"
     },
     {
       "path": "pages/docs/svelte/compiler-errors.md",
       "url": "https://svelte.dev/docs/svelte/compiler-errors",
       "title": "Compiler errors • Svelte Docs",
-      "hash": "09933dfbeae4e7ecdf134b3ed1c1fc777c62baa8d2fe7461c06c567ff2faf18d"
+      "hash": "9f5c9663d9f30c5d21c5a624ccf3864b463c50fe44040a40ec3715957d4225c6"
     },
     {
       "path": "pages/docs/svelte/compiler-warnings.md",
       "url": "https://svelte.dev/docs/svelte/compiler-warnings",
       "title": "Compiler warnings • Svelte Docs",
-      "hash": "b03bcf37c2b454979cf86f4dd029a0abd3b6779890d99c769e736c9909e8905a"
+      "hash": "0bde0167b3708da4ec5f4415931ea5b728ba9f961847b899cfe177b5e60f512d"
     },
     {
       "path": "pages/docs/svelte/context.md",
       "url": "https://svelte.dev/docs/svelte/context",
       "title": "Context • Svelte Docs",
-      "hash": "0ea45351977e21bc6bbc654a664e041b61e1f291ccfe777764d74e9727d53d77"
+      "hash": "ba76aa0850fbc4268e61c04d059cbbb6e5e6fcdda68ab08c2323a704c7c016d3"
     },
     {
       "path": "pages/docs/svelte/custom-elements.md",
       "url": "https://svelte.dev/docs/svelte/custom-elements",
       "title": "Custom elements • Svelte Docs",
-      "hash": "538587a2e360fe84e3ed4b65aff45aac604b4fa0d4e145dc37c6ba98067c9ee7"
+      "hash": "4ca8e92fa011b97fdf84d6e00707b01a0316b803164556b795969e04aeafd4eb"
     },
     {
       "path": "pages/docs/svelte/custom-properties.md",
       "url": "https://svelte.dev/docs/svelte/custom-properties",
       "title": "Custom properties • Svelte Docs",
-      "hash": "e301c6b5153c67f15d2e0da1df1c442ab68047fa2a64d5e770d1b0939733c641"
+      "hash": "ae104d4fce27580f79606090e0b55dee11a90f06e452eab9214fcf43f62d1ff8"
     },
     {
       "path": "pages/docs/svelte/declaration-tags.md",
       "url": "https://svelte.dev/docs/svelte/declaration-tags",
       "title": "{let/const ...} • Svelte Docs",
-      "hash": "3df9df95282586f2287be594f810eeadbe88c9502b81bceaddaef69bb09fb548"
+      "hash": "ac035bc45d3610491cfbef70673bafbfb02270a582f9f0ef4b4e98d536bfa617"
     },
     {
       "path": "pages/docs/svelte/each.md",
@@ -208,13 +208,13 @@
       "path": "pages/docs/svelte/faq.md",
       "url": "https://svelte.dev/docs/svelte/faq",
       "title": "Frequently asked questions • Svelte Docs",
-      "hash": "fc2bd13fef177ef6fe69ec19030a5fa855ca55de954e18cdaf8cd706bea5d209"
+      "hash": "48358d7954db336a34d9a0e2b1685bd2d07c6f6a5544456bcd3345650315477e"
     },
     {
       "path": "pages/docs/svelte/getting-started.md",
       "url": "https://svelte.dev/docs/svelte/getting-started",
       "title": "Getting started • Svelte Docs",
-      "hash": "4d25e3635dd3dcbae6b974a0a1888efcfe48ea2c89b5402398923f1e25956e1a"
+      "hash": "96359d21794da3aa67b7655c7c7e295496952feac21bb24ea06f01a4efe1eacb"
     },
     {
       "path": "pages/docs/svelte/global-styles.md",
@@ -226,31 +226,31 @@
       "path": "pages/docs/svelte/hydratable.md",
       "url": "https://svelte.dev/docs/svelte/hydratable",
       "title": "Hydratable data • Svelte Docs",
-      "hash": "4af774d09e903139e397378c99acaf52d9f31c8f661de6bc8f348276aed8ac21"
+      "hash": "b1bba7c5e0ecfc651ec385e2fe50bc5ae845ec57e3caeb63524723af4fe3146a"
     },
     {
       "path": "pages/docs/svelte/if.md",
       "url": "https://svelte.dev/docs/svelte/if",
       "title": "{#if ...} • Svelte Docs",
-      "hash": "58c966d690179f3bee5d9a6193dfab92f6537e40977ff8ab29a385be0274775e"
+      "hash": "6c28ab2f118afca7994d0a8a3edcbcc94548b73a844433c3b63ca70014dd944a"
     },
     {
       "path": "pages/docs/svelte/imperative-component-api.md",
       "url": "https://svelte.dev/docs/svelte/imperative-component-api",
       "title": "Imperative component API • Svelte Docs",
-      "hash": "8096aed19bdf9c4cf712616eec716818d6406636eb00e2bcfaffe6d86e0de2c5"
+      "hash": "7d762f7327139b4d0ca7be54850f5a1ace883faa7e9c843afd3f18f5aa5effc3"
     },
     {
       "path": "pages/docs/svelte/in-and-out.md",
       "url": "https://svelte.dev/docs/svelte/in-and-out",
       "title": "in: and out: • Svelte Docs",
-      "hash": "ffb6d135da7733dc04e1b343ebb84facd62bc103de99f1561157c8454ac0abe6"
+      "hash": "7274448ce03c757b4c9b18a9e005a166807695d05f2d67bbbf549982f1c1b149"
     },
     {
       "path": "pages/docs/svelte/key.md",
       "url": "https://svelte.dev/docs/svelte/key",
       "title": "{#key ...} • Svelte Docs",
-      "hash": "809d2e51bfdcb7b78845b54af283b5091e7168af1883fde886d1b9c63d5ac66a"
+      "hash": "50aabbf43afc1df890942cf29f85e0b26eefd8a302a053858b76251031d0f66c"
     },
     {
       "path": "pages/docs/svelte/legacy-$$props-and-$$restProps.md",
@@ -262,37 +262,37 @@
       "path": "pages/docs/svelte/legacy-$$slots.md",
       "url": "https://svelte.dev/docs/svelte/legacy-$$slots",
       "title": "$$slots • Svelte Docs",
-      "hash": "559bfd097f34d806e907af207e386f911845a783e54626edfbcb700b45b44317"
+      "hash": "b875c152b59b148e70d40de9633f3fa1a3f758d60057d8f824cf706e831ad5d6"
     },
     {
       "path": "pages/docs/svelte/legacy-export-let.md",
       "url": "https://svelte.dev/docs/svelte/legacy-export-let",
       "title": "export let • Svelte Docs",
-      "hash": "7468ad4263dba846b5b7615cc5b299a32b2e94222c82091b5fde9b23bccca2d8"
+      "hash": "2d6334c7c49f13e1d682e1f2491e876edbd2e2b9b25dc8b2218c9787a31ce2b5"
     },
     {
       "path": "pages/docs/svelte/legacy-let.md",
       "url": "https://svelte.dev/docs/svelte/legacy-let",
       "title": "Reactive let/var declarations • Svelte Docs",
-      "hash": "779c112fe12616d8ed817d2b6745004339e2bee186f75d5a64e1038544cdf349"
+      "hash": "46043345e44ba9c820c6855352d02974ae604ce3d5a2ba533e9c7b33a40aaedb"
     },
     {
       "path": "pages/docs/svelte/legacy-on.md",
       "url": "https://svelte.dev/docs/svelte/legacy-on",
       "title": "on: • Svelte Docs",
-      "hash": "9f19fe783f9891aa5009e4d452fd4994960d0903154d924acd455e11a4eb1934"
+      "hash": "83aba9ee672402fec9b4ae93281ec2d4b4d074dac3a7f03f19750b08488175b6"
     },
     {
       "path": "pages/docs/svelte/legacy-overview.md",
       "url": "https://svelte.dev/docs/svelte/legacy-overview",
       "title": "Overview • Svelte Docs",
-      "hash": "526dfc0a69a00e6a8564972e446d05763d5e81a9b1fd859fe05eb1737c810d19"
+      "hash": "3a593eea735f1a21a6694a9ea9bfde0b09044b125acbcd2dcf98a223d0add8e3"
     },
     {
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "9fca53e88148a652a88594a98152e8dc3a2b4590c785f4a78a2ce1a549781964"
+      "hash": "f657847b56570d467f8bcf756561c97809d941c0c0e47ec3a9854d8495ccce70"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -304,25 +304,25 @@
       "path": "pages/docs/svelte/legacy-svelte-component.md",
       "url": "https://svelte.dev/docs/svelte/legacy-svelte-component",
       "title": "<svelte:component> • Svelte Docs",
-      "hash": "8c4135fc68ef69aa456309dbf93aab28d8075e805613f5c38fc69e28d14d89df"
+      "hash": "a7aa1d6966d694b096d745da632d9c0423070dccd650bd3c5fadcd59ad53a326"
     },
     {
       "path": "pages/docs/svelte/legacy-svelte-fragment.md",
       "url": "https://svelte.dev/docs/svelte/legacy-svelte-fragment",
       "title": "<svelte:fragment> • Svelte Docs",
-      "hash": "d1c49eed943e5dde1cd6a749dc3da59b064ad2564e24004b5135b0a3d7d73d02"
+      "hash": "04131e13e9ecfce6f54d6456370a57f03c1f7fc7dd11596ca1cf8bc0c75bf811"
     },
     {
       "path": "pages/docs/svelte/legacy-svelte-self.md",
       "url": "https://svelte.dev/docs/svelte/legacy-svelte-self",
       "title": "<svelte:self> • Svelte Docs",
-      "hash": "83e45fd07f332cbb79b2301d879837e33a6e39086502c086c76e6cfc650a8657"
+      "hash": "4f38f47c927f018c23e52885ad9f153532b75515fa457946fd608e943e76ba6a"
     },
     {
       "path": "pages/docs/svelte/lifecycle-hooks.md",
       "url": "https://svelte.dev/docs/svelte/lifecycle-hooks",
       "title": "Lifecycle hooks • Svelte Docs",
-      "hash": "f038f9d3b4b32fa80bb3ca1d62c396148690650b867532441f5f31843c0c990b"
+      "hash": "b3164c34e6d00313cbc0999cbf0bf40ac95a7235600f19082c918fbc1bb6c279"
     },
     {
       "path": "pages/docs/svelte/nested-style-elements.md",
@@ -334,19 +334,19 @@
       "path": "pages/docs/svelte/overview.md",
       "url": "https://svelte.dev/docs/svelte/overview",
       "title": "Overview • Svelte Docs",
-      "hash": "75bb4fb1b7bb7e49d8729da9faa100ecaf9427a74872e4270f455f4d3e5b1ec5"
+      "hash": "e2a5196597125ac37d2ad8f3d09d3c9a1b026d2265cbeba256e07a703ca08692"
     },
     {
       "path": "pages/docs/svelte/runtime-errors.md",
       "url": "https://svelte.dev/docs/svelte/runtime-errors",
       "title": "Runtime errors • Svelte Docs",
-      "hash": "244ae5031af6a052517e5707fa1002b7d1345052e71a193468463be6a65c23d2"
+      "hash": "4d1244dad234d478e3d7540de79c2ecd74781a5d1108255d53c41a7dacb4df7b"
     },
     {
       "path": "pages/docs/svelte/runtime-warnings.md",
       "url": "https://svelte.dev/docs/svelte/runtime-warnings",
       "title": "Runtime warnings • Svelte Docs",
-      "hash": "c32f013c3560185c030ac63de8d2f413e78dd9df920423fdddf4e050197ba078"
+      "hash": "e280b5478207d658bdc4ab78919ca6b59c4b9078f08905e0f0dba2f95725d691"
     },
     {
       "path": "pages/docs/svelte/scoped-styles.md",
@@ -358,13 +358,13 @@
       "path": "pages/docs/svelte/snippet.md",
       "url": "https://svelte.dev/docs/svelte/snippet",
       "title": "{#snippet ...} • Svelte Docs",
-      "hash": "26748baf7e7dd8284bbc418a1aa3d0ee5abfa4c2e2d98e617c10ff439bc4afc3"
+      "hash": "ebeefc77788a94db6102274c4da7bd4fd515aaacdb1ffdfde1441579f0f31d79"
     },
     {
       "path": "pages/docs/svelte/stores.md",
       "url": "https://svelte.dev/docs/svelte/stores",
       "title": "Stores • Svelte Docs",
-      "hash": "fa80f3b8704faa6378e40148a61fa7510e354a1caabb13bdd8b1182cc881a43d"
+      "hash": "e474129fb6ae2dee23905b01319c803b366e0ae0a8469db935fddfefffc63265"
     },
     {
       "path": "pages/docs/svelte/style.md",
@@ -388,31 +388,31 @@
       "path": "pages/docs/svelte/svelte-attachments.md",
       "url": "https://svelte.dev/docs/svelte/svelte-attachments",
       "title": "svelte/attachments • Svelte Docs",
-      "hash": "b5a6d5980ee825dc85e8195a1a83b10be7cc618e2c0930dae846eea50aae1e28"
+      "hash": "c728f0cd9178f37f41741efbf18a375dee8b08d11355965547f35033e865e29f"
     },
     {
       "path": "pages/docs/svelte/svelte-body.md",
       "url": "https://svelte.dev/docs/svelte/svelte-body",
       "title": "<svelte:body> • Svelte Docs",
-      "hash": "f1e60ddaa3ccf7cc091184c09aec2df53242f004a9154551bfaade5500d4a77c"
+      "hash": "0fe802001ff4e7aefca5cf19f64fed646178254afc3a93e156afa8e4b0ebffe4"
     },
     {
       "path": "pages/docs/svelte/svelte-boundary.md",
       "url": "https://svelte.dev/docs/svelte/svelte-boundary",
       "title": "<svelte:boundary> • Svelte Docs",
-      "hash": "f840e510381221c4f2c729411adb9c4c4eb9280aa0bb60d3fb896d9ae8d8c7e7"
+      "hash": "86917d6e375be2742e47b47408248638afdaaa63c858d2182260b1132dfb728b"
     },
     {
       "path": "pages/docs/svelte/svelte-compiler.md",
       "url": "https://svelte.dev/docs/svelte/svelte-compiler",
       "title": "svelte/compiler • Svelte Docs",
-      "hash": "deed1f1e6619b10d779b1281ec227d68d4aa41141e2fd75a91f77e2d678b74ad"
+      "hash": "fe1f963d5c2537023a8ec04eeb05bc3c2e7763ba8a5f475c73dd2292cd3fddbb"
     },
     {
       "path": "pages/docs/svelte/svelte-document.md",
       "url": "https://svelte.dev/docs/svelte/svelte-document",
       "title": "<svelte:document> • Svelte Docs",
-      "hash": "bc3af66ff53468529dc48cf6de9f24e6b5aa88ad9039adcef81781144aa7fab8"
+      "hash": "bf984cc190ade1df8657bccb1f5b1a551ddf0cc7d57d18d24ceb574c9fc82098"
     },
     {
       "path": "pages/docs/svelte/svelte-easing.md",
@@ -424,7 +424,7 @@
       "path": "pages/docs/svelte/svelte-element.md",
       "url": "https://svelte.dev/docs/svelte/svelte-element",
       "title": "<svelte:element> • Svelte Docs",
-      "hash": "a94da40d8e85b721a53f6c83c85aebd011bfa071394a3b1de9832ff08ea02ae8"
+      "hash": "9a76d9feaf476c86bf674bf3dbd611cea9f02ba83220c4faac859705ad2fa5ad"
     },
     {
       "path": "pages/docs/svelte/svelte-events.md",
@@ -436,7 +436,7 @@
       "path": "pages/docs/svelte/svelte-files.md",
       "url": "https://svelte.dev/docs/svelte/svelte-files",
       "title": ".svelte files • Svelte Docs",
-      "hash": "9e09a3ca04577eda33a320e26a61c85d7cd6f16160b60f37494350d193b1fc20"
+      "hash": "12fc438088f3f208f6334221b106c0dc75e53bd90bab2b22b7b0e40fd9c5abf9"
     },
     {
       "path": "pages/docs/svelte/svelte-head.md",
@@ -448,37 +448,37 @@
       "path": "pages/docs/svelte/svelte-js-files.md",
       "url": "https://svelte.dev/docs/svelte/svelte-js-files",
       "title": ".svelte.js and .svelte.ts files • Svelte Docs",
-      "hash": "2bff7f6261828790610784176dfca3778ddd239d80ca41795cf79f215b98cf3b"
+      "hash": "9beebeb97f0b0ece73169c6f46a7b96ac7e60305dd41a264ba328700e785dfb7"
     },
     {
       "path": "pages/docs/svelte/svelte-legacy.md",
       "url": "https://svelte.dev/docs/svelte/svelte-legacy",
       "title": "svelte/legacy • Svelte Docs",
-      "hash": "a52dd125051ee699ff751ee3acb067218167817b9f68f220ceb9aa18fd4098dc"
+      "hash": "29fa17900b98c68980534b33d6c8552db4d1fbf9cd674505d071bbf02d9ed98a"
     },
     {
       "path": "pages/docs/svelte/svelte-motion.md",
       "url": "https://svelte.dev/docs/svelte/svelte-motion",
       "title": "svelte/motion • Svelte Docs",
-      "hash": "7a10655be1993bf91b1d4fee90d07f2047b70cbdbc79025b3a8b425a9d70e5b2"
+      "hash": "90b0d8e306fecdd088b6a222a3363a5d045d61185b9101c7150277e5a5c4f088"
     },
     {
       "path": "pages/docs/svelte/svelte-options.md",
       "url": "https://svelte.dev/docs/svelte/svelte-options",
       "title": "<svelte:options> • Svelte Docs",
-      "hash": "d4fe46fb2bf552f6496cf309dcea28f66520d62c4539006616219279a4f9a109"
+      "hash": "8b0e5d5090778288696e491ce89605b133e9e347a1253b90a999c56e884b0941"
     },
     {
       "path": "pages/docs/svelte/svelte-reactivity-window.md",
       "url": "https://svelte.dev/docs/svelte/svelte-reactivity-window",
       "title": "svelte/reactivity/window • Svelte Docs",
-      "hash": "b498d87e74220347c5f5910b069b6609136b04146da3fd71bcaee17d0f741f80"
+      "hash": "f067a1d093fd5deb147d764d815f2424a3d4e82f7d6f79db30e74dccdbd5107f"
     },
     {
       "path": "pages/docs/svelte/svelte-reactivity.md",
       "url": "https://svelte.dev/docs/svelte/svelte-reactivity",
       "title": "svelte/reactivity • Svelte Docs",
-      "hash": "2018ee6fab8ca267ecdb1f38954c3d83d05dd3e3d419c4fcd2a4da080f33898b"
+      "hash": "6b1939a9d86920456955432cb73f7ef312df8df36db9751c40c02c10cb47dc60"
     },
     {
       "path": "pages/docs/svelte/svelte-server.md",
@@ -496,7 +496,7 @@
       "path": "pages/docs/svelte/svelte-transition.md",
       "url": "https://svelte.dev/docs/svelte/svelte-transition",
       "title": "svelte/transition • Svelte Docs",
-      "hash": "0fa41b8b68585fc8074258ee68ddf6ca90f055ac8b26e33d173b480fb409116c"
+      "hash": "e6a8f477d733368603599b115fb8e3dccf45ecc55ff9a9efff946a027176876d"
     },
     {
       "path": "pages/docs/svelte/svelte-window.md",
@@ -508,25 +508,25 @@
       "path": "pages/docs/svelte/svelte.md",
       "url": "https://svelte.dev/docs/svelte/svelte",
       "title": "svelte • Svelte Docs",
-      "hash": "369ddd161e8b8a3d278149ba2904d61e4f8108d5a372cbf646ac2d6c46fa54e5"
+      "hash": "76e6d6b4f888c7f1e142de51a37c9999363ec29c19b6f35f491a2cef76ce9e89"
     },
     {
       "path": "pages/docs/svelte/testing.md",
       "url": "https://svelte.dev/docs/svelte/testing",
       "title": "Testing • Svelte Docs",
-      "hash": "4973d5f78a70f994088dbec4a72ef9c57df14698bc0f0ed4e01ccf3703de83f0"
+      "hash": "71e9ea3494f5b8c36b1086e2a192a27986a61187be6bddab96d0ce8fe40b9d61"
     },
     {
       "path": "pages/docs/svelte/transition.md",
       "url": "https://svelte.dev/docs/svelte/transition",
       "title": "transition: • Svelte Docs",
-      "hash": "1e6141e73813d34ab6803ab7bd768682834be700ac0cd76369fe2f4b6076135a"
+      "hash": "cf4b155f678826c707f1dd504c494e6e4208730254c15e98a1e0a120189bb0db"
     },
     {
       "path": "pages/docs/svelte/typescript.md",
       "url": "https://svelte.dev/docs/svelte/typescript",
       "title": "TypeScript • Svelte Docs",
-      "hash": "420e7879d4eba3a6770ae8c8fdd7012b4fb82726d23358eca4ee7ce214e80038"
+      "hash": "a832efe9168ae388a00cdab9b8cca74077d4fe0186bdc07ec147433a4dda87fd"
     },
     {
       "path": "pages/docs/svelte/use.md",
@@ -538,19 +538,19 @@
       "path": "pages/docs/svelte/v4-migration-guide.md",
       "url": "https://svelte.dev/docs/svelte/v4-migration-guide",
       "title": "Svelte 4 migration guide • Svelte Docs",
-      "hash": "aab2267d88fbc6856acafdc32f9e41293c4325a43e01a382e675c45cf7801647"
+      "hash": "b18b6711b2d4db07ea69dcd68ddd57b1030029ec0ab0b6a31b2606bfb107868e"
     },
     {
       "path": "pages/docs/svelte/v5-migration-guide.md",
       "url": "https://svelte.dev/docs/svelte/v5-migration-guide",
       "title": "Svelte 5 migration guide • Svelte Docs",
-      "hash": "0421c40e3813a44fee1d5ae19e07c9f14ca359db648033083f83e7adc992d0e4"
+      "hash": "9302317d1bfca68e750c9f3921f028d4610e1104b4aeb61b438f51a335023732"
     },
     {
       "path": "pages/docs/svelte/what-are-runes.md",
       "url": "https://svelte.dev/docs/svelte/what-are-runes",
       "title": "What are runes? • Svelte Docs",
-      "hash": "9843dd940d6dce800ccb78119856ad7c3500a85ebcebaf3fcbef87124668e350"
+      "hash": "c27a861729b169d927e954e1d332a36aa1e32c844e94f7b7f2d283e3130ccf18"
     }
   ],
   "edges": [
@@ -1880,9 +1880,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-10T07:02:22.676985+00:00",
+    "synced_at": "2026-08-17T06:25:40.948872+00:00",
     "added": 0,
-    "changed": 3,
+    "changed": 68,
     "removed": 0,
     "pages": 90
   }

@@ -3,7 +3,7 @@ type: Web Page
 title: 'bind: • Svelte Docs'
 description: 'bind: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/bind
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # bind:
@@ -42,7 +42,7 @@ Function bindings are available in Svelte 5.9.0 and newer.
 
 ## <input bind:value>
 
-A `bind:value` directive on an `<input>` element binds the input's `value` property:
+A `bind:value` directive on an `<input>` element binds the input’s `value` property:
 
 ```
 <script>
@@ -96,7 +96,7 @@ Since 5.6.0, if an `<input>` has a `defaultValue` and is part of a form, it will
 	<input type="reset" value="Reset">
 </form>
 ```
-Use reset buttons sparingly, and ensure that users won't accidentally click them while trying to submit the form.
+Use reset buttons sparingly, and ensure that users won’t accidentally click them while trying to submit the form.
 
 ## <input bind:checked>
 
@@ -244,7 +244,7 @@ When the value of an `<option>` matches its text content, the attribute can be o
 	<option>Guac (extra)</option>
 </select>
 ```
-You can give the `<select>` a default value by adding a `selected` attribute to the `<option>` (or options, in the case of `<select multiple>`) that should be initially selected. If the `<select>` is part of a form, it will revert to that selection when the form is reset. Note that for the initial render the value of the binding takes precedence if it's not `undefined`.
+You can give the `<select>` a default value by adding a `selected` attribute to the `<option>` (or options, in the case of `<select multiple>`) that should be initially selected. If the `<select>` is part of a form, it will revert to that selection when the form is reset. Note that for the initial render the value of the binding takes precedence if it’s not `undefined`.
 
 ```
 <select bind:value={selected}>
@@ -298,7 +298,7 @@ All visible elements have the following readonly bindings, measured with a `Resi
 	<Chart {width} {height} />
 </div>
 ```
- `display: inline` elements do not have a width or height (except for elements with 'intrinsic' dimensions, like `<img>` and `<canvas>`), and cannot be observed with a `ResizeObserver`. You will need to change the `display` style of these elements to something else, such as `inline-block`. Note that CSS transformations do not trigger `ResizeObserver` callbacks.
+ `display: inline` elements do not have a width or height (except for elements with ‘intrinsic’ dimensions, like `<img>` and `<canvas>`), and cannot be observed with a `ResizeObserver`. You will need to change the `display` style of these elements to something else, such as `inline-block`. Note that CSS transformations do not trigger `ResizeObserver` callbacks.
 
 ## bind:this
 
@@ -364,7 +364,7 @@ Bindable properties can have a fallback value:
 	let { bindableProperty = $bindable('fallback value') } = $props();
 </script>
 ```
-This fallback value *only* applies when the property is *not* bound. When the property is bound and a fallback value is present, the parent is expected to provide a value other than `undefined`, else a runtime error is thrown. This prevents hard-to-reason-about situations where it's unclear which value should apply.
+This fallback value *only* applies when the property is *not* bound. When the property is bound and a fallback value is present, the parent is expected to provide a value other than `undefined`, else a runtime error is thrown. This prevents hard-to-reason-about situations where it’s unclear which value should apply.
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/12-bind.md)  [llms.txt](/docs/svelte/bind/llms.txt)
 

@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/attachments • Svelte Docs
 description: svelte/attachments • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-attachments
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/attachments 
@@ -29,7 +29,7 @@ is generally not needed when building an app.
 
 createAttachmentKey, `function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)`
 Converts an [action](https://svelte.dev/docs/svelte/use) into an [attachment](https://svelte.dev/docs/svelte/@attach) keeping the same behavior.
-It's useful if you want to start using attachments on components but you have actions provided by a library.
+It’s useful if you want to start using attachments on components but you have actions provided by a library.
 
 Note that the second argument, if provided, must be a function that *returns* the argument to the
 action function, not the argument itself.
@@ -67,7 +67,7 @@ is generally not needed when building an app.
 ## fromAction
 
 Converts an [action](/docs/svelte/use) into an [attachment](/docs/svelte/@attach) keeping the same behavior.
-It's useful if you want to start using attachments on components but you have actions provided by a library.
+It’s useful if you want to start using attachments on components but you have actions provided by a library.
 
 Note that the second argument, if provided, must be a function that *returns* the argument to the
 action function, not the argument itself.

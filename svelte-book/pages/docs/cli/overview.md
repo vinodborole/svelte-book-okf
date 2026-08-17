@@ -3,7 +3,7 @@ type: Web Page
 title: Overview • Svelte CLI Docs
 description: Overview • Svelte CLI documentation
 resource: https://svelte.dev/docs/cli/overview
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Overview
@@ -12,10 +12,10 @@ The command line interface (CLI), `sv`, is a toolkit for creating and maintainin
 
 ## Usage
 
-The easiest way to run `sv` is with [`npx`](https://docs.npmjs.com/cli/v8/commands/npx) (or the equivalent command if you're using a different package manager — for example, `pnpm dlx` if you're using [pnpm](https://pnpm.io/)):
+The easiest way to run `sv` is with [`npx`](https://docs.npmjs.com/cli/v8/commands/npx) (or the equivalent command if you’re using a different package manager — for example, `pnpm dlx` if you’re using [pnpm](https://pnpm.io/)):
 
 `npx sv <command> <args>`
-If you're inside a project where `sv` is already installed, this will use the local installation, otherwise it will download the latest version and run it without installing it, which is particularly useful for [`sv create`](sv-create).
+If you’re inside a project where `sv` is already installed, this will use the local installation, otherwise it will download the latest version and run it without installing it, which is particularly useful for [`sv create`](sv-create).
 
 ## Acknowledgements
 

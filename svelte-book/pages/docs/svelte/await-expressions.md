@@ -3,14 +3,14 @@ type: Web Page
 title: await • Svelte Docs
 description: await • Svelte documentation
 resource: https://svelte.dev/docs/svelte/await-expressions
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # await
 
 As of Svelte 5.36, you can use the `await` keyword inside your components in three places where it was previously unavailable:
 
-- at the top level of your component's `<script>`
+- at the top level of your component’s `<script>`
 - inside `$derived(...)` declarations
 - inside your markup
 
@@ -127,7 +127,7 @@ $derived(await `function two(y: number): Promise<number>`two(`let y: number`y));
 
 To render placeholder UI, you can wrap content in a `<svelte:boundary>` with a [`pending`](svelte-boundary#Properties-pending) snippet. This will be shown when the boundary is first created, but not for subsequent updates, which are globally coordinated.
 
-After the contents of a boundary have resolved for the first time and have replaced the `pending` snippet, you can detect subsequent async work with [`$effect.pending()`]($effect#$effect.pending). This is what you would use to display a "we're asynchronously validating your input" spinner next to a form field, for example.
+After the contents of a boundary have resolved for the first time and have replaced the `pending` snippet, you can detect subsequent async work with [`$effect.pending()`]($effect#$effect.pending). This is what you would use to display a “we’re asynchronously validating your input” spinner next to a form field, for example.
 
 You can also use [`settled()`](svelte#settled) to get a promise that resolves when the current update is complete:
 
@@ -212,7 +212,7 @@ Only available on the server and when compiling with the `server` option.
 Takes a component and returns an object with `body` and `head` properties on it, which you can use to populate the HTML when server-rendering your app.
 
 render(`const App: LegacyComponentType`App);
-If you're using a framework like SvelteKit, this is done on your behalf.
+If you’re using a framework like SvelteKit, this is done on your behalf.
 
 If a `<svelte:boundary>` with a `pending` snippet is encountered during SSR, that snippet will be rendered while the rest of the content is ignored. All `await` expressions encountered outside boundaries with `pending` snippets will resolve and render their contents prior to `await render(...)` returning.
 

@@ -3,12 +3,12 @@ type: Web Page
 title: svelte/legacy • Svelte Docs
 description: svelte/legacy • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-legacy
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/legacy 
 
- This module provides various functions for use during the migration, since some features can't be replaced one to one with new features. All imports are marked as deprecated and should be migrated away from over time.
+ This module provides various functions for use during the migration, since some features can’t be replaced one to one with new features. All imports are marked as deprecated and should be migrated away from over time.
 
 ```
 import {

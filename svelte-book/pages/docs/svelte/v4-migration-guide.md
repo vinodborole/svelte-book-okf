@@ -3,14 +3,14 @@ type: Web Page
 title: Svelte 4 migration guide • Svelte Docs
 description: Svelte 4 migration guide • Svelte documentation
 resource: https://svelte.dev/docs/svelte/v4-migration-guide
-timestamp: '2026-08-10T07:02:22.673288+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Svelte 4 migration guide
 
 This migration guide provides an overview of how to migrate from Svelte version 3 to 4. See the linked PRs for more details about each change. Use the migration script to migrate some of these automatically: `npx svelte-migrate@latest svelte-4`
 
-If you're a library author, consider whether to only support Svelte 4 or if it's possible to support Svelte 3 too. Since most of the breaking changes don't affect many people, this may be easily possible. Also remember to update the version range in your `peerDependencies`.
+If you’re a library author, consider whether to only support Svelte 4 or if it’s possible to support Svelte 3 too. Since most of the breaking changes don’t affect many people, this may be easily possible. Also remember to update the version range in your `peerDependencies`.
 
 ## Minimum version requirements
 
@@ -23,7 +23,7 @@ If you're a library author, consider whether to only support Svelte 4 or if it's
 
 ## Browser conditions for bundlers
 
-Bundlers must now specify the `browser` condition when building a frontend bundle for the browser. SvelteKit and Vite will handle this automatically for you. If you're using any others, you may observe lifecycle callbacks such as `onMount` not get called and you'll need to update the module resolution configuration.
+Bundlers must now specify the `browser` condition when building a frontend bundle for the browser. SvelteKit and Vite will handle this automatically for you. If you’re using any others, you may observe lifecycle callbacks such as `onMount` not get called and you’ll need to update the module resolution configuration.
 
 - For Rollup this is done within the `@rollup/plugin-node-resolve` plugin by setting`browser: true` in its options. See the[`rollup-plugin-svelte`](https://github.com/sveltejs/rollup-plugin-svelte/#usage) documentation for more details
 - For webpack this is done by adding `"browser"` to the`conditionNames` array. You may also have to update your`alias` config, if you have set it. See the[`svelte-loader`](https://github.com/sveltejs/svelte-loader#usage) documentation for more details
@@ -32,7 +32,7 @@ Bundlers must now specify the `browser` condition when building a frontend bundl
 
 ## Removal of CJS related output
 
-Svelte no longer supports the CommonJS (CJS) format for compiler output and has also removed the `svelte/register` hook and the CJS runtime version. If you need to stay on the CJS output format, consider using a bundler to convert Svelte's ESM output to CJS in a post-build step. ([#8613](https://github.com/sveltejs/svelte/issues/8613))
+Svelte no longer supports the CommonJS (CJS) format for compiler output and has also removed the `svelte/register` hook and the CJS runtime version. If you need to stay on the CJS output format, consider using a bundler to convert Svelte’s ESM output to CJS in a post-build step. ([#8613](https://github.com/sveltejs/svelte/issues/8613))
 
 ## Stricter types for Svelte functions
 
@@ -208,7 +208,7 @@ The migration script will do both automatically for you. ([#8512](https://github
 
 ## Transitions are local by default
 
-Transitions are now local by default to prevent confusion around page navigations. "local" means that a transition will not play if it's within a nested control flow block (`each/if/await/key`) and not the direct parent block but a block above it is created/destroyed. In the following example, the `slide` intro animation will only play when `success` goes from `false` to `true`, but it will *not* play when `show` goes from `false` to `true`:
+Transitions are now local by default to prevent confusion around page navigations. “local” means that a transition will not play if it’s within a nested control flow block (`each/if/await/key`) and not the direct parent block but a block above it is created/destroyed. In the following example, the `slide` intro animation will only play when `success` goes from `false` to `true`, but it will *not* play when `show` goes from `false` to `true`:
 
 ```
 {#if show}
@@ -279,7 +279,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -351,7 +351,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -423,7 +423,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -497,7 +497,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -569,7 +569,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -641,7 +641,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -747,7 +747,7 @@ Each preprocessor must also have a name. ([#8618](https://github.com/sveltejs/sv
 - people implementing their own stores from scratch using the `StartStopNotifier` interface (which is passed to the create function of`writable` etc) from`svelte/store` now need to pass an update function in addition to the set function. This has no effect on people using stores or creating stores using the existing Svelte stores. ([#6750](https://github.com/sveltejs/svelte/issues/6750) )
 - `derived` will now throw an error on falsy values instead of stores passed to it. ([#7947](https://github.com/sveltejs/svelte/issues/7947) )
 - type definitions for `svelte/internal` were removed to further discourage usage of those internal methods which are not public API. Most of these will likely change for Svelte 5
-- Removal of DOM nodes is now batched which slightly changes its order, which might affect the order of events fired if you're using a `MutationObserver` on these elements ([#8763](https://github.com/sveltejs/svelte/pull/8763) )
+- Removal of DOM nodes is now batched which slightly changes its order, which might affect the order of events fired if you’re using a `MutationObserver` on these elements ([#8763](https://github.com/sveltejs/svelte/pull/8763) )
 - if you enhanced the global typings through the `svelte.JSX` namespace before, you need to migrate this to use the`svelteHTML` namespace. Similarly if you used the`svelte.JSX` namespace to use type definitions from it, you need to migrate those to use the types from`svelte/elements` instead. You can find more information about what to do[here](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-getting-deprecation-warnings-for-sveltejsx--i-want-to-migrate-to-the-new-typings)
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/07-misc/06-v4-migration-guide.md)  [llms.txt](/docs/svelte/v4-migration-guide/llms.txt)

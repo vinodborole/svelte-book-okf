@@ -3,7 +3,7 @@ type: Web Page
 title: export let • Svelte Docs
 description: export let • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-export-let
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # export let
@@ -30,7 +30,7 @@ Props without default values are considered *required*, and Svelte will print a 
 `export let` `let foo: undefined`foo = `var undefined`undefined;
 ## Component exports
 
-An exported `const`, `class` or `function` declaration is *not* considered a prop — instead, it becomes part of the component's API:
+An exported `const`, `class` or `function` declaration is *not* considered a prop — instead, it becomes part of the component’s API:
 
 ```
 <script>

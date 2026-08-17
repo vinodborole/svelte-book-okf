@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime errors • Svelte Docs
 description: Runtime errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-errors
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Runtime errors
@@ -17,7 +17,7 @@ In Svelte there are two types of reaction — [`$derived`](/docs/svelte/$derived
 
 Because of this, effects can only be created inside other effects (or [effect roots](/docs/svelte/$effect#$effect.root), such as the one that is created when you first mount a component) so that Svelte knows when to destroy them.
 
-Some sleight of hand occurs when a derived contains an `await` expression: Since waiting until we read `{await getPromise()}` to call `getPromise` would be too late, we use an effect to instead call it proactively, notifying Svelte when the value is available. But since we're using an effect, we can only create asynchronous deriveds inside another effect.
+Some sleight of hand occurs when a derived contains an `await` expression: Since waiting until we read `{await getPromise()}` to call `getPromise` would be too late, we use an effect to instead call it proactively, notifying Svelte when the value is available. But since we’re using an effect, we can only create asynchronous deriveds inside another effect.
 
 ### bind_invalid_checkbox_value
 
@@ -58,7 +58,7 @@ The key expression in a keyed each block must return the same value when called 
 ### effect_orphan
 
 `` `%rune%` can only be used inside an effect (e.g. during component initialisation) ``
-Effects can only be created while a parent effect is running. This means that they cannot, for example, be created inside an event handler or after an `await` expression (unless the `await` occurs directly inside a component's `<script>` tag, and not inside an async function).
+Effects can only be created while a parent effect is running. This means that they cannot, for example, be created inside an event handler or after an `await` expression (unless the `await` occurs directly inside a component’s `<script>` tag, and not inside an async function).
 
 In very rare cases, it is appropriate to use [`$effect.root`]($effect#$effect.root) so that you can create effects outside the normal component lifecycle.
 
@@ -141,7 +141,7 @@ Appends new elements to the end of an array, and returns the new length of the a
 
 push('goodbye');
 });
-Note that it's fine for an effect to re-run itself as long as it 'settles':
+Note that it’s fine for an effect to re-run itself as long as it ‘settles’:
 
 ```
 function $effect(fn: () => void | (() => void)): void
@@ -168,7 +168,7 @@ This method mutates the array and returns a reference to the same array.
 
 sort();
 });
-Often when encountering this issue, the value in question shouldn't be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — [which you should avoid]($effect#When-not-to-use-$effect) — you can read the state with [untrack](svelte#untrack) to avoid adding it as a dependency.
+Often when encountering this issue, the value in question shouldn’t be state (for example, if you are pushing to a `logs` array in an effect, make `logs` a normal array rather than `$state([])`). In the rare cases where you really *do* need to write to state in an effect — [which you should avoid]($effect#When-not-to-use-$effect) — you can read the state with [untrack](svelte#untrack) to avoid adding it as a dependency.
 
 ### flush_sync_in_effect
 
@@ -232,7 +232,7 @@ This restriction only applies when using the `experimental.async` option, which 
 ### state_unsafe_mutation
 
 `` Updating state inside `$derived(...)`, `$inspect(...)` or a template expression is forbidden. If the value should not be reactive, declare it without `$state` ``
-This error occurs when state is updated while evaluating a `$derived`. You might encounter it while trying to 'derive' two pieces of state in one go:
+This error occurs when state is updated while evaluating a `$derived`. You might encounter it while trying to ‘derive’ two pieces of state in one go:
 
 ```
 <script>
@@ -282,7 +282,7 @@ If side-effects are unavoidable, use [`$effect`]($effect) instead.
 ``A `<svelte:boundary>` `reset` function cannot be called while an error is still being handled``
 If a [`<svelte:boundary>`](https://svelte.dev/docs/svelte/svelte-boundary) has an `onerror` function, it must not call the provided `reset` function synchronously since the boundary is still in a broken state. Typically, `reset()` is called later, once the error has been resolved.
 
-If it's possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using [`tick`](https://svelte.dev/docs/svelte/lifecycle-hooks#tick):
+If it’s possible to resolve the error inside the `onerror` callback, you must at least wait for the boundary to settle before calling `reset()`, for example using [`tick`](https://svelte.dev/docs/svelte/lifecycle-hooks#tick):
 
 ```
 <svelte:boundary onerror={async (error, reset) => {
@@ -297,12 +297,12 @@ If it's possible to resolve the error inside the `onerror` callback, you must at
 ### async_local_storage_unavailable
 
 ``The node API `AsyncLocalStorage` is not available, but is required to use async server rendering.``
-Some platforms require configuration flags to enable this API. Consult your platform's documentation.
+Some platforms require configuration flags to enable this API. Consult your platform’s documentation.
 
 ### await_invalid
 
 `Encountered asynchronous work while rendering synchronously.`
-You (or the framework you're using) called [`render(...)`](svelte-server#render) with a component containing an `await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a [`<svelte:boundary>`](svelte-boundary) with a `pending` snippet.
+You (or the framework you’re using) called [`render(...)`](svelte-server#render) with a component containing an `await` expression. Either `await` the result of `render` or wrap the `await` (or the component containing it) in a [`<svelte:boundary>`](svelte-boundary) with a `pending` snippet.
 
 ### dynamic_element_invalid_tag
 
@@ -401,7 +401,7 @@ Here, `List.svelte` is using `{@render children(item)` which means it expects `P
 ### lifecycle_outside_component
 
 `` `%name%(...)` can only be used during component initialisation ``
-Certain lifecycle methods can only be used during component initialisation. To fix this, make sure you're invoking the method inside the *top level of the instance script* of your component.
+Certain lifecycle methods can only be used during component initialisation. To fix this, make sure you’re invoking the method inside the *top level of the instance script* of your component.
 
 ```
 <script>

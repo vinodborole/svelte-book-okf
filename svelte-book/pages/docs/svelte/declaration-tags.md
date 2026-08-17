@@ -3,7 +3,7 @@ type: Web Page
 title: '{let/const ...} • Svelte Docs'
 description: '{let/const ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/declaration-tags
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {let/const ...} 
@@ -74,7 +74,7 @@ When values should be reactive, you can use `$state` and `$derived`:
 	}}>save</button>
 {/if}
 ```
-Declaration tags can be used anywhere inside the component. They can reference values declared outside themselves (for example in the `<script>` tag or in `{#each ...}` blocks) and are 'visible' to everything in the same lexical scope (i.e. siblings, and children of those siblings):
+Declaration tags can be used anywhere inside the component. They can reference values declared outside themselves (for example in the `<script>` tag or in `{#each ...}` blocks) and are ‘visible’ to everything in the same lexical scope (i.e. siblings, and children of those siblings):
 
 ```
 {const hello = 'hello'}

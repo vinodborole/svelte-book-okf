@@ -3,7 +3,7 @@ type: Web Page
 title: TypeScript • Svelte Docs
 description: TypeScript • Svelte documentation
 resource: https://svelte.dev/docs/svelte/typescript
-timestamp: '2026-08-10T07:02:22.673288+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # TypeScript
@@ -25,7 +25,7 @@ To use TypeScript inside your Svelte components, add `lang="ts"` to your `script
 	{name as string}
 </button>
 ```
-Doing so allows you to use TypeScript's *type-only* features. That is, all features that just disappear when transpiling to JavaScript, such as type annotations or interface declarations. Features that require the TypeScript compiler to output actual code are not supported. This includes:
+Doing so allows you to use TypeScript’s *type-only* features. That is, all features that just disappear when transpiling to JavaScript, such as type annotations or interface declarations. Features that require the TypeScript compiler to output actual code are not supported. This includes:
 
 - using enums
 - using `private` ,`protected` or`public` modifiers in constructor functions together with initializers
@@ -39,7 +39,7 @@ To use non-type-only TypeScript features within Svelte components, you need to a
 
 ### Using Vite
 
-If you're using SvelteKit, or Vite *without* SvelteKit, you can use `vitePreprocess` from `@sveltejs/vite-plugin-svelte` in your config file:
+If you’re using SvelteKit, or Vite *without* SvelteKit, you can use `vitePreprocess` from `@sveltejs/vite-plugin-svelte` in your config file:
 
 `import {` `function vitePreprocess(opts?: VitePreprocessOptions): PreprocessorGroup`vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const ```
@@ -62,9 +62,9 @@ const config: {
 
 ### Using other build tools
 
-If you're using tools like Rollup (via [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)) or Webpack (via [svelte-loader](https://github.com/sveltejs/svelte-loader)) instead, install `typescript` and `svelte-preprocess` and add the preprocessor to the plugin config. See the respective plugin READMEs for more info.
+If you’re using tools like Rollup (via [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)) or Webpack (via [svelte-loader](https://github.com/sveltejs/svelte-loader)) instead, install `typescript` and `svelte-preprocess` and add the preprocessor to the plugin config. See the respective plugin READMEs for more info.
 
-If you're starting a new project, we recommend using SvelteKit or Vite instead
+If you’re starting a new project, we recommend using SvelteKit or Vite instead
 
 ## tsconfig.json settings
 
@@ -72,7 +72,7 @@ When using TypeScript, make sure your `tsconfig.json` is setup correctly.
 
 - Use a [`target`](https://www.typescriptlang.org/tsconfig/#target) of at least`ES2015` so classes are not compiled to functions
 - Set [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig/#verbatimModuleSyntax) to`true` so that imports are left as-is
-- Set [`isolatedModules`](https://www.typescriptlang.org/tsconfig/#isolatedModules) to`true` so that each file is looked at in isolation. TypeScript has a few features which require cross-file analysis and compilation, which the Svelte compiler and tooling like Vite don't do.
+- Set [`isolatedModules`](https://www.typescriptlang.org/tsconfig/#isolatedModules) to`true` so that each file is looked at in isolation. TypeScript has a few features which require cross-file analysis and compilation, which the Svelte compiler and tooling like Vite don’t do.
 
 ## Typing $props
 
@@ -122,7 +122,7 @@ The content of `generics` is what you would put between the `<...>` tags of a ge
 
 ## Typing wrapper components
 
-In case you're writing a component that wraps a native element, you may want to expose all the attributes of the underlying element to the user. In that case, use (or extend from) one of the interfaces provided by `svelte/elements`. Here's an example for a `Button` component:
+In case you’re writing a component that wraps a native element, you may want to expose all the attributes of the underlying element to the user. In that case, use (or extend from) one of the interfaces provided by `svelte/elements`. Here’s an example for a `Button` component:
 
 ```
 <script lang="ts">
@@ -160,7 +160,7 @@ Example:
 `let count = $state(0);`
 
 $state(0);
-If you don't give `$state` an initial value, part of its types will be `undefined`.
+If you don’t give `$state` an initial value, part of its types will be `undefined`.
 
 ```
 // Error: Type 'number | undefined' is not assignable to type 'number'
@@ -782,7 +782,7 @@ To declare that a variable expects the constructor or instance type of a compone
 ```
 ## Enhancing built-in DOM types
 
-Svelte provides a best effort of all the HTML DOM types that exist. Sometimes you may want to use experimental attributes or custom events coming from an action. In these cases, TypeScript will throw a type error, saying that it does not know these types. If it's a non-experimental standard attribute/event, this may very well be a missing typing from our [HTML typings](https://github.com/sveltejs/svelte/blob/main/packages/svelte/elements.d.ts). In that case, you are welcome to open an issue and/or a PR fixing it.
+Svelte provides a best effort of all the HTML DOM types that exist. Sometimes you may want to use experimental attributes or custom events coming from an action. In these cases, TypeScript will throw a type error, saying that it does not know these types. If it’s a non-experimental standard attribute/event, this may very well be a missing typing from our [HTML typings](https://github.com/sveltejs/svelte/blob/main/packages/svelte/elements.d.ts). In that case, you are welcome to open an issue and/or a PR fixing it.
 
 In case this is a custom or experimental attribute/event, you can enhance the typings by augmenting the `svelte/elements` module like this:
 

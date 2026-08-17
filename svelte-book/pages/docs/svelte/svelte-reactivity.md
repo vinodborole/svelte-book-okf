@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/reactivity • Svelte Docs
 description: svelte/reactivity • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/reactivity 
@@ -170,8 +170,8 @@ will cause it to be re-evaluated as necessary when the params are updated.
 
 SvelteURLSearchParams,
 	`function createSubscriber(start: (update: () => void) => (() => void) | void): () => void`
-Returns a `subscribe` function that integrates external event-based systems with Svelte's reactivity.
-It's particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
+Returns a `subscribe` function that integrates external event-based systems with Svelte’s reactivity.
+It’s particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
 
 If `subscribe` is called inside an effect (including indirectly, for example inside a getter),
 the `start` callback will be called with an `update` function. Whenever `update` is called, the effect re-runs.
@@ -181,7 +181,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
+It’s best understood with an example. Here’s an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
 
 ```
 import { createSubscriber } from 'svelte/reactivity';
@@ -372,8 +372,8 @@ will cause it to be re-evaluated as necessary when the params are updated.
 
 Available since 5.7.0
 
-Returns a `subscribe` function that integrates external event-based systems with Svelte's reactivity.
-It's particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
+Returns a `subscribe` function that integrates external event-based systems with Svelte’s reactivity.
+It’s particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
 
 If `subscribe` is called inside an effect (including indirectly, for example inside a getter),
 the `start` callback will be called with an `update` function. Whenever `update` is called, the effect re-runs.
@@ -383,11 +383,11 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of [`MediaQuery`](/docs/svelte/svelte-reactivity#MediaQuery):
+It’s best understood with an example. Here’s an implementation of [`MediaQuery`](/docs/svelte/svelte-reactivity#MediaQuery):
 
 `import {` `function createSubscriber(start: (update: () => void) => (() => void) | void): () => void`
-Returns a `subscribe` function that integrates external event-based systems with Svelte's reactivity.
-It's particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
+Returns a `subscribe` function that integrates external event-based systems with Svelte’s reactivity.
+It’s particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
 
 If `subscribe` is called inside an effect (including indirectly, for example inside a getter),
 the `start` callback will be called with an `update` function. Whenever `update` is called, the effect re-runs.
@@ -397,7 +397,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
+It’s best understood with an example. Here’s an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
 
 ```
 import { createSubscriber } from 'svelte/reactivity';
@@ -443,12 +443,12 @@ export class `class MediaQuery`MediaQuery {
 The **`window`** property of a Window object points to the window object itself.
 
 window.`function matchMedia(query: string): MediaQueryList`
-The Window interface's **`matchMedia()`** method returns a new MediaQueryList object that can then be used to determine if the document matches the media query string, as well as to monitor the document to detect when it matches (or stops matching) that media query.
+The Window interface’s **`matchMedia()`** method returns a new MediaQueryList object that can then be used to determine if the document matches the media query string, as well as to monitor the document to detect when it matches (or stops matching) that media query.
 
 matchMedia(`(${`query: any`query})`);
 		this.#subscribe = `function createSubscriber(start: (update: () => void) => (() => void) | void): () => void`
-Returns a `subscribe` function that integrates external event-based systems with Svelte's reactivity.
-It's particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
+Returns a `subscribe` function that integrates external event-based systems with Svelte’s reactivity.
+It’s particularly useful for integrating with web APIs like `MediaQuery`, `IntersectionObserver`, or `WebSocket`.
 
 If `subscribe` is called inside an effect (including indirectly, for example inside a getter),
 the `start` callback will be called with an `update` function. Whenever `update` is called, the effect re-runs.
@@ -458,7 +458,7 @@ If `start` returns a cleanup function, it will be called when the effect is dest
 If `subscribe` is called in multiple effects, `start` will only be called once as long as the effects
 are active, and the returned teardown function will only be called when all effects are destroyed.
 
-It's best understood with an example. Here's an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
+It’s best understood with an example. Here’s an implementation of [`MediaQuery`](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery):
 
 ```
 import { createSubscriber } from 'svelte/reactivity';

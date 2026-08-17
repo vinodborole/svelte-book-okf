@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler errors • Svelte Docs
 description: Compiler errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-errors
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Compiler errors
@@ -44,7 +44,7 @@ timestamp: '2026-08-03T08:54:23.898986+00:00'
 An attribute value cannot be a comma-separated sequence of expressions — in other words this is disallowed:
 
 `<div class={size, color}>...</div>`
-Instead, make sure that the attribute value contains a single expression. In the example above it's likely that this was intended (see the [class documentation](class) for more details):
+Instead, make sure that the attribute value contains a single expression. In the example above it’s likely that this was intended (see the [class documentation](class) for more details):
 
 `<div class={[size, color]}>...</div>`
 If you *do* need to use the comma operator for some reason, wrap the sequence in parentheses:
@@ -181,7 +181,7 @@ The following CSS is invalid:
 	}
 }
 ```
-This is mixing a `:global` block, which means "everything in here is unscoped", with a scoped selector (`x` in this case). As a result it's not possible to transform the inner selector (`y` in this case) into something that satisfies both requirements. You therefore have to split this up into two selectors:
+This is mixing a `:global` block, which means “everything in here is unscoped”, with a scoped selector (`x` in this case). As a result it’s not possible to transform the inner selector (`y` in this case) into something that satisfies both requirements. You therefore have to split this up into two selectors:
 
 ```
 :global {
@@ -387,7 +387,7 @@ This turned out to be buggy and unpredictable, particularly when working with de
 ### node_invalid_placement
 
 `%message%. The browser will 'repair' the HTML (by moving, removing, or inserting elements) which breaks Svelte's assumptions about the structure of your components.`
-HTML restricts where certain elements can appear. In case of a violation the browser will 'repair' the HTML in a way that breaks Svelte's assumptions about the structure of your components. Some examples:
+HTML restricts where certain elements can appear. In case of a violation the browser will ‘repair’ the HTML in a way that breaks Svelte’s assumptions about the structure of your components. Some examples:
 
 - `<p>hello <div>world</div></p>` will result in`<p>hello </p><div>world</div><p></p>` (the`<div>` autoclosed the`<p>` because`<p>` cannot contain block-level elements)
 - `<option><div>option a</div></option>` will result in`<option>option a</option>` (the`<div>` is removed)
@@ -504,7 +504,7 @@ HTML restricts where certain elements can appear. In case of a violation the bro
 ### snippet_invalid_export
 
 ``An exported snippet can only reference things declared in a `<script module>`, or other exportable snippets``
-It's possible to export a snippet from a `<script module>` block, but only if it doesn't reference anything defined inside a non-module-level `<script>`. For example you can't do this...
+It’s possible to export a snippet from a `<script module>` block, but only if it doesn’t reference anything defined inside a non-module-level `<script>`. For example you can’t do this...
 
 ```
 <script module>

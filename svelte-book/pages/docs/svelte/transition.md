@@ -3,7 +3,7 @@ type: Web Page
 title: 'transition: • Svelte Docs'
 description: 'transition: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/transition
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # transition:
@@ -44,7 +44,7 @@ A selection of built-in transitions can be imported from the [`svelte/transition
 
 Transitions can have parameters.
 
-(The double `{{curlies}}` aren't a special syntax; this is an object literal inside an expression tag.)
+(The double `{{curlies}}` aren’t a special syntax; this is an object literal inside an expression tag.)
 
 ```
 {#if visible}
@@ -68,7 +68,7 @@ options: {
 }
 Transitions can use custom functions. If the returned object has a `css` function, Svelte will generate keyframes for a [web animation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).
 
-The `t` argument passed to `css` is a value between `0` and `1` after the `easing` function has been applied. *In* transitions run from `0` to `1`, *out* transitions run from `1` to `0` — in other words, `1` is the element's natural state, as though no transition had been applied. The `u` argument is equal to `1 - t`.
+The `t` argument passed to `css` is a value between `0` and `1` after the `easing` function has been applied. *In* transitions run from `0` to `1`, *out* transitions run from `1` to `0` — in other words, `1` is the element’s natural state, as though no transition had been applied. The `u` argument is equal to `1 - t`.
 
 The function is called repeatedly *before* the transition begins, with different `t` and `u` arguments.
 
@@ -115,7 +115,7 @@ The function is called repeatedly *before* the transition begins, with different
 ```
 A custom transition function can also return a `tick` function, which is called *during* the transition with the same `t` and `u` arguments.
 
- If it's possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
+ If it’s possible to use `css` instead of `tick`, do so — web animations can run off the main thread, preventing jank on slower devices.
 
 ```
 <script>

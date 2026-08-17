@@ -3,12 +3,12 @@ type: Web Page
 title: Browser support • Svelte Docs
 description: Browser support • Svelte documentation
 resource: https://svelte.dev/docs/svelte/browser-support
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Browser support
 
-The table below shows the minimum browser versions Svelte is expected to work in, derived from the browser APIs used by Svelte's internal code.
+The table below shows the minimum browser versions Svelte is expected to work in, derived from the browser APIs used by Svelte’s internal code.
 
 | Browser | Minimum version | 
 |---|---|
@@ -27,7 +27,7 @@ This table only covers Svelte itself. It does not include [SvelteKit](/docs/kit)
 
 ## Exceptions
 
-A few Svelte features require a higher minimum browser version. You'll only need to take the following table into consideration if you use these specific features.
+A few Svelte features require a higher minimum browser version. You’ll only need to take the following table into consideration if you use these specific features.
 
 | Feature | Chrome/Edge | Firefox | Safari | 
 |---|---|---|---|

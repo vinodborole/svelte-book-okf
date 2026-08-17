@@ -3,7 +3,7 @@ type: Web Page
 title: '{@attach ...} • Svelte Docs'
 description: '{@attach ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/@attach
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {@attach ...}
@@ -81,7 +81,7 @@ A useful pattern is for a function, such as `tooltip` in this example, to *retur
 	Hover me
 </button>
 ```
-Since the `tooltip(content)` expression runs inside an [effect]($effect), the attachment will be destroyed and recreated whenever `content` changes. The same thing would happen for any state read *inside* the attachment function when it first runs. (If this isn't what you want, see [Controlling when attachments re-run](#Controlling-when-attachments-re-run).)
+Since the `tooltip(content)` expression runs inside an [effect]($effect), the attachment will be destroyed and recreated whenever `content` changes. The same thing would happen for any state read *inside* the attachment function when it first runs. (If this isn’t what you want, see [Controlling when attachments re-run](#Controlling-when-attachments-re-run).)
 
 ## Inline attachments
 
@@ -100,7 +100,7 @@ Attachments can also be created inline ([demo](/playground/untitled#H4sIAAAAAAAA
 	}}
 ></canvas>
 ```
-The nested effect runs whenever `color` changes, while the outer effect (where `canvas.getContext(...)` is called) only runs once, since it doesn't read any reactive state.
+The nested effect runs whenever `color` changes, while the outer effect (where `canvas.getContext(...)` is called) only runs once, since it doesn’t read any reactive state.
 
 ## Conditional attachments
 
@@ -210,7 +210,7 @@ To add attachments to an object that will be spread onto a component or element,
 
 ## Converting actions to attachments
 
-If you're using a library that only provides actions, you can convert them to attachments with [`fromAction`](svelte-attachments#fromAction), allowing you to (for example) use them with components.
+If you’re using a library that only provides actions, you can convert them to attachments with [`fromAction`](svelte-attachments#fromAction), allowing you to (for example) use them with components.
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/09-@attach.md)  [llms.txt](/docs/svelte/@attach/llms.txt)
 

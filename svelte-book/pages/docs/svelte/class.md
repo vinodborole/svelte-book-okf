@@ -3,7 +3,7 @@ type: Web Page
 title: class • Svelte Docs
 description: class • Svelte documentation
 resource: https://svelte.dev/docs/svelte/class
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # class
@@ -38,7 +38,7 @@ If the value is an array, the truthy values are combined:
 	 `class="saturate-0 opacity-50 scale-200"` -->
 <div class={[faded && 'saturate-0 opacity-50', large && 'scale-200']}>...</div>
 ```
-Note that whether we're using the array or object form, we can set multiple classes simultaneously with a single condition, which is particularly useful if you're using things like Tailwind.
+Note that whether we’re using the array or object form, we can set multiple classes simultaneously with a single condition, which is particularly useful if you’re using things like Tailwind.
 
 Arrays can contain arrays and objects, and clsx will flatten them. This is useful for combining local classes with props, for example:
 
@@ -105,7 +105,7 @@ Prior to Svelte 5.16, the `class:` directive was the most convenient way to set 
 As with other directives, we can use a shorthand when the name of the class coincides with the value:
 
 `<div class:cool class:lame={!cool}>...</div>`
- Unless you're using an older version of Svelte, consider avoiding `class:`, since the attribute is more powerful and composable.
+ Unless you’re using an older version of Svelte, consider avoiding `class:`, since the attribute is more powerful and composable.
 
 # Citations
 

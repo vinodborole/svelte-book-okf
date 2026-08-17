@@ -3,7 +3,7 @@ type: Web Page
 title: What are runes? • Svelte Docs
 description: What are runes? • Svelte documentation
 resource: https://svelte.dev/docs/svelte/what-are-runes
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # What are runes?
@@ -30,13 +30,13 @@ Example:
 $state('hello');
 They differ from normal JavaScript functions in important ways, however:
 
-- You don't need to import them — they are part of the language
-- They're not values — you can't assign them to a variable or pass them as arguments to a function
+- You don’t need to import them — they are part of the language
+- They’re not values — you can’t assign them to a variable or pass them as arguments to a function
 - Just like JavaScript keywords, they are only valid in certain positions (the compiler will help you if you put them in the wrong place)
 
 ## Legacy mode
 
-Runes didn't exist prior to Svelte 5.
+Runes didn’t exist prior to Svelte 5.
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/02-runes/01-what-are-runes.md)  [llms.txt](/docs/svelte/what-are-runes/llms.txt)
 

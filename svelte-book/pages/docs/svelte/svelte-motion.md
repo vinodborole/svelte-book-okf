@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/motion • Svelte Docs
 description: svelte/motion • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-motion
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/motion 
@@ -65,7 +65,7 @@ A [media query](https://svelte.dev/docs/svelte/svelte-reactivity#MediaQuery) tha
 
 prefersReducedMotion,
 	`function spring<T = any>(value?: T | undefined, opts?: SpringOptions | undefined): Spring<T>`
-The spring function in Svelte creates a store whose value is animated, with a motion that simulates the behavior of a spring. This means when the value changes, instead of transitioning at a steady rate, it "bounces" like a spring would, depending on the physics parameters provided. This adds a level of realism to the transitions and can enhance the user experience.
+The spring function in Svelte creates a store whose value is animated, with a motion that simulates the behavior of a spring. This means when the value changes, instead of transitioning at a steady rate, it “bounces” like a spring would, depending on the physics parameters provided. This adds a level of realism to the transitions and can enhance the user experience.
 
 spring,
 	`function tweened<T>(value?: T | undefined, defaults?: TweenOptions<T> | undefined): Tweened<T>`
@@ -105,7 +105,7 @@ Sets `spring.target` to `value` and returns a `Promise` that resolves if and whe
 If `options.instant` is `true`, `spring.current` immediately matches `spring.target`.
 
 If `options.preserveMomentum` is provided, the spring will continue on its current trajectory for
-the specified number of milliseconds. This is useful for things like 'fling' gestures.
+the specified number of milliseconds. This is useful for things like ‘fling’ gestures.
 
 `damping: number;``precision: number;``stiffness: number;``target: T;`
 The end value of the spring.
@@ -144,7 +144,7 @@ inside an effect root (for example, during component initialisation).
 `constructor(value: T, options?: TweenOptions<T>);``set(value: T, options?: TweenOptions<T> | undefined): Promise<void>;`
 Sets `tween.target` to `value` and returns a `Promise` that resolves if and when `tween.current` catches up to it.
 
-If `options` are provided, they will override the tween's defaults.
+If `options` are provided, they will override the tween’s defaults.
 
 `get current(): T;``set target(v: T);``get target(): T;`
 ## prefersReducedMotion
@@ -173,7 +173,7 @@ A [media query](/docs/svelte/svelte-reactivity#MediaQuery) that matches if the u
 
 Use [`Spring`](/docs/svelte/svelte-motion#Spring) instead
 
-The spring function in Svelte creates a store whose value is animated, with a motion that simulates the behavior of a spring. This means when the value changes, instead of transitioning at a steady rate, it "bounces" like a spring would, depending on the physics parameters provided. This adds a level of realism to the transitions and can enhance the user experience.
+The spring function in Svelte creates a store whose value is animated, with a motion that simulates the behavior of a spring. This means when the value changes, instead of transitioning at a steady rate, it “bounces” like a spring would, depending on the physics parameters provided. This adds a level of realism to the transitions and can enhance the user experience.
 
 ```
 function spring<T = any>(

@@ -3,7 +3,7 @@ type: Web Page
 title: '{#snippet ...} • Svelte Docs'
 description: '{#snippet ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/snippet
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {#snippet ...}
@@ -73,7 +73,7 @@ Snippets can be declared anywhere inside your component. They can reference valu
 {@render hello('alice')}
 {@render hello('bob')}
 ```
-...and they are 'visible' to everything in the same lexical scope (i.e. siblings, and children of those siblings):
+...and they are ‘visible’ to everything in the same lexical scope (i.e. siblings, and children of those siblings):
 
 ```
 <div>
@@ -360,7 +360,7 @@ Any content inside the component tags that is *not* a snippet declaration implic
 
 ### Optional snippet props
 
-You can declare snippet props as being optional. You can either use optional chaining to not render anything if the snippet isn't set...
+You can declare snippet props as being optional. You can either use optional chaining to not render anything if the snippet isn’t set...
 
 ```
 <script>
@@ -415,7 +415,7 @@ We can tighten things up further by declaring a generic, so that `data` and `row
 ```
 ## Exporting snippets
 
-Snippets declared at the top level of a `.svelte` file can be exported from a `<script module>` for use in other components, provided they don't reference any declarations in a non-module `<script>` (whether directly or indirectly, via other snippets):
+Snippets declared at the top level of a `.svelte` file can be exported from a `<script module>` for use in other components, provided they don’t reference any declarations in a non-module `<script>` (whether directly or indirectly, via other snippets):
 
 ```
 <script>

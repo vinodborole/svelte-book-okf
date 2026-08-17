@@ -3,7 +3,7 @@ type: Web Page
 title: .svelte.js and .svelte.ts files • Svelte Docs
 description: .svelte.js and .svelte.ts files • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-js-files
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # .svelte.js and .svelte.ts files
@@ -14,7 +14,7 @@ These behave like any other `.js` or `.ts` module, except that you can use runes
 
 ## Legacy mode
 
-This is a concept that didn't exist prior to Svelte 5
+This is a concept that didn’t exist prior to Svelte 5
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/04-svelte-js-files.md)  [llms.txt](/docs/svelte/svelte-js-files/llms.txt)
 

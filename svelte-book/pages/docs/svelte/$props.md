@@ -3,7 +3,7 @@ type: Web Page
 title: $props • Svelte Docs
 description: $props • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$props
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # $props
@@ -36,7 +36,7 @@ On the other side, inside `MyComponent.svelte`, we can receive props with the `$
 </script>
 <p>this component is {props.adjective}</p>
 ```
-...though more commonly, you'll [*destructure*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) your props:
+...though more commonly, you’ll [*destructure*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) your props:
 
 ```
 <script>
@@ -68,7 +68,7 @@ $props();
 
 ## Renaming props
 
-We can also use the destructuring assignment to rename props, which is necessary if they're invalid identifiers, or a JavaScript keyword like `super`:
+We can also use the destructuring assignment to rename props, which is necessary if they’re invalid identifiers, or a JavaScript keyword like `super`:
 
 `let { super:` `let trouper: any`trouper = 'lights are gonna find me' } = ```
 function $props(): any
@@ -172,7 +172,7 @@ If the prop is a regular object, the mutation will have no effect:
 	clicks: {object.count}
 </button>
 ```
-If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an [`ownership_invalid_mutation`](runtime-warnings#Client-warnings-ownership_invalid_mutation) warning, because the component is mutating state that does not 'belong' to it:
+If the prop is a reactive state proxy, however, then mutations *will* have an effect but you will see an [`ownership_invalid_mutation`](runtime-warnings#Client-warnings-ownership_invalid_mutation) warning, because the component is mutating state that does not ‘belong’ to it:
 
 ```
 <script>
@@ -250,7 +250,7 @@ The fallback value of a prop not declared with `$bindable` is left untouched —
 	clicks: {object.count}
 </button>
 ```
-In summary: don't mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the [`$bindable`]($bindable) rune.
+In summary: don’t mutate props. Either use callback props to communicate changes, or — if parent and child should share the same object — use the [`$bindable`]($bindable) rune.
 
 ## Type safety
 

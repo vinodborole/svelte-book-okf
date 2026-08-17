@@ -3,12 +3,12 @@ type: Web Page
 title: Getting started • Svelte Docs
 description: Getting started • Svelte documentation
 resource: https://svelte.dev/docs/svelte/getting-started
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Getting started
 
-We recommend using [SvelteKit](../kit), which lets you [build almost anything](../kit/project-types). It's the official application framework from the Svelte team and powered by [Vite](https://vite.dev/). Create a new project with:
+We recommend using [SvelteKit](../kit), which lets you [build almost anything](../kit/project-types). It’s the official application framework from the Svelte team and powered by [Vite](https://vite.dev/). Create a new project with:
 
 ```
 npx sv create myapp
@@ -16,7 +16,7 @@ cd myapp
 npm install
 npm run dev
 ```
-Don't worry if you don't know Svelte yet! You can ignore all the nice features SvelteKit brings on top for now and dive into it later.
+Don’t worry if you don’t know Svelte yet! You can ignore all the nice features SvelteKit brings on top for now and dive into it later.
 
 ## Alternatives to SvelteKit
 
@@ -34,7 +34,7 @@ You can also check your code from the command line using [`npx sv check`](https:
 
 ## Getting help
 
-Don't be shy about asking for help in the [Discord chatroom](/chat)! You can also find answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/svelte).
+Don’t be shy about asking for help in the [Discord chatroom](/chat)! You can also find answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/svelte).
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/01-introduction/02-getting-started.md)  [llms.txt](/docs/svelte/getting-started/llms.txt)
 

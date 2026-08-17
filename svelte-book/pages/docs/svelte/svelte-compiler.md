@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/compiler • Svelte Docs
 description: svelte/compiler • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-compiler
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/compiler 
@@ -655,7 +655,7 @@ You can also pass a function that receives `{ filename }` and returns a boolean.
 - default `false`
 - deprecated This will have no effect in runes mode
 
-If `true`, getters and setters will be created for the component's props. If `false`, they will only be created for readonly exported values (i.e. those declared with `const`, `class` and `function`). If compiling with `customElement: true` this option defaults to `true`.
+If `true`, getters and setters will be created for the component’s props. If `false`, they will only be created for readonly exported values (i.e. those declared with `const`, `class` and `function`). If compiling with `customElement: true` this option defaults to `true`.
 
 `namespace?: Namespace;`
 - default `'html'`
@@ -698,7 +698,7 @@ If `true`, whitespace inside and between elements is kept as you typed it, rathe
 
 Which strategy to use when cloning DOM fragments:
 
-- `html` populates a`<template>` with`innerHTML` and clones it. This is faster, but cannot be used if your app's[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) includes[`require-trusted-types-for 'script'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)
+- `html` populates a`<template>` with`innerHTML` and clones it. This is faster, but cannot be used if your app’s[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) includes[`require-trusted-types-for 'script'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)
 - `tree` creates the fragment one element at a time and*then* clones it. This is slower, but works everywhere
 
 `runes?: boolean | undefined | ((options: { filename: string }) => boolean | undefined);`
@@ -710,7 +710,7 @@ Set to `undefined` (the default) to infer runes mode from the component code.
 Is always `true` for JS/TS modules compiled with Svelte.
 Will be `true` by default in Svelte 6.
 Note that setting this to `true` in your `svelte.config.js` will force runes mode for your entire project, including components in `node_modules`,
-which is likely not what you want. If you're using Vite, consider using [dynamicCompileOptions](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#dynamiccompileoptions) instead.
+which is likely not what you want. If you’re using Vite, consider using [dynamicCompileOptions](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#dynamiccompileoptions) instead.
 
 `discloseVersion?: boolean;`
 - default `true`
@@ -831,7 +831,7 @@ Used for debugging hints and sourcemaps. Your bundler plugin will set it automat
 `rootDir?: string;`
 - default `process.cwd() on node-like environments, undefined elsewhere`
 
-Used for ensuring filenames don't leak filesystem information. Your bundler plugin will set it automatically.
+Used for ensuring filenames don’t leak filesystem information. Your bundler plugin will set it automatically.
 
 `warningFilter?: (warning: Warning) => boolean;`
 A function that gets a `Warning` as an argument and returns a boolean.

@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler warnings • Svelte Docs
 description: Compiler warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-warnings
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Compiler warnings
@@ -232,7 +232,7 @@ The scope attribute should only be used on `<th>` elements.
 `` `<%name%>` element should have %article% %sequence% attribute ``
 Enforce that attributes required for accessibility are present on an element. This includes the following checks:
 
-- `<a>` should have an href (unless it's a[fragment-defining tag](https://github.com/sveltejs/svelte/issues/4697) )
+- `<a>` should have an href (unless it’s a[fragment-defining tag](https://github.com/sveltejs/svelte/issues/4697) )
 - `<area>` should have alt, aria-label, or aria-labelledby
 - `<html>` should have lang
 - `<iframe>` should have title
@@ -423,7 +423,7 @@ Bidirectional control characters can alter the direction in which text appears t
 `Unused CSS selector "%name%"`
 Svelte traverses both the template and the `<style>` tag to find out which of the CSS selectors are not used within the template, so it can remove them.
 
-In some situations a selector may target an element that is not 'visible' to the compiler, for example because it is part of an `{@html ...}` tag or you're overriding styles in a child component. In these cases, use [`:global`](/docs/svelte/global-styles) to preserve the selector as-is:
+In some situations a selector may target an element that is not ‘visible’ to the compiler, for example because it is part of an `{@html ...}` tag or you’re overriding styles in a child component. In these cases, use [`:global`](/docs/svelte/global-styles) to preserve the selector as-is:
 
 ```
 <div class="post">{@html content}</div>
@@ -448,12 +448,12 @@ In HTML, some elements are implicitly closed by another element. For example, yo
 <p></p>
 <p>hello</p>
 ```
-Similarly, a parent element's closing tag will implicitly close all child elements, even if the `</` was a typo and you meant to create a *new* element. To avoid ambiguity, it's always a good idea to have an explicit closing tag.
+Similarly, a parent element’s closing tag will implicitly close all child elements, even if the `</` was a typo and you meant to create a *new* element. To avoid ambiguity, it’s always a good idea to have an explicit closing tag.
 
 ### element_invalid_self_closing_tag
 
 `` Self-closing HTML tags for non-void elements are ambiguous — use `<%name% ...></%name%>` rather than `<%name% ... />` ``
-In HTML, there's [no such thing as a self-closing tag](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). While this *looks* like a self-contained element with some text next to it...
+In HTML, there’s [no such thing as a self-closing tag](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). While this *looks* like a self-contained element with some text next to it...
 
 ```
 <div>
@@ -467,7 +467,7 @@ In HTML, there's [no such thing as a self-closing tag](https://jakearchibald.com
 	<span class="icon"> some text! </span>
 </div>
 ```
-Some templating languages (including Svelte) will 'fix' HTML by turning `<span />` into `<span></span>`. Others adhere to the spec. Both result in ambiguity and confusion when copy-pasting code between different contexts, so Svelte prompts you to resolve the ambiguity directly by having an explicit closing tag.
+Some templating languages (including Svelte) will ‘fix’ HTML by turning `<span />` into `<span></span>`. Others adhere to the spec. Both result in ambiguity and confusion when copy-pasting code between different contexts, so Svelte prompts you to resolve the ambiguity directly by having an explicit closing tag.
 
 To automate this, run the dedicated migration:
 
@@ -493,7 +493,7 @@ See the [migration guide](v5-migration-guide#Components-are-no-longer-classes) f
 ### node_invalid_placement_ssr
 
 ``%message%. When rendering this component on the server, the resulting HTML will be modified by the browser (by moving, removing, or inserting elements), likely resulting in a `hydration_mismatch` warning``
-HTML restricts where certain elements can appear. In case of a violation the browser will 'repair' the HTML in a way that breaks Svelte's assumptions about the structure of your components. Some examples:
+HTML restricts where certain elements can appear. In case of a violation the browser will ‘repair’ the HTML in a way that breaks Svelte’s assumptions about the structure of your components. Some examples:
 
 - `<p>hello <div>world</div></p>` will result in`<p>hello </p><div>world</div><p></p>` (the`<div>` autoclosed the`<p>` because`<p>` cannot contain block-level elements)
 - `<option><div>option a</div></option>` will result in`<option>option a</option>` (the`<div>` is removed)
@@ -583,7 +583,7 @@ This warning is thrown when the compiler detects the following:
 - ...and later reassigned...
 - ...and referenced in the same scope
 
-This 'breaks the link' to the original state declaration. For example, if you pass the state to a function, the function loses access to the state once it is reassigned:
+This ‘breaks the link’ to the original state declaration. For example, if you pass the state to a function, the function loses access to the state once it is reassigned:
 
 ```
 <script>

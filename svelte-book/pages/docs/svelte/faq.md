@@ -3,14 +3,14 @@ type: Web Page
 title: Frequently asked questions • Svelte Docs
 description: Frequently asked questions • Svelte documentation
 resource: https://svelte.dev/docs/svelte/faq
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Frequently asked questions
 
-## I'm new to Svelte. Where should I start?
+## I’m new to Svelte. Where should I start?
 
-We think the best way to get started is playing through the interactive [tutorial](/tutorial). Each step there is mainly focused on one specific aspect and is easy to follow. You'll be editing and running real Svelte components right in your browser.
+We think the best way to get started is playing through the interactive [tutorial](/tutorial). Each step there is mainly focused on one specific aspect and is easy to follow. You’ll be editing and running real Svelte components right in your browser.
 
 Five to ten minutes should be enough to get you up and running. An hour and a half should get you through the entire tutorial.
 
@@ -92,7 +92,7 @@ However, you can use any router library. A sampling of available routers are hig
 
 ## How do I write a mobile app with Svelte?
 
-While most mobile apps are written without using JavaScript, if you'd like to leverage your existing Svelte components and knowledge of Svelte when building mobile apps, you can turn a [SvelteKit SPA](https://kit.svelte.dev/docs/single-page-apps) into a mobile app with [Tauri](https://v2.tauri.app/start/frontend/sveltekit/) or [Capacitor](https://capacitorjs.com/solution/svelte). Mobile features like the camera, geolocation, and push notifications are available via plugins for both platforms.
+While most mobile apps are written without using JavaScript, if you’d like to leverage your existing Svelte components and knowledge of Svelte when building mobile apps, you can turn a [SvelteKit SPA](https://kit.svelte.dev/docs/single-page-apps) into a mobile app with [Tauri](https://v2.tauri.app/start/frontend/sveltekit/) or [Capacitor](https://capacitorjs.com/solution/svelte). Mobile features like the camera, geolocation, and push notifications are available via plugins for both platforms.
 
 Some work has been completed towards [custom renderer support in Svelte 5](https://github.com/sveltejs/svelte/issues/15470), but this feature is not yet available. The custom rendering API would support additional mobile frameworks like Lynx JS and Svelte Native. Svelte Native was an option available for Svelte 4, but Svelte 5 does not currently support it. Svelte Native lets you write NativeScript apps using Svelte components that contain [NativeScript UI components](https://docs.nativescript.org/ui/) rather than DOM elements, which may be familiar for users coming from React Native.
 
@@ -100,16 +100,16 @@ Some work has been completed towards [custom renderer support in Svelte 5](https
 
 No. Svelte removes the styles from the component and warns you about them in order to prevent issues that would otherwise arise.
 
-Svelte's component style scoping works by generating a class unique to the given component, adding it to the relevant elements in the component that are under Svelte's control, and then adding it to each of the selectors in that component's styles. When the compiler can't see what elements a style selector applies to, there would be two bad options for keeping it:
+Svelte’s component style scoping works by generating a class unique to the given component, adding it to the relevant elements in the component that are under Svelte’s control, and then adding it to each of the selectors in that component’s styles. When the compiler can’t see what elements a style selector applies to, there would be two bad options for keeping it:
 
-- If it keeps the selector and adds the scoping class to it, the selector will likely not match the expected elements in the component, and they definitely won't if they were created by a child component or `{@html ...}` .
+- If it keeps the selector and adds the scoping class to it, the selector will likely not match the expected elements in the component, and they definitely won’t if they were created by a child component or `{@html ...}` .
 - If it keeps the selector without adding the scoping class to it, the given style will become a global style, affecting your entire page.
 
-If you need to style something that Svelte can't identify at compile time, you will need to explicitly opt into global styles by using `:global(...)`. But also keep in mind that you can wrap `:global(...)` around only part of a selector. `.foo :global(.bar) { ... }` will style any `.bar` elements that appear within the component's `.foo` elements. As long as there's some parent element in the current component to start from, partially global selectors like this will almost always be able to get you what you want.
+If you need to style something that Svelte can’t identify at compile time, you will need to explicitly opt into global styles by using `:global(...)`. But also keep in mind that you can wrap `:global(...)` around only part of a selector. `.foo :global(.bar) { ... }` will style any `.bar` elements that appear within the component’s `.foo` elements. As long as there’s some parent element in the current component to start from, partially global selectors like this will almost always be able to get you what you want.
 
 ## Is Svelte v2 still available?
 
-New features aren't being added to it, and bugs will probably only be fixed if they are extremely nasty or present some sort of security vulnerability.
+New features aren’t being added to it, and bugs will probably only be fixed if they are extremely nasty or present some sort of security vulnerability.
 
 The documentation is still available [here](https://v2.svelte.dev/guide).
 

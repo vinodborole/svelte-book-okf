@@ -3,7 +3,7 @@ type: Web Page
 title: svelte • Svelte Docs
 description: svelte • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte
@@ -78,7 +78,7 @@ Returns void if no callback is provided, otherwise returns the result of calling
 
 flushSync,
 	`function fork(fn: () => void): Fork`
-Creates a 'fork', in which state changes are evaluated but not applied to the DOM.
+Creates a ‘fork’, in which state changes are evaluated but not applied to the DOM.
 This is useful for speculatively loading data (for example) when you suspect that
 the user is about to take some action.
 
@@ -172,7 +172,7 @@ onDestroy,
 `onMount`, like [`$effect`](https://svelte.dev/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
 Unlike `$effect`, the provided function only runs once.
 
-It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+It must be called during the component’s initialisation (but doesn’t need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
 it will be called when the component is unmounted.
 
@@ -347,7 +347,7 @@ Synchronously flush any pending updates. Returns void if no callback is provided
 
 Available since 5.42
 
-Creates a 'fork', in which state changes are evaluated but not applied to the DOM. This is useful for speculatively loading data (for example) when you suspect that the user is about to take some action.
+Creates a ‘fork’, in which state changes are evaluated but not applied to the DOM. This is useful for speculatively loading data (for example) when you suspect that the user is about to take some action.
 
 Frameworks like SvelteKit can use this to preload data when the user touches or hovers over a link, making any subsequent navigation feel instantaneous.
 
@@ -467,7 +467,7 @@ only one that runs inside a server-side component.
 `onMount`, like [`$effect`](/docs/svelte/$effect), schedules a function to run as soon as the component has been mounted to the DOM.
 Unlike `$effect`, the provided function only runs once.
 
-It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+It must be called during the component’s initialisation (but doesn’t need to live *inside* the component;
 it can be called from an external module). If a function is returned *synchronously* from `onMount`,
 it will be called when the component is unmounted.
 

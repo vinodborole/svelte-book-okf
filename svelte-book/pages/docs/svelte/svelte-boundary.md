@@ -3,7 +3,7 @@ type: Web Page
 title: <svelte:boundary> • Svelte Docs
 description: <svelte:boundary> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-boundary
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # <svelte:boundary>
@@ -11,7 +11,7 @@ timestamp: '2026-08-03T08:54:23.898986+00:00'
 `<svelte:boundary onerror={handler}>...</svelte:boundary>`
 This feature was added in 5.3.0
 
-Boundaries allow you to 'wall off' parts of your app, so that you can:
+Boundaries allow you to ‘wall off’ parts of your app, so that you can:
 
 - provide UI that should be shown when [`await`](await-expressions) expressions are first resolving
 - handle errors that occur during rendering or while running effects, and provide UI that should be rendered when an error happens
@@ -97,7 +97,7 @@ By default, error boundaries have no effect on the server — if an error occurs
 
 Since 5.51 you can control this behaviour for boundaries with a `failed` snippet, by calling [`render(...)`](imperative-component-api#render) with a `transformError` function.
 
- If you're using Svelte via a framework such as SvelteKit, you most likely don't have direct access to the `render(...)` call — the framework must configure `transformError` on your behalf. SvelteKit will add support for this in the near future, via the [`handleError`](../kit/hooks#handleError) hook.
+ If you’re using Svelte via a framework such as SvelteKit, you most likely don’t have direct access to the `render(...)` call — the framework must configure `transformError` on your behalf. SvelteKit will add support for this in the near future, via the [`handleError`](../kit/hooks#handleError) hook.
 
 The `transformError` function must return a JSON-stringifiable object which will be used to render the `failed` snippet. This object will be serialized and used to hydrate the snippet in the browser:
 
@@ -157,7 +157,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -230,7 +230,7 @@ error(`error: unknown`error);
 });
 If `transformError` throws (or rethrows) an error, `render(...)` as a whole will fail with that error.
 
- Errors that occur during server-side rendering can contain sensitive information in the `message` and `stack`. It's recommended to redact these rather than sending them unaltered to the browser.
+ Errors that occur during server-side rendering can contain sensitive information in the `message` and `stack`. It’s recommended to redact these rather than sending them unaltered to the browser.
 
 If the boundary has an `onerror` handler, it will be called upon hydration with the deserialized error object.
 

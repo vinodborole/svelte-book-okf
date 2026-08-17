@@ -3,14 +3,14 @@ type: Web Page
 title: <svelte:self> • Svelte Docs
 description: <svelte:self> • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-svelte-self
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # <svelte:self>
 
 The `<svelte:self>` element allows a component to include itself, recursively.
 
-It cannot appear at the top level of your markup; it must be inside an if or each block or passed to a component's slot to prevent an infinite loop.
+It cannot appear at the top level of your markup; it must be inside an if or each block or passed to a component’s slot to prevent an infinite loop.
 
 ```
 <script>

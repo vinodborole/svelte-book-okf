@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime warnings • Svelte Docs
 description: Runtime warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-warnings
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Runtime warnings
@@ -63,7 +63,7 @@ length);
 ### await_reactivity_loss
 
 `` Detected reactivity loss when reading `%name%`. This happens when state is read in an async function after an earlier `await` ``
-Svelte's signal-based reactivity works by tracking which bits of state are read when a template or `$derived(...)` expression executes. If an expression contains an `await`, Svelte transforms it such that any state *after* the `await` is also tracked — in other words, in a case like this...
+Svelte’s signal-based reactivity works by tracking which bits of state are read when a template or `$derived(...)` expression executes. If an expression contains an `await`, Svelte transforms it such that any state *after* the `await` is also tracked — in other words, in a case like this...
 
 `let` `let total: number`total = ```
 function $derived<number>(expression: number): number
@@ -80,7 +80,7 @@ Example:
 $derived(await `let a: Promise<number>`a + `let b: number`b);
 ...both `a` and `b` are tracked, even though `b` is only read once `a` has resolved, after the initial execution.
 
-This does *not* apply to an `await` that is not 'visible' inside the expression. In a case like this...
+This does *not* apply to an `await` that is not ‘visible’ inside the expression. In a case like this...
 
 `async function` `function sum(): Promise<number>`sum() {
 	return await `let a: Promise<number>`a + `let b: number`b;
@@ -154,7 +154,7 @@ Example:
 `let double = $derived(count * 2);`
 
 $derived(await `function two(): Promise<number>`two());
-...the second `$derived` will not be created until the first one has resolved. Since `await two()` does not depend on the value of `a`, this delay, often described as a 'waterfall', is unnecessary.
+...the second `$derived` will not be created until the first one has resolved. Since `await two()` does not depend on the value of `a`, this delay, often described as a ‘waterfall’, is unnecessary.
 
 (Note that if the values of `await one()` and `await two()` subsequently change, they can do so concurrently — the waterfall only occurs when the deriveds are first created.)
 
@@ -218,7 +218,7 @@ $derived(await `let bPromise: Promise<number>`bPromise);
 ### console_log_state
 
 ``Your `console.%method%` contained `$state` proxies. Consider using `$inspect(...)` or `$state.snapshot(...)` instead``
-When logging a [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), browser devtools will log the proxy itself rather than the value it represents. In the case of Svelte, the 'target' of a `$state` proxy might not resemble its current value, which can be confusing.
+When logging a [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), browser devtools will log the proxy itself rather than the value it represents. In the case of Svelte, the ‘target’ of a `$state` proxy might not resemble its current value, which can be confusing.
 
 The easiest way to log a value as it changes over time is to use the [`$inspect`](/docs/svelte/$inspect) rune. Alternatively, to log things on a one-off basis (for example, inside an event handler) you can use [`$state.snapshot`](/docs/svelte/$state#$state.snapshot) to take a snapshot of the current value.
 
@@ -247,7 +247,7 @@ This can happen if you render a hydratable on the client that was not rendered o
 ### hydration_attribute_changed
 
 ``The `%attribute%` attribute on `%html%` changed its value between server and client renders. The client value, `%value%`, will be ignored in favour of the server value``
-Certain attributes like `src` on an `<img>` element will not be repaired during hydration, i.e. the server value will be kept. That's because updating these attributes can cause the image to be refetched (or in the case of an `<iframe>`, for the frame to be reloaded), even if they resolve to the same resource.
+Certain attributes like `src` on an `<img>` element will not be repaired during hydration, i.e. the server value will be kept. That’s because updating these attributes can cause the image to be refetched (or in the case of an `<iframe>`, for the frame to be reloaded), even if they resolve to the same resource.
 
 To fix this, either silence the warning with a [`svelte-ignore`](basic-markup#Comments) comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
 
@@ -270,7 +270,7 @@ To fix this, either silence the warning with a [`svelte-ignore`](basic-markup#Co
 ### hydration_html_changed
 
 ``The value of an `{@html ...}` block changed between server and client renders. The client value will be ignored in favour of the server value````The value of an `{@html ...}` block %location% changed between server and client renders. The client value will be ignored in favour of the server value``
-If the `{@html ...}` value changes between the server and the client, it will not be repaired during hydration, i.e. the server value will be kept. That's because change detection during hydration is expensive and usually unnecessary.
+If the `{@html ...}` value changes between the server and the client, it will not be repaired during hydration, i.e. the server value will be kept. That’s because change detection during hydration is expensive and usually unnecessary.
 
 To fix this, either silence the warning with a [`svelte-ignore`](basic-markup#Comments) comment, or ensure that the value stays the same between server and client. If you really need the value to change on hydration, you can force an update like this:
 
@@ -346,7 +346,7 @@ Consider the following code:
 <input bind:value={person.name}>
 <input bind:value={person.surname}>
 ```
-`Child` is mutating `person` which is owned by `App` without being explicitly "allowed" to do so. This is strongly discouraged since it can create code that is hard to reason about at scale ("who mutated this value?"), hence the warning.
+`Child` is mutating `person` which is owned by `App` without being explicitly “allowed” to do so. This is strongly discouraged since it can create code that is hard to reason about at scale (“who mutated this value?”), hence the warning.
 
 To fix it, either create callback props to communicate changes, or mark `person` as [`$bindable`]($bindable).
 
@@ -372,7 +372,7 @@ To silence the warning, ensure that `value`:
 	value === proxy; // always false
 </script>
 ```
-To resolve this, ensure you're comparing values where both values were created with `$state(...)`, or neither were. Note that `$state.raw(...)` will *not* create a state proxy.
+To resolve this, ensure you’re comparing values where both values were created with `$state(...)`, or neither were. Note that `$state.raw(...)` will *not* create a state proxy.
 
 ### state_proxy_unmount
 

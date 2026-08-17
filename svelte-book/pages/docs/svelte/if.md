@@ -3,7 +3,7 @@ type: Web Page
 title: '{#if ...} • Svelte Docs'
 description: '{#if ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/if
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {#if ...}
@@ -27,7 +27,7 @@ Additional conditions can be added with `{:else if expression}`, optionally endi
 	<p>just right!</p>
 {/if}
 ```
-(Blocks don't have to wrap elements, they can also wrap text within elements.)
+(Blocks don’t have to wrap elements, they can also wrap text within elements.)
 
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/02-if.md)  [llms.txt](/docs/svelte/if/llms.txt)
 

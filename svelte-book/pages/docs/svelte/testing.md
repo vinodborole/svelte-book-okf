@@ -3,7 +3,7 @@ type: Web Page
 title: Testing • Svelte Docs
 description: Testing • Svelte documentation
 resource: https://svelte.dev/docs/svelte/testing
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Testing
@@ -12,7 +12,7 @@ Testing helps you write and maintain your code and guard against regressions. Te
 
 ## Unit and component tests with Vitest
 
-Unit tests allow you to test small isolated parts of your code. Integration tests allow you to test parts of your application to see if they work together. If you're using Vite (including via SvelteKit), we recommend using [Vitest](https://vitest.dev/). You can use the Svelte CLI to [setup Vitest](/docs/cli/vitest) either during project creation or later on.
+Unit tests allow you to test small isolated parts of your code. Integration tests allow you to test parts of your application to see if they work together. If you’re using Vite (including via SvelteKit), we recommend using [Vitest](https://vitest.dev/). You can use the Svelte CLI to [setup Vitest](/docs/cli/vitest) either during project creation or later on.
 
 To setup Vitest manually, first install it:
 
@@ -94,7 +94,7 @@ console.log(env.test);
 
 Unless explicitly specified when creating a `Worker` instance,
 each `Worker` thread has its own copy of `process.env`, based on its
-parent thread's `process.env`, or whatever was specified as the `env` option
+parent thread’s `process.env`, or whatever was specified as the `env` option
 to the `Worker` constructor. Changes to `process.env` will not be visible
 across `Worker` threads, and only the main thread can make changes that
 are visible to the operating system or to native add-ons. On Windows, a copy of `process.env` on a `Worker` instance operates in a case-sensitive manner
@@ -320,7 +320,7 @@ push(`getValue: () => any`getValue());
 
 It is possible to test your components in isolation, which allows you to render them in a browser (real or simulated), simulate behavior, and make assertions, without spinning up your whole app.
 
- Before writing component tests, think about whether you actually need to test the component, or if it's more about the logic *inside* the component. If so, consider extracting out that logic to test it in isolation, without the overhead of a component.
+ Before writing component tests, think about whether you actually need to test the component, or if it’s more about the logic *inside* the component. If so, consider extracting out that logic to test it in isolation, without the overhead of a component.
 
 To get started, install jsdom (a library that shims DOM APIs):
 
@@ -345,7 +345,7 @@ test: {
 		`InlineConfig.environment?: VitestEnvironment | undefined`
 Running environment
 
-Supports 'node', 'jsdom', 'happy-dom', 'edge-runtime'
+Supports ‘node’, ‘jsdom’, ‘happy-dom’, ‘edge-runtime’
 
 If used unsupported string, will try to load the package `vitest-environment-${env}`
 
@@ -423,7 +423,7 @@ console.log(env.test);
 
 Unless explicitly specified when creating a `Worker` instance,
 each `Worker` thread has its own copy of `process.env`, based on its
-parent thread's `process.env`, or whatever was specified as the `env` option
+parent thread’s `process.env`, or whatever was specified as the `env` option
 to the `Worker` constructor. Changes to `process.env` will not be visible
 across `Worker` threads, and only the main thread can make changes that
 are visible to the operating system or to native add-ons. On Windows, a copy of `process.env` on a `Worker` instance operates in a case-sensitive manner
@@ -530,7 +530,7 @@ The **`innerHTML`** property of the Element interface gets or sets the HTML or X
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
 Checks that a value is what you expect. It calls `Object.is` to compare values.
-Don't use `toBe` with floating-point numbers.
+Don’t use `toBe` with floating-point numbers.
 
 toBe('<button>0</button>');
 	// Click the button, then flush the changes so you can synchronously write expectations
@@ -544,7 +544,7 @@ The **`Document.body`** property represents the
 Returns the first element that is a descendant of node that matches selectors.
 
 querySelector('button')?.`HTMLElement.click(): void`
-The **`HTMLElement.click()`** method simulates a mouse click on an element. When called on an element, the element's click event is fired (unless its disabled attribute is set).
+The **`HTMLElement.click()`** method simulates a mouse click on an element. When called on an element, the element’s click event is fired (unless its disabled attribute is set).
 
 click();
 	`flushSync<void>(fn?: (() => void) | undefined): void`
@@ -563,7 +563,7 @@ The **`innerHTML`** property of the Element interface gets or sets the HTML or X
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
 Checks that a value is what you expect. It calls `Object.is` to compare values.
-Don't use `toBe` with floating-point numbers.
+Don’t use `toBe` with floating-point numbers.
 
 toBe('<button>1</button>');
 	// Remove the component from the DOM
@@ -648,7 +648,7 @@ const userEvent: {
 ```
 
 `setup: (options?: Options) => UserEvent`
-Start a "session" with userEvent.
+Start a “session” with userEvent.
 All APIs returned by this function share an input device state and a default configuration.
 
 setup();
@@ -661,15 +661,15 @@ render(`const Component: LegacyComponentType`Component);
 	await `const user: UserEvent`user.`click: (element: Element) => Promise<void>`click(`const button: HTMLElement`button);
 	`expect<HTMLElement>(actual: HTMLElement, message?: string): Assertion<HTMLElement> (+1 overload)`expect(`const button: HTMLElement`button).toHaveTextContent(1);
 });
-When writing component tests that involve two-way bindings, context or snippet props, it's best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some [examples](https://testing-library.com/docs/svelte-testing-library/example).
+When writing component tests that involve two-way bindings, context or snippet props, it’s best to create a wrapper component for your specific test and interact with that. `@testing-library/svelte` contains some [examples](https://testing-library.com/docs/svelte-testing-library/example).
 
 ## Component tests with Storybook
 
-[Storybook](https://storybook.js.org) is a tool for developing and documenting UI components, and it can also be used to test your components. They're run with Vitest's browser mode, which renders your components in a real browser for the most realistic testing environment.
+[Storybook](https://storybook.js.org) is a tool for developing and documenting UI components, and it can also be used to test your components. They’re run with Vitest’s browser mode, which renders your components in a real browser for the most realistic testing environment.
 
-To get started, first install Storybook ([using Svelte's CLI](/docs/cli/storybook)) in your project via `npx sv add storybook` and choose the recommended configuration that includes testing features. If you're already using Storybook, and for more information on Storybook's testing capabilities, follow the [Storybook testing docs](https://storybook.js.org/docs/writing-tests?renderer=svelte) to get started.
+To get started, first install Storybook ([using Svelte’s CLI](/docs/cli/storybook)) in your project via `npx sv add storybook` and choose the recommended configuration that includes testing features. If you’re already using Storybook, and for more information on Storybook’s testing capabilities, follow the [Storybook testing docs](https://storybook.js.org/docs/writing-tests?renderer=svelte) to get started.
 
-You can create stories for component variations and test interactions with the [play function](https://storybook.js.org/docs/writing-tests/interaction-testing?renderer=svelte#writing-interaction-tests), which allows you to simulate behavior and make assertions using the Testing Library and Vitest APIs. Here's an example of two stories that can be tested, one that renders an empty LoginForm component and one that simulates a user filling out the form:
+You can create stories for component variations and test interactions with the [play function](https://storybook.js.org/docs/writing-tests/interaction-testing?renderer=svelte#writing-interaction-tests), which allows you to simulate behavior and make assertions using the Testing Library and Vitest APIs. Here’s an example of two stories that can be tested, one that renders an empty LoginForm component and one that simulates a user filling out the form:
 
 ```
 <script module>
@@ -700,11 +700,11 @@ You can create stories for component variations and test interactions with the [
 ```
 ## End-to-end tests with Playwright
 
-E2E (short for 'end to end') tests allow you to test your full application through the eyes of the user. This section uses [Playwright](https://playwright.dev/) as an example, but you can also use other solutions like [Cypress](https://www.cypress.io/) or [NightwatchJS](https://nightwatchjs.org/).
+E2E (short for ‘end to end’) tests allow you to test your full application through the eyes of the user. This section uses [Playwright](https://playwright.dev/) as an example, but you can also use other solutions like [Cypress](https://www.cypress.io/) or [NightwatchJS](https://nightwatchjs.org/).
 
 You can use the Svelte CLI to [setup Playwright](/docs/cli/playwright) either during project creation or later on. You can also [set it up with `npm init playwright`](https://playwright.dev/docs/intro). Additionally, you may also want to install an IDE plugin such as [the VS Code extension](https://playwright.dev/docs/getting-started-vscode) to be able to execute tests from inside your IDE.
 
-If you've run `npm init playwright` or are not using Vite, you may need to adjust the Playwright config to tell Playwright what to do before running the tests — mainly starting your application at a certain port. For example:
+If you’ve run `npm init playwright` or are not using Vite, you may need to adjust the Playwright config to tell Playwright what to do before running the tests — mainly starting your application at a certain port. For example:
 
 `const` ```
 const config: {

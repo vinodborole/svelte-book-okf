@@ -3,12 +3,12 @@ type: Web Page
 title: Context • Svelte Docs
 description: Context • Svelte documentation
 resource: https://svelte.dev/docs/svelte/context
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Context
 
-Context allows components to access values owned by parent components without passing them down as props (potentially through many layers of intermediate components, known as 'prop-drilling').
+Context allows components to access values owned by parent components without passing them down as props (potentially through many layers of intermediate components, known as ‘prop-drilling’).
 
 By creating a `[get, set]` pair of functions with `createContext`, you can set the context in a parent component and get it in a child component:
 
@@ -188,7 +188,7 @@ Returns a `[get, set]` pair of functions for working with context in a type-safe
 `get` will throw an error if no parent component called `set`.
 
 createContext<Counter>();
-...though note that if you *reassign* `counter` instead of updating it, you will 'break the link' — in other words instead of this...
+...though note that if you *reassign* `counter` instead of updating it, you will ‘break the link’ — in other words instead of this...
 
 ```
 <button onclick={() => counter = { count: 0 } }>
@@ -313,7 +313,7 @@ The **`innerHTML`** property of the Element interface gets or sets the HTML or X
 
 innerHTML).`JestAssertion<string>.toBe: <string>(expected: string) => void`
 Checks that a value is what you expect. It calls `Object.is` to compare values.
-Don't use `toBe` with floating-point numbers.
+Don’t use `toBe` with floating-point numbers.
 
 toBe('<h1>Hello Bob!</h1>');
 	
@@ -349,7 +349,7 @@ This approach also works with [`hydrate`](imperative-component-api#hydrate) and 
 
 ## Replacing global state
 
-When you have state shared by many different components, you might be tempted to put it in its own module and just import it wherever it's needed:
+When you have state shared by many different components, you might be tempted to put it in its own module and just import it wherever it’s needed:
 
 `export const` ```
 const myGlobalState: {

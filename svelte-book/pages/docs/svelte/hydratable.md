@@ -3,7 +3,7 @@ type: Web Page
 title: Hydratable data • Svelte Docs
 description: Hydratable data • Svelte documentation
 resource: https://svelte.dev/docs/svelte/hydratable
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Hydratable data
@@ -20,7 +20,7 @@ In Svelte, when you want to render asynchronous content data on the server, you 
 </script>
 <h1>{user.name}</h1>
 ```
-That's silly, though. If we've already done the hard work of getting the data on the server, we don't want to get it again during hydration on the client. `hydratable` is a low-level API built to solve this problem. You probably won't need this very often — it will be used behind the scenes by whatever datafetching library you use. For example, it powers [remote functions in SvelteKit](/docs/kit/remote-functions).
+That’s silly, though. If we’ve already done the hard work of getting the data on the server, we don’t want to get it again during hydration on the client. `hydratable` is a low-level API built to solve this problem. You probably won’t need this very often — it will be used behind the scenes by whatever datafetching library you use. For example, it powers [remote functions in SvelteKit](/docs/kit/remote-functions).
 
 To fix the example above:
 
@@ -36,7 +36,7 @@ To fix the example above:
 </script>
 <h1>{user.name}</h1>
 ```
-This API can also be used to provide access to random or time-based values that are stable between server rendering and hydration. For example, to get a random number that doesn't update on hydration:
+This API can also be used to provide access to random or time-based values that are stable between server rendering and hydration. For example, to get a random number that doesn’t update on hydration:
 
 `import {` `function hydratable<T>(key: string, fn: () => T): T`hydratable } from 'svelte';
 const `const rand: number`rand = `hydratable<number>(key: string, fn: () => number): number`hydratable('random', () => `var Math: Math`
@@ -46,11 +46,11 @@ Math.`Math.random(): number`
 Returns a pseudorandom number between 0 and 1.
 
 random());
-If you're a library author, be sure to prefix the keys of your `hydratable` values with the name of your library so that your keys don't conflict with other libraries.
+If you’re a library author, be sure to prefix the keys of your `hydratable` values with the name of your library so that your keys don’t conflict with other libraries.
 
 ## Serialization
 
-All data returned from a `hydratable` function must be serializable. But this doesn't mean you're limited to JSON — Svelte uses [`devalue`](https://npmjs.com/package/devalue), which can serialize all sorts of things including `Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:
+All data returned from a `hydratable` function must be serializable. But this doesn’t mean you’re limited to JSON — Svelte uses [`devalue`](https://npmjs.com/package/devalue), which can serialize all sorts of things including `Map`, `Set`, `URL`, and `BigInt`. Check the documentation page for a full list. In addition to these, thanks to some Svelte magic, you can also fearlessly use promises:
 
 ```
 <script>
@@ -67,7 +67,7 @@ All data returned from a `hydratable` function must be serializable. But this do
 ```
 ## CSP
 
-`hydratable` adds an inline `<script>` block to the `head` returned from `render`. If you're using [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (CSP), this script will likely fail to run. You can provide a `nonce` to `render`:
+`hydratable` adds an inline `<script>` block to the `head` returned from `render`. If you’re using [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (CSP), this script will likely fail to run. You can provide a `nonce` to `render`:
 
 `const` `` const nonce: `${string}-${string}-${string}-${string}-${string}` ``nonce = `var crypto: Crypto`crypto.`` Crypto.randomUUID(): `${string}-${string}-${string}-${string}-${string}` ``
 The **`randomUUID()`** method of the Crypto interface is used to generate a v4 UUID using a cryptographically secure random number generator.
@@ -108,7 +108,7 @@ set(
   'Content-Security-Policy',
   `script-src 'nonce-${`let nonce: string`nonce}'`
  );
-It's essential that a `nonce` — which, British slang definition aside, means 'number used once' — is only used when dynamically server rendering an individual response.
+It’s essential that a `nonce` — which, British slang definition aside, means ‘number used once’ — is only used when dynamically server rendering an individual response.
 
 If instead you are generating static HTML ahead of time, you must use hashes instead:
 

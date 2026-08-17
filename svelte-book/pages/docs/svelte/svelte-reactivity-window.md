@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/reactivity/window • Svelte Docs
 description: svelte/reactivity/window • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity-window
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # svelte/reactivity/window  
@@ -28,7 +28,7 @@ const devicePixelRatio: {
 
 `devicePixelRatio.current` is a reactive view of `window.devicePixelRatio`. On the server it is `undefined`.
 Note that behaviour differs between browsers — on Chrome it will respond to the current zoom level,
-on Firefox and Safari it won't.
+on Firefox and Safari it won’t.
 
 devicePixelRatio,
 	`const innerHeight: ReactiveValue<number | undefined>`
@@ -74,7 +74,7 @@ Available since 5.11.0
 
 `devicePixelRatio.current` is a reactive view of `window.devicePixelRatio`. On the server it is `undefined`.
 Note that behaviour differs between browsers — on Chrome it will respond to the current zoom level,
-on Firefox and Safari it won't.
+on Firefox and Safari it won’t.
 
 ```
 const devicePixelRatio: {

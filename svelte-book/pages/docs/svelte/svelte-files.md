@@ -3,7 +3,7 @@ type: Web Page
 title: .svelte files • Svelte Docs
 description: .svelte files • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-files
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # .svelte files
@@ -40,7 +40,7 @@ All three sections — script, styles and markup — are optional.
 ```
 ## <script>
 
-A `<script>` block contains JavaScript (or TypeScript, when adding the `lang="ts"` attribute) that runs when a component instance is created. Variables declared (or imported) at the top level can be referenced in the component's markup.
+A `<script>` block contains JavaScript (or TypeScript, when adding the `lang="ts"` attribute) that runs when a component instance is created. Variables declared (or imported) at the top level can be referenced in the component’s markup.
 
 In addition to normal JavaScript, you can use *runes* to declare [component props]($props) and add reactivity to your component. Runes are covered in the next section.
 

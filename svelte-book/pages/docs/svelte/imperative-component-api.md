@@ -3,7 +3,7 @@ type: Web Page
 title: Imperative component API • Svelte Docs
 description: Imperative component API • Svelte documentation
 resource: https://svelte.dev/docs/svelte/imperative-component-api
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Imperative component API
@@ -223,7 +223,7 @@ HTML that goes into the `<head>`
 head; // HTML for somewhere in this <head> tag
 ## hydrate
 
-Like `mount`, but will reuse up any HTML rendered by Svelte's SSR output (from the [`render`](#render) function) inside the target and make it interactive:
+Like `mount`, but will reuse up any HTML rendered by Svelte’s SSR output (from the [`render`](#render) function) inside the target and make it interactive:
 
 `import {` ```
 function hydrate<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: {} extends Props ? {

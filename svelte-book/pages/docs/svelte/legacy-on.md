@@ -3,7 +3,7 @@ type: Web Page
 title: 'on: • Svelte Docs'
 description: 'on: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/legacy-on
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # on:
@@ -55,7 +55,7 @@ The following modifiers are available:
 - `preventDefault` — calls`event.preventDefault()` before running the handler
 - `stopPropagation` — calls`event.stopPropagation()` , preventing the event reaching the next element
 - `stopImmediatePropagation` — calls`event.stopImmediatePropagation()` , preventing other listeners of the same event from being fired.
-- `passive` — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+- `passive` — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it’s safe to do so)
 - `nonpassive` — explicitly set`passive: false`
 - `capture` — fires the handler during the*capture* phase instead of the*bubbling* phase
 - `once` — remove the handler after the first time it runs
@@ -71,7 +71,7 @@ If the `on:` directive is used without a value, the component will *forward* the
 	The component itself will emit the click event
 </button>
 ```
-It's possible to have multiple event listeners for the same event:
+It’s possible to have multiple event listeners for the same event:
 
 ```
 <script>
@@ -141,7 +141,7 @@ Component events do not bubble — a parent component can only listen for events
 
 Other than `once`, modifiers are not valid on component event handlers.
 
-If you're planning an eventual migration to Svelte 5, use callback props instead. This will make upgrading easier as `createEventDispatcher` is deprecated:
+If you’re planning an eventual migration to Svelte 5, use callback props instead. This will make upgrading easier as `createEventDispatcher` is deprecated:
 
 Stepper```
 <script>

@@ -3,7 +3,7 @@ type: Web Page
 title: Reactive let/var declarations • Svelte Docs
 description: Reactive let/var declarations • Svelte documentation
 resource: https://svelte.dev/docs/svelte/legacy-let
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # Reactive let/var declarations 
@@ -20,7 +20,7 @@ In legacy mode, variables declared at the top level of a component are automatic
 	clicks: {count}
 </button>
 ```
-Because Svelte's legacy mode reactivity is based on *assignments*, using array methods like `.push()` and `.splice()` won't automatically trigger updates. A subsequent assignment is required to 'tell' the compiler to update the UI:
+Because Svelte’s legacy mode reactivity is based on *assignments*, using array methods like `.push()` and `.splice()` won’t automatically trigger updates. A subsequent assignment is required to ‘tell’ the compiler to update the UI:
 
 ```
 <script>

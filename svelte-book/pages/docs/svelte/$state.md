@@ -3,7 +3,7 @@ type: Web Page
 title: $state • Svelte Docs
 description: $state • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$state
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # $state
@@ -59,7 +59,7 @@ $state([
 		`text: string`text: 'add more todos'
 	}
 ]);
-...modifying an individual todo's property will trigger updates to anything in your UI that depends on that specific property:
+...modifying an individual todo’s property will trigger updates to anything in your UI that depends on that specific property:
 
 ```
 module todos
@@ -169,7 +169,7 @@ $state(`text: any`text);
 }
  The compiler transforms `done` and `text` into `get` / `set` methods on the class prototype referencing private fields. This means the properties are not enumerable.
 
-When calling methods in JavaScript, the value of [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) matters. This won't work, because `this` inside the `reset` method will be the `<button>` rather than the `Todo`:
+When calling methods in JavaScript, the value of [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) matters. This won’t work, because `this` inside the `reset` method will be the `<button>` rather than the `Todo`:
 
 ```
 <button onclick={todo.reset}>
@@ -223,9 +223,9 @@ Svelte provides reactive implementations of built-in classes like `Set`, `Map`, 
 
 ## $state.raw
 
-In cases where you don't want objects and arrays to be deeply reactive you can use `$state.raw`.
+In cases where you don’t want objects and arrays to be deeply reactive you can use `$state.raw`.
 
-State declared with `$state.raw` cannot be mutated; it can only be *reassigned*. In other words, rather than assigning to a property of an object, or using an array method like `push`, replace the object or array altogether if you'd like to update it:
+State declared with `$state.raw` cannot be mutated; it can only be *reassigned*. In other words, rather than assigning to a property of an object, or using an array method like `push`, replace the object or array altogether if you’d like to update it:
 
 `let` ```
 let person: {
@@ -300,7 +300,7 @@ let person: {
 `name: string`name: 'Heraclitus',
 	`age: number`age: 50
 };
-This can improve performance with large arrays and objects that you weren't planning to mutate anyway, since it avoids the cost of making them reactive. Note that raw state can *contain* reactive state (for example, a raw array of reactive objects).
+This can improve performance with large arrays and objects that you weren’t planning to mutate anyway, since it avoids the cost of making them reactive. Note that raw state can *contain* reactive state (for example, a raw array of reactive objects).
 
 As with `$state`, you can declare class fields using `$state.raw`.
 
@@ -317,7 +317,7 @@ To take a static snapshot of a deeply reactive `$state` proxy, use `$state.snaps
 	}
 </script>
 ```
-This is handy when you want to pass some state to an external library or API that doesn't expect a proxy, such as `structuredClone`.
+This is handy when you want to pass some state to an external library or API that doesn’t expect a proxy, such as `structuredClone`.
 
 If a value has a `toJSON` method, the snapshot will clone the value returned from `toJSON` instead of the original object.
 
@@ -361,7 +361,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -433,7 +433,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -508,7 +508,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -580,7 +580,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -665,7 +665,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -737,7 +737,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -812,7 +812,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -884,7 +884,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -960,9 +960,9 @@ Declares reactive state.
 Example:
 
 `let count = $state(0);`
-...you're accessing its *current value*.
+...you’re accessing its *current value*.
 
-Note that 'functions' is broad — it encompasses properties of proxies and [`get`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[`set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) properties...
+Note that ‘functions’ is broad — it encompasses properties of proxies and [`get`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[`set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) properties...
 
 ```
 /**
@@ -1066,7 +1066,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -1161,7 +1161,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -1324,7 +1324,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -1417,7 +1417,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -1489,7 +1489,7 @@ let total: {
 
 ## Passing state across modules
 
-You can declare state in `.svelte.js` and `.svelte.ts` files, but you can only *export* that state if it's not directly reassigned. In other words you can't do this:
+You can declare state in `.svelte.js` and `.svelte.ts` files, but you can only *export* that state if it’s not directly reassigned. In other words you can’t do this:
 
 `export let` `let count: number`count = ```
 function $state<0>(initial: 0): 0 (+1 overload)
@@ -1506,15 +1506,15 @@ $state(0);
 export function `function increment(): void`increment() {
 	`let count: number`count += 1;
 }
-That's because every reference to `count` is transformed by the Svelte compiler — the code above is roughly equivalent to this:
+That’s because every reference to `count` is transformed by the Svelte compiler — the code above is roughly equivalent to this:
 
 `export let` `let count: Signal<number>`count = `const $: Svelte`$.`Svelte.state<number>(value?: number | undefined): Signal<number>`state(0);
 export function `function increment(): void`increment() {
 	`const $: Svelte`$.`Svelte.set<number>(source: Signal<number>, value: number): void`set(`let count: Signal<number>`count, `const $: Svelte`$.`Svelte.get<number>(source: Signal<number>): number`get(`let count: Signal<number>`count) + 1);
 }
- You can see the code Svelte generates by clicking the 'JS Output' tab in the [playground](/playground).
+ You can see the code Svelte generates by clicking the ‘JS Output’ tab in the [playground](/playground).
 
-Since the compiler only operates on one file at a time, if another file imports `count` Svelte doesn't know that it needs to wrap each reference in `$.get` and `$.set`:
+Since the compiler only operates on one file at a time, if another file imports `count` Svelte doesn’t know that it needs to wrap each reference in `$.get` and `$.set`:
 
 `import {` `let count: number`count } from './state.svelte.js';
 `var console: Console`
@@ -1526,7 +1526,7 @@ The module exports two specific components:
 - A `Console` class with methods such as`console.log()` ,`console.error()` and`console.warn()` that can be used to write to any Node.js stream.
 - A global `console` instance configured to write to[`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) . The global`console` can be used without importing the`node:console` module.
 
-***Warning***: The global console object's methods are neither consistently
+***Warning***: The global console object’s methods are neither consistently
 synchronous like the browser APIs they resemble, nor are they consistently
 asynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for
 more information.
@@ -1587,7 +1587,7 @@ console.log('count:', count);
 See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.
 
 log(typeof `let count: number`count); // 'object', not 'number'
-This leaves you with two options for sharing state between modules — either don't reassign it...
+This leaves you with two options for sharing state between modules — either don’t reassign it...
 
 ```
 // This is allowed — since we're updating
@@ -1631,7 +1631,7 @@ const counter: {
 
 `count: number`count += 1;
 }
-...or don't directly export it:
+...or don’t directly export it:
 
 `let` `let count: number`count = ```
 function $state<0>(initial: 0): 0 (+1 overload)

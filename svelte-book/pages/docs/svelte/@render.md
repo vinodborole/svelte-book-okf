@@ -3,7 +3,7 @@ type: Web Page
 title: '{@render ...} • Svelte Docs'
 description: '{@render ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/@render
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-17T06:25:40.913234+00:00'
 ---
 
 # {@render ...}
@@ -23,7 +23,7 @@ The expression can be an identifier like `sum`, or an arbitrary JavaScript expre
 `{@render (cool ? coolSnippet : lameSnippet)()}`
 ## Optional snippets
 
-If the snippet is potentially undefined — for example, because it's an incoming prop — then you can use optional chaining to only render it when it *is* defined:
+If the snippet is potentially undefined — for example, because it’s an incoming prop — then you can use optional chaining to only render it when it *is* defined:
 
 `{@render children?.()}`
 Alternatively, use an [`{#if ...}`](if) block with an `:else` clause to render fallback content:
