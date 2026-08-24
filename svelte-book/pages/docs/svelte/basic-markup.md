@@ -3,7 +3,7 @@ type: Web Page
 title: Basic markup • Svelte Docs
 description: Basic markup • Svelte documentation
 resource: https://svelte.dev/docs/svelte/basic-markup
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-24T06:29:45.779065+00:00'
 ---
 
 # Basic markup
@@ -180,6 +180,16 @@ You can add a special comment starting with `@component` that will show up when 
 	</h1>
 </main>
 ````
+You can also put JavaScript-style comments within tags between attributes:
+
+```
+<div
+  // this is a comment!
+  data-foo="bar"
+>
+  foo bar
+</div>
+```
 
 # Citations
 

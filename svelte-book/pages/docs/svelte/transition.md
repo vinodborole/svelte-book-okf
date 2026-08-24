@@ -3,7 +3,7 @@ type: Web Page
 title: 'transition: • Svelte Docs'
 description: 'transition: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/transition
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-24T06:29:45.779065+00:00'
 ---
 
 # transition:
@@ -51,6 +51,12 @@ Transitions can have parameters.
 	<div transition:fade={{ duration: 2000 }}>fades in and out over two seconds</div>
 {/if}
 ```
+## Accessibility
+
+Transitions are driven by the [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) rather than by CSS. A global `@media (prefers-reduced-motion: reduce)` rule that zeroes `transition-duration` and `animation-duration` therefore has no effect on them.
+
+Use [`prefersReducedMotion`](svelte-motion#prefersReducedMotion) to adjust (or completely disable) the transition accordingly for devices who request reduced motion.
+
 ## Custom transition functions
 
 `transition = (``node: HTMLElement`node: HTMLElement, `params: any`params: any, ```

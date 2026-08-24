@@ -3,7 +3,7 @@ type: Web Page
 title: svelte • Svelte Docs
 description: svelte • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-24T06:29:45.779065+00:00'
 ---
 
 # svelte
@@ -299,7 +299,8 @@ Available since 5.40.0
 
 Returns a `[get, set]` pair of functions for working with context in a type-safe way.
 
-`get` will throw an error if no parent component called `set`.
+`get` will throw an error if `set` has not yet been called in the current component or any of
+its ancestors.
 
 `function createContext<T>(): [() => T, (context: T) => T];`
 ## createEventDispatcher
@@ -381,7 +382,7 @@ Must be called while a derived or effect is running.
 `function getAbortSignal(): AbortSignal;`
 ## getAllContexts
 
-Retrieves the whole context map that belongs to the closest parent component. Must be called during component initialisation. Useful, for example, if you programmatically create a component and want to pass the existing context to it.
+Retrieves the whole context map that belongs to the current component, including entries inherited from its ancestors. Must be called during component initialisation. Useful, for example, if you programmatically create a component and want to pass the existing context to it.
 
 ```
 function getAllContexts<
@@ -390,7 +391,9 @@ function getAllContexts<
 ```
 ## getContext
 
-Retrieves the context that belongs to the closest parent component with the specified `key`.
+Retrieves the context set with the specified `key` in the current component or any of its
+ancestors. If multiple components set the same key, the value from the closest one is returned.
+A `setContext` call in the current component is only visible to `getContext` calls that run after it.
 Must be called during component initialisation.
 
 [`createContext`](/docs/svelte/svelte#createContext) is a type-safe alternative.
@@ -398,8 +401,8 @@ Must be called during component initialisation.
 `function getContext<T>(key: any): T;`
 ## hasContext
 
-Checks whether a given `key` has been set in the context of a parent component.
-Must be called during component initialisation.
+Checks whether a given `key` has been set in the context of the current component or any of
+its ancestors. Must be called during component initialisation.
 
 `function hasContext(key: any): boolean;`
 ## hydratable
@@ -484,8 +487,8 @@ function onMount<T>(
 ## setContext
 
 Associates an arbitrary `context` object with the current component and the specified `key`
-and returns that object. The context is then available to children of the component
-(including slotted content) with `getContext`.
+and returns that object. The context is then available to the component itself and all of its
+descendants (including slotted content) with `getContext`.
 
 Like lifecycle functions, this must be called during component initialisation.
 
