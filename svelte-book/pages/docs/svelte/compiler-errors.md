@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler errors • Svelte Docs
 description: Compiler errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-errors
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # Compiler errors
@@ -453,6 +453,23 @@ HTML restricts where certain elements can appear. In case of a violation the bro
 ### rune_missing_parentheses
 
 `Cannot use rune without parentheses`
+Runes are keywords rather than values — they can’t be assigned to a variable or passed to a function, only called. Referencing one without parentheses is therefore an error...
+
+`let` `let count: typeof $state`count = ```
+namespace $state
+function $state<T>(initial: T): T (+1 overload)
+```
+
+Declares reactive state.
+
+Example:
+
+`let count = $state(0);`
+
+$state;
+...whether it’s a rune like `$state` or one reached through a property, like `$derived.by`. Add the parentheses, along with any arguments the rune expects:
+
+`let count = $state(0);`
 ### rune_removed
 
 ``The `%name%` rune has been removed``

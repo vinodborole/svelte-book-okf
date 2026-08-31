@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime warnings • Svelte Docs
 description: Runtime warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-warnings
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # Runtime warnings
@@ -373,90 +373,6 @@ To silence the warning, ensure that `value`:
 </script>
 ```
 To resolve this, ensure you’re comparing values where both values were created with `$state(...)`, or neither were. Note that `$state.raw(...)` will *not* create a state proxy.
-
-### state_proxy_unmount
-
-`Tried to unmount a state proxy, rather than a component`
-`unmount` was called with a state proxy:
-
-`let` ```
-let component: {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>
-```
-
-```
-function $state<{
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>>(initial: {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>): {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any> (+1 overload)
-namespace $state
-```
-
-Declares reactive state.
-
-Example:
-
-`let count = $state(0);`
-
-$state(
-```
-mount<Record<string, any>, {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>>(component: ComponentType<SvelteComponent<Record<string, any>, any, any>> | Component<Record<string, any>, {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>, any>, options: MountOptions<...>): {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<...>
-```
-
-Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
-Transitions will play during the initial render unless the `intro` option is set to `false`.
-
-mount(`const Component: LegacyComponentType`Component, { `target: Document | Element | ShadowRoot`
-Target element where the component will be mounted.
-
-target }));
-// later...
-```
-function unmount(component: Record<string, any>, options?: {
-    outro?: boolean;
-} | undefined): Promise<void>
-```
-
-Unmounts a component that was previously mounted using `mount` or `hydrate`.
-
-Since 5.13.0, if `options.outro` is `true`, [transitions](https://svelte.dev/docs/svelte/transition) will play before the component is removed from the DOM.
-
-Returns a `Promise` that resolves after transitions have completed if `options.outro` is true, or immediately otherwise (prior to 5.13.0, returns `void`).
-
-```
-import { mount, unmount } from 'svelte';
-import App from './App.svelte';
-const app = mount(App, { target: document.body });
-// later...
-unmount(app, { outro: true });
-```
-
-unmount(
-```
-let component: {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<Record<string, any>>): void;
-} & Record<string, any>
-```
-
-Avoid using `$state` here. If `component` *does* need to be reactive for some reason, use `$state.raw` instead.
 
 ### svelte_boundary_reset_noop
 

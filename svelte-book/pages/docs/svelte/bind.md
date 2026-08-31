@@ -3,7 +3,7 @@ type: Web Page
 title: 'bind: • Svelte Docs'
 description: 'bind: • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/bind
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # bind:
@@ -252,6 +252,18 @@ You can give the `<select>` a default value by adding a `selected` attribute to 
 	<option value={b} selected>b</option>
 	<option value={c}>c</option>
 </select>
+```
+Since 5.57.0, if a `<select>` has a `defaultValue` and is part of a form, it will revert to that value instead of the empty string when the form is reset. Note that for the initial render the value of the binding takes precedence unless it is `null` or `undefined`.
+
+```
+<form>
+	<select bind:value defaultValue="b">
+		<option>a</option>
+		<option>b</option>
+		<option>c</option>
+	</select>
+	<input type="reset" value="Reset">
+</form>
 ```
 ## <audio>
 

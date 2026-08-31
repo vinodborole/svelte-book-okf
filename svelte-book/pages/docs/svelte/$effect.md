@@ -3,7 +3,7 @@ type: Web Page
 title: $effect • Svelte Docs
 description: $effect • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$effect
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # $effect
@@ -267,6 +267,8 @@ In rare cases, you may need to run code *before* the DOM updates. For this we ca
 	{/each}
 </div>
 ```
+`$effect.pre` runs before DOM updates that are scheduled after it, not before every DOM mutation in the flush - DOM of parent components may already be updated. When using [await expressions](await-expressions), block updates like `{#if ...}` and `{#each ...}` in the same component also run before `$effect.pre`.
+
 Apart from the timing, `$effect.pre` works exactly like `$effect`.
 
 ## $effect.tracking

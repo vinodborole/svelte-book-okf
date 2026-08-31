@@ -3,7 +3,7 @@ type: Web Page
 title: TypeScript • Svelte Docs
 description: TypeScript • Svelte documentation
 resource: https://svelte.dev/docs/svelte/typescript
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # TypeScript
@@ -178,6 +178,20 @@ Example:
 `let count = $state(0);`
 
 $state();
+You can pass the type directly as a generic parameter to safely handle this. TypeScript will infer the variable as `number | undefined`.
+
+`let` `let count: number | undefined`count = ```
+function $state<number>(): number | undefined (+1 overload)
+namespace $state
+```
+
+Declares reactive state.
+
+Example:
+
+`let count = $state(0);`
+
+$state<number>();
 If you know that the variable *will* be defined before you first use it, use an `as` casting. This is especially useful in the context of classes:
 
 `class` `class Counter`Counter {

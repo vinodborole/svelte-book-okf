@@ -3,7 +3,7 @@ type: Web Page
 title: $bindable • Svelte Docs
 description: $bindable • Svelte documentation
 resource: https://svelte.dev/docs/svelte/$bindable
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # $bindable
@@ -83,6 +83,7 @@ Declares the props that a component accepts. Example:
 `let { optionalProp = 42, requiredProp, bindableProp = $bindable() }: { optionalProp?: number; requiredProps: string; bindableProp: boolean } = $props();`
 
 $props();
+When a bindable prop has a fallback value, the parent must pass a value other than `undefined` if it uses `bind:`. This avoids ambiguity about which value should apply, since the parent and child should share the same value for a binding.
 
 # Citations
 

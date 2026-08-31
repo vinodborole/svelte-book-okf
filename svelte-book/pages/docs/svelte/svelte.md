@@ -3,7 +3,7 @@ type: Web Page
 title: svelte • Svelte Docs
 description: svelte • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte
-timestamp: '2026-08-24T06:29:45.779065+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # svelte
@@ -297,12 +297,18 @@ In runes mode use `$effect.pre` instead.
 
 Available since 5.40.0
 
-Returns a `[get, set]` pair of functions for working with context in a type-safe way.
+Returns a `[get, set, has]` triplet of functions for working with context in a type-safe way.
 
 `get` will throw an error if `set` has not yet been called in the current component or any of
 its ancestors.
 
-`function createContext<T>(): [() => T, (context: T) => T];`
+```
+function createContext<T>(): [
+	() => T,
+	(context: T) => T,
+	() => boolean
+];
+```
 ## createEventDispatcher
 
 Use callback props and/or the `$host()` rune instead — see [migration guide](/docs/svelte/v5-migration-guide#Event-changes-Component-events)

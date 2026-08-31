@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/server • Svelte Docs
 description: svelte/server • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-server
-timestamp: '2026-08-03T08:54:23.898986+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # svelte/server 
@@ -68,6 +68,34 @@ function render<
 				}
 			]
 ): RenderOutput;
+```
+## Csp
+
+`type Csp = { nonce?: string; hash?: boolean };`
+## RenderOutput
+
+```
+type RenderOutput = SyncRenderOutput &
+	PromiseLike<SyncRenderOutput>;
+```
+## Sha256Source
+
+``type Sha256Source = `sha256-${string}`;``
+## SyncRenderOutput
+
+`interface SyncRenderOutput {…}``head: string;`
+HTML that goes into the `<head>`
+
+`html: string;`
+- deprecated use `body` instead
+
+`body: string;`
+HTML that goes somewhere into the `<body>`
+
+```
+hashes: {
+	script: Sha256Source[];
+};
 ```
  [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/98-reference/21-svelte-server.md)  [llms.txt](/docs/svelte/svelte-server/llms.txt)
 

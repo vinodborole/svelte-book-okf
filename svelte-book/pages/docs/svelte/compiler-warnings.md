@@ -3,7 +3,7 @@ type: Web Page
 title: Compiler warnings • Svelte Docs
 description: Compiler warnings • Svelte documentation
 resource: https://svelte.dev/docs/svelte/compiler-warnings
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # Compiler warnings
@@ -262,7 +262,7 @@ Enforce that heading elements (`h1`, `h2`, etc.) and anchors have content and th
 ### a11y_mouse_events_have_key_events
 
 `'%event%' event must be accompanied by '%accompanied_by%' event`
-Enforce that `onmouseover` and `onmouseout` are accompanied by `onfocus` and `onblur`, respectively. This helps to ensure that any functionality triggered by these mouse events is also accessible to keyboard users.
+Enforce that `onmouseover` and `onmouseout` are accompanied by `onfocus` (or `onfocusin`) and `onblur` (or `onfocusout`), respectively. This helps to ensure that any functionality triggered by these mouse events is also accessible to keyboard users.
 
 ```
 <!-- A11y: onmouseover must be accompanied by onfocus -->

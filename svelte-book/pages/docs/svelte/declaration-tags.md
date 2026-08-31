@@ -3,7 +3,7 @@ type: Web Page
 title: '{let/const ...} • Svelte Docs'
 description: '{let/const ...} • Svelte documentation'
 resource: https://svelte.dev/docs/svelte/declaration-tags
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # {let/const ...} 
@@ -16,7 +16,7 @@ timestamp: '2026-08-17T06:25:40.913234+00:00'
 </script>
 {#each boxes as box}
 	{const area = box.width * box.height}
-	{const label = `${box.width} ⨉ ${box.height} = ${area}`}
+	{const label = `${box.width} × ${box.height} = ${area}`}
 	<p>{label}</p>
 {/each}
 ```
@@ -26,7 +26,7 @@ timestamp: '2026-08-17T06:25:40.913234+00:00'
 </script>
 {#each boxes as box}
 	{const area = box.width * box.height}
-	{const label = `${box.width} ⨉ ${box.height} = ${area}`}
+	{const label = `${box.width} × ${box.height} = ${area}`}
 	<p>{label}</p>
 {/each}
 ```

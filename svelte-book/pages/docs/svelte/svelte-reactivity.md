@@ -3,7 +3,7 @@ type: Web Page
 title: svelte/reactivity • Svelte Docs
 description: svelte/reactivity • Svelte documentation
 resource: https://svelte.dev/docs/svelte/svelte-reactivity
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # svelte/reactivity 
@@ -294,7 +294,7 @@ Note that values in a reactive map are *not* made [deeply reactive](/docs/svelte
 	<p>{player} is next</p>
 {/if}
 ```
-`class SvelteMap<K, V> extends Map<K, V> {…}``constructor(value?: Iterable<readonly [K, V]> | null | undefined);``set(key: K, value: V): this;`
+`class SvelteMap<K, V> extends Map<K, V> {…}``constructor(value?: Iterable<readonly [K, V]> | null | undefined);``getOrInsert(key: K, value: V): V;``getOrInsertComputed(key: K, callbackFn: (key: K) => V): V;``set(key: K, value: V): this;`
 ## SvelteSet
 
 A reactive version of the built-in [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) object.

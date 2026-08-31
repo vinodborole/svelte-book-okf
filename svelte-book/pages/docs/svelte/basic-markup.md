@@ -3,7 +3,7 @@ type: Web Page
 title: Basic markup • Svelte Docs
 description: Basic markup • Svelte documentation
 resource: https://svelte.dev/docs/svelte/basic-markup
-timestamp: '2026-08-24T06:29:45.779065+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # Basic markup
@@ -168,7 +168,7 @@ You can add a special comment starting with `@component` that will show up when 
 - You can also use code blocks here.
 - Usage:
   ```html
-  <Main name="Arethra">
+  <Main name="Aretha">
   ```
 -->
 <script>

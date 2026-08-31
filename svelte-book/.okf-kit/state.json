@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-08-24T06:29:45.802437+00:00",
+  "updated_at": "2026-08-31T11:55:22.536573+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -46,7 +46,7 @@
       "path": "pages/docs/svelte/$bindable.md",
       "url": "https://svelte.dev/docs/svelte/$bindable",
       "title": "$bindable • Svelte Docs",
-      "hash": "8568e2d20133096e467d9ee92678c1b79c3d7f200d761c3a674799b817abc160"
+      "hash": "045d6696ba75f52ae92c1797bcad47c58b499dd3905b0f1d06e1739fd74fff82"
     },
     {
       "path": "pages/docs/svelte/$derived.md",
@@ -58,7 +58,7 @@
       "path": "pages/docs/svelte/$effect.md",
       "url": "https://svelte.dev/docs/svelte/$effect",
       "title": "$effect • Svelte Docs",
-      "hash": "ae2b452591d1447fdbeb4a0f2fccc566ed29937638e19bf2013ed3f9b99a845c"
+      "hash": "bc2af2818388d61f25fe053746b23fb16c18f0a0c83d06c33e97395a871a1f65"
     },
     {
       "path": "pages/docs/svelte/$host.md",
@@ -136,7 +136,7 @@
       "path": "pages/docs/svelte/basic-markup.md",
       "url": "https://svelte.dev/docs/svelte/basic-markup",
       "title": "Basic markup • Svelte Docs",
-      "hash": "7665dd0e0f26c35e84e164c4cdf1c7504cb8d8f41b1301f3a6aedf490ebb2c4d"
+      "hash": "3475d2ca641cd7109ed3e5c2c6db90468efa564b4bead2f45311e4c5e71fc1ae"
     },
     {
       "path": "pages/docs/svelte/best-practices.md",
@@ -148,7 +148,7 @@
       "path": "pages/docs/svelte/bind.md",
       "url": "https://svelte.dev/docs/svelte/bind",
       "title": "bind: • Svelte Docs",
-      "hash": "58c9bfb68de38c8fdd722606cf409ea4d99d2141da7591007d24c8715819a15f"
+      "hash": "9506047ef79918ce96299616cf64f32803a0c820caedca190836656071243ecf"
     },
     {
       "path": "pages/docs/svelte/browser-support.md",
@@ -166,19 +166,19 @@
       "path": "pages/docs/svelte/compiler-errors.md",
       "url": "https://svelte.dev/docs/svelte/compiler-errors",
       "title": "Compiler errors • Svelte Docs",
-      "hash": "9f5c9663d9f30c5d21c5a624ccf3864b463c50fe44040a40ec3715957d4225c6"
+      "hash": "96e87eb7dbdb9bb7a3634a91563b774580dd2b313ba0900475cb73a2d1b4009a"
     },
     {
       "path": "pages/docs/svelte/compiler-warnings.md",
       "url": "https://svelte.dev/docs/svelte/compiler-warnings",
       "title": "Compiler warnings • Svelte Docs",
-      "hash": "0bde0167b3708da4ec5f4415931ea5b728ba9f961847b899cfe177b5e60f512d"
+      "hash": "6a3fd8d2e91768eac6f92ccda3ada4a4cd7b3978c968b22c7100c48de04d293a"
     },
     {
       "path": "pages/docs/svelte/context.md",
       "url": "https://svelte.dev/docs/svelte/context",
       "title": "Context • Svelte Docs",
-      "hash": "ba76aa0850fbc4268e61c04d059cbbb6e5e6fcdda68ab08c2323a704c7c016d3"
+      "hash": "c7b584fe6c483414ff7456e9d12fa39ead457eb49795e7d8acac27935e46befb"
     },
     {
       "path": "pages/docs/svelte/custom-elements.md",
@@ -196,7 +196,7 @@
       "path": "pages/docs/svelte/declaration-tags.md",
       "url": "https://svelte.dev/docs/svelte/declaration-tags",
       "title": "{let/const ...} • Svelte Docs",
-      "hash": "ac035bc45d3610491cfbef70673bafbfb02270a582f9f0ef4b4e98d536bfa617"
+      "hash": "5eaeefdc4ae2bac6d2170f3b800b47d51585dd8c40fc929ea125e5df4ab90dae"
     },
     {
       "path": "pages/docs/svelte/each.md",
@@ -208,7 +208,7 @@
       "path": "pages/docs/svelte/faq.md",
       "url": "https://svelte.dev/docs/svelte/faq",
       "title": "Frequently asked questions • Svelte Docs",
-      "hash": "48358d7954db336a34d9a0e2b1685bd2d07c6f6a5544456bcd3345650315477e"
+      "hash": "d2958453f2cea72cdc56a6c15fe312c0c00dc46ea31f94ae736bd1cf18477b33"
     },
     {
       "path": "pages/docs/svelte/getting-started.md",
@@ -292,7 +292,7 @@
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "90deedfc785477f2c1a971c16193418634e01f0904edf8cf549df506e1960910"
+      "hash": "fe72e408ac6346768f36f24f61d5aaadf556848e96db59ee9ec792f17ba96ba1"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -322,7 +322,7 @@
       "path": "pages/docs/svelte/lifecycle-hooks.md",
       "url": "https://svelte.dev/docs/svelte/lifecycle-hooks",
       "title": "Lifecycle hooks • Svelte Docs",
-      "hash": "b3164c34e6d00313cbc0999cbf0bf40ac95a7235600f19082c918fbc1bb6c279"
+      "hash": "6b561cfeb0d23f8d4a5b85fea9ef95dc8250a0defcec614583c21f7eff1ce56b"
     },
     {
       "path": "pages/docs/svelte/nested-style-elements.md",
@@ -340,13 +340,13 @@
       "path": "pages/docs/svelte/runtime-errors.md",
       "url": "https://svelte.dev/docs/svelte/runtime-errors",
       "title": "Runtime errors • Svelte Docs",
-      "hash": "636eb09e1f3b9556cd86ce98d32aa9d64ff66c0eae23535312844276b1bdff6a"
+      "hash": "d620d2b79f59b648f4cfd415c5a2fec72da12fce997727a86f74e869975387fa"
     },
     {
       "path": "pages/docs/svelte/runtime-warnings.md",
       "url": "https://svelte.dev/docs/svelte/runtime-warnings",
       "title": "Runtime warnings • Svelte Docs",
-      "hash": "e280b5478207d658bdc4ab78919ca6b59c4b9078f08905e0f0dba2f95725d691"
+      "hash": "c5585be813eefaee2f3e13ddca5d66d2dd74105037b5659f84d45da3492028ce"
     },
     {
       "path": "pages/docs/svelte/scoped-styles.md",
@@ -418,7 +418,7 @@
       "path": "pages/docs/svelte/svelte-easing.md",
       "url": "https://svelte.dev/docs/svelte/svelte-easing",
       "title": "svelte/easing • Svelte Docs",
-      "hash": "449daef468fa407800968c429c7667f14ea88d72fcca8b2cc7d9fe8512ea11b1"
+      "hash": "107f295e9707d8e88ecd236db3ec51ffbc530f7aeb910dad41a369f38477a6c8"
     },
     {
       "path": "pages/docs/svelte/svelte-element.md",
@@ -478,13 +478,13 @@
       "path": "pages/docs/svelte/svelte-reactivity.md",
       "url": "https://svelte.dev/docs/svelte/svelte-reactivity",
       "title": "svelte/reactivity • Svelte Docs",
-      "hash": "6b1939a9d86920456955432cb73f7ef312df8df36db9751c40c02c10cb47dc60"
+      "hash": "9f05b4ff5dd9abd3f292cd20ad7fcf41fd565d5c32de85928349b46c200175c4"
     },
     {
       "path": "pages/docs/svelte/svelte-server.md",
       "url": "https://svelte.dev/docs/svelte/svelte-server",
       "title": "svelte/server • Svelte Docs",
-      "hash": "c9ce4cdac08ea091180892babb91cb4e80865ae42d1941160d5a8ad1727f882c"
+      "hash": "7ac1ddbb7e2b96b96ee3c77a29d15d7a51f92f2e2d30bee1f239e14138a0202d"
     },
     {
       "path": "pages/docs/svelte/svelte-store.md",
@@ -508,7 +508,7 @@
       "path": "pages/docs/svelte/svelte.md",
       "url": "https://svelte.dev/docs/svelte/svelte",
       "title": "svelte • Svelte Docs",
-      "hash": "6c875b6ec5e65d8bdb40e99bec2349dfd8a824772d9b65c23082af8834cd70c6"
+      "hash": "052ec8c825a0b7cdabfbb4b28a62ddfb2f1a7db2099cddaa1d6b4705c8fee1f5"
     },
     {
       "path": "pages/docs/svelte/testing.md",
@@ -526,7 +526,7 @@
       "path": "pages/docs/svelte/typescript.md",
       "url": "https://svelte.dev/docs/svelte/typescript",
       "title": "TypeScript • Svelte Docs",
-      "hash": "a832efe9168ae388a00cdab9b8cca74077d4fe0186bdc07ec147433a4dda87fd"
+      "hash": "faf54af09f7a504a2adc7f09a576b0921f59e02c69b09dc45e24e03c8a73c6d1"
     },
     {
       "path": "pages/docs/svelte/use.md",
@@ -1272,6 +1272,10 @@
     ],
     [
       "pages/docs/svelte/lifecycle-hooks.md",
+      "pages/docs/svelte/$effect.md"
+    ],
+    [
+      "pages/docs/svelte/lifecycle-hooks.md",
       "pages/docs/svelte/context.md"
     ],
     [
@@ -1365,14 +1369,6 @@
     [
       "pages/docs/svelte/runtime-warnings.md",
       "pages/docs/svelte/svelte-transition.md"
-    ],
-    [
-      "pages/docs/svelte/runtime-warnings.md",
-      "pages/docs/svelte/svelte.md"
-    ],
-    [
-      "pages/docs/svelte/runtime-warnings.md",
-      "pages/docs/svelte/transition.md"
     ],
     [
       "pages/docs/svelte/scoped-styles.md",
@@ -1884,9 +1880,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-24T06:29:45.782380+00:00",
+    "synced_at": "2026-08-31T11:55:22.511288+00:00",
     "added": 0,
-    "changed": 5,
+    "changed": 18,
     "removed": 0,
     "pages": 90
   }

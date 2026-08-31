@@ -3,14 +3,14 @@ type: Web Page
 title: Context • Svelte Docs
 description: Context • Svelte documentation
 resource: https://svelte.dev/docs/svelte/context
-timestamp: '2026-08-17T06:25:40.913234+00:00'
+timestamp: '2026-08-31T11:55:22.502440+00:00'
 ---
 
 # Context
 
 Context allows components to access values owned by parent components without passing them down as props (potentially through many layers of intermediate components, known as ‘prop-drilling’).
 
-By creating a `[get, set]` pair of functions with `createContext`, you can set the context in a parent component and get it in a child component:
+By creating a `[get, set, has]` triplet of functions with `createContext`, you can set the context in a parent component and get it in a child component:
 
 ```
 <script>
@@ -206,9 +206,9 @@ Svelte will warn you if you get it wrong.
 
 Similarly, to pass primitive values through context, use functions as described in [Passing state into functions]($state#Passing-state-into-functions).
 
-## Component testing
+## Mounting components with context
 
-When writing [component tests](testing#Unit-and-component-tests-with-Vitest-Component-testing), it can be useful to create a wrapper component that sets the context in order to check the behaviour of a component that uses it. As of version 5.49, you can do this sort of thing:
+To mount a component with specific context, create a wrapper component that sets the context before rendering the component. This is useful for [component tests](testing#Unit-and-component-tests-with-Vitest-Component-testing), or any other scenario that needs to provide context through `mount`. As of version 5.49, you can do this sort of thing:
 
 `import {` `function mount<Props extends Record<string, any>, Exports extends Record<string, any>>(component: ComponentType<SvelteComponent<Props>> | Component<Props, Exports, any>, options: MountOptions<Props>): Exports`
 Mounts a component to the given target and returns the exports and potentially the props (if compiled with `accessors: true`) of the component.
@@ -346,6 +346,8 @@ const component: {
 ```
 
 This approach also works with [`hydrate`](imperative-component-api#hydrate) and [`render`](imperative-component-api#render).
+
+The context set by the wrapper only applies to that mounted component tree. Each call to `mount`, `hydrate` or `render` creates a separate wrapper instance, so the context does not leak into other mounted components.
 
 ## Replacing global state
 
