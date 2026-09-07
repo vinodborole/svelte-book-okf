@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-08-31T11:55:22.536573+00:00",
+  "updated_at": "2026-09-07T10:48:33.729285+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -292,7 +292,7 @@
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "fe72e408ac6346768f36f24f61d5aaadf556848e96db59ee9ec792f17ba96ba1"
+      "hash": "29bf4eb5197db27dde8ede4378cb309da3137c9a7b71e40c355a647105a576d0"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -340,7 +340,7 @@
       "path": "pages/docs/svelte/runtime-errors.md",
       "url": "https://svelte.dev/docs/svelte/runtime-errors",
       "title": "Runtime errors • Svelte Docs",
-      "hash": "d620d2b79f59b648f4cfd415c5a2fec72da12fce997727a86f74e869975387fa"
+      "hash": "5c88dd217bb624d01f39039367f1d2a0854febcadddf4271a01a0f14aa2da830"
     },
     {
       "path": "pages/docs/svelte/runtime-warnings.md",
@@ -1880,9 +1880,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-31T11:55:22.511288+00:00",
+    "synced_at": "2026-09-07T10:48:33.690393+00:00",
     "added": 0,
-    "changed": 18,
+    "changed": 2,
     "removed": 0,
     "pages": 90
   }

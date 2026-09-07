@@ -3,7 +3,7 @@ type: Web Page
 title: Runtime errors • Svelte Docs
 description: Runtime errors • Svelte documentation
 resource: https://svelte.dev/docs/svelte/runtime-errors
-timestamp: '2026-08-31T11:55:22.502440+00:00'
+timestamp: '2026-09-07T10:48:33.687276+00:00'
 ---
 
 # Runtime errors
@@ -218,11 +218,6 @@ This can happen if you render a hydratable on the client that was not rendered o
 ### rune_outside_svelte
 
 ``The `%rune%` rune is only available inside `.svelte` and `.svelte.js/ts` files``
-### set_context_after_init
-
-`` `setContext` must be called when a component first initializes, not in a subsequent effect or after an `await` expression ``
-This restriction only applies when using the `experimental.async` option, which will be active by default in Svelte 6.
-
 ### state_descriptors_fixed
 
 ``Property descriptors defined on `$state` objects must contain `value` and always be `enumerable`, `configurable` and `writable`.``
@@ -419,6 +414,11 @@ Certain lifecycle methods can only be used during component initialisation. To f
 
 `Context was not set in the current component or any of its ancestors`
 The [`createContext()`](svelte#createContext) utility returns a `[get, set, has]` triplet of functions. `get` will throw an error if `set` was not used to set the context in the current component or any of its ancestors.
+
+### set_context_after_init
+
+`` `setContext` must be called when a component first initializes, not in a subsequent effect or after an `await` expression ``
+This restriction only applies when using the `experimental.async` option, which will be active by default in Svelte 6.
 
 ### snippet_without_render_tag
 
