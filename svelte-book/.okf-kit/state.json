@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://svelte.dev/docs/svelte/overview",
-  "updated_at": "2026-09-14T11:01:34.480677+00:00",
+  "updated_at": "2026-09-21T11:11:21.743709+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -292,7 +292,7 @@
       "path": "pages/docs/svelte/legacy-reactive-assignments.md",
       "url": "https://svelte.dev/docs/svelte/legacy-reactive-assignments",
       "title": "Reactive $: statements • Svelte Docs",
-      "hash": "60fbb77596b0d16beed4d7fbf8d9247e1f4a61550fd343153f7118dd96ec7075"
+      "hash": "4e1cf2efd74e3c66066e18b43d5cfabb2780ff2ddd6736ee4e7f62146f4173b2"
     },
     {
       "path": "pages/docs/svelte/legacy-slots.md",
@@ -1880,7 +1880,7 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-09-14T11:01:34.440343+00:00",
+    "synced_at": "2026-09-21T11:11:21.705120+00:00",
     "added": 0,
     "changed": 1,
     "removed": 0,
